@@ -105,19 +105,8 @@ export default function SmoothScrollProvider({ children }) {
   return (
     // reducedMotion="user" reads the OS prefers-reduced-motion setting and
     // disables all Framer Motion animations automatically when it is set.
+    // Lenis CSS overrides live in globals.css — no inline <style> needed.
     <MotionConfig reducedMotion="user">
-      {/* Critical Ballance CSS Overrides */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            html.lenis, html.lenis body { height: auto !important; }
-            .lenis.lenis-smooth { scroll-behavior: auto !important; }
-            .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-            .lenis.lenis-stopped { overflow: hidden; }
-            .lenis.lenis-scrolling iframe { pointer-events: none; }
-          `,
-        }}
-      />
       {children}
     </MotionConfig>
   );

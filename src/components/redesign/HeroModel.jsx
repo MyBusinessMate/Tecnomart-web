@@ -8,11 +8,10 @@ function Model() {
   const { scene } = useGLTF('/3d-model.glb');
   const ref = useRef();
 
-  // Gentle constant auto-rotation when not being dragged
+  // Gentle auto-rotation; pauses automatically while PresentationControls
+  // intercepts pointer events, so drag-to-rotate works seamlessly.
   useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.25;
-    }
+    if (ref.current) ref.current.rotation.y += delta * 0.25;
   });
 
   return <primitive ref={ref} object={scene} scale={1} position={[0, -0.5, 0]} />;
@@ -67,5 +66,4 @@ export default function HeroModel() {
   );
 }
 
-// Preload so the model starts downloading immediately
 useGLTF.preload('/3d-model.glb');

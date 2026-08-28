@@ -52,7 +52,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${outfit.variable} scroll-smooth`}>
+    <html lang="en" className={`${jakarta.variable} ${outfit.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="font-sans antialiased text-neutral-900 bg-white selection:bg-amber-500 selection:text-neutral-950">
         <ShopProvider>
           {children}
