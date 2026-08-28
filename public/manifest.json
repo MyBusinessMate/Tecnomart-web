@@ -1,0 +1,68 @@
+{
+  "name": "TecnoMart - Tech Store Hyderabad",
+  "short_name": "TecnoMart",
+  "description": "Premium Mobiles, Laptops, Gaming PCs & Expert Repairs in Hyderabad.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#f59e0b",
+  "background_color": "#ffffff",
+  "lang": "en-IN",
+  "categories": ["shopping", "technology"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mobiles",
+      "short_name": "Mobiles",
+      "description": "Browse smartphones and iPhones",
+      "url": "/mobiles",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Laptops",
+      "short_name": "Laptops",
+      "description": "Browse laptops and MacBooks",
+      "url": "/laptops",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Repairs",
+      "short_name": "Repairs",
+      "description": "Book a device repair slot",
+      "url": "/repairs",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Flash Deals",
+      "short_name": "Deals",
+      "description": "Today's flash deals and offers",
+      "url": "/deals",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

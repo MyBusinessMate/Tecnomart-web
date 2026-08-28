@@ -1,0 +1,28 @@
+{
+  "catalogVersion": "2026-08-starter",
+  "note": "Illustrative starter seed using current manufacturer product families. Replace with store SKUs, local pricing and verified specifications before production.",
+  "referenceFamilies": {
+    "cpu": {
+      "amd": [
+        {"family": "Ryzen 9000", "platform": "AM5"},
+        {"family": "Ryzen 7000", "platform": "AM5"}
+      ],
+      "intel": [
+        {"family": "Core Ultra 200S/200S Plus", "platform": "LGA1851"}
+      ]
+    },
+    "gpu": {
+      "nvidia": ["RTX 5090", "RTX 5080", "RTX 5070 Ti", "RTX 5070", "RTX 5060 Ti", "RTX 5060", "RTX 5050"],
+      "amd": ["RX 9070 XT", "RX 9070", "RX 9070 GRE", "RX 9060 XT 16GB", "RX 9060 XT 8GB", "RX 9060", "RX 9050"]
+    },
+    "memory": ["8GB", "16GB", "32GB", "64GB"],
+    "storage": ["512GB NVMe", "1TB NVMe", "2TB NVMe"],
+    "peripherals": ["1080p monitor", "1440p monitor", "4K monitor", "mechanical keyboard", "gaming mouse", "gaming headset", "mousepad"]
+  },
+  "sourceNotes": [
+    "AMD lists Ryzen 9000 desktop processors in its current Ryzen desktop portfolio.",
+    "Intel documents Core Ultra 200S/200S Plus desktop processors on LGA1851 with Intel 800-series chipsets.",
+    "NVIDIA's current GeForce desktop comparison includes RTX 5090, 5080, 5070 Ti, 5070, 5060 Ti, 5060 and 5050.",
+    "AMD's current Radeon desktop catalog includes RX 9000 series products including RX 9070 XT, 9070, 9070 GRE and RX 9060 XT variants."
+  ]
+}

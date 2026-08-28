@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l \"C:\\\\Users\\\\victus\\\\Downloads\\\\tecno-mart\\\\Tecnomart-store-redesign\\\\Tecnomart-store-redesign/src/components/redesign\"/*.jsx)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\('MemoryStick:', !!l.MemoryStick, 'HardDrive:', !!l.HardDrive, 'Zap:', !!l.Zap, 'Tag:', !!l.Tag, 'Users:', !!l.Users, 'Lock:', !!l.Lock, 'FileText:', !!l.FileText\\)\")",
+      "Bash(node -e \"try { require\\('./src/data/products.js'\\); console.log\\('OK'\\) } catch\\(e\\) { console.log\\('ERR:', e.message\\) }\")",
+      "Bash(npx next:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(identify logo.png)",
+      "Bash(python3 -c ':*)",
+      "Bash(node -e ':*)",
+      "Bash(python3 -)"
+    ]
+  }
+}

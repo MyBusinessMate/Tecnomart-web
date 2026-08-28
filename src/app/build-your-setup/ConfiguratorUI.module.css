@@ -1,0 +1,1186 @@
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.backToStoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.backToStoreBtn:hover {
+  background: rgba(253, 224, 71, 0.15);
+  border-color: #FDE047;
+  color: #fff;
+  transform: translateX(-2px);
+}
+
+.progressTracker {
+  display: flex;
+  align-items: center;
+}
+
+.stepBadge {
+  background: rgba(253, 224, 71, 0.1);
+  border: 1px solid rgba(253, 224, 71, 0.3);
+  color: #FDE047;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0.5rem 0 3rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.mainArea {
+  flex: 1;
+  width: 100%;
+}
+
+.sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 380px;
+    position: sticky;
+    top: 96px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 5rem 2rem;
+  font-family: 'Hubot Sans', sans-serif;
+  font-weight: 600;
+  color: #FDE047;
+  font-size: 1.1rem;
+}
+
+/* Step Box */
+.stepBox {
+  background: linear-gradient(145deg, rgba(20, 22, 30, 0.7) 0%, rgba(10, 12, 18, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  backdrop-blur-sm: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .stepBox {
+    padding: 2.25rem;
+  }
+}
+
+.stepIntro {
+  margin-bottom: 1.75rem;
+}
+
+.subheadBadge {
+  display: inline-block;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #FDE047;
+  margin-bottom: 0.5rem;
+}
+
+.stepIntro h2 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.stepIntro p {
+  font-family: 'Mona Sans', sans-serif;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---------------- Workload Grid (Step 0) ---------------- */
+.workloadGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .workloadGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.workloadCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workloadCard:hover {
+  background: rgba(253, 224, 71, 0.06);
+  border-color: rgba(253, 224, 71, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(253, 224, 71, 0.1);
+}
+
+.workloadHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.workloadIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(253, 224, 71, 0.1);
+  border: 1px solid rgba(253, 224, 71, 0.3);
+  color: #FDE047;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTag {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.workloadCard h3 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.workloadCard p {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.selectAction {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FDE047;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------------- STEP 1: Two Column Platform Selection ---------------- */
+.platformTwoColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .platformTwoColumn {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.platformCard {
+  position: relative;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .platformCard {
+    padding: 2.25rem;
+  }
+}
+
+/* Intel Card Styling */
+.intelCard {
+  background: linear-gradient(150deg, #0b1c3d 0%, #061026 50%, #030814 100%);
+  border: 2px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 16px 36px rgba(3, 8, 20, 0.8);
+}
+
+.intelCard:hover, .intelCard.platformActive {
+  border-color: #38bdf8;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.25);
+}
+
+.platformGlowIntel {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.platformBadgeIntel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: fit-content;
+  margin-bottom: 1.25rem;
+}
+
+.platformDotIntel {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #38bdf8;
+}
+
+.intelIcon {
+  color: #38bdf8;
+}
+
+.platformSelectBtnIntel {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platformSelectBtnIntel:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* AMD Card Styling */
+.amdCard {
+  background: linear-gradient(150deg, #38120c 0%, #200a06 50%, #0d0402 100%);
+  border: 2px solid rgba(239, 68, 68, 0.25);
+  box-shadow: 0 16px 36px rgba(13, 4, 2, 0.8);
+}
+
+.amdCard:hover, .amdCard.platformActive {
+  border-color: #ef4444;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(239, 68, 68, 0.25);
+}
+
+.platformGlowAmd {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.platformBadgeAmd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: fit-content;
+  margin-bottom: 1.25rem;
+}
+
+.platformDotAmd {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #ef4444;
+}
+
+.amdIcon {
+  color: #ef4444;
+}
+
+.platformSelectBtnAmd {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platformSelectBtnAmd:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.platformLogoArea {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.platformName {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #e2e8f0;
+}
+
+.platformHeading {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.platformDesc {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.platformHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.platformHighlights li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.platformHighlights li svg {
+  color: #FDE047;
+  shrink: 0;
+}
+
+/* ---------------- Tier Grid (Step 2) ---------------- */
+.tierGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .tierGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tierCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.75rem 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tierCard:hover {
+  background: rgba(253, 224, 71, 0.06);
+  border-color: #FDE047;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(253, 224, 71, 0.12);
+}
+
+.tierBadge {
+  align-self: flex-start;
+  background: rgba(253, 224, 71, 0.12);
+  border: 1px solid rgba(253, 224, 71, 0.35);
+  color: #FDE047;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.tierCard h3 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.tierSubtitle {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #FDE047;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.tierCard p {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------------- STEP 3+: Component Walkthrough & Platform Switcher ---------------- */
+.platformSwitcherBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.platformStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.statusLabel {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.platformPill {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.intelPill {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.amdPill {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.switchPlatformBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.switchPlatformBtn:hover {
+  background: #FDE047;
+  color: #000;
+  border-color: #FDE047;
+  transform: scale(1.02);
+}
+
+.switchPlatformBtn:hover .spinIcon {
+  transform: rotate(180deg);
+  transition: transform 0.4s ease;
+}
+
+.stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stepHeader h2 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 800;
+  color: #fff;
+  margin-top: 0.25rem;
+}
+
+.cpuPlatformTabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 0.25rem;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabBtn:hover {
+  color: #fff;
+}
+
+.tabActiveIntel {
+  background: #38bdf8 !important;
+  color: #000 !important;
+}
+
+.tabActiveAmd {
+  background: #ef4444 !important;
+  color: #fff !important;
+}
+
+/* Component Grid */
+.componentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .componentGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .componentGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.compCard {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.compCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(253, 224, 71, 0.4);
+}
+
+.compSelected {
+  border-color: #FDE047;
+  background: rgba(253, 224, 71, 0.08);
+  box-shadow: 0 0 25px rgba(253, 224, 71, 0.12);
+}
+
+.compTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.compBadge {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+.compPrice {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FDE047;
+}
+
+.compCard h4 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.compLabel {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FDE047;
+  margin-bottom: 0.5rem;
+}
+
+.compDesc {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 0.85rem;
+}
+
+.specTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.specTag {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.7rem;
+  color: #cbd5e1;
+}
+
+.compSelectStatus {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.selectedLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #FDE047;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.chooseLabel {
+  color: #94a3b8;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.noOptionsBox {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.noOptionsBox p {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  font-family: 'Mona Sans', sans-serif;
+}
+
+/* ---------------- Footer Actions ---------------- */
+.stepFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.textBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.textBtn:hover {
+  color: #fff;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #FDE047 0%, #FACC15 100%);
+  color: #000;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(253, 224, 71, 0.25);
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: #FACC15;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(253, 224, 71, 0.35);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---------------- Summary Sidebar ---------------- */
+.summaryBox {
+  background: linear-gradient(145deg, rgba(20, 22, 30, 0.85) 0%, rgba(10, 12, 18, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.summaryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summaryHeader h3 {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.summaryWorkloadTag {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #FDE047;
+  font-weight: 600;
+}
+
+.resetBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 0.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetBtn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.summaryPlatformBox {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summaryPlatformInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.summaryPlatformLabel {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.summaryPlatformVal {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.textIntel {
+  color: #38bdf8;
+}
+
+.textAmd {
+  color: #f87171;
+}
+
+.summaryPlatformSwitchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.summaryPlatformSwitchBtn:hover {
+  background: #FDE047;
+  color: #000;
+  border-color: #FDE047;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.summaryItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(253, 224, 71, 0.3);
+}
+
+.summaryItemLeft {
+  display: flex;
+  flex-direction: column;
+  max-width: 68%;
+}
+
+.summaryCat {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.summaryName {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summaryItemRight {
+  text-align: right;
+}
+
+.summaryPrice {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FDE047;
+}
+
+.pendingDot {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.totalLabel {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  display: block;
+}
+
+.taxNote {
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.68rem;
+  color: #64748b;
+  display: block;
+}
+
+.totalAmount {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FDE047;
+}
+
+.summaryFooterNote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  background: rgba(253, 224, 71, 0.05);
+  border: 1px solid rgba(253, 224, 71, 0.15);
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  line-height: 1.35;
+}
+
+/* ---------------- Form (Final Step) ---------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.inputGroup label {
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.inputGroup input, .inputGroup textarea {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  font-family: 'Mona Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.inputGroup input:focus, .inputGroup textarea:focus {
+  outline: none;
+  border-color: #FDE047;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(253, 224, 71, 0.2);
+}
+
+.whatsAppSubmitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  font-family: 'Hubot Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+}
+
+.whatsAppSubmitBtn:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+}
