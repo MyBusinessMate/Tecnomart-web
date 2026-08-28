@@ -250,43 +250,89 @@ export default function HeroModel() {
             }
           });
 
-          // ── Auto-center & auto-scale ─────────────────────────────────────
-          // The GLB may have been exported from Blender at any world position
-          // and scale. Compute the bounding box and normalise before adding to
-          // the scene so the camera always frames the model correctly.
+          // ── Auto-center & auto-scale (correct order of operations) ──────────
+          //
+          // BUG that was here before:
+          //   position.sub(center) was called BEFORE scale was applied.
+          //   The translation was computed for scale=1, so after scaling the
+          //   model drifted — center no longer at origin → floating fragment.
+          //
+          // Correct order:
+          //   1. Measure bounds at scale=1 (no transforms yet)
+          //   2. Apply scale
+          //   3. Position = -(center × scale)  ← accounts for the scale
+          //   4. Camera distance from bounding SPHERE, not box edge
+          //      Formula: radius / sin(fov/2)  ← exact fit to the view cone
+
           scene.add(gltf.scene);
 
+          // Step 1 — measure in original (un-transformed) space
           const box    = new THREE.Box3().setFromObject(gltf.scene);
           const center = box.getCenter(new THREE.Vector3());
           const size   = box.getSize(new THREE.Vector3());
           const maxDim = Math.max(size.x, size.y, size.z);
 
-          // Translate so the bounding-box centre sits at the world origin
-          gltf.scene.position.sub(center);
+          if (maxDim === 0) {
+            console.warn('[HeroModel] Bounding box is zero — model may be empty');
+            setStatus('ready');
+            return;
+          }
 
-          // Scale uniformly so the longest axis is TARGET_SIZE units
-          const TARGET_SIZE  = 3.0;                  // ← tune: model apparent size
-          const scaleFactor  = TARGET_SIZE / maxDim;
-          gltf.scene.scale.setScalar(scaleFactor);
+          // Step 2 — scale so the longest axis = TARGET_SIZE world units
+          const TARGET_SIZE = 3.0;             // ← tune: apparent world-unit size
+          const s           = TARGET_SIZE / maxDim;
+          gltf.scene.scale.setScalar(s);
 
-          // Recompute after scaling to get the final height for camera framing
-          const scaledBox    = new THREE.Box3().setFromObject(gltf.scene);
-          const scaledSize   = scaledBox.getSize(new THREE.Vector3());
-          const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+          // Step 3 — translate to origin.
+          // Each child's world position after scale = s × localPos.
+          // Original centre's world pos after scale = s × center.
+          // So position must be -(s × center) to place centre at origin.
+          gltf.scene.position.set(-center.x * s, -center.y * s, -center.z * s);
 
-          // Position camera so the full model fits the FOV with breathing room
-          const fovRad   = camera.fov * (Math.PI / 180);
-          const fitDist  = (Math.max(scaledSize.x, scaledSize.y) / 2)
-                           / Math.tan(fovRad / 2) * 1.6;  // ← tune: zoom margin
-          camera.position.set(0, scaledSize.y * 0.2, fitDist);
-          controls.target.copy(scaledCenter);
+          // Step 4 — re-measure after transforms to get the final bounding sphere
+          const finalSphere = new THREE.Sphere();
+          new THREE.Box3().setFromObject(gltf.scene).getBoundingSphere(finalSphere);
+
+          // Step 5 — position camera using the bounding-sphere formula.
+          // radius / sin(fov/2) = minimum distance at which the sphere fills
+          // exactly the shorter canvas dimension. ZOOM_MARGIN adds breathing room.
+          const ZOOM_MARGIN = 1.25;            // ← tune: 1.0 = tight, 1.5 = roomy
+          const fovRad      = camera.fov * (Math.PI / 180);
+          const camDist     = (finalSphere.radius / Math.sin(fovRad / 2)) * ZOOM_MARGIN;
+
+          camera.position.set(
+            finalSphere.center.x,
+            finalSphere.center.y + finalSphere.radius * 0.1, // slight upward tilt
+            finalSphere.center.z + camDist,
+          );
+          // Keep near/far relative to the model so nothing clips
+          camera.near = camDist * 0.01;
+          camera.far  = camDist * 20;
+          camera.updateProjectionMatrix();
+
+          // OrbitControls — target the sphere centre; zoom limits match model size
+          controls.target.copy(finalSphere.center);
+          controls.minDistance = finalSphere.radius * 0.8;  // ← tune: closest zoom
+          controls.maxDistance = finalSphere.radius * 6;    // ← tune: furthest zoom
           controls.update();
 
+          // Update shadow frustum to cover the scaled model
+          const sr = finalSphere.radius;
+          keyLight.shadow.camera.left   = -sr * 1.5;
+          keyLight.shadow.camera.right  =  sr * 1.5;
+          keyLight.shadow.camera.top    =  sr * 1.5;
+          keyLight.shadow.camera.bottom = -sr * 1.5;
+          keyLight.shadow.camera.near   = camDist * 0.01;
+          keyLight.shadow.camera.far    = camDist * 4;
+          keyLight.shadow.camera.updateProjectionMatrix();
+
           console.info(
-            `[HeroModel] Ready — emissive: ${emissiveCount}, doubleSided: ${doubleSideCount}`,
+            `[HeroModel] Framed`,
             `| original size: ${size.x.toFixed(2)}×${size.y.toFixed(2)}×${size.z.toFixed(2)}`,
-            `| scale factor: ${scaleFactor.toFixed(4)}`,
-            `| camera Z: ${fitDist.toFixed(2)}`,
+            `| scale: ×${s.toFixed(3)}`,
+            `| sphere radius: ${finalSphere.radius.toFixed(2)}`,
+            `| camera dist: ${camDist.toFixed(2)}`,
+            `| emissive: ${emissiveCount}, doubleSided: ${doubleSideCount}`,
           );
 
           setStatus('ready');
