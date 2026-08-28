@@ -88,12 +88,16 @@ export default function HeroSection({ onOpenRepairModal }) {
           </div>
 
           {/* Right Column: Interactive 3D Model */}
-          <div className="lg:col-span-6 relative flex items-center justify-center py-4">
+          <div className="lg:col-span-6 relative flex items-center justify-center -mt-2 sm:-mt-6 py-2 sm:py-4">
+            
+            {/* Ambient Radial Backlight Glow */}
+            <div className="absolute w-80 h-80 sm:w-[540px] sm:h-[540px] bg-gradient-to-tr from-amber-500/20 via-amber-400/10 to-transparent rounded-full blur-3xl opacity-80 pointer-events-none -z-0" />
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              className="relative w-full max-w-[560px] aspect-[4/3]"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative w-full max-w-[780px] h-[380px] xs:h-[440px] sm:h-[500px] lg:h-[540px] flex items-center justify-center z-10"
             >
               <HeroModel />
             </motion.div>

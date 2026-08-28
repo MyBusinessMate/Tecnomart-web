@@ -1,23 +1,24 @@
 "use client";
 
 /**
- * HeroModel — Three.js product viewer (Next.js / React)
- * Model: /models/3d-model-optimized-v4.glb
+ * HeroModel — Three.js product viewer  (Next.js / React)
+ * Model : /models/3d-model-optimized-v3.glb
+ *         ~10 MB · EXT_meshopt_compression · WebP textures
  *
- * ─── QUICK-TUNE BLOCK ─────────────────────────────────────────────────────
- * All values you may want to dial are here. Don't search the rest of the file.
+ * Stack: Next.js 16 + React 19  (no @react-three/fiber — raw Three.js)
+ *
+ * ─── QUICK-TUNE BLOCK ────────────────────────────────────────────────────────
+ * Every value you might want to adjust lives here.
  */
-const EXPOSURE           = 1.1;   // ACESFilmic brightness (try 0.9 – 1.3)
-const EMISSIVE_INTENSITY = 1.0;   // LED / screen glow  (0 = off, 2 = strong)
-const BLOOM_ENABLED      = true;  // false = emissive colour only, no halo
-const BLOOM_STRENGTH     = 0.6;   // bloom brightness  (0.3 subtle – 1.5 intense)
-const BLOOM_RADIUS       = 0.5;   // bloom spread      (0 tight – 1 wide)
-const BLOOM_THRESHOLD    = 0.55;  // min luminance to bloom (lower = more pixels)
-const CAMERA_FOV         = 36;
-const CAMERA_POS         = [0, 1.2, 5.5];  // [x, y, z]
-const ORBIT_TARGET       = [0, 0.5, 0];
-const SHADOW_MAP_SIZE    = 2048;
-/** ───────────────────────────────────────────────────────────────────────── */
+const EXPOSURE      = 1.1;    // §2  ACESFilmic brightness  — try 0.9 – 1.3
+const ENV_INTENSITY = 0.8;    // §3  IBL reflection strength — 0 = none, 2 = strong
+const KEY_INTENSITY = 2.0;    // §3  Key-light intensity
+const FILL_INTENSITY= 0.6;    // §3  Fill-light intensity (keeps dark PC case readable)
+const SHADOW_SIZE   = 2048;   // §4  Shadow map resolution (halve → 1024 to save GPU)
+const TARGET_SIZE   = 3.0;    // §6  World-unit size after auto-scale  (raise = bigger)
+const ZOOM_MARGIN   = 1.25;   // §6  Breathing room around model  (1.0 = tight, 1.5 = roomy)
+const CAMERA_FOV    = 36;     // §6  Perspective FOV in degrees
+/** ─────────────────────────────────────────────────────────────────────────── */
 
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
@@ -25,10 +26,25 @@ import { GLTFLoader }      from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder }  from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { OrbitControls }   from 'three/examples/jsm/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-// Postprocessing is loaded dynamically inside init() with a try/catch —
-// if the import fails for any reason the model still renders, bloom just skips.
+// Postprocessing is imported dynamically so a bundler failure only disables
+// bloom — it never crashes the model render.
 
-const MODEL_PATH = '/models/3d-model-optimized-v4.glb';
+const MODEL_PATH = '/models/3d-model-optimized-v3.glb';
+
+// ─── §1  Loader factory ───────────────────────────────────────────────────────
+// Isolated so DRACOLoader can be dropped in later without touching init():
+//
+//   import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+//   const draco = new DRACOLoader();
+//   draco.setDecoderPath('/draco/');          // copy WASM to /public/draco/
+//   draco.setDecoderConfig({ type: 'wasm' });
+//   loader.setDRACOLoader(draco);
+//
+function buildLoader() {
+  const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder); // EXT_meshopt_compression
+  return loader;
+}
 
 // ─── UI overlays ──────────────────────────────────────────────────────────────
 function ProgressOverlay({ progress }) {
@@ -79,6 +95,7 @@ export default function HeroModel() {
   const canvasRef    = useRef(null);
   const cleanupRef   = useRef(null);
 
+  // idle → loading → ready | error
   const [status,   setStatus]   = useState('idle');
   const [progress, setProgress] = useState(0);
   const [errMsg,   setErrMsg]   = useState('');
@@ -92,181 +109,143 @@ export default function HeroModel() {
 
     async function init() {
       setStatus('loading');
+      console.info('[HeroModel] Container:', container.clientWidth, '×', container.clientHeight);
 
-      // Log container size — if this shows 0×0, the parent div has no height
-      console.info('[HeroModel] Container size:', container.clientWidth, '×', container.clientHeight);
-
-      // ── Meshopt WASM must be ready before the loader is created ───────────
+      // §1  Meshopt WASM must compile before any loader is created.
+      //     Skipping this await makes EXT_meshopt_compression fail silently.
       await MeshoptDecoder.ready;
       if (cancelled) return;
 
-      // ── §2 Renderer ───────────────────────────────────────────────────────
+      // ── §2  Renderer & colour management ──────────────────────────────────
+      //
+      // Verification ①  background must be pure white, no cream/yellow tint.
+      //   If tinted  → lower EXPOSURE, confirm scene.background = 0xffffff.
+      //   If washed  → raise EXPOSURE or lower ENV_INTENSITY.
       const renderer = new THREE.WebGLRenderer({
         canvas,
         antialias:       true,
-        alpha:           false,
+        alpha:           false,        // opaque white — better perf than alpha:true
         powerPreference: 'high-performance',
       });
+
+      // Cap pixel ratio — above 2× visual gain is negligible, GPU cost doubles.
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // setSize() writes canvas width/height attributes = CSS pixels × dpr.
+      // No CSS stretching: attributes match rendered pixels exactly.
       renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.outputColorSpace    = THREE.SRGBColorSpace;
+
+      renderer.outputColorSpace    = THREE.SRGBColorSpace;   // correct gamma for WebP
       renderer.toneMapping         = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = EXPOSURE;
-      renderer.shadowMap.enabled   = true;
-      renderer.shadowMap.type      = THREE.PCFShadowMap; // PCFSoftShadowMap deprecated in r175+
+
+      // §4  Real-time shadow mapping (PCFShadowMap — soft, PCFSoft deprecated r175+)
+      // Tradeoff vs baked gradient plane: real-time shadows are correct at any
+      // orbit angle; baked shadows are zero GPU cost but always a static circle.
+      // Chosen real-time because OrbitControls lets users rotate the view.
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type    = THREE.PCFShadowMap;
 
       // ── Scene ─────────────────────────────────────────────────────────────
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xffffff);
+      // Pure white background. scene.environment below supplies IBL reflections
+      // independently — the background does NOT become the env cube.
+      scene.background = new THREE.Color(0xffffff); // ← tune: 0xf5f5f5 for off-white
 
       // ── Camera ────────────────────────────────────────────────────────────
       const camera = new THREE.PerspectiveCamera(
         CAMERA_FOV,
         container.clientWidth / container.clientHeight,
-        0.1,
-        100,
+        0.1,   // near — overridden per-model after load
+        1000,  // far  — overridden per-model after load
       );
-      camera.position.set(...CAMERA_POS);
 
-      // ── §3 Lighting ───────────────────────────────────────────────────────
+      // ── §3  Lighting & reflections ────────────────────────────────────────
+      //
+      // Verification ②  curved edges must look smooth (phone corners, laptop
+      //   lid, PC bevels). Faceting = model export issue, not code. This file
+      //   never calls computeVertexNormals() or sets flatShading — the shipped
+      //   smooth normals are used exactly as exported.
+      //
+      // Verification ③  glossy/chrome surfaces must show soft shifting
+      //   reflections as you orbit.
+      //   Too flat  → raise ENV_INTENSITY.
+      //   Blown out → lower ENV_INTENSITY or EXPOSURE.
+
+      // RoomEnvironment: neutral studio box — adds soft IBL reflections on
+      // metallic/glossy surfaces; background stays pure white (not the env cube).
       const pmrem      = new THREE.PMREMGenerator(renderer);
       pmrem.compileEquirectangularShader();
       const envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
       scene.environment          = envTexture;
-      scene.environmentIntensity = 0.8;   // ← tune: IBL reflection strength
+      scene.environmentIntensity = ENV_INTENSITY;
       pmrem.dispose();
 
+      // Ambient — lifts shadow floors so undersides aren't pure black
       scene.add(new THREE.AmbientLight(0xffffff, 0.6));
 
-      const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
-      keyLight.position.set(4, 8, 5);
-      keyLight.castShadow           = true;
-      keyLight.shadow.mapSize.set(SHADOW_MAP_SIZE, SHADOW_MAP_SIZE);
-      keyLight.shadow.camera.near   = 0.5;
-      keyLight.shadow.camera.far    = 30;
-      keyLight.shadow.camera.left   = -6;
-      keyLight.shadow.camera.right  =  6;
-      keyLight.shadow.camera.top    =  6;
-      keyLight.shadow.camera.bottom = -6;
-      keyLight.shadow.radius        =  4;
-      keyLight.shadow.bias          = -0.0001;
+      // Key light — main directional source, casts shadows
+      const keyLight = new THREE.DirectionalLight(0xffffff, KEY_INTENSITY);
+      keyLight.position.set(4, 8, 5);   // ← tune: direction [x, y, z]
+      keyLight.castShadow            = true;
+      keyLight.shadow.mapSize.set(SHADOW_SIZE, SHADOW_SIZE);
+      keyLight.shadow.radius         = 2;      // penumbra softness
+      keyLight.shadow.bias           = -0.0001; // prevents shadow acne
+      // Shadow frustum is resized after load to match the actual model bounds
       scene.add(keyLight);
 
-      const fillLight = new THREE.DirectionalLight(0xffffff, 0.6);
-      fillLight.position.set(-5, 4, -2);
+      // Fill light — keeps dark PC-case edges readable, not a flat silhouette
+      const fillLight = new THREE.DirectionalLight(0xffffff, FILL_INTENSITY);
+      fillLight.position.set(-5, 4, -2); // ← tune: direction [x, y, z]
       scene.add(fillLight);
 
-      // ── Controls ──────────────────────────────────────────────────────────
+      // ── OrbitControls ─────────────────────────────────────────────────────
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping   = true;
       controls.dampingFactor   = 0.05;
-      controls.enablePan       = false;
-      controls.minDistance     = 2;
-      controls.maxDistance     = 10;
-      controls.maxPolarAngle   = Math.PI / 1.9;
+      controls.enablePan       = false;    // product viewer — no panning
+      controls.maxPolarAngle   = Math.PI / 1.9; // prevent flipping under model
       controls.autoRotate      = true;
-      controls.autoRotateSpeed = 0.8;
-      controls.target.set(...ORBIT_TARGET);
+      controls.autoRotateSpeed = 0.8;      // ← tune: degrees/s
+      // min/maxDistance set after load relative to model's bounding sphere
       controls.addEventListener('start', () => { controls.autoRotate = false; });
       controls.addEventListener('end',   () => { controls.autoRotate = true;  });
 
-      // ── §4 Bloom — dynamic import so a failure never kills the model ──────
-      let composer = null;
-      if (BLOOM_ENABLED) {
-        try {
-          const [
-            { EffectComposer },
-            { RenderPass },
-            { UnrealBloomPass },
-          ] = await Promise.all([
-            import('three/examples/jsm/postprocessing/EffectComposer.js'),
-            import('three/examples/jsm/postprocessing/RenderPass.js'),
-            import('three/examples/jsm/postprocessing/UnrealBloomPass.js'),
-          ]);
-          if (!cancelled) {
-            composer = new EffectComposer(renderer);
-            composer.addPass(new RenderPass(scene, camera));
-            composer.addPass(new UnrealBloomPass(
-              new THREE.Vector2(container.clientWidth, container.clientHeight),
-              BLOOM_STRENGTH,
-              BLOOM_RADIUS,
-              BLOOM_THRESHOLD,
-            ));
-            console.info('[HeroModel] Bloom active');
-          }
-        } catch (e) {
-          console.warn('[HeroModel] Bloom skipped (postprocessing import failed):', e.message);
-        }
-      }
-      if (cancelled) return;
-
-      // ── Load GLB ──────────────────────────────────────────────────────────
-      const loader = new GLTFLoader();
-      loader.setMeshoptDecoder(MeshoptDecoder);
-      // ── DRACOLoader stub ─────────────────────────────────────────────────
-      // const { DRACOLoader } = await import('three/examples/jsm/loaders/DRACOLoader.js');
-      // const draco = new DRACOLoader();
-      // draco.setDecoderPath('/draco/');
-      // loader.setDRACOLoader(draco);
-
+      // ── §6  Load GLB ──────────────────────────────────────────────────────
       const maxAniso = renderer.capabilities.getMaxAnisotropy();
+      const loader   = buildLoader();
 
       loader.load(
         MODEL_PATH,
 
+        // ── onLoad ──────────────────────────────────────────────────────────
         (gltf) => {
           if (cancelled) return;
 
-          let emissiveCount = 0, doubleSideCount = 0;
-
           gltf.scene.traverse((node) => {
             if (!node.isMesh) return;
+
+            // §4  Every mesh casts and receives shadows
             node.castShadow    = true;
             node.receiveShadow = true;
 
             const mat = node.material;
             if (!mat) return;
 
-            // §4 — emissive intensity
-            if (mat.emissiveMap || mat.emissive?.r || mat.emissive?.g || mat.emissive?.b) {
-              mat.emissiveIntensity = EMISSIVE_INTENSITY;
-              emissiveCount++;
-            }
+            // §2  Colour-space correction.
+            //     base colour (map) → sRGB  (perceptual encoding).
+            //     roughness / metalness / normal / AO → linear (don't touch).
+            if (mat.map) mat.map.colorSpace = THREE.SRGBColorSpace;
 
-            // §2 — colour space: base colour = sRGB; emissive = linear (mask data)
-            if (mat.map)         mat.map.colorSpace         = THREE.SRGBColorSpace;
-            if (mat.emissiveMap) mat.emissiveMap.colorSpace = THREE.LinearSRGBColorSpace;
-            // normal / roughness / metalness / AO → leave linear (do not touch)
-
-            // §7 — anisotropy on colour + emissive textures only
-            [mat.map, mat.emissiveMap].forEach((tex) => {
-              if (tex) tex.anisotropy = maxAniso;
-            });
-
-            // §5 — double-sided audit
-            if (mat.side === THREE.DoubleSide) {
-              doubleSideCount++;
-              console.info(`[HeroModel] DoubleSide: "${node.name}"`);
-            }
+            // §5  Anisotropic filtering — sharpens oblique-angle views.
+            //     minFilter / magFilter left at Linear/Mipmap defaults.
+            [mat.map, mat.normalMap, mat.roughnessMap, mat.metalnessMap, mat.aoMap]
+              .forEach((tex) => { if (tex) tex.anisotropy = maxAniso; });
           });
 
-          // ── Auto-center & auto-scale (correct order of operations) ──────────
+          // ── §6  Auto-center & auto-scale (correct order of operations) ────
           //
-          // BUG that was here before:
-          //   position.sub(center) was called BEFORE scale was applied.
-          //   The translation was computed for scale=1, so after scaling the
-          //   model drifted — center no longer at origin → floating fragment.
-          //
-          // Correct order:
-          //   1. Measure bounds at scale=1 (no transforms yet)
-          //   2. Apply scale
-          //   3. Position = -(center × scale)  ← accounts for the scale
-          //   4. Camera distance from bounding SPHERE, not box edge
-          //      Formula: radius / sin(fov/2)  ← exact fit to the view cone
-
+          // Step 1 — measure at original scale (no transforms yet)
           scene.add(gltf.scene);
-
-          // Step 1 — measure in original (un-transformed) space
           const box    = new THREE.Box3().setFromObject(gltf.scene);
           const center = box.getCenter(new THREE.Vector3());
           const size   = box.getSize(new THREE.Vector3());
@@ -278,70 +257,65 @@ export default function HeroModel() {
             return;
           }
 
-          // Step 2 — scale so the longest axis = TARGET_SIZE world units
-          const TARGET_SIZE = 3.0;             // ← tune: apparent world-unit size
-          const s           = TARGET_SIZE / maxDim;
+          // Step 2 — scale so longest axis = TARGET_SIZE world units
+          const s = TARGET_SIZE / maxDim;
           gltf.scene.scale.setScalar(s);
 
-          // Step 3 — translate to origin.
-          // Each child's world position after scale = s × localPos.
-          // Original centre's world pos after scale = s × center.
-          // So position must be -(s × center) to place centre at origin.
+          // Step 3 — centre at origin.
+          //   After scale, each child's world pos = s × localPos.
+          //   Original centre world pos = s × center.
+          //   position = -(s × center) → world centre = 0.
           gltf.scene.position.set(-center.x * s, -center.y * s, -center.z * s);
 
-          // Step 4 — re-measure after transforms to get the final bounding sphere
-          const finalSphere = new THREE.Sphere();
-          new THREE.Box3().setFromObject(gltf.scene).getBoundingSphere(finalSphere);
+          // Step 4 — bounding sphere AFTER transforms → camera distance
+          const sphere = new THREE.Sphere();
+          new THREE.Box3().setFromObject(gltf.scene).getBoundingSphere(sphere);
 
-          // Step 5 — position camera using the bounding-sphere formula.
-          // radius / sin(fov/2) = minimum distance at which the sphere fills
-          // exactly the shorter canvas dimension. ZOOM_MARGIN adds breathing room.
-          const ZOOM_MARGIN = 1.25;            // ← tune: 1.0 = tight, 1.5 = roomy
-          const fovRad      = camera.fov * (Math.PI / 180);
-          const camDist     = (finalSphere.radius / Math.sin(fovRad / 2)) * ZOOM_MARGIN;
+          // Step 5 — camera: radius / sin(fov/2) = exact fit; ×ZOOM_MARGIN = breathing room
+          const fovRad  = CAMERA_FOV * (Math.PI / 180);
+          const camDist = (sphere.radius / Math.sin(fovRad / 2)) * ZOOM_MARGIN;
 
           camera.position.set(
-            finalSphere.center.x,
-            finalSphere.center.y + finalSphere.radius * 0.1, // slight upward tilt
-            finalSphere.center.z + camDist,
+            sphere.center.x,
+            sphere.center.y + sphere.radius * 0.1, // slight upward tilt
+            sphere.center.z + camDist,
           );
-          // Keep near/far relative to the model so nothing clips
           camera.near = camDist * 0.01;
           camera.far  = camDist * 20;
           camera.updateProjectionMatrix();
 
-          // OrbitControls — target the sphere centre; zoom limits match model size
-          controls.target.copy(finalSphere.center);
-          controls.minDistance = finalSphere.radius * 0.8;  // ← tune: closest zoom
-          controls.maxDistance = finalSphere.radius * 6;    // ← tune: furthest zoom
+          controls.target.copy(sphere.center);
+          controls.minDistance = sphere.radius * 0.8;
+          controls.maxDistance = sphere.radius * 6;
           controls.update();
 
-          // Update shadow frustum to cover the scaled model
-          const sr = finalSphere.radius;
-          keyLight.shadow.camera.left   = -sr * 1.5;
-          keyLight.shadow.camera.right  =  sr * 1.5;
-          keyLight.shadow.camera.top    =  sr * 1.5;
-          keyLight.shadow.camera.bottom = -sr * 1.5;
+          // Resize shadow frustum to cover the actual model
+          const r = sphere.radius;
+          keyLight.shadow.camera.left   = -r * 1.5;
+          keyLight.shadow.camera.right  =  r * 1.5;
+          keyLight.shadow.camera.top    =  r * 1.5;
+          keyLight.shadow.camera.bottom = -r * 1.5;
           keyLight.shadow.camera.near   = camDist * 0.01;
           keyLight.shadow.camera.far    = camDist * 4;
           keyLight.shadow.camera.updateProjectionMatrix();
 
           console.info(
-            `[HeroModel] Framed`,
-            `| original size: ${size.x.toFixed(2)}×${size.y.toFixed(2)}×${size.z.toFixed(2)}`,
+            '[HeroModel] Ready',
+            `| original: ${size.x.toFixed(2)}×${size.y.toFixed(2)}×${size.z.toFixed(2)}`,
             `| scale: ×${s.toFixed(3)}`,
-            `| sphere radius: ${finalSphere.radius.toFixed(2)}`,
-            `| camera dist: ${camDist.toFixed(2)}`,
-            `| emissive: ${emissiveCount}, doubleSided: ${doubleSideCount}`,
+            `| sphere r: ${r.toFixed(2)}`,
+            `| camDist: ${camDist.toFixed(2)}`,
           );
 
           setStatus('ready');
         },
 
+        // ── onProgress ──────────────────────────────────────────────────────
         (xhr) => {
           if (xhr.total > 0) setProgress(Math.round((xhr.loaded / xhr.total) * 100));
         },
 
+        // ── onError ─────────────────────────────────────────────────────────
         (err) => {
           console.error('[HeroModel] Load failed:', err);
           setErrMsg(`Load error: ${err.message || 'unknown'}`);
@@ -349,7 +323,9 @@ export default function HeroModel() {
         },
       );
 
-      // ── Resize ────────────────────────────────────────────────────────────
+      // ── §6  ResizeObserver — keeps canvas crisp on container changes ──────
+      // renderer.setSize() sets canvas width/height attrs = CSS px × dpr,
+      // so attributes always equal the number of rendered pixels (no stretching).
       function syncSize() {
         const w = container.clientWidth;
         const h = container.clientHeight;
@@ -357,7 +333,6 @@ export default function HeroModel() {
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
-        if (composer) composer.setSize(w, h);
       }
       const ro = new ResizeObserver(syncSize);
       ro.observe(container);
@@ -367,10 +342,10 @@ export default function HeroModel() {
       (function animate() {
         rafId = requestAnimationFrame(animate);
         controls.update();
-        composer ? composer.render() : renderer.render(scene, camera);
+        renderer.render(scene, camera);
       })();
 
-      // ── Cleanup on unmount ────────────────────────────────────────────────
+      // ── §6  Full GPU disposal on unmount ──────────────────────────────────
       cleanupRef.current = () => {
         cancelAnimationFrame(rafId);
         ro.disconnect();
@@ -386,12 +361,11 @@ export default function HeroModel() {
           });
         });
         envTexture.dispose();
-        composer?.dispose();
         renderer.dispose();
       };
     }
 
-    // Hero section is always above the fold — init immediately, no IO delay
+    // Hero is always above the fold — init immediately (no IO delay needed)
     init().catch((err) => {
       console.error('[HeroModel] Init failed:', err);
       setErrMsg(`Init error: ${err.message || 'unknown'}`);
@@ -407,14 +381,19 @@ export default function HeroModel() {
   return (
     <div
       ref={containerRef}
+      // bg-white matches the renderer background so the placeholder
+      // looks identical to the final rendered frame.
       className="w-full h-full relative touch-none select-none overflow-hidden bg-white"
     >
+      {/* Canvas — always in DOM so Three.js has a target from mount.
+          Opacity-0 until ready; fades in over 700 ms on model load. */}
       <canvas
         ref={canvasRef}
         className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
           status === 'ready' ? 'opacity-100' : 'opacity-0'
         }`}
       />
+
       {status === 'idle'    && <IdlePlaceholder />}
       {status === 'loading' && <ProgressOverlay progress={progress} />}
       {status === 'error'   && <ErrorOverlay message={errMsg} />}
