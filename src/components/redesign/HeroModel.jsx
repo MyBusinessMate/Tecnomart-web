@@ -113,7 +113,7 @@ export default function HeroModel() {
       renderer.toneMapping         = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = EXPOSURE;
       renderer.shadowMap.enabled   = true;
-      renderer.shadowMap.type      = THREE.PCFSoftShadowMap;
+      renderer.shadowMap.type      = THREE.PCFShadowMap; // PCFSoftShadowMap deprecated in r175+
 
       // ── Scene ─────────────────────────────────────────────────────────────
       const scene = new THREE.Scene();
@@ -250,9 +250,45 @@ export default function HeroModel() {
             }
           });
 
-          console.info(`[HeroModel] Ready — emissive meshes: ${emissiveCount}, doubleSided: ${doubleSideCount}`);
-
+          // ── Auto-center & auto-scale ─────────────────────────────────────
+          // The GLB may have been exported from Blender at any world position
+          // and scale. Compute the bounding box and normalise before adding to
+          // the scene so the camera always frames the model correctly.
           scene.add(gltf.scene);
+
+          const box    = new THREE.Box3().setFromObject(gltf.scene);
+          const center = box.getCenter(new THREE.Vector3());
+          const size   = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z);
+
+          // Translate so the bounding-box centre sits at the world origin
+          gltf.scene.position.sub(center);
+
+          // Scale uniformly so the longest axis is TARGET_SIZE units
+          const TARGET_SIZE  = 3.0;                  // ← tune: model apparent size
+          const scaleFactor  = TARGET_SIZE / maxDim;
+          gltf.scene.scale.setScalar(scaleFactor);
+
+          // Recompute after scaling to get the final height for camera framing
+          const scaledBox    = new THREE.Box3().setFromObject(gltf.scene);
+          const scaledSize   = scaledBox.getSize(new THREE.Vector3());
+          const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+
+          // Position camera so the full model fits the FOV with breathing room
+          const fovRad   = camera.fov * (Math.PI / 180);
+          const fitDist  = (Math.max(scaledSize.x, scaledSize.y) / 2)
+                           / Math.tan(fovRad / 2) * 1.6;  // ← tune: zoom margin
+          camera.position.set(0, scaledSize.y * 0.2, fitDist);
+          controls.target.copy(scaledCenter);
+          controls.update();
+
+          console.info(
+            `[HeroModel] Ready — emissive: ${emissiveCount}, doubleSided: ${doubleSideCount}`,
+            `| original size: ${size.x.toFixed(2)}×${size.y.toFixed(2)}×${size.z.toFixed(2)}`,
+            `| scale factor: ${scaleFactor.toFixed(4)}`,
+            `| camera Z: ${fitDist.toFixed(2)}`,
+          );
+
           setStatus('ready');
         },
 
