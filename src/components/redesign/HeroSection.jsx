@@ -1,10 +1,19 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Wrench, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ASSETS } from '@/data/redesignAssets';
+
+// Load the 3D canvas only on the client — WebGL cannot run on the server
+const HeroModel = dynamic(() => import('./HeroModel'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full border-4 border-amber-500/30 border-t-amber-500 animate-spin" />
+    </div>
+  ),
+});
 
 export default function HeroSection({ onOpenRepairModal }) {
   const scrollToBudget = () => {
@@ -78,61 +87,15 @@ export default function HeroSection({ onOpenRepairModal }) {
 
           </div>
 
-          {/* Right Column: 3D Stage Pedestal with Phone, Laptop & RGB PC */}
+          {/* Right Column: Interactive 3D Model */}
           <div className="lg:col-span-6 relative flex items-center justify-center py-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7 }}
-              className="relative w-full max-w-[560px] aspect-[4/3] flex items-center justify-center"
+              className="relative w-full max-w-[560px] aspect-[4/3]"
             >
-              
-              {/* Pedestal Platform (2-tier white pedestal stage with gold logo emblem on front) */}
-              <div className="absolute bottom-2 w-[94%] h-20 sm:h-28 bg-gradient-to-b from-white via-neutral-100 to-neutral-300 rounded-[100%] shadow-[0_25px_50px_rgba(0,0,0,0.15)] border-t border-white flex flex-col items-center justify-center z-0">
-                <div className="w-[96%] h-[80%] rounded-[100%] bg-gradient-to-b from-neutral-50 to-neutral-200 shadow-inner flex items-center justify-center relative">
-                  {/* Gold Emblem on front edge */}
-                  <div className="absolute bottom-1 bg-white px-3 py-1 rounded-full shadow-xs border border-amber-300 flex items-center gap-1">
-                    <img src="/logo.png" alt="" aria-hidden="true" className="w-4 h-4 object-contain" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Product 1: Smartphone (Left) */}
-              <div className="absolute left-[2%] bottom-8 sm:bottom-12 w-[26%] z-20">
-                <Image
-                  src={ASSETS.heroPhone}
-                  alt="Flagship Smartphone"
-                  width={200}
-                  height={400}
-                  priority
-                  className="w-full h-auto object-contain filter drop-shadow-xl"
-                />
-              </div>
-
-              {/* Product 2: Laptop (Center) */}
-              <div className="absolute left-[24%] bottom-10 sm:bottom-14 w-[50%] z-15">
-                <Image
-                  src={ASSETS.heroLaptop}
-                  alt="Ultra Slim Laptop"
-                  width={500}
-                  height={320}
-                  priority
-                  className="w-full h-auto object-contain filter drop-shadow-2xl"
-                />
-              </div>
-
-              {/* Product 3: RGB Gaming PC Tower (Right) */}
-              <div className="absolute right-[1%] bottom-8 sm:bottom-12 w-[44%] z-25">
-                <Image
-                  src={ASSETS.heroPc}
-                  alt="Gold RGB Gaming PC"
-                  width={350}
-                  height={420}
-                  priority
-                  className="w-full h-auto object-contain filter drop-shadow-2xl"
-                />
-              </div>
-
+              <HeroModel />
             </motion.div>
           </div>
 
