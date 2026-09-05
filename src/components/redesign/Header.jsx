@@ -270,262 +270,370 @@ export default function Header() {
   };
 
   const repairTriggerHandler = () => setIsRepairOpen(true);
+  const [activeNavDropdown, setActiveNavDropdown] = useState(null); // 'laptops' | 'mobiles' | 'accessories' | null
+
+  // Dropdown categories data for desktop nav
+  const navDropdownData = {
+    laptops: [
+      { name: 'MacBooks & Ultrabooks', href: '/laptops' },
+      { name: 'Gaming Laptops', href: '/laptops' },
+      { name: 'Refurbished Laptops', href: '/refurbished' },
+      { name: 'Laptop Bags & Sleeves', href: '/accessories' },
+    ],
+    mobiles: [
+      { name: 'New Mobiles', href: '/mobiles' },
+      { name: 'Refurbished Mobiles', href: '/refurbished' },
+      { name: 'Trade-In / Exchange', href: '/exchange' },
+      { name: 'Cases & Screen Guards', href: '/accessories' },
+    ],
+    accessories: [
+      { name: 'Fast Chargers & Cables', href: '/accessories' },
+      { name: 'Audio & ANC Headphones', href: '/accessories' },
+      { name: 'Keyboards & Mice', href: '/accessories' },
+      { name: 'Desk Mats & Stands', href: '/accessories' },
+    ],
+  };
 
   return (
-    <header className="sticky top-0 z-50 select-none shadow-md font-sans">
+    <header className="sticky top-0 z-50 select-none shadow-xs font-sans bg-white border-b border-neutral-200/90">
       
-      {/* 1. TOP AMAZON-STYLE DARK NAVY BAR (#131921) */}
-      <div className="bg-[#131921] text-white py-2 px-3 sm:px-6">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
-          
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <Link href="/" className="inline-block flex-shrink-0" aria-label="TecnoMart Home">
-              <TecnoMartLogo textClass="text-white" subtitleClass="text-amber-400 font-extrabold" />
+      {/* CLEAN MINIMALIST WHITE NAVBAR */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 lg:gap-6">
+        
+        {/* 1. BRAND LOGO */}
+        <div className="flex items-center flex-shrink-0">
+          <Link href="/" className="inline-block" aria-label="TecnoMart Home">
+            <TecnoMartLogo textClass="text-neutral-950 font-black" subtitleClass="text-neutral-500 font-semibold" />
+          </Link>
+        </div>
+
+        {/* 2. PRIMARY NAV LINKS (Laptops ⌵, Mobiles ⌵, Accessories ⌵, Support) */}
+        <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-neutral-800">
+          {/* Laptops Dropdown */}
+          <div
+            className="relative py-2"
+            onMouseEnter={() => setActiveNavDropdown('laptops')}
+            onMouseLeave={() => setActiveNavDropdown(null)}
+          >
+            <Link
+              href="/laptops"
+              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+            >
+              <span>Laptops</span>
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
             </Link>
 
-            {/* Deliver To Location Selector Button (Amazon Style) */}
-            <button
-              ref={deliverToBtnRef}
-              onClick={() => setPincodeModalOpen(true)}
-              className="hidden lg:flex items-center gap-1.5 p-1.5 rounded hover:ring-1 hover:ring-white transition-all text-left cursor-pointer"
-            >
-              <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0" />
-              <div>
-                <span className="text-[10px] text-neutral-400 block leading-tight">Deliver to</span>
-                <span className="text-xs font-black text-white block leading-tight">
-                  Hyderabad {locationPincode}
-                </span>
+            {activeNavDropdown === 'laptops' && (
+              <div className="absolute left-0 top-full mt-1 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+                {navDropdownData.laptops.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-xs font-semibold text-neutral-700 hover:text-amber-600 hover:bg-neutral-50 rounded-xl transition-all"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
-            </button>
+            )}
           </div>
 
-          {/* AMAZON / FLIPKART STYLE MEGA SEARCH BAR */}
-          <div className="flex-1 max-w-3xl relative hidden md:block">
-            <div className="flex items-center bg-white rounded-md overflow-hidden shadow-inner focus-within:ring-2 focus-within:ring-amber-500">
-              
-              {/* Search Category Dropdown */}
-              <select
-                value={searchCategory}
-                onChange={(e) => setSearchCategory(e.target.value)}
-                className="h-10 px-3 bg-neutral-100 border-r border-neutral-300 text-xs font-bold text-neutral-800 outline-none cursor-pointer hover:bg-neutral-200"
-              >
-                <option value="All">All Categories</option>
-                <option value="Mobiles">Mobiles</option>
-                <option value="Laptops">Laptops</option>
-                <option value="Gaming">Gaming PCs</option>
-                <option value="Accessories">Accessories</option>
-              </select>
+          {/* Mobiles Dropdown */}
+          <div
+            className="relative py-2"
+            onMouseEnter={() => setActiveNavDropdown('mobiles')}
+            onMouseLeave={() => setActiveNavDropdown(null)}
+          >
+            <Link
+              href="/mobiles"
+              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+            >
+              <span>Mobiles</span>
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
+            </Link>
 
-              {/* Search Input — sr-only label satisfies WCAG 1.3.1 */}
-              <label htmlFor="search-desktop" className="sr-only">
-                Search TecnoMart
-              </label>
-              <input
-                id="search-desktop"
-                type="search"
-                placeholder="Search TecnoMart for MacBooks, iPhones, RTX GPUs, Repairs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setSearchOpen(true)}
-                className="flex-1 h-10 px-3 text-xs sm:text-sm text-neutral-900 outline-none font-medium placeholder-neutral-500"
-              />
+            {activeNavDropdown === 'mobiles' && (
+              <div className="absolute left-0 top-full mt-1 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+                {navDropdownData.mobiles.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-xs font-semibold text-neutral-700 hover:text-amber-600 hover:bg-neutral-50 rounded-xl transition-all"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
-              {/* Gold Search Button */}
-              <button
-                type="button"
-                className="w-12 h-10 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Submit search"
-              >
-                <Search className="w-5 h-5 stroke-[2.5]" />
-              </button>
+          {/* Accessories Dropdown */}
+          <div
+            className="relative py-2"
+            onMouseEnter={() => setActiveNavDropdown('accessories')}
+            onMouseLeave={() => setActiveNavDropdown(null)}
+          >
+            <Link
+              href="/accessories"
+              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+            >
+              <span>Accessories</span>
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
+            </Link>
+
+            {activeNavDropdown === 'accessories' && (
+              <div className="absolute left-0 top-full mt-1 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+                {navDropdownData.accessories.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-xs font-semibold text-neutral-700 hover:text-amber-600 hover:bg-neutral-50 rounded-xl transition-all"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Support Link */}
+          <Link
+            href="/contact"
+            className="hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+          >
+            Support
+          </Link>
+        </nav>
+
+        {/* 3. CENTER PILL-SHAPED SEARCH BAR */}
+        <div className="flex-1 max-w-xl relative hidden md:block">
+          <div className="relative flex items-center">
+            <div className="absolute left-4 pointer-events-none text-neutral-400">
+              <Search className="w-4 h-4 stroke-[2]" />
             </div>
+            <label htmlFor="search-desktop" className="sr-only">
+              Search TecnoMart
+            </label>
+            <input
+              id="search-desktop"
+              type="search"
+              placeholder="Search for MacBooks, iPhones, laptops..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setSearchOpen(true)}
+              className="w-full h-11 pl-11 pr-4 bg-neutral-100/90 hover:bg-neutral-100 focus:bg-white text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 rounded-full border border-neutral-200/70 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all font-medium"
+            />
+          </div>
 
-            {/* Instant Search Dropdown Results */}
-            {searchQuery.trim() && (
-              <div className="absolute left-0 right-0 top-full mt-1 bg-white rounded-xl shadow-2xl border border-neutral-300 overflow-hidden z-50 p-2 text-neutral-900">
-                <div className="px-3 py-1.5 text-[10px] font-black uppercase text-neutral-400 border-b border-neutral-100 flex justify-between">
-                  <span>Matching Products in {searchCategory}</span>
-                  <span>{searchResults.length} Found</span>
+          {/* Instant Search Dropdown Results */}
+          {searchQuery.trim() && (
+            <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-neutral-200/80 overflow-hidden z-50 p-2 text-neutral-900">
+              <div className="px-3 py-1.5 text-[10px] font-black uppercase text-neutral-400 border-b border-neutral-100 flex justify-between">
+                <span>Matching Products</span>
+                <span>{searchResults.length} Found</span>
+              </div>
+
+              {searchResults.length === 0 ? (
+                <div className="p-4 text-center text-xs text-neutral-500">
+                  No results for &quot;{searchQuery}&quot;
+                </div>
+              ) : (
+                <div className="divide-y divide-neutral-100">
+                  {searchResults.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/${item.type}/${item.slug}`}
+                      onClick={() => setSearchQuery('')}
+                      className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-neutral-100 rounded-lg p-1 flex-shrink-0 flex items-center justify-center">
+                        <img
+                          src={item.images?.[0] || item.images}
+                          alt={item.name}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-xs font-bold text-neutral-950 truncate">
+                          {item.name}
+                        </h4>
+                        <p className="text-[11px] text-amber-600 font-bold">
+                          {item.price} • <span className="text-neutral-500 font-normal">{item.brand}</span>
+                        </p>
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-neutral-400" />
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* 4. RIGHT ACTION CLUSTER: Divider | Account (5 items) | Pin Location | Cart */}
+        <div className="flex items-center gap-3 sm:gap-5">
+          
+          {/* Subtle Vertical Divider */}
+          <div className="hidden lg:block w-px h-6 bg-neutral-200" />
+
+          {/* Account Dropdown (Exact 5 items requested: Edit Profile, Wishlist, My Orders, Saved Addresses, Sign Out / Sign In) */}
+          <div className="relative" data-account-menu>
+            <button
+              ref={accountBtnRef}
+              onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
+              aria-expanded={accountDropdownOpen}
+              aria-haspopup="menu"
+              aria-label="Account menu"
+              className="flex items-center gap-2 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer"
+            >
+              <User className="w-5 h-5 text-neutral-800" />
+              <span className="hidden sm:inline text-sm font-semibold text-neutral-800">Account</span>
+            </button>
+
+            {accountDropdownOpen && (
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-neutral-100 p-2 z-50 text-neutral-900">
+                <div className="px-3 py-2 border-b border-neutral-100 mb-1">
+                  <p className="text-xs font-bold text-neutral-900">My Account</p>
+                  <p className="text-[11px] text-neutral-400 truncate">user@tecnomart.in</p>
                 </div>
 
-                {searchResults.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-neutral-500">
-                    No results for &quot;{searchQuery}&quot;
+                <div className="space-y-0.5 text-xs font-medium text-neutral-700">
+                  {/* 1. Edit Profile */}
+                  <Link
+                    href="/profile"
+                    onClick={() => setAccountDropdownOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors"
+                  >
+                    <span>Edit Profile</span>
+                  </Link>
+
+                  {/* 2. Wishlist */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAccountDropdownOpen(false);
+                      setIsWishlistOpen(true);
+                    }}
+                    className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors text-left cursor-pointer"
+                  >
+                    <span>Wishlist</span>
+                    {wishlist.length > 0 && (
+                      <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                        {wishlist.length}
+                      </span>
+                    )}
+                  </button>
+
+                  {/* 3. My Orders */}
+                  <Link
+                    href="/orders"
+                    onClick={() => setAccountDropdownOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors"
+                  >
+                    <span>My Orders</span>
+                  </Link>
+
+                  {/* 4. Saved Addresses */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAccountDropdownOpen(false);
+                      setPincodeModalOpen(true);
+                    }}
+                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors text-left cursor-pointer"
+                  >
+                    <span>Saved Addresses</span>
+                  </button>
+
+                  {/* 5. Sign In / Logout */}
+                  <div className="pt-1 mt-1 border-t border-neutral-100">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAccountDropdownOpen(false);
+                        setSignInAlert(true);
+                        setTimeout(() => setSignInAlert(false), 3000);
+                      }}
+                      className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-red-600 hover:bg-red-50 transition-colors text-left cursor-pointer"
+                    >
+                      <span>Sign In / Sign Out</span>
+                    </button>
                   </div>
-                ) : (
-                  <div className="divide-y divide-neutral-100">
-                    {searchResults.map((item) => (
-                      <Link
-                        key={item.id}
-                        href={`/${item.type}/${item.slug}`}
-                        onClick={() => setSearchQuery('')}
-                        className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 transition-colors"
-                      >
-                        <div className="w-10 h-10 bg-neutral-100 rounded-lg p-1 flex-shrink-0 flex items-center justify-center">
-                          <img
-                            src={item.images?.[0] || item.images}
-                            alt={item.name}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-xs font-black text-neutral-950 truncate">
-                            {item.name}
-                          </h4>
-                          <p className="text-[11px] text-amber-600 font-bold">
-                            {item.price} • <span className="text-neutral-500 font-normal">{item.brand}</span>
-                          </p>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-neutral-400" />
-                      </Link>
-                    ))}
-                  </div>
+                </div>
+
+                {signInAlert && (
+                  <p role="status" className="text-[10px] text-emerald-600 text-center py-1 font-semibold">
+                    Auth updated!
+                  </p>
                 )}
               </div>
             )}
           </div>
 
-          {/* Right Action Cluster */}
-          <div className="flex items-center gap-2 sm:gap-4">
-            
-            {/* Account & Lists Dropdown (Amazon Style) */}
-            <div className="relative hidden lg:block" data-account-menu>
-              <button
-                ref={accountBtnRef}
-                onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-                aria-expanded={accountDropdownOpen}
-                aria-haspopup="menu"
-                aria-label="Account and orders menu"
-                className="flex items-center gap-1 p-1.5 rounded hover:ring-1 hover:ring-white transition-all text-left cursor-pointer"
-              >
-                <div>
-                  <span className="text-[10px] text-neutral-400 block leading-tight">Hello, Sign In</span>
-                  <span className="text-xs font-black text-white flex items-center gap-0.5 leading-tight">
-                    Account &amp; Orders <ChevronDown className="w-3 h-3 text-neutral-400" />
-                  </span>
-                </div>
-              </button>
-
-              {accountDropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-2xl border border-neutral-200 p-3 z-50 text-neutral-900 space-y-2">
-                  <div className="pb-2 border-b border-neutral-100">
-                    <button
-                      onClick={() => {
-                        setSignInAlert(true);
-                        setTimeout(() => setSignInAlert(false), 3000);
-                      }}
-                      className="w-full py-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs uppercase rounded-lg shadow-sm"
-                    >
-                      Sign In
-                    </button>
-                    {signInAlert ? (
-                      <p role="status" className="text-[10px] text-emerald-600 text-center mt-1 font-semibold">
-                        Sign-in coming soon!
-                      </p>
-                    ) : (
-                      <p className="text-[10px] text-neutral-500 text-center mt-1">New Customer? Start here.</p>
-                    )}
-                  </div>
-                  <div className="space-y-1 text-xs font-semibold text-neutral-700">
-                    <Link href="/#popular" className="block py-1 hover:text-amber-600">Your Orders</Link>
-                    <Link href="/build-your-setup" className="block py-1 hover:text-amber-600">Your Custom Builds</Link>
-                    <Link href="/contact" className="block py-1 hover:text-amber-600">Help &amp; Customer Service</Link>
-                  </div>
-                </div>
-              )}
+          {/* PIN LOCATION BUTTON (In place of wishlist in the top bar as requested) */}
+          <button
+            ref={deliverToBtnRef}
+            onClick={() => setPincodeModalOpen(true)}
+            className="flex items-center gap-1.5 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer text-left"
+            aria-label={`Delivery location: Hyderabad ${locationPincode}`}
+          >
+            <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0" />
+            <div className="hidden sm:block leading-tight">
+              <span className="text-[10px] text-neutral-400 block font-medium">Pin Location</span>
+              <span className="text-xs font-bold text-neutral-800 block">
+                Hyderabad {locationPincode}
+              </span>
             </div>
+          </button>
 
-            {/* Wishlist */}
-            <button
-              onClick={() => setIsWishlistOpen(true)}
-              className="p-1.5 rounded hover:ring-1 hover:ring-white text-white flex items-center gap-1 relative cursor-pointer"
-              aria-label={`Wishlist, ${wishlist.length} saved item${wishlist.length !== 1 ? 's' : ''}`}
-            >
-              <Heart className="w-5 h-5 text-amber-400" />
-              <span className="hidden xl:inline text-xs font-black">Wishlist</span>
-              {wishlist.length > 0 && (
-                <span aria-hidden="true" className="bg-red-500 text-white font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
-                  {wishlist.length}
-                </span>
-              )}
-            </button>
-
-            {/* Shopping Cart Link with Badge */}
-            <Link
-              href="/cart"
-              className="p-1.5 rounded hover:ring-1 hover:ring-white text-white flex items-center gap-2 relative cursor-pointer"
-              aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
-            >
-              <div className="relative">
-                <ShoppingBag className="w-6 h-6 text-amber-400" />
-                <span className="absolute -top-1.5 -right-2 bg-amber-500 text-neutral-950 font-black text-[11px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+          {/* CART BUTTON WITH CIRCLE BADGE (matching image) */}
+          <Link
+            href="/cart"
+            className="flex items-center gap-2 text-neutral-900 group cursor-pointer"
+            aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
+          >
+            <div className="relative w-10 h-10 rounded-full bg-amber-50 border border-amber-200/70 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+              <ShoppingBag className="w-5 h-5 text-neutral-800" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-amber-500 text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                   {cartCount}
                 </span>
-              </div>
-              <span className="hidden sm:inline text-xs font-black uppercase">Cart</span>
-            </Link>
+              )}
+            </div>
+            <span className="hidden sm:inline text-sm font-semibold text-neutral-800 group-hover:text-amber-600 transition-colors">
+              Cart
+            </span>
+          </Link>
 
-            {/* Mobile Hamburger Toggle */}
-            <button
-              ref={hamburgerBtnRef}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileMenuOpen}
-              className="md:hidden p-2 text-white hover:text-amber-400 cursor-pointer"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+          {/* Mobile Hamburger Toggle */}
+          <button
+            ref={hamburgerBtnRef}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            className="xl:hidden p-2 text-neutral-700 hover:text-amber-600 cursor-pointer"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
 
-          </div>
         </div>
-
-        {/* Mobile Search Bar (rendered on small screens) */}
-        <div className="mt-2 md:hidden">
-          <div className="flex items-center bg-white rounded-md overflow-hidden shadow-inner">
-            <label htmlFor="search-mobile" className="sr-only">Search TecnoMart</label>
-            <input
-              id="search-mobile"
-              type="search"
-              placeholder="Search MacBooks, iPhones, GPUs..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 h-9 px-3 text-xs text-neutral-900 outline-none font-medium placeholder-neutral-500"
-            />
-            <button
-              className="w-10 h-9 bg-amber-500 text-neutral-950 flex items-center justify-center"
-            >
-              <Search className="w-4 h-4 stroke-[2.5]" />
-            </button>
-          </div>
-        </div>
-
       </div>
 
-      {/* 2. SECOND AMAZON-STYLE DARK SUB-HEADER STRIP (#232F3E) */}
-      <div className="bg-[#232f3e] text-white text-xs font-bold py-1.5 px-3 sm:px-6 overflow-x-auto no-scrollbar border-t border-neutral-800">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-          
-          <div className="flex items-center space-x-4 sm:space-x-8 flex-shrink-0">
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="flex items-center gap-1.5 hover:text-amber-400 transition-colors font-black uppercase tracking-wider text-[11px] cursor-pointer"
-            >
-              <Menu className="w-4 h-4" />
-              <span>All Categories</span>
-            </button>
-
-            {subHeaderLinks.slice(1).map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-amber-400 transition-colors tracking-tight text-[12px] font-bold whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+      {/* Mobile Search Bar (rendered below on small screens) */}
+      <div className="md:hidden px-4 pb-3">
+        <div className="relative flex items-center">
+          <div className="absolute left-3.5 pointer-events-none text-neutral-400">
+            <Search className="w-4 h-4 stroke-[2]" />
           </div>
-
+          <label htmlFor="search-mobile" className="sr-only">Search TecnoMart</label>
+          <input
+            id="search-mobile"
+            type="search"
+            placeholder="Search for MacBooks, iPhones, laptops..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full h-10 pl-10 pr-4 bg-neutral-100 text-xs text-neutral-900 rounded-full border border-neutral-200 outline-none focus:border-amber-500 font-medium"
+          />
         </div>
       </div>
 
