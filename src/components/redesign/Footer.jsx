@@ -65,15 +65,15 @@ export default function Footer() {
 
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
 
-        {/* 5-Column Grid: Brand | Shop | Help | Company | Stay Updated */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 pb-10 border-b border-midgrey-700/60">
+        {/* Footer Grid: Brand (full width) | Shop (col 1) | Help (col 2) | Company (col 1) | Stay Updated (full width) */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-6 pb-10 border-b border-midgrey-700/60">
 
           {/* Column 1: Brand + Description + Social Icons */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-1 space-y-4">
+          <div className="col-span-2 lg:col-span-1 space-y-4">
             <Link href="/">
               <TecnoMartLogo textClass="text-white" subtitleClass="text-neutral-500" />
             </Link>
-            <p className="text-xs text-neutral-400 font-medium leading-relaxed max-w-[230px]">
+            <p className="text-xs text-neutral-400 font-medium leading-relaxed max-w-sm">
               Your one-stop destination for the best tech products, expert repairs and unmatched support.
             </p>
             {/* Social Icons */}
@@ -118,7 +118,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: SHOP */}
-          <div className="space-y-3">
+          <div className="col-span-1 space-y-3">
             <h5 className="text-xs font-black tracking-wider text-amber-500 uppercase">
               SHOP
             </h5>
@@ -134,7 +134,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: HELP & SUPPORT */}
-          <div className="space-y-3">
+          <div className="col-span-1 space-y-3">
             <h5 className="text-xs font-black tracking-wider text-amber-500 uppercase">
               HELP &amp; SUPPORT
             </h5>
@@ -150,7 +150,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: COMPANY */}
-          <div className="space-y-3">
+          <div className="col-span-1 space-y-3">
             <h5 className="text-xs font-black tracking-wider text-amber-500 uppercase">
               COMPANY
             </h5>
@@ -166,7 +166,7 @@ export default function Footer() {
           </div>
 
           {/* Column 5: STAY UPDATED */}
-          <div className="col-span-2 sm:col-span-1 space-y-3">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1 space-y-3">
             <h5 className="text-xs font-black tracking-wider text-amber-500 uppercase">
               STAY UPDATED
             </h5>

@@ -5,12 +5,10 @@ import CartDrawer from './components/redesign/CartDrawer';
 import CheckoutModal from './components/redesign/CheckoutModal';
 import RepairModal from './components/redesign/RepairModal';
 import WishlistDrawer from './components/redesign/WishlistDrawer';
-import PWASetup from './components/redesign/PWASetup';
 import WhatsAppWidget from './components/redesign/WhatsAppWidget';
 
 // Pages
 import Page from './app/page';
-import ProductDetail from './pages/ProductDetail';
 import LaptopsPage from './app/laptops/page';
 import MobilesPage from './app/mobiles/page';
 import AccessoriesPage from './app/accessories/page';
@@ -82,9 +80,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Page />} />
           
-          {/* Recosto exact product page architecture */}
-          <Route path="/product/:id" element={<ProductDetail />} />
-          
           {/* Category catalog and product pages */}
           <Route path="/laptops" element={<LaptopsPage />} />
           <Route path="/laptops/:slug" element={<LaptopDetailPage />} />
@@ -123,7 +118,6 @@ export default function App() {
         <CheckoutModal />
         <RepairModal />
         <WishlistDrawer />
-        <PWASetup />
         <WhatsAppWidget />
       </ShopProvider>
     </BrowserRouter>
