@@ -196,6 +196,8 @@ export default function HeroModel() {
       scene.add(fillLight);
 
       // ── OrbitControls ─────────────────────────────────────────────────────
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping     = true;
       controls.dampingFactor     = 0.05;
@@ -206,6 +208,17 @@ export default function HeroModel() {
       controls.minAzimuthAngle   = -(Math.PI * 7 / 18); // -70° (140° total front view arc)
       controls.maxAzimuthAngle   =  (Math.PI * 7 / 18); // +70° (140° total front view arc)
       controls.autoRotate        = false;    // Custom 140° back-and-forth oscillation handled in RAF loop
+
+      // On mobile devices, allow touch gestures to scroll the page smoothly (pan-y)
+      // We configure touch pointer behavior so vertical swipe passes to native page scrolling
+      if (isTouchDevice) {
+        // OrbitControls supports ONE: ROTATE, TWO: DO_NOTHING
+        // By allowing pan-y on CSS touch-action and checking touch delta, users can scroll effortlessly
+        controls.touches = {
+          ONE: THREE.TOUCH.ROTATE,
+          TWO: THREE.TOUCH.DO_NOTHING,
+        };
+      }
 
       let isUserInteracting = false;
       let oscillateDirection = 1; // 1 = right, -1 = left
@@ -404,12 +417,14 @@ export default function HeroModel() {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full relative touch-none select-none overflow-hidden bg-transparent"
+      className="w-full h-full relative select-none overflow-hidden bg-transparent"
+      style={{ touchAction: 'pan-y' }}
     >
       {/* Canvas — always in DOM so Three.js has a target from mount.
           Opacity-0 until ready; fades in over 700 ms on model load. */}
       <canvas
         ref={canvasRef}
+        style={{ touchAction: 'pan-y' }}
         className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
           status === 'ready' ? 'opacity-100' : 'opacity-0'
         }`}

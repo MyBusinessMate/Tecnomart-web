@@ -49,7 +49,7 @@ export default function CategoryGrid() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                   whileHover={{ y: -4 }}
-                  className="h-full group cursor-pointer bg-white hover:bg-neutral-50 rounded-2xl p-4 sm:p-5 border border-neutral-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center justify-between"
+                  className="h-full group cursor-pointer bg-transparent hover:bg-neutral-50/70 rounded-2xl p-3 sm:p-4 border border-transparent hover:border-neutral-200 transition-all duration-300 flex flex-col items-center text-center justify-between"
                 >
                   {/* Card Visual / Icon Container */}
                   <div className="w-full aspect-square max-w-[100px] sm:max-w-[120px] rounded-xl bg-neutral-50 group-hover:bg-amber-50/50 flex items-center justify-center p-2 mb-3 transition-colors overflow-hidden">

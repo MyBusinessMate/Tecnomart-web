@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* 6 Pillars Horizontal Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-7 text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 sm:gap-6 text-center">
           {pillars.map((item, idx) => (
             <motion.div
               key={idx}
@@ -70,11 +70,11 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              whileHover={{ y: -4 }}
-              className="flex flex-col items-center group p-3 rounded-2xl hover:bg-neutral-50 transition-colors cursor-default"
+              whileHover={{ y: -3 }}
+              className="flex flex-col items-center group p-3 rounded-2xl transition-colors cursor-default"
             >
-              {/* Circular gold-outline icon container */}
-              <div className="w-14 h-14 rounded-full border-2 border-amber-500 bg-white flex items-center justify-center mb-3.5 group-hover:bg-amber-50 group-hover:scale-110 transition-all duration-300 shadow-2xs">
+              {/* Circular gold icon container */}
+              <div className="w-13 h-13 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-3 group-hover:bg-amber-500/20 group-hover:scale-105 transition-all duration-300">
                 {item.icon}
               </div>
 

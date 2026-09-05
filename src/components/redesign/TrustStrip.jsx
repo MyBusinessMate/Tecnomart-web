@@ -31,9 +31,9 @@ export default function TrustStrip() {
     <section className="bg-transparent pt-0 pb-8 sm:pb-12 lg:pb-14">
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
 
-        {/* White card with shadow matching reference image */}
-        <div className="bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(245,158,11,0.12)] border border-neutral-200/80 -mt-6 sm:-mt-10 lg:-mt-12 relative z-20 overflow-hidden transition-all duration-300">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-neutral-100">
+        {/* Blended trust strip container */}
+        <div className="bg-neutral-50/80 backdrop-blur-xs rounded-2xl border border-neutral-100 -mt-6 sm:-mt-10 lg:-mt-12 relative z-20 overflow-hidden transition-all duration-300">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-neutral-200/60">
             {items.map((item, idx) => {
               const Icon = item.icon;
               return (

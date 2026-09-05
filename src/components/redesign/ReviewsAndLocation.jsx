@@ -19,7 +19,7 @@ export default function ReviewsAndLocation() {
           
           {/* Card 3: Visit Our Store (Horizontal Split Card) */}
           <BlurRevealBox duration={0.6} yOffset={20}>
-            <div className="h-full rounded-[22px] bg-white border border-[#ECECEC] shadow-xs overflow-hidden flex flex-col sm:flex-row items-stretch min-h-[220px]">
+            <div className="h-full rounded-[22px] bg-[#fafafa] border border-neutral-100 overflow-hidden flex flex-col sm:flex-row items-stretch min-h-[220px]">
               
               {/* Left Column: Store Info (52%) */}
               <div className="w-full sm:w-[54%] p-6 sm:p-7 flex flex-col justify-between space-y-4">
@@ -80,7 +80,7 @@ export default function ReviewsAndLocation() {
 
           {/* Card 4: Google Reviews */}
           <BlurRevealBox duration={0.6} delay={0.1} yOffset={20}>
-            <div className="h-full rounded-[22px] bg-white p-6 sm:p-7 border border-[#ECECEC] shadow-xs flex flex-col justify-between space-y-4 min-h-[220px]">
+            <div className="h-full rounded-[22px] bg-[#fafafa] p-6 sm:p-7 border border-neutral-100 flex flex-col justify-between space-y-4 min-h-[220px]">
               
               <div>
                 {/* Header */}
