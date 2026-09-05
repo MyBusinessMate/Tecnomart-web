@@ -188,3 +188,40 @@ html.lenis, html.lenis body {
   color: #131923;
 }
 
+/* Slide Up Popup Keyframes */
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 40px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Coupon Celebration Slider Animation */
+@keyframes couponCelebrationSlide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  85% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+

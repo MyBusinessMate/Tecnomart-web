@@ -51,14 +51,22 @@ export function ShopProvider({ children }) {
     }, 3000);
   };
 
+  const [cartPopup, setCartPopup] = useState(null); // { message: string, visible: boolean }
+
+  const showCartPopup = (productName) => {
+    setCartPopup({ message: `1 item added to cart`, productName, visible: true });
+    setTimeout(() => {
+      setCartPopup(null);
+    }, 1600);
+  };
+
   const addToCart = (product, quantity = 1, selectedConfig = null, selectedColor = null) => {
     setCart((prevCart) => {
       const cartItemId = `${product.id}-${selectedConfig?.name || 'default'}-${selectedColor?.name || 'default'}`;
       const existingIndex = prevCart.findIndex((item) => item.cartItemId === cartItemId);
       if (existingIndex > -1) {
-        const updated = [...prevCart];
-        updated[existingIndex].quantity += quantity;
-        return updated;
+        // Item is already in cart. Multiple products of the same product must be adjusted via the cart section
+        return prevCart;
       } else {
         const priceToUse = selectedConfig?.rawPrice || product.rawPrice || 0;
         const displayPrice = selectedConfig?.price || product.price || '₹0';
@@ -67,7 +75,7 @@ export function ShopProvider({ children }) {
           {
             cartItemId,
             product,
-            quantity,
+            quantity: 1, // Only 1 item added initially; multiple quantities can be changed via cart section via + option
             selectedConfig,
             selectedColor,
             unitPrice: priceToUse,
@@ -76,8 +84,8 @@ export function ShopProvider({ children }) {
         ];
       }
     });
-    showToast(`Added "${product.name}" to cart! 🛒`);
-    setIsCartOpen(true);
+    showCartPopup(product.name);
+    // Note: Do NOT open side drawer automatically. User will see green slide-up bottom popup.
   };
 
   const removeFromCart = (cartItemId) => {
@@ -159,6 +167,8 @@ export function ShopProvider({ children }) {
         shippingFee,
         totalPayable,
         appliedCoupon,
+        cartPopup,
+        showCartPopup,
         wishlist,
         isCartOpen,
         setIsCartOpen,
@@ -181,6 +191,30 @@ export function ShopProvider({ children }) {
       }}
     >
       {children}
+
+      {/* Floating Bottom Green Popup ("X item added to cart") */}
+      {cartPopup && (
+        <div
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 transform pointer-events-none"
+          style={{ animation: 'slideUpBounce 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
+        >
+          <div className="bg-[#15803d] text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-400/40 pointer-events-auto">
+            <div className="w-5 h-5 rounded-full bg-white text-[#15803d] flex items-center justify-center font-black text-xs shadow-xs">
+              ✓
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold text-sm tracking-wide">
+                {cartPopup.message}
+              </span>
+              {cartPopup.productName && (
+                <span className="text-emerald-100 text-xs font-semibold max-w-[200px] truncate hidden sm:inline">
+                  ({cartPopup.productName})
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Toast Notification */}
       {toastMessage && (

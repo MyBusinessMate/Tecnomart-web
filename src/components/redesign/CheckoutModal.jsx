@@ -46,20 +46,79 @@ export default function CheckoutModal() {
     notes: '',
   });
 
+  const [formErrors, setFormErrors] = useState({});
+
   const [paymentMethod, setPaymentMethod] = useState('upi'); // 'upi' | 'card' | 'netbanking' | 'cod'
   const [placedOrder, setPlacedOrder] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Strict Input Formatting & Restrictions
+    if (name === 'phone') {
+      // Allow only numbers and maximum 10 digits
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+      if (digitsOnly.length === 10) {
+        setFormErrors((prev) => ({ ...prev, phone: null }));
+      }
+      return;
+    }
+
+    if (name === 'address') {
+      // Character limit of 500 characters
+      const trimmedAddress = value.slice(0, 500);
+      setFormData((prev) => ({ ...prev, address: trimmedAddress }));
+      if (trimmedAddress.trim().length > 5) {
+        setFormErrors((prev) => ({ ...prev, address: null }));
+      }
+      return;
+    }
+
+    if (name === 'email') {
+      setFormData((prev) => ({ ...prev, email: value }));
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (value.trim() === '' || emailRegex.test(value.trim())) {
+        setFormErrors((prev) => ({ ...prev, email: null }));
+      }
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleShippingSubmit = (e) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.phone || !formData.address) {
-      alert('Please fill in your name, phone number, and delivery address.');
+    const errors = {};
+
+    // Validate Name
+    if (!formData.fullName.trim() || formData.fullName.trim().length < 2) {
+      errors.fullName = 'Please enter your full name (at least 2 characters).';
+    }
+
+    // Validate Phone: must be exactly 10 digits
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (!cleanPhone || cleanPhone.length !== 10) {
+      errors.phone = 'Please enter a valid 10-digit mobile number.';
+    }
+
+    // Validate Email (if provided or required)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email.trim() && !emailRegex.test(formData.email.trim())) {
+      errors.email = 'Please enter a valid email address (e.g. name@domain.com).';
+    }
+
+    // Validate Address: up to 500 characters
+    if (!formData.address.trim() || formData.address.trim().length < 8) {
+      errors.address = 'Please enter a complete delivery address (min 8 characters).';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
       return;
     }
+
+    setFormErrors({});
     setStep(2);
   };
 
@@ -167,27 +226,45 @@ export default function CheckoutModal() {
                         placeholder="e.g. Rahul Sharma"
                         value={formData.fullName}
                         onChange={handleInputChange}
-                        className="w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-semibold"
+                        className={`w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border rounded-xl outline-none font-semibold ${
+                          formErrors.fullName ? 'border-red-500 bg-red-50/20' : 'border-neutral-300 focus:border-amber-500'
+                        }`}
                       />
                     </div>
+                    {formErrors.fullName && (
+                      <p className="text-[10px] font-bold text-red-600 mt-1">{formErrors.fullName}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
-                      Mobile Number (For WhatsApp Updates) *
-                    </label>
+                    <div className="flex justify-between items-center mb-1">
+                      <label className="block text-xs font-bold text-neutral-700 uppercase">
+                        Mobile Number (10 Digits) *
+                      </label>
+                      <span className={`text-[10px] font-mono font-bold ${
+                        formData.phone.length === 10 ? 'text-emerald-600' : 'text-neutral-400'
+                      }`}>
+                        {formData.phone.length}/10
+                      </span>
+                    </div>
                     <div className="relative">
                       <Phone className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
                         type="tel"
                         name="phone"
                         required
-                        placeholder="e.g. 9876543210"
+                        maxLength={10}
+                        placeholder="10-digit mobile number"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-semibold"
+                        className={`w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border rounded-xl outline-none font-semibold ${
+                          formErrors.phone ? 'border-red-500 bg-red-50/20' : 'border-neutral-300 focus:border-amber-500'
+                        }`}
                       />
                     </div>
+                    {formErrors.phone && (
+                      <p className="text-[10px] font-bold text-red-600 mt-1">{formErrors.phone}</p>
+                    )}
                   </div>
                 </div>
 
@@ -204,9 +281,14 @@ export default function CheckoutModal() {
                         placeholder="rahul@example.com"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-semibold"
+                        className={`w-full h-10 pl-9 pr-3 text-xs bg-neutral-50 border rounded-xl outline-none font-semibold ${
+                          formErrors.email ? 'border-red-500 bg-red-50/20' : 'border-neutral-300 focus:border-amber-500'
+                        }`}
                       />
                     </div>
+                    {formErrors.email && (
+                      <p className="text-[10px] font-bold text-red-600 mt-1">{formErrors.email}</p>
+                    )}
                   </div>
 
                   <div>
@@ -229,18 +311,31 @@ export default function CheckoutModal() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
-                    Street Address &amp; Landmark *
-                  </label>
+                  <div className="flex justify-between items-center mb-1">
+                    <label className="block text-xs font-bold text-neutral-700 uppercase">
+                      Street Address &amp; Landmark *
+                    </label>
+                    <span className={`text-[10px] font-mono font-bold ${
+                      formData.address.length >= 500 ? 'text-red-500' : 'text-neutral-400'
+                    }`}>
+                      {formData.address.length}/500 chars
+                    </span>
+                  </div>
                   <textarea
                     name="address"
                     required
                     rows={2}
-                    placeholder="Flat / House No., Building Name, Street, Landmark in Hyderabad"
+                    maxLength={500}
+                    placeholder="Flat / House No., Building Name, Street, Landmark in Hyderabad (Max 500 characters)"
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full p-3 text-xs bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-semibold resize-none"
+                    className={`w-full p-3 text-xs bg-neutral-50 border rounded-xl outline-none font-semibold resize-none ${
+                      formErrors.address ? 'border-red-500 bg-red-50/20' : 'border-neutral-300 focus:border-amber-500'
+                    }`}
                   />
+                  {formErrors.address && (
+                    <p className="text-[10px] font-bold text-red-600 mt-0.5">{formErrors.address}</p>
+                  )}
                 </div>
 
                 {/* Order Preview Box */}
