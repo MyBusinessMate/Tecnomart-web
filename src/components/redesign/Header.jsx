@@ -443,9 +443,9 @@ export default function Header() {
               )}
             </button>
 
-            {/* Shopping Cart Button with Badge */}
-            <button
-              onClick={() => setIsCartOpen(true)}
+            {/* Shopping Cart Link with Badge */}
+            <Link
+              href="/cart"
               className="p-1.5 rounded hover:ring-1 hover:ring-white text-white flex items-center gap-2 relative cursor-pointer"
               aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
             >
@@ -456,7 +456,7 @@ export default function Header() {
                 </span>
               </div>
               <span className="hidden sm:inline text-xs font-black uppercase">Cart</span>
-            </button>
+            </Link>
 
             {/* Mobile Hamburger Toggle */}
             <button

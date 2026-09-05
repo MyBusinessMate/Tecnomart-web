@@ -148,7 +148,7 @@ export default function DealOfTheDay() {
               <button
                 onClick={() => {
                   addToCart(dealProduct);
-                  setIsCartOpen(true);
+                  window.location.href = '/cart';
                 }}
                 className="min-h-[52px] bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 text-white font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl border-2 border-amber-500/60 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-98 cursor-pointer"
               >

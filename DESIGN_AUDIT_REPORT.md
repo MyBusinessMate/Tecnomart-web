@@ -40,10 +40,10 @@ A comprehensive design systems audit was conducted on the **TecnoMart Web Applic
 | **Pincode Submit** | Header Deliver-To Modal | `rounded-xl` (12px) | Midgrey `#131923`, text amber-400, hover `#1b2330` | Updates global `locationPincode` across app state |
 | **Search Button** | Header Search Bar | `rounded-none` (inline bar integration) | Solid `#F5B800` amber fill with dark icon | Executes catalog search for keyword input |
 | **All Categories Button** | Secondary Navigation Strip | `rounded-none` / Text Action | Transparent with hover amber-400 | Toggles category side drawer with Lenis scroll lock |
-| **View More Items Toggle** | Unified Cart Drawer | `rounded-xl` (12px) | Neutral-100, border neutral-200, hover neutral-200 | Expands cart items beyond initial 5-item display limit |
-| **Apply Coupon Button** | Unified Cart Drawer | `rounded-xl` (12px) | Solid dark `#131923`, text white, hover bg black | Applies valid promo code, triggers green sliding celebration banner |
-| **Remove Coupon Button** | Unified Cart Drawer | `rounded-lg` (8px) | Emerald-100, text emerald-700, hover bg red-50 hover text red-600 | Removes active coupon code and restores base cart pricing |
-| **Proceed to Checkout** | Unified Cart Drawer | `rounded-xl` (12px) | `.btn-wipe-yellow` (Yellow `#F5B800` to Dark wipe, text white) | Closes cart drawer and triggers 2-step Checkout Modal |
+| **View More Items Toggle** | Dedicated Cart Page (`/cart`) | `rounded-xl` (12px) | Neutral-100, border neutral-200, hover neutral-200 | Expands cart items beyond initial 5-item display limit |
+| **Apply Coupon Button** | Dedicated Cart Page (`/cart`) | `rounded-xl` (12px) | Solid dark `#131923`, text white, hover bg black | Applies valid promo code, triggers green sliding celebration banner |
+| **Remove Coupon Button** | Dedicated Cart Page (`/cart`) | `rounded-lg` (8px) | Emerald-100, text emerald-700, hover bg red-50 hover text red-600 | Removes active coupon code and restores base cart pricing |
+| **Proceed to Checkout** | Dedicated Cart Page (`/cart`) | `rounded-xl` (12px) | `.btn-wipe-yellow` (Yellow `#F5B800` to Dark wipe, text white) | Navigates user smoothly to Checkout Modal with prefilled cart payload |
 | **Continue to Payment** | Checkout Modal Step 1 | `rounded-xl` (12px) | `.btn-wipe-yellow` (Yellow `#F5B800` to Dark wipe, text white) | Validates Name, 10-digit Phone, Email & Address (max 500 chars) before moving to Step 2 |
 
 ---
@@ -63,11 +63,11 @@ A comprehensive design systems audit was conducted on the **TecnoMart Web Applic
 | **Product Image Viewer Card** | Product Detail Pages | `rounded-2xl` (16px) | Clean off-white surface with subtle border, zero visual box clutter (Recosto style) | High-fidelity image inspection and thumbnail switching |
 | **Hardware Spec Selector Card** | Product Detail Pages | `rounded-lg` (8px) | Unselected: white/border-200; Selected: solid black with gold pricing | Live config price update and component payload generation |
 | **Alternative Product Card** | Product Detail Pages | `rounded-xl` (12px) | Soft neutral `#f7f6f3` thumbnail container, hover neutral-50 | Cross-sells related configurations and models |
-| **Cart Item Row Card** | Unified Cart Drawer | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm, hover border-neutral-300 | Single-screen scrollable row with quantity increment/decrement (`- / +`) |
-| **Coupon Box Container** | Unified Cart Drawer | `rounded-2xl` (16px) | Neutral-50 / Emerald-50 background, border neutral-200/emerald-200 | Integrated coupon input with active applied pill and quick remove action |
-| **Price Summary Card** | Unified Cart Drawer | `rounded-2xl` (16px) | Neutral-50 surface, border neutral-200, subtotal, discount and total breakdown | Seamlessly integrated in unified scroll viewport above the CTA |
-| **Bottom Added-to-Cart Popup** | Global Toast Notification | `rounded-2xl` (16px) | Emerald green `#15803d` surface, border emerald-400/40, white text, drop-shadow-2xl | Floats above bottom viewport, auto-dismisses smoothly after ~1.5 seconds |
-| **Top Coupon Celebration Banner** | Cart Drawer Top Header | `rounded-xl` (12px) | Emerald-700 green background, white bold text with left-to-right animated slide | Displays `"Coupon code applied on this order"` across the cart header |
+| **Cart Item Row Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm, hover border-neutral-300 | Clean item row with product thumbnail, specs, quantity stepper (`- / +`), and trash action |
+| **Coupon Box Container** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm | Integrated coupon input with active applied pill, instant remove action, and suggestion link |
+| **Price Summary Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm | Clear breakdown of Subtotal, Coupon Savings, Hyderabad Express Delivery, and Total Payable |
+| **Bottom Added-to-Cart Popup** | Global Toast Notification | `rounded-2xl` (16px) | Emerald green `#15803d` surface, border emerald-400/40, white text, drop-shadow-2xl | Floats up from bottom viewport, auto-dismisses smoothly after ~1.5 seconds |
+| **Top Coupon Celebration Banner** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Emerald-700 green background, white bold text with left-to-right animated slide | Displays `"Coupon code applied on this order"` with active code pill and remove button |
 
 ---
 

@@ -26,6 +26,7 @@ import EmiCalculatorPage from './app/emi-calculator/page';
 import ExchangePage from './app/exchange/page';
 import CorporatePage from './app/corporate/page';
 import StudentsPage from './app/students/page';
+import CartPage from './app/cart/page';
 
 // Product detail dynamic routing
 import LaptopDetailClient from './app/laptops/[slug]/LaptopDetailClient';
@@ -108,13 +109,13 @@ export default function App() {
           <Route path="/exchange" element={<ExchangePage />} />
           <Route path="/corporate" element={<CorporatePage />} />
           <Route path="/students" element={<StudentsPage />} />
+          <Route path="/cart" element={<CartPage />} />
 
           {/* Catch-all to Home */}
           <Route path="*" element={<Page />} />
         </Routes>
 
         {/* Global Overlays & Widgets */}
-        <CartDrawer />
         <CheckoutModal />
         <RepairModal />
         <WishlistDrawer />

@@ -195,8 +195,8 @@ export function ShopProvider({ children }) {
       {/* Floating Bottom Green Popup ("X item added to cart") */}
       {cartPopup && (
         <div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 transform pointer-events-none"
-          style={{ animation: 'slideUpBounce 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 pointer-events-none"
+          style={{ animation: 'slideUpAndDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
         >
           <div className="bg-[#15803d] text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-400/40 pointer-events-auto">
             <div className="w-5 h-5 rounded-full bg-white text-[#15803d] flex items-center justify-center font-black text-xs shadow-xs">
