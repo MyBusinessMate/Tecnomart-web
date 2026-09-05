@@ -43,6 +43,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
   const [signInAlert, setSignInAlert] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState({}); // { [id]: boolean }
+
+  const toggleCategoryDropdown = (catId) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [catId]: !prev[catId],
+    }));
+  };
 
   // Refs for focus management and focus trapping
   const hamburgerBtnRef = useRef(null);
@@ -575,36 +583,76 @@ export default function Header() {
                   </button>
                 </div>
 
-                {/* 5 Minimal & Clean Main Categories with Subcategories */}
-                <div className="p-4 space-y-5">
-                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest block">
+                {/* 5 Minimal & Clean Main Departments with Smooth Accordion Dropdowns */}
+                <div className="p-4 space-y-2">
+                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest block mb-3">
                     Main Departments
                   </span>
 
-                  {sidebarCategories.map((cat) => (
-                    <div key={cat.id} className="space-y-1.5 pb-2 border-b border-neutral-100 last:border-0">
-                      <Link
-                        href={cat.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center justify-between font-black text-xs uppercase tracking-wider text-neutral-950 hover:text-amber-600 transition-colors py-1"
+                  {sidebarCategories.map((cat) => {
+                    const isExpanded = !!expandedCategories[cat.id];
+                    return (
+                      <div
+                        key={cat.id}
+                        className="rounded-2xl border border-neutral-100 overflow-hidden transition-all bg-neutral-50/50 hover:border-neutral-200"
                       >
-                        <span>{cat.title}</span>
-                        <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-                      </Link>
-                      <div className="pl-2 space-y-1">
-                        {cat.items.map((subItem) => (
+                        {/* Header Row: Clicking triggers smooth dropdown */}
+                        <div className="flex items-center justify-between p-3.5 hover:bg-neutral-100/60 transition-colors">
                           <Link
-                            key={subItem.name}
-                            href={subItem.href}
+                            href={cat.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="block text-[11px] font-semibold text-neutral-600 hover:text-neutral-950 hover:translate-x-1 transition-all py-1"
+                            className="font-black text-xs uppercase tracking-wider text-neutral-950 hover:text-amber-600 transition-colors flex-1"
                           >
-                            {subItem.name}
+                            {cat.title}
                           </Link>
-                        ))}
+                          
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              toggleCategoryDropdown(cat.id);
+                            }}
+                            className="p-1.5 rounded-xl hover:bg-neutral-200/60 text-neutral-500 hover:text-neutral-900 transition-all cursor-pointer flex items-center justify-center"
+                            aria-label={`Toggle ${cat.title} subcategories`}
+                          >
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                                isExpanded ? 'rotate-180 text-amber-500' : 'rotate-0'
+                              }`}
+                            />
+                          </button>
+                        </div>
+
+                        {/* Smooth Dropdown Content */}
+                        <AnimatePresence initial={false}>
+                          {isExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                              className="overflow-hidden bg-white border-t border-neutral-100"
+                            >
+                              <div className="p-3 space-y-1 pl-4">
+                                {cat.items.map((subItem) => (
+                                  <Link
+                                    key={subItem.name}
+                                    href={subItem.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center justify-between text-xs font-semibold text-neutral-600 hover:text-amber-600 hover:translate-x-1.5 py-2 px-2.5 rounded-lg hover:bg-neutral-50 transition-all"
+                                  >
+                                    <span>{subItem.name}</span>
+                                    <ChevronRight className="w-3.5 h-3.5 text-neutral-300" />
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
