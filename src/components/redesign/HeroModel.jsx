@@ -10,13 +10,13 @@
  * ─── QUICK-TUNE BLOCK ────────────────────────────────────────────────────────
  * Every value you might want to adjust lives here.
  */
-const EXPOSURE      = 1.1;    // §2  ACESFilmic brightness  — try 0.9 – 1.3
-const ENV_INTENSITY = 0.8;    // §3  IBL reflection strength — 0 = none, 2 = strong
-const KEY_INTENSITY = 2.0;    // §3  Key-light intensity
-const FILL_INTENSITY= 0.6;    // §3  Fill-light intensity (keeps dark PC case readable)
-const SHADOW_SIZE   = 2048;   // §4  Shadow map resolution (halve → 1024 to save GPU)
-const TARGET_SIZE   = 3.0;    // §6  World-unit size after auto-scale  (raise = bigger)
-const ZOOM_MARGIN   = 1.25;   // §6  Breathing room around model  (1.0 = tight, 1.5 = roomy)
+const EXPOSURE      = 1.15;   // §2  ACESFilmic brightness
+const ENV_INTENSITY = 0.9;    // §3  IBL reflection strength
+const KEY_INTENSITY = 2.2;    // §3  Key-light intensity
+const FILL_INTENSITY= 0.65;   // §3  Fill-light intensity
+const SHADOW_SIZE   = 2048;   // §4  Shadow map resolution
+const TARGET_SIZE   = 11.5;   // §6  World-unit size after auto-scale  (raise = bigger)
+const ZOOM_MARGIN   = 0.75;   // §6  Breathing room around model  (1.0 = tight, 1.5 = roomy)
 const CAMERA_FOV    = 36;     // §6  Perspective FOV in degrees
 /** ─────────────────────────────────────────────────────────────────────────── */
 
@@ -124,7 +124,7 @@ export default function HeroModel() {
       const renderer = new THREE.WebGLRenderer({
         canvas,
         antialias:       true,
-        alpha:           false,        // opaque white — better perf than alpha:true
+        alpha:           true,        // transparent background — no box container
         powerPreference: 'high-performance',
       });
 
@@ -147,9 +147,6 @@ export default function HeroModel() {
 
       // ── Scene ─────────────────────────────────────────────────────────────
       const scene = new THREE.Scene();
-      // Pure white background. scene.environment below supplies IBL reflections
-      // independently — the background does NOT become the env cube.
-      scene.background = new THREE.Color(0xffffff); // ← tune: 0xf5f5f5 for off-white
 
       // ── Camera ────────────────────────────────────────────────────────────
       const camera = new THREE.PerspectiveCamera(
@@ -200,15 +197,27 @@ export default function HeroModel() {
 
       // ── OrbitControls ─────────────────────────────────────────────────────
       const controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableDamping   = true;
-      controls.dampingFactor   = 0.05;
-      controls.enablePan       = false;    // product viewer — no panning
-      controls.maxPolarAngle   = Math.PI / 1.9; // prevent flipping under model
-      controls.autoRotate      = true;
-      controls.autoRotateSpeed = 0.8;      // ← tune: degrees/s
-      // min/maxDistance set after load relative to model's bounding sphere
-      controls.addEventListener('start', () => { controls.autoRotate = false; });
-      controls.addEventListener('end',   () => { controls.autoRotate = true;  });
+      controls.enableDamping     = true;
+      controls.dampingFactor     = 0.05;
+      controls.enablePan         = false;    // product viewer — no panning
+      controls.enableZoom        = false;    // DISABLE ZOOM IN / OUT COMPLETELY
+      controls.minPolarAngle     = Math.PI / 2.6; // keep front perspective
+      controls.maxPolarAngle     = Math.PI / 1.95; // prevent flipping under model
+      controls.minAzimuthAngle   = -(Math.PI * 7 / 18); // -70° (140° total front view arc)
+      controls.maxAzimuthAngle   =  (Math.PI * 7 / 18); // +70° (140° total front view arc)
+      controls.autoRotate        = false;    // Custom 140° back-and-forth oscillation handled in RAF loop
+
+      let isUserInteracting = false;
+      let oscillateDirection = 1; // 1 = right, -1 = left
+      const OSCILLATE_SPEED = 0.0035; // smooth rotation speed
+      const MIN_AZIMUTH = -(Math.PI * 7 / 18) * 0.95; // ~ -66.5° bounce point
+      const MAX_AZIMUTH =  (Math.PI * 7 / 18) * 0.95; // ~ +66.5° bounce point
+
+      controls.addEventListener('start', () => { isUserInteracting = true; });
+      controls.addEventListener('end',   () => { 
+        isUserInteracting = false; 
+        oscillateDirection = controls.getAzimuthalAngle() < 0 ? 1 : -1;
+      });
 
       // ── §6  Load GLB ──────────────────────────────────────────────────────
       const maxAniso = renderer.capabilities.getMaxAnisotropy();
@@ -261,11 +270,8 @@ export default function HeroModel() {
           const s = TARGET_SIZE / maxDim;
           gltf.scene.scale.setScalar(s);
 
-          // Step 3 — centre at origin.
-          //   After scale, each child's world pos = s × localPos.
-          //   Original centre world pos = s × center.
-          //   position = -(s × center) → world centre = 0.
-          gltf.scene.position.set(-center.x * s, -center.y * s, -center.z * s);
+          // Step 3 — centre at origin & offset vertically upside.
+          gltf.scene.position.set(-center.x * s, -center.y * s + (maxDim * s * 0.12), -center.z * s);
 
           // Step 4 — bounding sphere AFTER transforms → camera distance
           const sphere = new THREE.Sphere();
@@ -341,6 +347,23 @@ export default function HeroModel() {
       let rafId;
       (function animate() {
         rafId = requestAnimationFrame(animate);
+
+        if (!isUserInteracting) {
+          const currentAzimuth = controls.getAzimuthalAngle();
+          if (currentAzimuth >= MAX_AZIMUTH) {
+            oscillateDirection = -1;
+          } else if (currentAzimuth <= MIN_AZIMUTH) {
+            oscillateDirection = 1;
+          }
+
+          const polar = controls.getPolarAngle();
+          const radius = camera.position.distanceTo(controls.target);
+          const newAzimuth = currentAzimuth + oscillateDirection * OSCILLATE_SPEED;
+
+          camera.position.x = controls.target.x + radius * Math.sin(polar) * Math.sin(newAzimuth);
+          camera.position.z = controls.target.z + radius * Math.sin(polar) * Math.cos(newAzimuth);
+        }
+
         controls.update();
         renderer.render(scene, camera);
       })();
@@ -381,9 +404,7 @@ export default function HeroModel() {
   return (
     <div
       ref={containerRef}
-      // bg-white matches the renderer background so the placeholder
-      // looks identical to the final rendered frame.
-      className="w-full h-full relative touch-none select-none overflow-hidden bg-white"
+      className="w-full h-full relative touch-none select-none overflow-hidden bg-transparent"
     >
       {/* Canvas — always in DOM so Three.js has a target from mount.
           Opacity-0 until ready; fades in over 700 ms on model load. */}

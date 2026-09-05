@@ -40,7 +40,7 @@ export default function ScrollProgress() {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-neutral-900/90 text-amber-400 border border-neutral-700 shadow-xl flex items-center justify-center backdrop-blur-sm hover:bg-amber-500 hover:text-neutral-950 transition-all duration-300 hover:scale-110 active:scale-95 group"
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-midgrey-900/90 text-amber-400 border border-midgrey-700 shadow-xl flex items-center justify-center backdrop-blur-sm hover:bg-amber-500 hover:text-midgrey-950 transition-all duration-300 hover:scale-110 active:scale-95 group"
         >
           <ChevronUp className="w-5 h-5 stroke-[2.5] group-hover:-translate-y-0.5 transition-transform" />
         </button>

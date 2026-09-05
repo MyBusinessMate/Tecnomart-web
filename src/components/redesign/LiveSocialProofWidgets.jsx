@@ -140,7 +140,7 @@ export default function LiveSocialProofWidgets() {
                     href="https://instagram.com/tecnomart_hyd"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-950 hover:bg-neutral-800 text-amber-400 text-[11px] font-black uppercase tracking-wider transition-colors active:scale-95 cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 text-[11px] font-black uppercase tracking-wider transition-colors active:scale-95 cursor-pointer"
                   >
                     <span>Follow</span>
                     <ExternalLink className="w-3 h-3" />

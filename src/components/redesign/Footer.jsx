@@ -56,7 +56,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-black text-neutral-400 border-t border-neutral-800">
+    <footer className="relative overflow-hidden bg-midgrey-900 text-neutral-300 border-t border-midgrey-700/60">
       
       {/* Huge Subtle Emblem Watermark on Far-Right Background matching reference image */}
       <div className="absolute right-0 top-0 bottom-0 w-80 sm:w-96 flex items-center justify-end pr-4 pointer-events-none select-none opacity-15">
@@ -66,7 +66,7 @@ export default function Footer() {
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
 
         {/* 5-Column Grid: Brand | Shop | Help | Company | Stay Updated */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 pb-10 border-b border-neutral-800/80">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 pb-10 border-b border-midgrey-700/60">
 
           {/* Column 1: Brand + Description + Social Icons */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 space-y-4">

@@ -51,7 +51,7 @@ export default function PWASetup() {
 
   return (
     <div className="fixed bottom-20 left-4 right-4 z-40 lg:hidden animate-in slide-in-from-bottom-4 duration-300">
-      <div className="flex items-center gap-3 bg-neutral-950 text-white rounded-2xl px-4 py-3 shadow-2xl border border-neutral-800">
+      <div className="flex items-center gap-3 bg-midgrey-900 text-white rounded-2xl px-4 py-3 shadow-2xl border border-midgrey-700/60">
         <div className="flex-shrink-0">
           <Image
             src="/icon-maskable-192.png"

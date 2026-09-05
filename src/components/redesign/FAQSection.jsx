@@ -116,7 +116,7 @@ export default function FAQSection() {
 
         {/* Still have questions banner */}
         <BlurRevealBox delay={0.3} yOffset={20}>
-          <div className="mt-10 p-6 rounded-2xl bg-neutral-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 p-6 rounded-2xl bg-midgrey-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3.5">
               <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
                 <HelpCircle className="w-5 h-5" />

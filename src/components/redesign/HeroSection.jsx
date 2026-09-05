@@ -28,7 +28,7 @@ export default function HeroSection({ onOpenRepairModal }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-8 pb-10 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-16 border-b border-neutral-100">
+    <section className="relative overflow-hidden bg-white pt-2 pb-1 sm:pt-3 sm:pb-2 lg:pt-3 lg:pb-2">
       
       {/* Golden Background Geometric Watermark Lines (Left & Right) */}
       <div className="absolute top-0 left-0 bottom-0 w-48 sm:w-72 pointer-events-none select-none opacity-30">
@@ -51,26 +51,32 @@ export default function HeroSection({ onOpenRepairModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Column: Headlines & Subtitle */}
-          <div className="lg:col-span-6 flex flex-col justify-center space-y-4 sm:space-y-6 text-left">
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-3.5 sm:space-y-5 text-left">
             
+            {/* Premium Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-[11px] sm:text-xs font-bold tracking-wider uppercase max-w-fit shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              <span>Hyderabad's #1 Rated Tech &amp; Gaming Hub</span>
+            </div>
+
             {/* Hero Headline — single h1 for correct document outline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] uppercase space-y-1">
-              <span className="block text-neutral-950">YOUR TECH.</span>
-              <span className="block text-neutral-950">YOUR BUDGET.</span>
-              <span className="block text-[#D97706] sm:text-amber-500">YOUR RIGHT CHOICE.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1">
+              <span className="block text-neutral-950 drop-shadow-xs">YOUR TECH.</span>
+              <span className="block text-neutral-950 drop-shadow-xs">YOUR BUDGET.</span>
+              <span className="block bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent">YOUR RIGHT CHOICE.</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-lg text-neutral-700 font-medium leading-relaxed max-w-lg">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-700 font-medium leading-relaxed max-w-lg">
               Mobiles, Laptops, Gaming PCs &amp; Expert Repairs – <br className="hidden sm:inline" />
-              All under one roof.
+              All under one roof with official warranty.
             </p>
 
             {/* CTAs */}
             <div className="flex items-center gap-3 pt-2">
               <button
                 onClick={scrollToBudget}
-                className="min-h-[46px] inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md transition-all active:scale-98 cursor-pointer"
+                className="min-h-[48px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:from-amber-600 text-neutral-950 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 transition-all active:scale-98 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
                 <span>Tell Us Your Budget</span>
@@ -78,7 +84,7 @@ export default function HeroSection({ onOpenRepairModal }) {
 
               <button
                 onClick={onOpenRepairModal}
-                className="min-h-[46px] inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-neutral-950 border-2 border-neutral-900 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all active:scale-98 cursor-pointer"
+                className="min-h-[48px] inline-flex items-center justify-center gap-2 bg-white hover:bg-midgrey-900 hover:text-white text-neutral-950 border-2 border-midgrey-900 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-xs transition-all active:scale-98 cursor-pointer"
               >
                 <Wrench className="w-4 h-4" />
                 <span>Book a Repair</span>
@@ -88,16 +94,16 @@ export default function HeroSection({ onOpenRepairModal }) {
           </div>
 
           {/* Right Column: Interactive 3D Model */}
-          <div className="lg:col-span-6 relative flex items-center justify-center -mt-2 sm:-mt-6 py-2 sm:py-4">
+          <div className="lg:col-span-7 relative flex items-center justify-center -mt-4 sm:-mt-8 lg:-mt-12 py-1 sm:py-2">
             
             {/* Ambient Radial Backlight Glow */}
-            <div className="absolute w-80 h-80 sm:w-[540px] sm:h-[540px] bg-gradient-to-tr from-amber-500/20 via-amber-400/10 to-transparent rounded-full blur-3xl opacity-80 pointer-events-none -z-0" />
+            <div className="absolute w-96 h-96 sm:w-[700px] sm:h-[700px] bg-gradient-to-tr from-amber-500/25 via-amber-400/10 to-transparent rounded-full blur-3xl opacity-80 pointer-events-none -z-0" />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-full max-w-[780px] h-[380px] xs:h-[440px] sm:h-[500px] lg:h-[540px] flex items-center justify-center z-10"
+              className="relative w-full max-w-[1100px] h-[440px] xs:h-[500px] sm:h-[600px] lg:h-[680px] flex items-center justify-center z-10"
             >
               <HeroModel />
             </motion.div>

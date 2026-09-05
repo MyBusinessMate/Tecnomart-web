@@ -27,7 +27,7 @@ export default function WishlistDrawer() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setIsWishlistOpen(false)}
-            className="fixed inset-0 bg-neutral-950/60 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-midgrey-950/75 backdrop-blur-sm z-40"
           />
 
           {/* Drawer */}

@@ -54,7 +54,7 @@ export default function RepairModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-neutral-950/75 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-midgrey-950/75 backdrop-blur-sm animate-in fade-in duration-200">
       <div data-lenis-prevent className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-neutral-200 p-5 sm:p-8 animate-in zoom-in-95 duration-200">
 
         {/* Close Button */}
@@ -146,7 +146,7 @@ export default function RepairModal() {
                   onClick={() => setSelectedDate(d.index)}
                   className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
                     selectedDate === d.index
-                      ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                      ? 'bg-midgrey-900 text-amber-400 border-midgrey-900'
                       : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                   }`}
                 >
@@ -169,7 +169,7 @@ export default function RepairModal() {
                   onClick={() => setSelectedSlot(slot)}
                   className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer border ${
                     selectedSlot === slot
-                      ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                      ? 'bg-midgrey-900 text-amber-400 border-midgrey-900'
                       : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                   }`}
                 >

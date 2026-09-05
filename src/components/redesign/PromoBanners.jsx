@@ -62,7 +62,7 @@ export default function PromoBanners({ onOpenRepairModal }) {
               {/* Hand Holding Smartphone Cutout Image on Right Side */}
               <div className="absolute right-0 bottom-0 top-0 w-[45%] sm:w-[42%] flex items-end justify-end pointer-events-none pr-1">
                 <img
-                  src={ASSETS.repairHand}
+                  src="/images/landing/img-4.png"
                   alt="Expert Phone Repair"
                   className="w-full max-h-[210px] sm:max-h-[240px] object-contain object-bottom group-hover:scale-105 transition-transform duration-500 filter drop-shadow-md"
                 />
@@ -121,7 +121,7 @@ export default function PromoBanners({ onOpenRepairModal }) {
               {/* Laptop Cutout Image on Right Side */}
               <div className="absolute right-0 bottom-0 top-0 w-[45%] sm:w-[42%] flex items-center justify-end pointer-events-none pr-2">
                 <img
-                  src={ASSETS.heroLaptop}
+                  src="/images/landing/img-11.png"
                   alt="Refurbished Laptop Deals"
                   className="w-full max-h-[180px] sm:max-h-[210px] object-contain group-hover:scale-105 transition-transform duration-500 filter drop-shadow-md"
                 />

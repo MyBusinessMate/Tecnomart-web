@@ -5,33 +5,35 @@ export const ASSETS = {
   logoGold: "/logo.png",
   logoFull: "/tecnomart-logo.png",
 
-  // Hero Pedestal Products (High-res transparent cutouts from public/)
-  heroPc: "/bento-grid-images/pc.png",
-  heroLaptop: "/bento-grid-images/mackbook.png",
-  heroPhone: "/bento-grid-images/samsungs24.png",
+  // Hero Pedestal Products (High-res transparent cutouts)
+  heroPc: "/images/landing/img-15.png",
+  heroLaptop: "/images/landing/img-20.png",
+  heroPhone: "/images/landing/img-16.png",
 
-  // Category Visuals (Clean transparent PNGs)
-  catMobile: "/bento-grid-images/samsungs24.png",
-  catLaptop: "/bento-grid-images/mackbook.png",
-  catGamingPc: "/bento-grid-images/pc.png",
-  catAccessories: "/bento-grid-images/headsetoverthehead.png",
+  // Category Visuals (Clean high-res PNGs)
+  catMobile: "/images/landing/img-16.png",
+  catLaptop: "/images/landing/img-5.png",
+  catGamingPc: "/images/landing/img-1.png",
+  catRefurbished: "/images/landing/img-11.png",
+  catRepairs: "/images/landing/img-4.png",
+  catAccessories: "/images/landing/img-10.png",
 
   // Gaming Banner Visuals
-  gamingBannerPc: "/white-setup.jpg",
-  blackCabinet: "/black-cabinet.png",
-  whiteCabinet: "/white-cabinet.png",
+  gamingBannerPc: "/images/landing/img-1.png",
+  blackCabinet: "/images/landing/img-14.png",
+  whiteCabinet: "/images/landing/img-15.png",
 
-  // Popular Picks Products (High-res PNG cutouts)
-  productSmartwatch: "/bento-grid-images/headsetoverthehead.png",
-  productHeadphones: "/bento-grid-images/headsetoverthehead.png",
-  productGpu: "/GPU-4050.png",
-  productGamingLaptop: "/bento-grid-images/mackbook.png",
-  productIphone15: "/bento-grid-images/samsungs24.png",
+  // Popular Picks Products
+  productSmartwatch: "/images/landing/img-8.png",
+  productHeadphones: "/images/landing/img-6.png",
+  productGpu: "/images/landing/img-3.png",
+  productGamingLaptop: "/images/landing/img-9.png",
+  productIphone15: "/images/landing/img-12.png",
 
   // Highlight Promo Cards
-  refurbishedLaptop: "/bento-grid-images/mackbook.png",
-  repairHand: "/bento-grid-images/samsungs24.png",
-  repairTechnician: "/bento-grid-images/samsungs24.png",
+  refurbishedLaptop: "/images/landing/img-11.png",
+  repairHand: "/images/landing/img-4.png",
+  repairTechnician: "/images/landing/img-4.png",
 
   // Brand SVG Logos
   svgApple: "/svg/apple.svg",
@@ -79,15 +81,15 @@ export const CATEGORIES = [
     id: "refurbished",
     name: "Refurbished",
     subtitle: "Smart Savings",
-    iconType: "refurbished",
-    isImage: false,
+    image: ASSETS.catRefurbished,
+    isImage: true,
   },
   {
     id: "repairs",
     name: "Repairs",
     subtitle: "Fast & Reliable",
-    iconType: "repairs",
-    isImage: false,
+    image: ASSETS.catRepairs,
+    isImage: true,
   },
   {
     id: "accessories",

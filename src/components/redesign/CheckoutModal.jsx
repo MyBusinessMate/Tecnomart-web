@@ -112,18 +112,18 @@ export default function CheckoutModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
-          onClick={handleClose}
+          className="fixed inset-0 z-50 bg-midgrey-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+          onClick={() => setIsCheckoutOpen(false)}
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-neutral-200 my-auto"
+            className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-neutral-950 text-white p-4 sm:p-5 flex items-center justify-between">
+            <div className="bg-midgrey-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-amber-500 text-neutral-950 flex items-center justify-center font-black text-sm">
                   {step}
@@ -366,7 +366,7 @@ export default function CheckoutModal() {
 
                   {/* Payment Details Container */}
                   {paymentMethod === 'upi' && (
-                    <div className="p-4 bg-neutral-900 text-white rounded-2xl text-center space-y-2">
+                    <div className="p-4 bg-midgrey-800 text-white rounded-2xl text-center space-y-2">
                       <span className="text-xs font-bold text-amber-400 block uppercase tracking-wider">
                         Scan QR Code with any UPI App
                       </span>
@@ -496,7 +496,7 @@ export default function CheckoutModal() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={handlePrint}
-                    className="flex-1 min-h-[46px] bg-neutral-950 hover:bg-neutral-800 text-amber-400 font-black text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="flex-1 min-h-[46px] bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 font-black text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Printer className="w-4 h-4" />
                     <span>Print Tax Invoice / Receipt</span>

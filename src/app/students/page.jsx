@@ -69,7 +69,7 @@ export default function StudentsPage() {
           </nav>
 
           <BlurRevealBox>
-            <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
+            <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
                 <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
@@ -209,7 +209,7 @@ export default function StudentsPage() {
         {/* Bottom CTA */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-16">
           <BlurRevealBox delay={0.1}>
-            <div className="bg-neutral-950 rounded-2xl border border-neutral-800 p-8 sm:p-10 relative overflow-hidden text-center">
+            <div className="bg-midgrey-900 rounded-2xl border border-midgrey-700/60 p-8 sm:p-10 relative overflow-hidden text-center">
               <div className="absolute inset-0 bg-amber-500/5 pointer-events-none" />
               <div className="relative z-10">
                 <div className="text-4xl mb-4">🎓</div>

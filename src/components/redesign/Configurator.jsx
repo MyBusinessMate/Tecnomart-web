@@ -254,7 +254,7 @@ export default function Configurator() {
                   type="button"
                   onClick={() => setViewMode('guided')}
                   className={`px-3 py-1 rounded-lg transition-all ${
-                    viewMode === 'guided' ? 'bg-neutral-950 text-amber-400' : 'text-neutral-600 hover:text-neutral-950'
+                    viewMode === 'guided' ? 'bg-midgrey-900 text-amber-400' : 'text-neutral-600 hover:text-neutral-950'
                   }`}
                 >
                   Step Walkthrough
@@ -263,7 +263,7 @@ export default function Configurator() {
                   type="button"
                   onClick={() => setViewMode('matrix')}
                   className={`px-3 py-1 rounded-lg transition-all ${
-                    viewMode === 'matrix' ? 'bg-neutral-950 text-amber-400' : 'text-neutral-600 hover:text-neutral-950'
+                    viewMode === 'matrix' ? 'bg-midgrey-900 text-amber-400' : 'text-neutral-600 hover:text-neutral-950'
                   }`}
                 >
                   Full Build Matrix
@@ -561,7 +561,7 @@ export default function Configurator() {
             <div className="space-y-5">
               
               {/* Architecture Switcher Banner (Always available) */}
-              <div className="bg-neutral-950 text-white rounded-2xl p-4 sm:p-5 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-md">
+              <div className="bg-midgrey-900 text-white rounded-2xl p-4 sm:p-5 border border-midgrey-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-md">
                 <div className="flex items-center gap-3">
                   <div className={`w-3 h-3 rounded-full ${buildState.platform === 'Intel' ? 'bg-blue-500' : 'bg-red-500'} animate-pulse`} />
                   <div>
@@ -602,7 +602,7 @@ export default function Configurator() {
                             onClick={() => setActiveStepTab(stepKey)}
                             className={`min-h-[36px] px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
                               isCurrent
-                                ? 'bg-neutral-950 text-amber-400 shadow-xs'
+                                ? 'bg-midgrey-900 text-amber-400 shadow-xs'
                                 : isPicked
                                 ? 'bg-neutral-100 hover:bg-neutral-200 text-neutral-800'
                                 : 'bg-neutral-50 text-neutral-400'
@@ -899,7 +899,7 @@ export default function Configurator() {
             RIGHT COLUMN: STICKY DESKTOP BUILD SUMMARY SIDEBAR
            ======================================================== */}
         <div className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
-          <div className="bg-neutral-950 text-white rounded-3xl p-6 sm:p-7 border border-neutral-800 shadow-2xl space-y-5">
+          <div className="bg-midgrey-900 text-white rounded-3xl p-6 sm:p-7 border border-midgrey-700/60 shadow-2xl space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
               <span className="text-xs font-black tracking-widest text-amber-400 uppercase">
                 RIG CONFIGURATION
@@ -910,7 +910,7 @@ export default function Configurator() {
             </div>
 
             {/* Wattage & PSU Check Gauge */}
-            <div className="p-3.5 bg-neutral-900 rounded-2xl border border-neutral-800 space-y-1.5">
+            <div className="p-3.5 bg-midgrey-800 rounded-2xl border border-midgrey-700/60 space-y-1.5">
               <div className="flex items-center justify-between text-xs font-bold">
                 <span className="text-neutral-400 flex items-center gap-1.5">
                   <Zap className="w-3.5 h-3.5 text-amber-400" />
@@ -985,7 +985,7 @@ export default function Configurator() {
 
       {/* MOBILE STICKY FLOATING BOTTOM BAR */}
       <div
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-xl border-t border-neutral-800 p-3.5 shadow-2xl"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-midgrey-950/95 backdrop-blur-xl border-t border-midgrey-700/60 p-3.5 shadow-2xl"
         style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
       >
         <div className="flex items-center justify-between gap-3 max-w-lg mx-auto">

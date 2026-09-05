@@ -18,9 +18,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Delivered within 3 to 4 hours in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty with sealed tax invoice",
     images: [
-      "/bento-grid-images/samsungs24.png",
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80",
+      "/images/mobiles/img-1.png",
+      "/images/mobiles/img-6.png",
     ],
     colors: [
       { name: "Desert Titanium", hex: "#C7B39B" },
@@ -93,9 +92,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Doorstep Delivery across Hyderabad",
     warrantyPeriod: "1 Year Official Samsung India Warranty + 7 Years OS Updates",
     images: [
-      "/bento-grid-images/samsungs24.png",
-      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80",
+      "/images/mobiles/img-2.png",
+      "/images/mobiles/img-5.png",
     ],
     colors: [
       { name: "Titanium Gray", hex: "#77767B" },
@@ -272,8 +270,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
-      "/bento-grid-images/samsungs24.png",
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80",
+      "/images/mobiles/img-3.png",
+      "/images/mobiles/img-1.png",
     ],
     colors: [
       { name: "Black", hex: "#2E3033" },
@@ -319,8 +317,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Samsung India Warranty + 1 Year Screen Protection",
     images: [
-      "/bento-grid-images/samsungs24.png",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1000&q=80",
+      "/images/mobiles/img-6.png",
+      "/images/mobiles/img-2.png",
     ],
     colors: [
       { name: "Silver Shadow", hex: "#C2C3C7" },
@@ -368,9 +366,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad with Free Onsite Setup",
     warrantyPeriod: "1 Year Official Apple India Warranty (Extendable via AppleCare+)",
     images: [
-      "/bento-grid-images/mackbook.png",
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=80",
+      "/images/laptops/img-1.png",
+      "/images/laptops/img-7.png",
     ],
     colors: [
       { name: "Space Black", hex: "#2E2F33" },
@@ -433,8 +430,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Official ASUS Global Warranty + 1 Year Damage Protection",
     images: [
-      "/bento-grid-images/mackbook.png",
-      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1000&q=80",
+      "/images/laptops/img-2.png",
+      "/images/laptops/img-8.png",
     ],
     colors: [
       { name: "Eclipse Gray", hex: "#3B3D40" },
@@ -494,8 +491,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Dell Onsite ProSupport",
     images: [
-      "/bento-grid-images/mackbook.png",
-      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80",
+      "/images/laptops/img-3.png",
+      "/images/laptops/img-9.png",
     ],
     colors: [
       { name: "Platinum Silver", hex: "#D6D7D9" },
@@ -786,7 +783,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "3 Years Dell Premium Panel Exchange Warranty with Burn-In Coverage",
     images: [
-      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=80",
+      "/images/accessories/img-1.png",
+      "/images/accessories/img-2.png",
     ],
     keyHighlights: [
       "32-inch 4K (3840x2160) QD-OLED curved panel with 240Hz refresh rate",
@@ -822,7 +820,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "2 Years Logitech Official Warranty",
     images: [
-      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=1000&q=80",
+      "/images/accessories/img-10.png",
+      "/images/accessories/img-6.png",
     ],
     keyHighlights: [
       "Weighs only 60 grams — ideal for quick flick shots in Valorant and CS2",
@@ -861,8 +860,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day Doorstep Delivery in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Direct Replacement Warranty + 7 Days Trial",
     images: [
-      "/bento-grid-images/mackbook.png",
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80",
+      "/images/refurbished/img-1.png",
+      "/images/refurbished/img-2.png",
     ],
     keyHighlights: [
       "Grade A+ condition — zero scratches on body or screen, tested 100% functional",
@@ -905,7 +904,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Warranty",
     images: [
-      "/bento-grid-images/samsungs24.png",
+      "/images/refurbished/img-3.png",
+      "/images/refurbished/img-4.png",
     ],
     keyHighlights: [
       "100% original display and chassis — zero aftermarket replacements",

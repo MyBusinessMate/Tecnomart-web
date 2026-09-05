@@ -11,18 +11,18 @@ export default function GamingBanner() {
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
 
         {/* Solid Dark Banner Container matching reference screenshot */}
-        <div className="relative rounded-3xl overflow-hidden bg-black min-h-[280px] sm:min-h-[320px] flex items-center shadow-2xl border border-neutral-900">
+        <div className="relative rounded-3xl overflow-hidden bg-midgrey-900 min-h-[280px] sm:min-h-[320px] flex items-center shadow-2xl border border-midgrey-700/60">
           
           {/* Background Gaming Setup Image */}
           <div
             className="absolute inset-0 opacity-40 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/white-setup.jpg')`,
+              backgroundImage: `url('/images/landing/img-1.png')`,
             }}
           />
 
           {/* Dark Overlay (Left dark → Right dark) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-midgrey-950 via-midgrey-900/90 to-midgrey-800/90" />
 
           {/* Left Side Gold Chevron Geometric Accents */}
           <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 flex items-center justify-start pl-3 pointer-events-none select-none opacity-80">
@@ -45,11 +45,11 @@ export default function GamingBanner() {
             
             {/* Left Column: Gaming Setup with Logo Emblem Watermark */}
             <div className="lg:col-span-6 hidden lg:flex items-center justify-center relative">
-              <div className="relative w-full max-w-md aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950 flex items-center justify-center p-2">
+              <div className="relative w-full max-w-md aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
                 <img
-                  src="/black-setup.jpg"
+                  src="/images/landing/img-1.png"
                   alt="Gold ARGB Gaming Rig"
-                  className="w-full h-full object-cover rounded-xl opacity-90"
+                  className="w-full h-full object-contain rounded-xl opacity-95"
                 />
                 {/* Logo Emblem Watermark on Monitor Screen */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

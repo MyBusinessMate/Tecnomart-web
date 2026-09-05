@@ -29,7 +29,7 @@ export default function DealOfTheDay() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 bg-neutral-950 text-white relative overflow-hidden">
+    <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-midgrey-900 text-white relative overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full filter blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none" />
@@ -37,7 +37,7 @@ export default function DealOfTheDay() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Banner Header with aligned flex items */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-neutral-800/80">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-midgrey-700/60">
           <div>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-black uppercase tracking-wider mb-2">
               <Flame className="w-4 h-4 fill-current text-red-500 animate-pulse" />
@@ -49,7 +49,7 @@ export default function DealOfTheDay() {
           </div>
 
           {/* Countdown Clock Box */}
-          <div className="flex items-center gap-3 bg-neutral-900/90 border border-amber-500/30 px-5 py-3 rounded-2xl shadow-lg">
+          <div className="flex items-center gap-3 bg-midgrey-800/90 border border-amber-500/30 px-5 py-3 rounded-2xl shadow-lg">
             <Clock className="w-5 h-5 text-amber-400 flex-shrink-0 animate-spin-slow" aria-hidden="true" />
             <span className="text-xs font-extrabold text-neutral-300 uppercase tracking-wider">Ends in:</span>
             <div
@@ -58,15 +58,15 @@ export default function DealOfTheDay() {
               aria-label={`${String(timeLeft.hours).padStart(2, '0')} hours ${String(timeLeft.minutes).padStart(2, '0')} minutes ${String(timeLeft.seconds).padStart(2, '0')} seconds remaining`}
               className="flex items-center gap-1.5 font-black text-amber-400 text-lg sm:text-xl"
             >
-              <span aria-hidden="true" className="bg-neutral-950 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
+              <span aria-hidden="true" className="bg-midgrey-900 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
                 {String(timeLeft.hours).padStart(2, '0')}
               </span>
               <span aria-hidden="true" className="text-amber-500 animate-pulse">:</span>
-              <span aria-hidden="true" className="bg-neutral-950 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
+              <span aria-hidden="true" className="bg-midgrey-900 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
                 {String(timeLeft.minutes).padStart(2, '0')}
               </span>
               <span aria-hidden="true" className="text-amber-500 animate-pulse">:</span>
-              <span aria-hidden="true" className="bg-neutral-950 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
+              <span aria-hidden="true" className="bg-midgrey-900 px-2.5 py-1 rounded-lg border border-amber-500/40 text-amber-400 font-mono shadow-inner">
                 {String(timeLeft.seconds).padStart(2, '0')}
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function DealOfTheDay() {
         </div>
 
         {/* Featured Deal Card */}
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-2xl">
+        <div className="bg-midgrey-800/90 border border-midgrey-700/60 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-2xl">
           
           {/* Left Column: Image */}
           <div className="lg:col-span-5 relative group">
@@ -82,13 +82,13 @@ export default function DealOfTheDay() {
               {dealProduct.discountPercent}
             </div>
 
-            <div className="relative w-full aspect-[4/3] bg-neutral-950 rounded-2xl p-6 flex items-center justify-center overflow-hidden border border-neutral-800/80 shadow-inner">
+            <div className="relative w-full aspect-[4/3] bg-midgrey-900 rounded-2xl p-6 flex items-center justify-center overflow-hidden border border-midgrey-700/60 shadow-inner">
               <Image
-                src={dealProduct.images[0]}
+                src="/images/landing/img-20.png"
                 alt={dealProduct.name}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain p-6 group-hover:scale-108 transition-transform duration-500"
+                className="object-contain p-4 group-hover:scale-108 transition-transform duration-500"
               />
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function DealOfTheDay() {
                 </span>
                 <span className="text-neutral-400 uppercase">Limited Stock</span>
               </div>
-              <div className="w-full h-3 bg-neutral-950 rounded-full overflow-hidden border border-neutral-800">
+              <div className="w-full h-3 bg-midgrey-900 rounded-full overflow-hidden border border-midgrey-700/60">
                 <div className="h-full bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 rounded-full w-[84%]" />
               </div>
             </div>

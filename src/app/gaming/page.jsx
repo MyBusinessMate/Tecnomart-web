@@ -127,7 +127,7 @@ export default function GamingPage() {
             </nav>
 
             {/* Department Hero Banner */}
-            <div className="rounded-3xl bg-neutral-950 overflow-hidden mb-8 relative border border-neutral-800 shadow-2xl">
+            <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/30 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
@@ -182,7 +182,7 @@ export default function GamingPage() {
                     <div className="group h-full bg-white rounded-2xl border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden">
 
                       {/* Image with dark overlay */}
-                      <div className="w-full aspect-[16/9] bg-neutral-950 flex items-center justify-center p-4 overflow-hidden relative">
+                      <div className="w-full aspect-[16/9] bg-midgrey-900 flex items-center justify-center p-4 overflow-hidden relative">
                         <img
                           src={rig.image}
                           alt={rig.name}

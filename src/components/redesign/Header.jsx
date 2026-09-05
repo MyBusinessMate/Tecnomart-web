@@ -480,7 +480,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex justify-start"
+            className="fixed inset-0 z-50 bg-midgrey-950/75 backdrop-blur-xs flex justify-start"
             onClick={() => setMobileMenuOpen(false)}
           >
             <motion.div
@@ -496,7 +496,7 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <div>
-                <div className="bg-[#232f3e] text-white p-4 flex items-center justify-between">
+                <div className="bg-midgrey-900 text-white p-4 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <User className="w-5 h-5 text-amber-400" />
                     <span className="font-black text-sm uppercase">Hello, Customer</span>
@@ -567,7 +567,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 text-neutral-900"
+            className="fixed inset-0 z-50 bg-midgrey-950/75 backdrop-blur-xs flex items-center justify-center p-4 text-neutral-900"
             onClick={() => setPincodeModalOpen(false)}
           >
             <motion.div
@@ -609,7 +609,7 @@ export default function Header() {
                 />
                 <button
                   type="submit"
-                  className="w-full h-11 bg-neutral-950 hover:bg-neutral-800 text-amber-400 font-black text-xs uppercase rounded-xl shadow-md"
+                  className="w-full h-11 bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 font-black text-xs uppercase rounded-xl shadow-md"
                 >
                   Update Pincode
                 </button>

@@ -35,7 +35,7 @@ export default function AboutPage() {
             </nav>
 
             {/* Hero Banner */}
-            <div className="rounded-3xl bg-neutral-950 overflow-hidden mb-8 relative border border-neutral-800 shadow-2xl">
+            <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/25 via-transparent to-transparent pointer-events-none" />
               <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
                 <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-amber-400 uppercase">
@@ -117,7 +117,7 @@ export default function AboutPage() {
             </div>
 
             {/* Core Values */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-neutral-950 text-white border border-neutral-800 shadow-xl">
+            <div className="p-6 sm:p-10 rounded-3xl bg-midgrey-900 text-white border border-midgrey-700/60 shadow-xl">
               <h3 className="text-base sm:text-xl font-black text-center uppercase tracking-tight text-white mb-7">
                 Our 4 Pillar Guarantee
               </h3>

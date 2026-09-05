@@ -12,7 +12,7 @@ export default function WhatsAppWidget() {
     <div className="fixed bottom-20 right-4 lg:bottom-8 lg:right-6 z-50 group">
       {/* Tooltip */}
       <div className="absolute right-16 bottom-1 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-        <div className="bg-neutral-950 text-white rounded-xl px-3 py-2 shadow-xl whitespace-nowrap">
+        <div className="bg-midgrey-900 text-white rounded-xl px-3 py-2 shadow-xl whitespace-nowrap">
           <p className="text-xs font-semibold">Chat with TecnoMart ↗</p>
           <p className="text-neutral-400 text-[10px] mt-0.5">Typically replies in minutes</p>
         </div>

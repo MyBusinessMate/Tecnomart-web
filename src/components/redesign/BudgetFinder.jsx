@@ -47,8 +47,8 @@ export default function BudgetFinder() {
     <section id="budget-finder" className="py-8 sm:py-12 bg-white">
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
 
-        {/* Solid Black Card container matching reference screenshot */}
-        <div className="bg-black rounded-3xl px-6 py-8 sm:px-10 sm:py-10 shadow-2xl">
+        {/* Solid Mid Grey Card container matching reference theme */}
+        <div className="bg-midgrey-900 rounded-3xl px-6 py-8 sm:px-10 sm:py-10 shadow-2xl border border-midgrey-700/60">
 
           {/* Title: BUDGET BATAO. BEST OPTION PAO. */}
           <div className="text-center mb-7 sm:mb-8">
@@ -108,7 +108,7 @@ export default function BudgetFinder() {
                 type="submit"
                 className="flex-shrink-0 h-12 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl px-6 flex items-center justify-center gap-2.5 transition-all cursor-pointer active:scale-98 whitespace-nowrap shadow-lg shadow-amber-500/20"
               >
-                <div className="w-5 h-5 rounded-full bg-neutral-950 text-amber-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-5 h-5 rounded-full bg-midgrey-950 text-amber-500 flex items-center justify-center flex-shrink-0">
                   <MessageCircle className="w-3.5 h-3.5 fill-current" />
                 </div>
                 <span>TELL US ON WHATSAPP</span>

@@ -44,7 +44,7 @@ export default function CartDrawer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-end"
+          className="fixed inset-0 z-50 bg-midgrey-950/75 backdrop-blur-xs flex justify-end"
           onClick={() => setIsCartOpen(false)}
         >
           <motion.div
@@ -56,7 +56,7 @@ export default function CartDrawer() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="p-4 sm:p-5 border-b border-neutral-200 flex items-center justify-between bg-neutral-900 text-white">
+            <div className="p-4 sm:p-5 border-b border-neutral-200 flex items-center justify-between bg-midgrey-900 text-white">
               <div className="flex items-center gap-2">
                 <ShoppingBag className="w-5 h-5 text-amber-400" />
                 <h2 className="text-base sm:text-lg font-black uppercase tracking-wider">
@@ -104,7 +104,7 @@ export default function CartDrawer() {
                   </p>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="mt-6 px-6 py-2.5 bg-neutral-950 text-amber-400 font-black text-xs uppercase rounded-xl shadow-md hover:bg-neutral-800 transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 bg-midgrey-900 text-amber-400 font-black text-xs uppercase rounded-xl shadow-md hover:bg-midgrey-800 transition-all cursor-pointer"
                   >
                     Start Shopping
                   </button>
@@ -189,7 +189,7 @@ export default function CartDrawer() {
                     </div>
                     <button
                       type="submit"
-                      className="px-3.5 h-9 bg-neutral-950 hover:bg-neutral-800 text-amber-400 font-bold text-xs rounded-xl uppercase tracking-wider transition-colors cursor-pointer"
+                      className="px-3.5 h-9 bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 font-bold text-xs rounded-xl uppercase tracking-wider transition-colors cursor-pointer"
                     >
                       Apply
                     </button>
