@@ -68,13 +68,19 @@ export function ShopProvider({ children }) {
         // Item is already in cart. Multiple products of the same product must be adjusted via the cart section
         return prevCart;
       } else {
-        const priceToUse = selectedConfig?.rawPrice || product.rawPrice || 0;
-        const displayPrice = selectedConfig?.price || product.price || '₹0';
+        const priceToUse = selectedConfig?.rawPrice || product.rawPrice || (typeof product.price === 'number' ? product.price : (parseInt(String(product.price || '0').replace(/[^0-9]/g, ''), 10) || 0));
+        const displayPrice = selectedConfig?.price || product.price || `₹${priceToUse.toLocaleString('en-IN')}`;
+        const itemImage = product.images?.[0] || product.image || product.images || '/bento-grid-images/mackbook.png';
+        const itemName = product.name || 'Product';
+
         return [
           ...prevCart,
           {
             cartItemId,
             product,
+            name: itemName,
+            image: itemImage,
+            price: priceToUse,
             quantity: 1, // Only 1 item added initially; multiple quantities can be changed via cart section via + option
             selectedConfig,
             selectedColor,
@@ -149,13 +155,21 @@ export function ShopProvider({ children }) {
   };
 
   // Calculations
-  const cartSubtotal = cart.reduce((acc, item) => acc + item.unitPrice * item.quantity, 0);
+  const cartSubtotal = cart.reduce((acc, item) => {
+    const price = typeof item.price === 'number' && !isNaN(item.price) && item.price > 0
+      ? item.price
+      : (typeof item.unitPrice === 'number' && !isNaN(item.unitPrice) && item.unitPrice > 0
+        ? item.unitPrice
+        : (item.product?.rawPrice || (parseInt(String(item.product?.price || '0').replace(/[^0-9]/g, ''), 10) || 0)));
+    const qty = item.quantity || 1;
+    return acc + price * qty;
+  }, 0);
   const discountAmount = appliedCoupon?.discountPercent
     ? Math.round((cartSubtotal * appliedCoupon.discountPercent) / 100)
     : 0;
   const shippingFee = cartSubtotal > 49999 || appliedCoupon?.freeDelivery ? 0 : 499;
   const totalPayable = Math.max(0, cartSubtotal - discountAmount + (cartSubtotal > 0 ? shippingFee : 0));
-  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const cartCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   return (
     <ShopContext.Provider

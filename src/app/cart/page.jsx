@@ -176,28 +176,38 @@ export default function CartPage() {
                   </div>
 
                   <div className="divide-y divide-neutral-100">
-                    {visibleItems.map((item) => (
-                      <div
-                        key={item.cartItemId}
-                        className="py-5 first:pt-0 last:pb-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors"
-                      >
-                        {/* Thumbnail & Title */}
-                        <div className="flex items-center gap-4 flex-1 min-w-0">
-                          <div className="w-20 h-20 sm:w-22 sm:h-22 bg-neutral-50 border border-neutral-200/80 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center p-2">
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              className="w-full h-full object-contain mix-blend-multiply"
-                              onError={(e) => {
-                                e.target.src = 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80';
-                              }}
-                            />
-                          </div>
+                    {visibleItems.map((item) => {
+                      const itemName = item.name || item.product?.name || 'Selected Tech Product';
+                      const itemImg = item.image || item.product?.images?.[0] || item.product?.image || item.product?.images || '/bento-grid-images/mackbook.png';
+                      const unitPrice = typeof item.price === 'number' && !isNaN(item.price) && item.price > 0
+                        ? item.price
+                        : (typeof item.unitPrice === 'number' && !isNaN(item.unitPrice) && item.unitPrice > 0
+                          ? item.unitPrice
+                          : (item.product?.rawPrice || (parseInt(String(item.product?.price || '0').replace(/[^0-9]/g, ''), 10) || 0)));
+                      const itemQty = item.quantity || 1;
 
-                          <div className="min-w-0 flex-1">
-                            <h3 className="font-bold text-base text-neutral-950 truncate hover:text-amber-600 transition-colors">
-                              {item.name}
-                            </h3>
+                      return (
+                        <div
+                          key={item.cartItemId || item.id || Math.random()}
+                          className="py-5 first:pt-0 last:pb-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors"
+                        >
+                          {/* Thumbnail & Title */}
+                          <div className="flex items-center gap-4 flex-1 min-w-0">
+                            <div className="w-20 h-20 sm:w-22 sm:h-22 bg-neutral-50 border border-neutral-200/80 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center p-2">
+                              <img
+                                src={itemImg}
+                                alt={itemName}
+                                className="w-full h-full object-contain mix-blend-multiply"
+                                onError={(e) => {
+                                  e.target.src = 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80';
+                                }}
+                              />
+                            </div>
+
+                            <div className="min-w-0 flex-1">
+                              <h3 className="font-bold text-base text-neutral-950 truncate hover:text-amber-600 transition-colors">
+                                {itemName}
+                              </h3>
                             
                             {/* Selected configuration or color */}
                             {(item.selectedConfig || item.selectedColor) && (
@@ -216,7 +226,7 @@ export default function CartPage() {
                             )}
 
                             <div className="text-xs font-bold text-neutral-400 mt-1 sm:hidden">
-                              Unit Price: ₹{item.price.toLocaleString('en-IN')}
+                              Unit Price: ₹{unitPrice.toLocaleString('en-IN')}
                             </div>
                           </div>
                         </div>
@@ -226,17 +236,17 @@ export default function CartPage() {
                           {/* Stepper (+ / -) */}
                           <div className="flex items-center border border-neutral-200 rounded-xl bg-neutral-50/80 p-1">
                             <button
-                              onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
+                              onClick={() => updateQuantity(item.cartItemId, itemQty - 1)}
                               className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-neutral-200/80 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:scale-95 transition-all cursor-pointer"
                               aria-label="Decrease quantity"
                             >
                               <Minus className="w-3.5 h-3.5" />
                             </button>
                             <span className="w-10 text-center font-black text-sm text-neutral-950">
-                              {item.quantity}
+                              {itemQty}
                             </span>
                             <button
-                              onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
+                              onClick={() => updateQuantity(item.cartItemId, itemQty + 1)}
                               className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-neutral-200/80 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:scale-95 transition-all cursor-pointer"
                               aria-label="Increase quantity"
                             >
@@ -247,11 +257,11 @@ export default function CartPage() {
                           {/* Line Total */}
                           <div className="text-right min-w-[100px]">
                             <div className="font-extrabold text-base text-neutral-950">
-                              ₹{(item.price * item.quantity).toLocaleString('en-IN')}
+                              ₹{(unitPrice * itemQty).toLocaleString('en-IN')}
                             </div>
-                            {item.quantity > 1 && (
+                            {itemQty > 1 && (
                               <div className="text-[11px] text-neutral-400 font-semibold">
-                                ₹{item.price.toLocaleString('en-IN')} each
+                                ₹{unitPrice.toLocaleString('en-IN')} each
                               </div>
                             )}
                           </div>
@@ -261,13 +271,14 @@ export default function CartPage() {
                             onClick={() => removeFromCart(item.cartItemId)}
                             className="p-2 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all cursor-pointer"
                             title="Remove from Cart"
-                            aria-label={`Remove ${item.name} from cart`}
+                            aria-label={`Remove ${itemName} from cart`}
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </div>
-                    ))}
+                    );
+                  })}
                   </div>
 
                   {/* View More / Fewer Items Toggle if > 5 items */}
