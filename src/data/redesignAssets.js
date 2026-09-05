@@ -184,7 +184,7 @@ export const POPULAR_PRODUCTS = [
     price: "₹24,990",
     rawPrice: 24990,
     badge: "NEW",
-    badgeType: "green",
+    badgeType: "red",
     image: ASSETS.productHeadphones,
   },
   {
@@ -214,7 +214,7 @@ export const POPULAR_PRODUCTS = [
     price: "₹69,900",
     rawPrice: 69900,
     badge: "NEW",
-    badgeType: "green",
+    badgeType: "red",
     image: ASSETS.productIphone15,
   },
 ];

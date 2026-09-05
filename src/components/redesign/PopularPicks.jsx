@@ -107,20 +107,22 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group relative bg-white rounded-2xl p-3 sm:p-4 border border-neutral-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-w-[150px]"
+                  className="group relative bg-white rounded-2xl p-3 sm:p-4 border border-neutral-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-w-[150px] overflow-hidden"
                 >
-                  <div>
-                    {/* Badge */}
-                    <div className="flex items-center justify-start mb-2">
-                      <span
-                        className={`px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-black tracking-wider uppercase ${getBadgeStyle(prod.badgeType)}`}
-                      >
+                  {/* Folded Corner Ribbon Badge matching reference image */}
+                  {prod.badge && (
+                    <div className="ribbon-wrapper ribbon-wrapper-right">
+                      <div className={`ribbon-badge-right ${
+                        prod.badgeType === 'gold' ? 'ribbon-gold' : 'ribbon-red'
+                      }`}>
                         {prod.badge}
-                      </span>
+                      </div>
                     </div>
+                  )}
 
+                  <div>
                     {/* Product Image */}
-                    <Link href={href} className="block">
+                    <Link href={href} className="block mt-2">
                       <div className="w-full aspect-square bg-neutral-50 rounded-xl flex items-center justify-center p-2 mb-2.5 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
                         <Image
                           src={prod.image}

@@ -1,9 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Wrench, MessageSquare } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Load the 3D canvas only on the client — WebGL cannot run on the server
 const HeroModel = dynamic(() => import('./HeroModel'), {
@@ -15,7 +15,41 @@ const HeroModel = dynamic(() => import('./HeroModel'), {
   ),
 });
 
+const TYPEWRITER_WORDS = [
+  'CHOICE.',
+  'MOBILE.',
+  'LAPTOP.',
+  'SETUP.'
+];
+
 export default function HeroSection({ onOpenRepairModal }) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentFullWord = TYPEWRITER_WORDS[wordIndex];
+    const typingSpeed = isDeleting ? 60 : 120;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentFullWord.substring(0, displayText.length + 1));
+        if (displayText.length + 1 === currentFullWord.length) {
+          // Pause 2 seconds at the complete word
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        setDisplayText(currentFullWord.substring(0, displayText.length - 1));
+        if (displayText.length === 0) {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % TYPEWRITER_WORDS.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, wordIndex]);
+
   const scrollToBudget = () => {
     const el = document.getElementById('budget-finder');
     if (el) {
@@ -51,19 +85,19 @@ export default function HeroSection({ onOpenRepairModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Column: Headlines & Subtitle */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-3.5 sm:space-y-5 text-left">
-            
-            {/* Premium Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-[11px] sm:text-xs font-bold tracking-wider uppercase max-w-fit shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>Hyderabad's #1 Rated Tech &amp; Gaming Hub</span>
-            </div>
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-6 text-left">
 
-            {/* Hero Headline — single h1 for correct document outline */}
+            {/* Hero Headline — single h1 with pure yellow typewriter */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1">
               <span className="block text-neutral-950 drop-shadow-xs">YOUR TECH.</span>
               <span className="block text-neutral-950 drop-shadow-xs">YOUR BUDGET.</span>
-              <span className="block bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent">YOUR RIGHT CHOICE.</span>
+              <span className="block text-[#F5B800] min-h-[1.15em] flex items-center flex-wrap">
+                <span className="mr-2">YOUR RIGHT</span>
+                <span className="inline-block text-[#F5B800]">
+                  {displayText}
+                  <span className="inline-block w-1 h-[0.9em] bg-[#F5B800] ml-1 animate-pulse align-middle" />
+                </span>
+              </span>
             </h1>
 
             {/* Subtitle */}
@@ -76,10 +110,10 @@ export default function HeroSection({ onOpenRepairModal }) {
             <div className="flex items-center gap-3 pt-2">
               <button
                 onClick={scrollToBudget}
-                className="min-h-[48px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:from-amber-600 text-neutral-950 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 transition-all active:scale-98 cursor-pointer"
+                className="btn-wipe-yellow min-h-[48px] inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 active:scale-98 cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 fill-current" />
-                <span>Tell Us Your Budget</span>
+                <MessageSquare className="w-4 h-4 fill-current relative z-10" />
+                <span className="relative z-10">Tell Us Your Budget</span>
               </button>
 
               <button

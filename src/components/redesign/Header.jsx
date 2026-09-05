@@ -186,18 +186,71 @@ export default function Header() {
   }, [searchQuery, searchCategory]);
 
   const subHeaderLinks = [
-    { label: '⚡ Flash Deals', href: '/deals' },
+    { label: 'All Categories', href: '#categories' },
     { label: 'Mobiles', href: '/mobiles' },
     { label: 'Laptops', href: '/laptops' },
-    { label: 'Gaming PCs', href: '/gaming' },
     { label: 'Accessories', href: '/accessories' },
-    { label: 'PC Builder', href: '/pc-builds' },
-    { label: 'Refurbished', href: '/refurbished' },
+    { label: 'Repair', href: '/repairs' },
     { label: 'Trade-In', href: '/exchange' },
-    { label: 'EMI Calc', href: '/emi-calculator' },
-    { label: 'Repairs', href: '/repairs' },
-    { label: 'Corporate', href: '/corporate' },
-    { label: 'Students', href: '/students' },
+  ];
+
+  const sidebarCategories = [
+    {
+      id: 'mobiles',
+      title: 'Mobiles',
+      href: '/mobiles',
+      items: [
+        { name: 'Refurbished Mobiles', href: '/refurbished' },
+        { name: 'New Mobiles', href: '/mobiles' },
+        { name: 'Trade-In Mobile', href: '/exchange' },
+        { name: 'Mobile Covers & Cases', href: '/accessories' },
+      ],
+    },
+    {
+      id: 'laptops',
+      title: 'Laptops',
+      href: '/laptops',
+      items: [
+        { name: 'Gaming Laptops', href: '/laptops' },
+        { name: 'MacBooks & Ultrabooks', href: '/laptops' },
+        { name: 'Refurbished Laptops', href: '/refurbished' },
+        { name: 'Laptop Bags & Skins', href: '/accessories' },
+      ],
+    },
+    {
+      id: 'accessories',
+      title: 'Accessories',
+      href: '/accessories',
+      items: [
+        { name: 'Chargers & Fast Cables', href: '/accessories' },
+        { name: 'Audio & ANC Headphones', href: '/accessories' },
+        { name: 'Mechanical Keyboards & Mice', href: '/accessories' },
+        { name: 'Desk Mats & Stands', href: '/accessories' },
+      ],
+    },
+    {
+      id: 'repairs',
+      title: 'Repairs & Services',
+      href: '/repairs',
+      items: [
+        { name: 'Display Flickering', href: '/repairs' },
+        { name: 'Display Cracked / Glass Replacement', href: '/repairs' },
+        { name: 'OS & Software Issues', href: '/repairs' },
+        { name: 'Disk & SSD Upgrades / Issues', href: '/repairs' },
+        { name: 'Battery Replacement', href: '/repairs' },
+      ],
+    },
+    {
+      id: 'others',
+      title: 'Others & Custom',
+      href: '/gaming',
+      items: [
+        { name: 'Gaming PC Custom Builds', href: '/gaming' },
+        { name: 'Corporate Bulk Orders', href: '/corporate' },
+        { name: 'Student Discounts', href: '/students' },
+        { name: 'EMI Calculator', href: '/emi-calculator' },
+      ],
+    },
   ];
 
   const handlePincodeSubmit = (e) => {
@@ -445,10 +498,10 @@ export default function Header() {
       <div className="bg-[#232f3e] text-white text-xs font-bold py-1.5 px-3 sm:px-6 overflow-x-auto no-scrollbar border-t border-neutral-800">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           
-          <div className="flex items-center space-x-4 sm:space-x-6 flex-shrink-0">
+          <div className="flex items-center space-x-4 sm:space-x-8 flex-shrink-0">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="flex items-center gap-1 hover:text-amber-400 transition-colors font-black uppercase tracking-wider text-[11px] cursor-pointer"
+              className="flex items-center gap-1.5 hover:text-amber-400 transition-colors font-black uppercase tracking-wider text-[11px] cursor-pointer"
             >
               <Menu className="w-4 h-4" />
               <span>All Categories</span>
@@ -458,16 +511,11 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="hover:text-amber-400 transition-colors tracking-tight text-[11.5px] whitespace-nowrap"
+                className="hover:text-amber-400 transition-colors tracking-tight text-[12px] font-bold whitespace-nowrap"
               >
                 {link.label}
               </Link>
             ))}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-2 flex-shrink-0 text-amber-400 text-[11px] font-black uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Hyderabad Express 4-Hour Delivery Active</span>
           </div>
 
         </div>
@@ -485,6 +533,7 @@ export default function Header() {
           >
             <motion.div
               ref={mobileMenuDrawerRef}
+              data-lenis-prevent="true"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
@@ -492,18 +541,19 @@ export default function Header() {
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
-              className="w-full max-w-xs bg-white text-neutral-900 h-full shadow-2xl flex flex-col justify-between overflow-y-auto"
+              className="w-full max-w-sm bg-white text-neutral-900 h-full shadow-2xl flex flex-col justify-between overflow-y-auto overscroll-contain"
               onClick={(e) => e.stopPropagation()}
             >
-              <div>
-                <div className="bg-midgrey-900 text-white p-4 flex items-center justify-between">
+              <div data-lenis-prevent="true" className="overflow-y-auto flex-1 overscroll-contain">
+                <div className="bg-midgrey-900 text-white p-4 flex items-center justify-between sticky top-0 z-20 shadow-xs">
                   <div className="flex items-center gap-2">
                     <User className="w-5 h-5 text-amber-400" />
-                    <span className="font-black text-sm uppercase">Hello, Customer</span>
+                    <span className="font-black text-sm uppercase">Shop Categories</span>
                   </div>
                   <button
                     onClick={() => { setMobileMenuOpen(false); hamburgerBtnRef.current?.focus(); }}
                     aria-label="Close menu"
+                    className="p-1 text-neutral-400 hover:text-white transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -525,34 +575,49 @@ export default function Header() {
                   </button>
                 </div>
 
-                <div className="p-4 space-y-1">
-                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest block mb-2">
-                    Shop By Department
+                {/* 5 Minimal & Clean Main Categories with Subcategories */}
+                <div className="p-4 space-y-5">
+                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest block">
+                    Main Departments
                   </span>
-                  {subHeaderLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold hover:bg-neutral-100 text-neutral-800"
-                    >
-                      <span>{link.label}</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-                    </Link>
+
+                  {sidebarCategories.map((cat) => (
+                    <div key={cat.id} className="space-y-1.5 pb-2 border-b border-neutral-100 last:border-0">
+                      <Link
+                        href={cat.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between font-black text-xs uppercase tracking-wider text-neutral-950 hover:text-amber-600 transition-colors py-1"
+                      >
+                        <span>{cat.title}</span>
+                        <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
+                      </Link>
+                      <div className="pl-2 space-y-1">
+                        {cat.items.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-[11px] font-semibold text-neutral-600 hover:text-neutral-950 hover:translate-x-1 transition-all py-1"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              <div className="p-4 bg-neutral-50 border-t border-neutral-200 space-y-2">
+              <div className="p-4 bg-neutral-50 border-t border-neutral-200 space-y-2 sticky bottom-0 z-20">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     repairTriggerHandler();
                   }}
-                  className="w-full py-2.5 bg-amber-500 active:bg-amber-600 text-neutral-950 font-black text-xs uppercase rounded-xl shadow-md flex items-center justify-center gap-2"
+                  className="btn-wipe-yellow w-full py-3 text-neutral-950 font-black text-xs uppercase rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Wrench className="w-4 h-4" />
-                  <span>Book Repair Appointment</span>
+                  <Wrench className="w-4 h-4 relative z-10" />
+                  <span className="relative z-10">Book Repair Appointment</span>
                 </button>
               </div>
             </motion.div>

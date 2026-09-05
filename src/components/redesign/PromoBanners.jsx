@@ -51,10 +51,10 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 <div className="pt-2">
                   <button
                     onClick={onOpenRepairModal}
-                    className="inline-flex items-center gap-2 bg-[#F5B800] hover:bg-amber-500 active:bg-amber-600 text-neutral-950 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all active:scale-95 cursor-pointer shadow-sm"
+                    className="btn-wipe-yellow inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 cursor-pointer shadow-sm"
                   >
-                    <Wrench className="w-4 h-4 fill-current" />
-                    <span>BOOK A REPAIR</span>
+                    <Wrench className="w-4 h-4 fill-current relative z-10" />
+                    <span className="relative z-10">BOOK A REPAIR</span>
                   </button>
                 </div>
               </div>
@@ -110,10 +110,10 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 <div className="pt-2">
                   <Link
                     href="/refurbished"
-                    className="inline-flex items-center gap-1.5 bg-[#F5B800] hover:bg-amber-500 active:bg-amber-600 text-neutral-950 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all active:scale-95 shadow-sm"
+                    className="btn-wipe-yellow inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 shadow-sm"
                   >
-                    <span>EXPLORE REFURBISHED</span>
-                    <ChevronRight className="w-4 h-4 stroke-[3]" />
+                    <span className="relative z-10">EXPLORE REFURBISHED</span>
+                    <ChevronRight className="w-4 h-4 stroke-[3] relative z-10" />
                   </Link>
                 </div>
               </div>

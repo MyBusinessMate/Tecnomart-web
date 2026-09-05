@@ -50,9 +50,9 @@ export default function ReviewsAndLocation() {
                 <div>
                   <button
                     onClick={openGoogleMaps}
-                    className="inline-flex items-center gap-1.5 bg-[#F5B800] hover:bg-amber-500 active:bg-amber-600 text-neutral-950 px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all active:scale-95 cursor-pointer shadow-xs"
+                    className="btn-wipe-yellow inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 cursor-pointer shadow-xs"
                   >
-                    <span>GET DIRECTIONS</span>
+                    <span className="relative z-10">GET DIRECTIONS</span>
                   </button>
                 </div>
               </div>

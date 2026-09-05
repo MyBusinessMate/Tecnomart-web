@@ -40,12 +40,12 @@ export default function GamingBanner() {
             </svg>
           </div>
 
-          {/* Banner Main Grid: Left Setup Graphic | Right Text Content */}
-          <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-6 px-6 sm:px-12 py-8">
+          {/* Banner Main Grid: Centered Left Setup Graphic & Centered Right Text Content */}
+          <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-12 px-6 sm:px-10 py-10">
             
             {/* Left Column: Gaming Setup with Logo Emblem Watermark */}
-            <div className="lg:col-span-6 hidden lg:flex items-center justify-center relative">
-              <div className="relative w-full max-w-md aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
+            <div className="w-full lg:w-1/2 flex items-center justify-center relative">
+              <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
                 <img
                   src="/images/landing/img-1.png"
                   alt="Gold ARGB Gaming Rig"
@@ -58,14 +58,14 @@ export default function GamingBanner() {
               </div>
             </div>
 
-            {/* Right Column: Text Content */}
-            <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-left">
+            {/* Right Column: Text Content Centered Vertically and Horizontally Balanced */}
+            <div className="w-full lg:w-1/2 space-y-3 sm:space-y-4 text-center lg:text-left flex flex-col items-center lg:items-start justify-center">
               
               <p className="text-white font-extrabold text-sm sm:text-lg tracking-[0.15em] uppercase">
                 BUILT FOR VICTORY.
               </p>
 
-              <h2 className="text-amber-500 font-black text-3xl sm:text-5xl uppercase tracking-tight leading-none">
+              <h2 className="text-[#F5B800] font-black text-3xl sm:text-5xl uppercase tracking-tight leading-none">
                 GAMING PCs
               </h2>
 
@@ -74,17 +74,17 @@ export default function GamingBanner() {
                   High Performance. Ultimate Experience.
                 </p>
                 <p className="text-xs sm:text-sm font-semibold text-neutral-300">
-                  Custom Builds <span className="text-amber-500 mx-2">|</span> Best Prices <span className="text-amber-500 mx-2">|</span> Expert Support
+                  Custom Builds <span className="text-[#F5B800] mx-2">|</span> Best Prices <span className="text-[#F5B800] mx-2">|</span> Expert Support
                 </p>
               </div>
 
               <div className="pt-2">
                 <Link
                   href="/gaming"
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider px-6 py-3 rounded-xl shadow-lg shadow-amber-500/20 transition-all active:scale-98 cursor-pointer"
+                  className="btn-wipe-yellow inline-flex items-center gap-2 font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 active:scale-98 cursor-pointer"
                 >
-                  <span>EXPLORE GAMING PCS</span>
-                  <ChevronRight className="w-4 h-4 stroke-[3]" />
+                  <span className="relative z-10">EXPLORE GAMING PCS</span>
+                  <ChevronRight className="w-4 h-4 stroke-[3] relative z-10" />
                 </Link>
               </div>
 

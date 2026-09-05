@@ -39,10 +39,6 @@ export default function DealOfTheDay() {
         {/* Banner Header with aligned flex items */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-midgrey-700/60">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-black uppercase tracking-wider mb-2">
-              <Flame className="w-4 h-4 fill-current text-red-500 animate-pulse" />
-              <span>FLASH SALE • TODAY ONLY</span>
-            </span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
               DEAL OF THE DAY
             </h2>
@@ -76,13 +72,16 @@ export default function DealOfTheDay() {
         {/* Featured Deal Card */}
         <div className="bg-midgrey-800/90 border border-midgrey-700/60 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-2xl">
           
-          {/* Left Column: Image */}
+          {/* Left Column: Image with Right Corner Ribbon */}
           <div className="lg:col-span-5 relative group">
-            <div className="absolute top-4 left-4 bg-red-600 text-white font-black text-xs px-3.5 py-1.5 rounded-full z-10 uppercase tracking-wider shadow-md">
-              {dealProduct.discountPercent}
-            </div>
-
             <div className="relative w-full aspect-[4/3] bg-midgrey-900 rounded-2xl p-6 flex items-center justify-center overflow-hidden border border-midgrey-700/60 shadow-inner">
+              {/* Folded Corner Ribbon Badge on the right */}
+              <div className="ribbon-wrapper ribbon-wrapper-right">
+                <div className="ribbon-badge-right ribbon-red">
+                  {dealProduct.discountPercent}
+                </div>
+              </div>
+
               <Image
                 src="/images/landing/img-20.png"
                 alt={dealProduct.name}
@@ -95,7 +94,7 @@ export default function DealOfTheDay() {
 
           {/* Right Column: Product Info & Buy */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="flex items-center gap-2 text-xs font-extrabold text-amber-400">
+            <div className="flex items-center gap-2 text-xs font-extrabold text-[#F5B800]">
               <Star className="w-4 h-4 fill-current" />
               <span>{dealProduct.rating}</span>
               <span className="text-neutral-400">({dealProduct.reviewCount} verified reviews)</span>
@@ -111,7 +110,7 @@ export default function DealOfTheDay() {
 
             {/* Price & Savings */}
             <div className="flex flex-wrap items-baseline gap-3 pt-1">
-              <span className="text-3xl sm:text-5xl font-black text-amber-400">
+              <span className="text-3xl sm:text-5xl font-black text-[#F5B800]">
                 {dealProduct.price}
               </span>
               <span className="text-base sm:text-xl text-neutral-500 line-through font-semibold">
@@ -125,8 +124,8 @@ export default function DealOfTheDay() {
             {/* Stock Claim Progress Bar */}
             <div className="space-y-2 pt-1">
               <div className="flex justify-between text-xs font-black">
-                <span className="text-amber-400 flex items-center gap-1.5">
-                  <Zap className="w-4 h-4 fill-current text-amber-400" />
+                <span className="text-[#F5B800] flex items-center gap-1.5">
+                  <Zap className="w-4 h-4 fill-current text-[#F5B800]" />
                   84% Claimed (Only 2 units remaining at this price)
                 </span>
                 <span className="text-neutral-400 uppercase">Limited Stock</span>
@@ -140,10 +139,10 @@ export default function DealOfTheDay() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
               <button
                 onClick={() => addToCart(dealProduct)}
-                className="min-h-[52px] bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-98 cursor-pointer"
+                className="btn-wipe-yellow min-h-[52px] font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2.5 active:scale-98 cursor-pointer"
               >
-                <ShoppingBag className="w-4 h-4" />
-                <span>CLAIM DEAL NOW</span>
+                <ShoppingBag className="w-4 h-4 relative z-10" />
+                <span className="relative z-10">CLAIM DEAL NOW</span>
               </button>
 
               <button

@@ -91,11 +91,6 @@ export default function MobileDetailClient({ slug }) {
               {/* Left Column: Image Viewer */}
               <div className="w-full lg:w-1/2 lg:sticky lg:top-24">
                 <div className="bg-white/80 rounded-2xl p-8 sm:p-14 relative flex items-center justify-center aspect-[4/3] sm:aspect-square overflow-hidden border border-neutral-200/60 shadow-2xs">
-                  {product.badge && (
-                    <span className="absolute top-6 left-6 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-[#FBF3DB] text-[#956400] border border-amber-200/60">
-                      {product.badge}
-                    </span>
-                  )}
                   <img
                     src={images[currentImg] || images[0]}
                     alt={product.name}
@@ -136,11 +131,8 @@ export default function MobileDetailClient({ slug }) {
                   </span>
                 </div>
 
-                {/* Title & Brand */}
+                {/* Title */}
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-600 mb-1">
-                    {product.brand}
-                  </div>
                   <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight leading-[1.1] text-[#111111]">
                     {product.name}
                   </h1>
