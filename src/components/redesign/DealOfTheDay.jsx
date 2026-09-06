@@ -82,12 +82,11 @@ export default function DealOfTheDay() {
                 </div>
               </div>
 
-              <Image
-                src="/images/landing/img-20.png"
+              <img
+                src="/images/landing/apple-macbook-pro-16-space-black-glow.png"
                 alt={dealProduct.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain p-4 group-hover:scale-108 transition-transform duration-500"
+                className="w-full h-full object-contain p-4 group-hover:scale-108 transition-transform duration-500"
+                loading="eager"
               />
             </div>
           </div>
@@ -113,7 +112,7 @@ export default function DealOfTheDay() {
               <span className="text-3xl sm:text-5xl font-black text-[#F5B800]">
                 {dealProduct.price}
               </span>
-              <span className="text-base sm:text-xl text-neutral-500 line-through font-semibold">
+              <span className="text-base sm:text-xl text-black font-extrabold line-through decoration-black decoration-2">
                 {dealProduct.originalPrice}
               </span>
               <span className="text-xs font-black text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 px-3 py-1.5 rounded-xl uppercase tracking-wider">
@@ -128,7 +127,7 @@ export default function DealOfTheDay() {
                   <Zap className="w-4 h-4 fill-current text-[#F5B800]" />
                   84% Claimed (Only 2 units remaining at this price)
                 </span>
-                <span className="text-neutral-400 uppercase">Limited Stock</span>
+                <span className="text-black font-black uppercase tracking-wider">Limited Stock</span>
               </div>
               <div className="w-full h-3 bg-midgrey-900 rounded-full overflow-hidden border border-midgrey-700/60">
                 <div className="h-full bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 rounded-full w-[84%]" />
@@ -157,14 +156,14 @@ export default function DealOfTheDay() {
             </div>
 
             {/* Trust badge - Single line on mobile */}
-            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 text-[10px] sm:text-xs font-semibold text-neutral-400 pt-3 border-t border-neutral-800/80 whitespace-nowrap overflow-x-auto no-scrollbar">
+            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 text-[11px] sm:text-xs font-bold text-black pt-3 border-t border-neutral-800/80 whitespace-nowrap overflow-x-auto no-scrollbar">
               <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
                 <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
-                <span>Official Apple India Warranty</span>
+                <span className="text-black font-bold">Official Apple India Warranty</span>
               </div>
-              <span className="text-neutral-600 flex-shrink-0">•</span>
+              <span className="text-black font-bold flex-shrink-0">•</span>
               <div className="flex-shrink-0">
-                <span>Free Doorstep Delivery in Hyderabad</span>
+                <span className="text-black font-bold">Free Doorstep Delivery in Hyderabad</span>
               </div>
             </div>
 
