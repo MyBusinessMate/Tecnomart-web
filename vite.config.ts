@@ -11,6 +11,8 @@ export default defineConfig({
       'next/link': path.resolve(__dirname, './src/lib/Link.tsx'),
       'next/image': path.resolve(__dirname, './src/lib/Image.tsx'),
       'next/navigation': path.resolve(__dirname, './src/lib/navigation.ts'),
+      'next/dynamic': path.resolve(__dirname, './src/lib/dynamic.tsx'),
+      'next/font/google': path.resolve(__dirname, './src/lib/font.ts'),
     },
   },
   server: {
