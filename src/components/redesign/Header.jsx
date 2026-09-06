@@ -381,6 +381,17 @@ export default function Header() {
             )}
           </div>
 
+          {/* PC Builder Link */}
+          <Link
+            href="/pc-builds"
+            className="flex items-center gap-1.5 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium group"
+          >
+            <span>PC Builder</span>
+            <span className="text-[9px] font-black uppercase tracking-wider bg-amber-500 text-neutral-950 px-1.5 py-0.5 rounded-md shadow-2xs group-hover:bg-amber-400 transition-colors">
+              Custom
+            </span>
+          </Link>
+
           {/* Accessories Dropdown */}
           <div
             className="relative py-2"
@@ -449,33 +460,31 @@ export default function Header() {
 
               {searchResults.length === 0 ? (
                 <div className="p-4 text-center text-xs text-neutral-500">
-                  No results for &quot;{searchQuery}&quot;
+                  No matching products found for "{searchQuery}"
                 </div>
               ) : (
-                <div className="divide-y divide-neutral-100">
+                <div className="divide-y divide-neutral-100 max-h-80 overflow-y-auto">
                   {searchResults.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/${item.type}/${item.slug}`}
+                      href={`/products/${item.id}`}
                       onClick={() => setSearchQuery('')}
-                      className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl transition-colors"
+                      className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl transition-colors group cursor-pointer"
                     >
-                      <div className="w-10 h-10 bg-neutral-100 rounded-lg p-1 flex-shrink-0 flex items-center justify-center">
-                        <img
-                          src={item.images?.[0] || item.images}
-                          alt={item.name}
-                          className="w-full h-full object-contain"
-                        />
+                      <div className="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center p-1 flex-shrink-0">
+                        <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-xs font-bold text-neutral-950 truncate">
+                        <p className="text-xs font-bold text-neutral-900 group-hover:text-amber-600 truncate">
                           {item.name}
-                        </h4>
-                        <p className="text-[11px] text-amber-600 font-bold">
-                          {item.price} • <span className="text-neutral-500 font-normal">{item.brand}</span>
+                        </p>
+                        <p className="text-[10px] text-neutral-400 truncate">
+                          {item.tagline || item.brand}
                         </p>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-neutral-400" />
+                      <span className="text-xs font-black text-neutral-900 flex-shrink-0">
+                        ₹{item.priceINR?.toLocaleString('en-IN') || item.price}
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -484,28 +493,22 @@ export default function Header() {
           )}
         </div>
 
-        {/* 4. RIGHT ACTION CLUSTER: Divider | Account (5 items) | Pin Location | Cart */}
-        <div className="flex items-center gap-3 sm:gap-5">
+        {/* 4. RIGHT ACTIONS (ACCOUNT, PIN LOCATION, CART) */}
+        <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
           
-          {/* Subtle Vertical Divider */}
-          <div className="hidden lg:block w-px h-6 bg-neutral-200" />
-
-          {/* Account Dropdown (Exact 5 items requested: Edit Profile, Wishlist, My Orders, Saved Addresses, Sign Out / Sign In) */}
-          <div className="relative" data-account-menu>
+          {/* USER ACCOUNT DROPDOWN */}
+          <div ref={accountDropdownRef} className="relative">
             <button
-              ref={accountBtnRef}
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-              aria-expanded={accountDropdownOpen}
-              aria-haspopup="menu"
-              aria-label="Account menu"
-              className="flex items-center gap-2 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer"
+              className="flex items-center gap-1 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer"
+              aria-label="User Account"
             >
-              <User className="w-5 h-5 text-neutral-800" />
-              <span className="hidden sm:inline text-sm font-semibold text-neutral-800">Account</span>
+              <User className="w-5 h-5 text-neutral-700" />
+              <ChevronDown className="w-3 h-3 text-neutral-400" />
             </button>
 
             {accountDropdownOpen && (
-              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-neutral-100 p-2 z-50 text-neutral-900">
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 <div className="px-3 py-2 border-b border-neutral-100 mb-1">
                   <p className="text-xs font-bold text-neutral-900">My Account</p>
                   <p className="text-[11px] text-neutral-400 truncate">user@tecnomart.in</p>
@@ -584,7 +587,7 @@ export default function Header() {
             )}
           </div>
 
-          {/* PIN LOCATION BUTTON (In place of wishlist in the top bar as requested) */}
+          {/* PIN LOCATION BUTTON */}
           <button
             ref={deliverToBtnRef}
             onClick={() => setPincodeModalOpen(true)}
@@ -600,7 +603,7 @@ export default function Header() {
             </div>
           </button>
 
-          {/* CART BUTTON WITH CIRCLE BADGE (matching image) */}
+          {/* CART BUTTON WITH CIRCLE BADGE */}
           <Link
             href="/cart"
             className="flex items-center gap-2 text-neutral-900 group cursor-pointer"
@@ -630,6 +633,30 @@ export default function Header() {
             <Menu className="w-6 h-6" />
           </button>
 
+        </div>
+      </div>
+
+      {/* CATEGORY SUB-HEADER STRIP */}
+      <div className="border-t border-neutral-100 bg-neutral-50/80 backdrop-blur-xs">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-2 no-scrollbar text-xs font-semibold text-neutral-700">
+            {subHeaderLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`px-3 py-1.5 rounded-full hover:bg-white hover:text-amber-600 transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
+                  link.label === 'PC Builder'
+                    ? 'text-amber-700 bg-amber-100/70 font-bold'
+                    : ''
+                }`}
+              >
+                <span>{link.label}</span>
+                {link.label === 'PC Builder' && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                )}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
