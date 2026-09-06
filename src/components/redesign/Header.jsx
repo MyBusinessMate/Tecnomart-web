@@ -309,20 +309,20 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 select-none shadow-xs font-sans bg-white border-b border-neutral-200/90">
+    <header className="sticky top-0 z-50 select-none shadow-md font-sans bg-[#727377] border-b border-[#5f6064]">
       
-      {/* CLEAN MINIMALIST WHITE NAVBAR */}
+      {/* MINIMALIST GREY NAVBAR (#727377) */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 lg:gap-6">
         
         {/* 1. BRAND LOGO */}
         <div className="flex items-center flex-shrink-0">
           <Link href="/" className="inline-block" aria-label="TecnoMart Home">
-            <TecnoMartLogo textClass="text-neutral-950 font-black" subtitleClass="text-neutral-500 font-semibold" />
+            <TecnoMartLogo textClass="text-white font-black" subtitleClass="text-neutral-200 font-semibold" />
           </Link>
         </div>
 
         {/* 2. PRIMARY NAV LINKS (Laptops ⌵, Mobiles ⌵, Accessories ⌵, Support) */}
-        <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-neutral-800">
+        <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-white">
           {/* Laptops Dropdown */}
           <div
             className="relative py-2"
@@ -331,10 +331,10 @@ export default function Header() {
           >
             <Link
               href="/laptops"
-              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Laptops</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400" />
             </Link>
 
             {activeNavDropdown === 'laptops' && (
@@ -360,10 +360,10 @@ export default function Header() {
           >
             <Link
               href="/mobiles"
-              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Mobiles</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400" />
             </Link>
 
             {activeNavDropdown === 'mobiles' && (
@@ -384,10 +384,10 @@ export default function Header() {
           {/* PC Builder Link */}
           <Link
             href="/pc-builds"
-            className="flex items-center gap-1.5 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium group"
+            className="flex items-center gap-1.5 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium group"
           >
             <span>PC Builder</span>
-            <span className="text-[9px] font-black uppercase tracking-wider bg-amber-500 text-neutral-950 px-1.5 py-0.5 rounded-md shadow-2xs group-hover:bg-amber-400 transition-colors">
+            <span className="text-[9px] font-black uppercase tracking-wider bg-amber-400 text-neutral-950 px-1.5 py-0.5 rounded-md shadow-2xs group-hover:bg-amber-300 transition-colors">
               Custom
             </span>
           </Link>
@@ -400,10 +400,10 @@ export default function Header() {
           >
             <Link
               href="/accessories"
-              className="flex items-center gap-1 hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Accessories</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-600" />
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-400" />
             </Link>
 
             {activeNavDropdown === 'accessories' && (
@@ -424,7 +424,7 @@ export default function Header() {
           {/* Support Link */}
           <Link
             href="/contact"
-            className="hover:text-amber-600 transition-colors py-1 cursor-pointer font-medium"
+            className="hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
           >
             Support
           </Link>
@@ -433,7 +433,7 @@ export default function Header() {
         {/* 3. CENTER PILL-SHAPED SEARCH BAR */}
         <div className="flex-1 max-w-xl relative hidden md:block">
           <div className="relative flex items-center">
-            <div className="absolute left-4 pointer-events-none text-neutral-400">
+            <div className="absolute left-4 pointer-events-none text-neutral-500">
               <Search className="w-4 h-4 stroke-[2]" />
             </div>
             <label htmlFor="search-desktop" className="sr-only">
@@ -446,7 +446,7 @@ export default function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setSearchOpen(true)}
-              className="w-full h-11 pl-11 pr-4 bg-neutral-100/90 hover:bg-neutral-100 focus:bg-white text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 rounded-full border border-neutral-200/70 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all font-medium"
+              className="w-full h-11 pl-11 pr-4 bg-white/95 focus:bg-white text-xs sm:text-sm text-neutral-900 placeholder-neutral-500 rounded-full border border-white/20 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 outline-none transition-all font-medium shadow-inner"
             />
           </div>
 
@@ -501,11 +501,11 @@ export default function Header() {
             <button
               ref={accountBtnRef}
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-              className="flex items-center gap-1 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer"
+              className="flex items-center gap-1 text-white hover:text-amber-300 transition-colors p-1.5 rounded-lg cursor-pointer"
               aria-label="User Account"
             >
-              <User className="w-5 h-5 text-neutral-700" />
-              <ChevronDown className="w-3 h-3 text-neutral-400" />
+              <User className="w-5 h-5 text-white" />
+              <ChevronDown className="w-3 h-3 text-neutral-300" />
             </button>
 
             {accountDropdownOpen && (
@@ -592,13 +592,13 @@ export default function Header() {
           <button
             ref={deliverToBtnRef}
             onClick={() => setPincodeModalOpen(true)}
-            className="flex items-center gap-1.5 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer text-left"
+            className="flex items-center gap-1.5 text-white hover:text-amber-300 transition-colors p-1.5 rounded-lg cursor-pointer text-left"
             aria-label={`Delivery location: Hyderabad ${locationPincode}`}
           >
-            <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0" />
+            <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0" />
             <div className="hidden sm:block leading-tight">
-              <span className="text-[10px] text-neutral-400 block font-medium">Pin Location</span>
-              <span className="text-xs font-bold text-neutral-800 block">
+              <span className="text-[10px] text-neutral-200 block font-medium">Pin Location</span>
+              <span className="text-xs font-bold text-white block">
                 Hyderabad {locationPincode}
               </span>
             </div>
@@ -607,18 +607,18 @@ export default function Header() {
           {/* CART BUTTON WITH CIRCLE BADGE */}
           <Link
             href="/cart"
-            className="flex items-center gap-2 text-neutral-900 group cursor-pointer"
+            className="flex items-center gap-2 text-white group cursor-pointer"
             aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
           >
-            <div className="relative w-10 h-10 rounded-full bg-amber-50 border border-amber-200/70 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
-              <ShoppingBag className="w-5 h-5 text-neutral-800" />
+            <div className="relative w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
+              <ShoppingBag className="w-5 h-5 text-white" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-500 text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                <span className="absolute -top-1 -right-1 bg-amber-400 text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                   {cartCount}
                 </span>
               )}
             </div>
-            <span className="hidden sm:inline text-sm font-semibold text-neutral-800 group-hover:text-amber-600 transition-colors">
+            <span className="hidden sm:inline text-sm font-semibold text-white group-hover:text-amber-300 transition-colors">
               Cart
             </span>
           </Link>
@@ -629,7 +629,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
-            className="xl:hidden p-2 text-neutral-700 hover:text-amber-600 cursor-pointer"
+            className="xl:hidden p-2 text-white hover:text-amber-300 cursor-pointer"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -638,22 +638,22 @@ export default function Header() {
       </div>
 
       {/* CATEGORY SUB-HEADER STRIP */}
-      <div className="border-t border-neutral-100 bg-neutral-50/80 backdrop-blur-xs">
+      <div className="border-t border-[#626367] bg-[#68696d]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-2 no-scrollbar text-xs font-semibold text-neutral-700">
+          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-2 no-scrollbar text-xs font-semibold text-neutral-100">
             {subHeaderLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-full hover:bg-white hover:text-amber-600 transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-full hover:bg-white/10 hover:text-amber-300 transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
                   link.label === 'PC Builder'
-                    ? 'text-amber-700 bg-amber-100/70 font-bold'
+                    ? 'text-neutral-950 bg-amber-400 font-bold hover:bg-amber-300 hover:text-neutral-950'
                     : ''
                 }`}
               >
                 <span>{link.label}</span>
                 {link.label === 'PC Builder' && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 animate-pulse" />
                 )}
               </Link>
             ))}
@@ -662,7 +662,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Search Bar (rendered below on small screens) */}
-      <div className="md:hidden px-4 pb-3">
+      <div className="md:hidden px-4 py-2.5 bg-[#68696d] border-t border-[#5f6064]">
         <div className="relative flex items-center">
           <div className="absolute left-3.5 pointer-events-none text-neutral-400">
             <Search className="w-4 h-4 stroke-[2]" />
@@ -674,7 +674,7 @@ export default function Header() {
             placeholder="Search for MacBooks, iPhones, laptops..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-10 pl-10 pr-4 bg-neutral-100 text-xs text-neutral-900 rounded-full border border-neutral-200 outline-none focus:border-amber-500 font-medium"
+            className="w-full h-10 pl-10 pr-4 bg-white/95 focus:bg-white text-xs text-neutral-900 rounded-full border border-white/20 outline-none focus:border-amber-400 font-medium"
           />
         </div>
       </div>
