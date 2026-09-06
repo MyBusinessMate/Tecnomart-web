@@ -48,26 +48,46 @@ A comprehensive design systems audit was conducted on the **TecnoMart Web Applic
 
 ---
 
-## 3. Card Systems & Layout Hierarchy Audit
+---
 
-| Card Name / Component | Location / Page Context | Corner Radius (CSS Token) | Visual Treatment | Action / Interaction Leading User To |
+## 3. Card Systems & Layout Hierarchy Audit (Post-Card Reduction)
+
+Following the **`/cards-component-patterns-auditor`** review, cards have been strictly reserved for:
+1. **Product Cards** (clickable items with imagery, specs, pricing)
+2. **Category Navigation Tiles** (actionable hubs)
+3. **Primary CTAs / Focus Modules** (conversion blocks, deal of the day)
+4. **Interactive Inputs / Forms** (checkout, pincode, trade-in calculator)
+
+All informational, educational, and legal sections (Terms, Privacy, About, Student guidelines, College lists, Repairs promises, Comparison empty states) have been refactored into **cardless editorial surfaces that blend directly into the page canvas** (`#f7f8fa` / `#ffffff`), removing visual box fatigue and clutter.
+
+### Active Card Inventory & Geometry
+
+| Card Name / Component | Location / Page Context | Corner Radius (CSS Token) | Surface / Border Treatment | Status / Function |
 | :--- | :--- | :--- | :--- | :--- |
-| **Product Showcase Card** | Popular Picks Grid | `rounded-2xl` (16px) | Border neutral-200, hover border-amber-400, top-right folded ribbon badge | Navigates to product detail page (`/mobiles/[slug]`, `/laptops/[slug]`, etc.) |
-| **Featured Deal Box** | Deal of the Day | `rounded-3xl` (24px) | Solid dark `#1b2330` background, 1px `#2a3444` border, 24px soft drop-shadow | High-conversion focal point leading to immediate checkout or cart addition |
-| **Gaming Banner Container** | Gaming Section | `rounded-3xl` (24px) | Midgrey-900 `#131923`, chevron gold watermark lines, centered rig showcase | Section CTA directing user to the custom gaming rig catalog |
-| **Gaming Rig Inner Card** | Inside Gaming Banner | `rounded-2xl` (16px) | Dark `#1b2330` card with subtle border and floating TecnoMart watermark logo | Highlights physical craftsmanship of custom water-cooled rigs |
-| **Phone Repair Promo Card** | Promo Banners | `rounded-[22px]` (22px) | Warm cream `#FBF6EF` surface with `#E5D9C8` outline | Educates user on motherboard/display fix and triggers repair booking |
-| **Refurbished Deals Promo Card** | Promo Banners | `rounded-[22px]` (22px) | Warm beige `#F6EEE3` surface with `#E8D5B7` outline | Educates user on certified grade A+ refurb devices and routes to `/refurbished` |
-| **Google Review Card** | Reviews & Location | `rounded-2xl` (16px) | White background with subtle border, star ratings & verified badge | Validates local brand trust and social proof in Hyderabad |
-| **Store Map Card** | Reviews & Location | `rounded-2xl` (16px) | Interactive preview card with image zoom transition on hover | Deep-links directly into Google Maps coordinates |
-| **Product Image Viewer Card** | Product Detail Pages | `rounded-2xl` (16px) | Clean off-white surface with subtle border, zero visual box clutter (Recosto style) | High-fidelity image inspection and thumbnail switching |
-| **Hardware Spec Selector Card** | Product Detail Pages | `rounded-lg` (8px) | Unselected: white/border-200; Selected: solid black with gold pricing | Live config price update and component payload generation |
-| **Alternative Product Card** | Product Detail Pages | `rounded-xl` (12px) | Soft neutral `#f7f6f3` thumbnail container, hover neutral-50 | Cross-sells related configurations and models |
-| **Cart Item Row Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm, hover border-neutral-300 | Clean item row with product thumbnail, specs, quantity stepper (`- / +`), and trash action |
-| **Coupon Box Container** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm | Integrated coupon input with active applied pill, instant remove action, and suggestion link |
-| **Price Summary Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white card, border neutral-200, shadow-sm | Clear breakdown of Subtotal, Coupon Savings, Hyderabad Express Delivery, and Total Payable |
-| **Bottom Added-to-Cart Popup** | Global Toast Notification | `rounded-2xl` (16px) | Emerald green `#15803d` surface, border emerald-400/40, white text, drop-shadow-2xl | Floats up from bottom viewport, auto-dismisses smoothly after ~1.5 seconds |
-| **Top Coupon Celebration Banner** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Emerald-700 green background, white bold text with left-to-right animated slide | Displays `"Coupon code applied on this order"` with active code pill and remove button |
+| **Product Showcase Card** | Popular Picks Grid & Category Catalogues | `rounded-2xl` (16px) | Pure white, border neutral-200, hover border-amber-400 | Product browsing & PDP entry |
+| **Featured Deal Box** | Deal of the Day | `rounded-3xl` (24px) | Solid dark `#1b2330`, 1px `#2a3444` border | High-conversion focal deal |
+| **Gaming Rig Inner Card** | Inside Gaming Banner | `rounded-2xl` (16px) | Dark `#1b2330` with subtle border & watermark | Custom rig showcase |
+| **Cart Item Row Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white, border neutral-200, shadow-sm | Cart item management |
+| **Price Summary Card** | Dedicated Cart Page (`/cart`) | `rounded-2xl` (16px) | Pure white, border neutral-200, shadow-sm | Order breakdown & checkout trigger |
+| **Trade-In Device Selector** | Trade-In / Exchange (`/exchange`) | `rounded-2xl` (16px) | Pure white, border neutral-200, shadow-sm | Multi-step trade-in wizard |
+| **Contact Message Form** | Contact Page (`/contact`) | `rounded-3xl` (24px) | Pure white, border neutral-200, shadow-sm | Customer lead capture form |
+| **Repair Appointment Form** | Repairs Page (`/repairs`) | `rounded-3xl` (24px) | Pure white, border neutral-200, shadow-sm | Device diagnostics form |
+| **Product Selectable Tiles** | Comparison Page (`/compare`) | `rounded-xl` (12px) | Neutral-50 / Amber-50 (when active), border | Product selection for 3-way compare |
+| **Student Discount Bottom CTA** | Student Page (`/students`) | `rounded-2xl` (16px) | Midgrey-900 `#131923`, compact `max-w-2xl` | WhatsApp discount verification CTA |
+
+### Cardless / Blended Surfaces (Cards Removed)
+
+| Section / Feature | Page Context | Previous State | Current Blended State | Rationale |
+| :--- | :--- | :--- | :--- | :--- |
+| **Student Perks ("What You Get")** | `/students` | 3 white boxed cards with heavy drop shadows | Seamless editorial grid with amber icon accents directly on canvas | Eliminates nested box fatigue |
+| **Claim Steps ("How to Claim")** | `/students` | 3 white bordered cards | Clean numbered steps directly on background | Improves reading flow |
+| **Accepted Colleges Directory** | `/students` | Heavy boxed cards with badges | Clean minimalist badge chips with direct canvas border | Streamlined directory list |
+| **Student CTA Banner** | `/students` | Stretched `max-w-6xl` box with empty flanks | Snug `max-w-2xl` compact banner with zero wasted space | Perfectly proportioned hero card |
+| **Compare Empty State** | `/compare` | Boxed card `p-12` with heavy outline | Cardless centered placeholder with simple divider line | Eliminates unnecessary card-within-card |
+| **Why Trade-In Benefits** | `/exchange` | Boxed cards | Seamless inline benefit grid on background | Natural editorial flow |
+| **Terms & Conditions Clauses** | `/terms` | Nested bordered cards | Numbered editorial clauses directly on canvas | High-legibility legal document |
+| **Privacy Policy Safeguards** | `/privacy` | Boxed security cards | Editorial list with accent icon bullets | Clean, distraction-free reading |
+| **About Us Core Pillars** | `/about` | Boxed cards with shadows | Cardless editorial layout with clear typographic hierarchy | Premium brand storytelling |
 
 ---
 
@@ -85,7 +105,7 @@ The TecnoMart application adopts a strict, high-legibility typographic hierarchy
 | `text-sm` | **14px** (0.875rem) | `leading-normal` (20px) | Regular (400) / Medium (500) / SemiBold (600) | Header Search Input, Filter Category Names, PDP Spec Selector Values, Form Inputs (Phone/Email/Address), Cart Item Details | Primary interface body text, interactive form input fields, cart row descriptions, and standard UI button labels. |
 | `text-base` | **16px** (1.0rem) | `leading-snug` (24px) | Medium (500) / SemiBold (600) | Product Card Title in Grid, Category Drawer Section Headers, Main CTAs (`Proceed to Checkout`, `Continue to Payment`) | High-frequency interactive labels, primary call-to-action buttons, card titles, and standard readability baseline. |
 | `text-lg` | **18px** (1.125rem) | `leading-snug` (28px) | SemiBold (600) / Bold (700) | Product Grid Price Display (`₹54,999`), Cart Drawer Header (`Shopping Cart (N)`), Section Card Subheadings | Prominent financial pricing on card grids, drawer headers, and section anchor labels. |
-| `text-xl` | **20px** (1.25rem) | `leading-tight` (28px) | Bold (700) | Checkout Modal Step Titles (`Shipping Details`, `Payment Method`), Promo Banner Headings | Modal headers, high-conversion section prompts, and secondary marketing titles. |
+| `text-xl` | **20px** (1.25rem) | `leading-tight` (28px) | Bold (700) | Checkout Modal Step Titles (`Shipping Details`, `Payment Method`), Promo Banner Headings, Compact CTA Titles | Modal headers, high-conversion section prompts, and secondary marketing titles. |
 | `text-2xl` | **24px** (1.5rem) | `leading-tight` (32px) | Bold (700) / ExtraBold (800) | Deal of the Day Heading, Category Page Main Title, PDP Product Title (`mobile`), Cart Final Total (`₹1,24,999`) | Primary screen milestone headings, prominent single-product titles on mobile, and grand order totals. |
 | `text-3xl` | **30px** (1.875rem) | `leading-tight` (36px) | ExtraBold (800) | PDP Product Headline (Desktop), Homepage Section Titles (`Popular Tech Picks`, `Custom Built PCs`) | Major section division headers and high-impact desktop product names. |
 | `text-4xl` | **36px** (2.25rem) | `leading-none` (40px) | Black (900) | Hero Dynamic Typewriter Headline (Mobile), Deal of the Day Big Pricing | Mobile hero hook statement and high-impact promotional pricing callouts. |
@@ -97,24 +117,31 @@ The TecnoMart application adopts a strict, high-legibility typographic hierarchy
 ## 5. Design Metric Consistency Evaluation
 
 ### 1. Radius Harmonization Index
-- **Macro Containers (Banners, Modals, Mega-Deals):** Standardized on `rounded-3xl` (24px) for prominent screen anchors.
-- **Interactive Product & Promo Cards & Bottom Popup:** Standardized on `rounded-2xl` (16px) ensuring a cohesive visual rhythm.
+- **Macro Containers (Banners, Modals, Mega-Deals, Forms):** Standardized on `rounded-3xl` (24px) for prominent screen anchors.
+- **Interactive Product Cards & Key CTAs:** Standardized on `rounded-2xl` (16px) ensuring a cohesive visual rhythm.
 - **Primary Conversion Buttons & Spec Selectors:** Standardized on `rounded-xl` (12px) for optimal tap targets and modern ergonomics.
 - **Micro UI (Pills, Thumbnails, Badges):** Standardized on `rounded-lg` (8px) or `rounded-full` (pills).
 
-### 2. Color Integrity Verification
+### 2. Card Reduction Standard (`/cards-component-patterns-auditor`)
+- Pure informational and narrative blocks must not use outer card wrappers, borders, or drop shadows.
+- Content must blend directly into the canvas with ample breathing room (`gap-6` to `gap-8`) and clear typographic hierarchy.
+- Cards must only be used when interactive elevation is functionally required (clicking into a product, selecting an option, or entering form data).
+
+### 3. Color Integrity Verification
 - Reverted all non-standard orange hues back to the official **TecnoMart Yellow (`#F5B800`)**.
 - Ribbon badges utilize clear semantic distinctions:
-  - **Red Gradient (`#ef4444` → `#dc2626`)**: Used for urgent/high-attention triggers (`HOT`, `NEW`, `FLASH DISCOUNT`).
+  - **Green Gradient (`#10b981` → `#059669`)**: Used for `NEW` product arrivals.
+  - **Red Gradient (`#ef4444` → `#dc2626`)**: Used for urgent/high-attention triggers (`HOT`, `FLASH DISCOUNT`).
   - **Gold Gradient (`#F5B800` → `#d49b00`)**: Used for prestige items (`BESTSELLER`).
 - **Cart Affirmation & Coupon States:**
   - **Bottom Slide-up Toast:** Emerald `#15803d` with white text (`"1 item added to cart"`).
   - **Coupon Celebration Banner:** Emerald `#047857` with left-to-right animated slide (`"Coupon code applied on this order"`).
 
-### 3. Scroll Architecture Integrity
+### 4. Scroll Architecture Integrity
 - Smooth scroll driven by Lenis v1.1.9 across entire site.
 - Fixed sidebar & modal scroll trap: `data-lenis-prevent="true"` and `overscroll-contain` applied on Cart Drawer, Categories Sidebar, and Checkout Modal.
 - Unified Cart viewport: items list seamlessly scrolls into coupon input and final order summary in one continuous viewport with a 5-item threshold toggle.
 
 ---
 *Report certified for release on `final-design` branch.*
+
