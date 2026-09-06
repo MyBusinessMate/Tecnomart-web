@@ -62,5 +62,9 @@ tmp/
 temp/
 .tempmediaStorage/
 .playwright-mcp/
-.originkit/
 browser/
+
+# Raw staging assets & ChatGPT Generated Images
+images/
+*ChatGPT*
+*[Cc]hat[Gg]pt*
