@@ -148,10 +148,6 @@ export default function ExchangePage() {
               {/* Radial glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
-                <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-                  <RefreshCw className="w-3.5 h-3.5" />
-                  Trade-In & Exchange
-                </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
                   Get the Best Value for<br className="hidden sm:block" /> Your Old Tech
                 </h1>

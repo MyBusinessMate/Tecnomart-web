@@ -72,10 +72,6 @@ export default function StudentsPage() {
             <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
-                <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  Student Discount Program
-                </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
                   Students Get More<br className="hidden sm:block" /> at TecnoMart
                 </h1>

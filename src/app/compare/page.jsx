@@ -112,10 +112,6 @@ export default function ComparePage() {
             <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
-                <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-                  <GitCompare className="w-3.5 h-3.5" />
-                  Compare
-                </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
                   Compare Products Side by Side
                 </h1>
