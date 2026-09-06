@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TecnoMart Design System & Visual Audit Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    :root {
+      --tm-yellow: #F5B800;
+      --tm-yellow-hover: #e0a700;
+      --tm-dark: #131923;
+      --tm-darker: #0d121a;
+      --tm-card-dark: #1b2330;
+      --tm-border-dark: #2a3444;
+      --tm-bg: #f7f8fa;
+      --tm-text: #0f172a;
+      --tm-muted: #64748b;
+      --tm-emerald: #10b981;
+      --tm-red: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--tm-bg);
+      color: var(--tm-text);
+      line-height: 1.5;
+      padding: 32px 20px 100px;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header h1 span {
+      background: var(--tm-yellow);
+      color: #111;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .header p {
+      color: var(--tm-muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .badge-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    /* Section Wrapper */
+    .section {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--tm-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Audit Grid with Annotation Sidebar */
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    .audit-item {
+      position: relative;
+      background: #fafbfc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .annotation-bar {
+      border-left: 4px solid var(--tm-yellow);
+      padding-left: 12px;
+      margin-top: 18px;
+      background: #fff;
+      padding: 10px 12px;
+      border-radius: 0 10px 10px 0;
+      border-top: 1px solid #f1f5f9;
+      border-right: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .annotation-bar.accent-blue {
+      border-left-color: #3b82f6;
+    }
+
+    .annotation-bar.accent-emerald {
+      border-left-color: #10b981;
+    }
+
+    .annotation-bar.accent-purple {
+      border-left-color: #8b5cf6;
+    }
+
+    .annotation-bar.accent-red {
+      border-left-color: #ef4444;
+    }
+
+    .ann-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+
+    .ann-location {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .ann-desc {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .ann-specs {
+      font-size: 11px;
+      font-family: monospace;
+      color: #d97706;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .preview-box {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Dynamic Button Wipe Yellow */
+    .btn-wipe-yellow {
+      position: relative;
+      background-color: var(--tm-yellow);
+      color: #111111;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 13px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: color 0.35s ease;
+      z-index: 1;
+      box-shadow: 0 4px 12px rgba(245, 184, 0, 0.25);
+    }
+
+    .btn-wipe-yellow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #131923;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .btn-wipe-yellow:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn-wipe-yellow:hover {
+      color: #ffffff;
+    }
+
+    /* Outlined Button */
+    .btn-outlined {
+      background: #ffffff;
+      border: 2px solid #131923;
+      color: #131923;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outlined:hover {
+      background: #131923;
+      color: #ffffff;
+    }
+
+    /* WhatsApp Button */
+    .btn-whatsapp {
+      background: #25D366;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      transform: translateY(-1px);
+    }
+
+    /* Folded Ribbon Badge */
+    .ribbon-container {
+      position: relative;
+      width: 220px;
+      height: 160px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .ribbon-corner {
+      position: absolute;
+      top: 14px;
+      right: -32px;
+      width: 120px;
+      transform: rotate(45deg);
+      text-align: center;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 0;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .ribbon-corner.green {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .ribbon-corner.red {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    .ribbon-corner.gold {
+      background: linear-gradient(135deg, #F5B800, #d49b00);
+      color: #111111;
+    }
+
+    /* Toast Notification */
+    .toast-preview {
+      background: #15803d;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(21, 128, 61, 0.35);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    /* Typography Scale Table */
+    .type-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .type-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #64748b;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .type-table td {
+      padding: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+
+    .type-table tr:hover td {
+      background: #fafbfc;
+    }
+
+    .type-sample {
+      color: #0f172a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Compact Card Comparison */
+    .comp-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .comp-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-allowed {
+      border: 2px solid #10b981;
+      border-radius: 16px;
+      background: #ffffff;
+      padding: 20px;
+      position: relative;
+    }
+
+    .card-removed {
+      border: 2px dashed #94a3b8;
+      border-radius: 16px;
+      background: transparent;
+      padding: 20px;
+      position: relative;
+    }
+
+    .tag-status {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .tag-status.allowed {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag-status.blended {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    /* Color Swatches */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .swatch-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .swatch-color {
+      height: 60px;
+      width: 100%;
+    }
+
+    .swatch-info {
+      padding: 12px;
+      font-size: 12px;
+    }
+
+    .swatch-name {
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .swatch-hex {
+      font-family: monospace;
+      color: #64748b;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1>TecnoMart <span>Design System</span></h1>
+        <p>Comprehensive Visual Audit, Typography Scale & Layout Reference</p>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span class="badge-pill">Branch: final-design</span>
+        <span class="badge-pill">Standards: MDI & NN/g</span>
+        <span class="badge-pill" style="background: #fef3c7; border-color: #fde68a; color: #92400e;">Production Ready</span>
+      </div>
+    </header>
+
+    <!-- SECTION 1: BUTTON SYSTEMS & INTERACTION WIPE -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="mouse-pointer-click" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 1. Button Systems & Wipe Interactions</h2>
+      <p class="section-subtitle">Visual rendering of action buttons, corner radii, and dynamic hover transitions.</p>
+
+      <div class="audit-grid">
+        <!-- Item 1 -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <button class="btn-wipe-yellow">
+              <span>Tell Us Your Budget</span>
+              <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+            </button>
+          </div>
+          <div class="annotation-bar">
+            <div class="ann-tag">Primary Conversion CTA</div>
+            <div class="ann-location">Homepage Hero & Gaming Banner</div>
+            <div class="ann-desc">Sliding black curtain wipe with smooth transition from yellow to white text on hover.</div>
+            <div class="ann-specs">Token: rounded-xl (12px) | Class: .btn-wipe-yellow</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <button class="btn-outlined">
+              <i data-lucide="wrench" style="width:15px;height:15px;"></i>
+              <span>Book a Repair</span>
+            </button>
+          </div>
+          <div class="annotation-bar accent-blue">
+            <div class="ann-tag">Secondary Action Button</div>
+            <div class="ann-location">Hero Section & Repair Nav</div>
+            <div class="ann-desc">Clean white surface with solid 2px dark border. Inverts to solid dark fill with white text on hover.</div>
+            <div class="ann-specs">Token: rounded-xl (12px) | Border: 2px #131923</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <button class="btn-whatsapp">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+              <span>Claim Student Discount</span>
+            </button>
+          </div>
+          <div class="annotation-bar accent-emerald">
+            <div class="ann-tag">Social Direct CTA</div>
+            <div class="ann-location">Student Discount Banner & PDP WhatsApp</div>
+            <div class="ann-desc">Official WhatsApp green (#25D366) with verified icon and direct prefilled URL generator.</div>
+            <div class="ann-specs">Token: rounded-xl (12px) | Background: #25D366</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FOLDED CORNER RIBBON BADGES -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="bookmark" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 2. Folded Corner Ribbon Badges</h2>
+      <p class="section-subtitle">Folded 45° corner badges replacing legacy rounded pill badges on product showcases.</p>
+
+      <div class="audit-grid">
+        <!-- Badge 1: New Arrival -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="ribbon-container">
+              <div class="ribbon-corner green">NEW</div>
+              <p style="font-size:11px;font-weight:700;color:#64748b;">iPhone 16 Pro Max</p>
+              <p style="font-size:13px;font-weight:900;color:#0f172a;">₹1,34,900</p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-emerald">
+            <div class="ann-tag">Green Ribbon</div>
+            <div class="ann-location">Mobiles, Laptops & Accessories New Arrivals</div>
+            <div class="ann-desc">Used exclusively for new generation hardware releases. Green gradient (#10b981 &rarr; #059669).</div>
+            <div class="ann-specs">Font: text-[9px] font-black uppercase | Angle: 45deg</div>
+          </div>
+        </div>
+
+        <!-- Badge 2: Hot Deal -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="ribbon-container">
+              <div class="ribbon-corner red">HOT</div>
+              <p style="font-size:11px;font-weight:700;color:#64748b;">MacBook Air M3</p>
+              <p style="font-size:13px;font-weight:900;color:#0f172a;">₹94,990</p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-red">
+            <div class="ann-tag">Red Ribbon</div>
+            <div class="ann-location">Deal of the Day & Popular Picks</div>
+            <div class="ann-desc">High urgency trigger for limited-time flash discounts and high-demand units. Red gradient (#ef4444 &rarr; #dc2626).</div>
+            <div class="ann-specs">Font: text-[9px] font-black uppercase | Angle: 45deg</div>
+          </div>
+        </div>
+
+        <!-- Badge 3: Bestseller -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="ribbon-container">
+              <div class="ribbon-corner gold">BESTSELLER</div>
+              <p style="font-size:11px;font-weight:700;color:#64748b;">Sony WH-1000XM5</p>
+              <p style="font-size:13px;font-weight:900;color:#0f172a;">₹26,990</p>
+            </div>
+          </div>
+          <div class="annotation-bar">
+            <div class="ann-tag">Gold Ribbon</div>
+            <div class="ann-location">Accessories & Refurbished Best Sellers</div>
+            <div class="ann-desc">Social proof marker for top sales volume products. TecnoMart gold gradient (#F5B800 &rarr; #d49b00).</div>
+            <div class="ann-specs">Font: text-[9px] font-black uppercase | Angle: 45deg</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CARDS VS CARDLESS (BACKGROUND BLENDING) -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="layers" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 3. Cards vs. Cardless Editorial Surfaces</h2>
+      <p class="section-subtitle">Strict compliance with /cards-component-patterns-auditor: cards reserved strictly for interactive items.</p>
+
+      <div class="comp-box">
+        <!-- Card Allowed -->
+        <div class="card-allowed">
+          <span class="tag-status allowed">&check; Card Permitted</span>
+          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 8px;">Interactive Product & Input Modules</h3>
+          <p style="font-size: 13px; color: #475569; margin-bottom: 14px;">
+            Cards with subtle borders and shadows are strictly reserved for clickable products, selectable specs, form inputs, and checkout price summaries.
+          </p>
+          <div class="annotation-bar accent-emerald" style="margin-top: 0;">
+            <div class="ann-tag">Allowed Card Locations</div>
+            <div class="ann-location">Popular Picks, Cart Summary, Trade-In Form, Contact Form</div>
+            <div class="ann-desc">Keeps user focus strictly centered on direct actionable paths.</div>
+          </div>
+        </div>
+
+        <!-- Card Removed -->
+        <div class="card-removed">
+          <span class="tag-status blended">&cross; Cards Removed (Blended Directly on Canvas)</span>
+          <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 8px;">Editorial & Informational Content</h3>
+          <p style="font-size: 13px; color: #64748b; margin-bottom: 14px;">
+            Eliminated nested boxed cards from informational and legal sections. Content now sits seamlessly on the canvas (#f7f8fa) with clear typographic hierarchy.
+          </p>
+          <div class="annotation-bar accent-purple" style="margin-top: 0;">
+            <div class="ann-tag">Refactored to Cardless</div>
+            <div class="ann-location">Student Perks, Accepted Colleges, Compare Empty State, Terms, Privacy, About</div>
+            <div class="ann-desc">Eliminates nested box fatigue and improves reading rhythm.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TYPOGRAPHY SCALE AUDIT -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="type" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 4. Typography Scale & Font Sizing Architecture</h2>
+      <p class="section-subtitle">Complete computed pixel scale, line height relationships, and page context assignments.</p>
+
+      <div style="overflow-x: auto;">
+        <table class="type-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Computed Size</th>
+              <th>Weight</th>
+              <th>Visual Sample</th>
+              <th>Application & Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>text-[9px]</code></td>
+              <td><strong>9px</strong></td>
+              <td>Black (900)</td>
+              <td><span class="type-sample" style="font-size:9px;font-weight:900;text-transform:uppercase;background:#fee2e2;color:#b91c1c;padding:2px 6px;border-radius:4px;">NEW / HOT</span></td>
+              <td>Folded corner ribbon badges on product showcase thumbnails.</td>
+            </tr>
+            <tr>
+              <td><code>text-[10px]</code></td>
+              <td><strong>10px</strong></td>
+              <td>Bold (700)</td>
+              <td><span class="type-sample" style="font-size:10px;font-weight:700;color:#64748b;">420/500 CHARACTERS</span></td>
+              <td>Input character counters, header delivery subtext, micro-badges.</td>
+            </tr>
+            <tr>
+              <td><code>text-xs</code></td>
+              <td><strong>12px</strong></td>
+              <td>Medium (500)</td>
+              <td><span class="type-sample" style="font-size:12px;font-weight:500;color:#64748b;">Home &gt; Mobiles &gt; iPhone 16 Pro</span></td>
+              <td>Secondary navigation links, breadcrumb trail, spec table labels.</td>
+            </tr>
+            <tr>
+              <td><code>text-sm</code></td>
+              <td><strong>14px</strong></td>
+              <td>Medium (500)</td>
+              <td><span class="type-sample" style="font-size:14px;font-weight:500;">Search for smartphones, laptops, repairs...</span></td>
+              <td>Search inputs, form field labels, cart item details, body copy.</td>
+            </tr>
+            <tr>
+              <td><code>text-base</code></td>
+              <td><strong>16px</strong></td>
+              <td>SemiBold (600)</td>
+              <td><span class="type-sample" style="font-size:16px;font-weight:600;">Apple iPhone 15 (128GB, Black)</span></td>
+              <td>Product card titles in grid, category drawer headings, standard CTAs.</td>
+            </tr>
+            <tr>
+              <td><code>text-lg</code></td>
+              <td><strong>18px</strong></td>
+              <td>Bold (700)</td>
+              <td><span class="type-sample" style="font-size:18px;font-weight:700;color:#d97706;">₹54,999</span></td>
+              <td>Product pricing display, cart drawer title, section subheaders.</td>
+            </tr>
+            <tr>
+              <td><code>text-xl</code></td>
+              <td><strong>20px</strong></td>
+              <td>Bold (700)</td>
+              <td><span class="type-sample" style="font-size:20px;font-weight:700;">Ready to Claim Your Student Discount?</span></td>
+              <td>Compact CTA banner titles, checkout modal step titles.</td>
+            </tr>
+            <tr>
+              <td><code>text-2xl</code></td>
+              <td><strong>24px</strong></td>
+              <td>ExtraBold (800)</td>
+              <td><span class="type-sample" style="font-size:24px;font-weight:800;">Deal of the Day</span></td>
+              <td>Screen milestone headers, mobile product detail titles, cart grand total.</td>
+            </tr>
+            <tr>
+              <td><code>text-3xl</code></td>
+              <td><strong>30px</strong></td>
+              <td>ExtraBold (800)</td>
+              <td><span class="type-sample" style="font-size:30px;font-weight:800;">Popular Tech Picks in Hyderabad</span></td>
+              <td>Major homepage section headers, desktop product detail titles.</td>
+            </tr>
+            <tr>
+              <td><code>text-4xl</code></td>
+              <td><strong>36px</strong></td>
+              <td>Black (900)</td>
+              <td><span class="type-sample" style="font-size:36px;font-weight:900;color:#0f172a;">₹1,34,900</span></td>
+              <td>Deal of the day hero pricing, mobile dynamic typewriter hook.</td>
+            </tr>
+            <tr>
+              <td><code>text-6xl</code></td>
+              <td><strong>60px</strong></td>
+              <td>Black (900)</td>
+              <td><span class="type-sample" style="font-size:44px;font-weight:900;color:#d97706;letter-spacing:-0.03em;">YOUR RIGHT SETUP.</span></td>
+              <td>Desktop hero dynamic typewriter hook (dominant visual anchor).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: COLOR PALETTE -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="palette" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 5. Standardized Color Palette</h2>
+      <p class="section-subtitle">Official TecnoMart brand tokens across background, accents, and feedback states.</p>
+
+      <div class="palette-grid">
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #F5B800;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">TecnoMart Yellow</div>
+            <div class="swatch-hex">#F5B800</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #131923;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Midgrey Dark</div>
+            <div class="swatch-hex">#131923</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #10b981;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">New Emerald</div>
+            <div class="swatch-hex">#10b981</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #25D366;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">WhatsApp Green</div>
+            <div class="swatch-hex">#25D366</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #ef4444;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Urgent Red</div>
+            <div class="swatch-hex">#ef4444</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: #f7f8fa; border-bottom: 1px solid #e2e8f0;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Canvas Grey</div>
+            <div class="swatch-hex">#f7f8fa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
