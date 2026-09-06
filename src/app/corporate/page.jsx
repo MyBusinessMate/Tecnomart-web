@@ -81,7 +81,7 @@ export default function CorporatePage() {
                     Enterprise IT Sourcing Made Seamless
                   </h2>
 
-                  <div className="space-y-4 text-xs sm:text-sm text-neutral-300">
+                  <div className="space-y-4 text-xs sm:text-sm text-neutral-300 pt-2">
                     {[
                       {
                         icon: <FileText className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />,
@@ -95,15 +95,15 @@ export default function CorporatePage() {
                       },
                       {
                         icon: <ShieldCheck className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />,
-                        title: "Priority Corporate AMC &amp; Support",
+                        title: "Priority Corporate AMC & Support",
                         desc: "4-hour turnaround on hardware repairs and loaner replacement laptops.",
                       },
                     ].map((item) => (
-                      <div key={item.title} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
+                      <div key={item.title} className="flex items-start gap-3.5">
                         {item.icon}
                         <div>
                           <strong className="text-white block font-bold mb-0.5">{item.title}</strong>
-                          <span className="text-neutral-400">{item.desc}</span>
+                          <span className="text-neutral-400 leading-relaxed font-normal">{item.desc}</span>
                         </div>
                       </div>
                     ))}

@@ -171,18 +171,18 @@ export default function StudentsPage() {
           </div>
         </section>
 
-        {/* Colleges List */}
+        {/* Colleges List - Clean Integrated Section */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-10">
           <BlurRevealBox delay={0.05}>
-            <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-8">
+            <div className="py-2">
               <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-5">
-                Accepted Colleges & Universities
+                Accepted Colleges &amp; Universities
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {visibleColleges.map((college) => (
                   <div
                     key={college}
-                    className="flex items-center gap-2.5 p-3 bg-neutral-50 border border-neutral-100 rounded-xl"
+                    className="flex items-center gap-2.5 p-3 bg-white border border-neutral-200/80 rounded-xl"
                   >
                     <span className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />
                     <span className="text-sm font-semibold text-neutral-700">{college}</span>

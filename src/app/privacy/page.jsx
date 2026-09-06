@@ -58,31 +58,31 @@ export default function PrivacyPolicyPage() {
               <span className="text-neutral-900 font-bold">Privacy Policy</span>
             </nav>
 
-            {/* Page Header */}
-            <div className="bg-white rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-8 mb-6 flex items-start gap-4">
-              <div className="w-12 h-12 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <Lock className="w-5 h-5 text-amber-600" />
+            {/* Page Header - Seamless Editorial Style */}
+            <div className="mb-10 pb-6 border-b border-neutral-200/80 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center flex-shrink-0 mt-1">
+                <Lock className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[11px] font-black text-amber-500 uppercase tracking-widest">LEGAL &amp; COMPLIANCE</span>
-                <h1 className="text-xl sm:text-3xl font-black text-neutral-950 uppercase tracking-tight mt-1">
+                <span className="text-[11px] font-black text-amber-600 uppercase tracking-widest block">LEGAL &amp; COMPLIANCE</span>
+                <h1 className="text-2xl sm:text-4xl font-black text-neutral-950 uppercase tracking-tight mt-1">
                   Privacy Policy
                 </h1>
-                <p className="text-xs sm:text-sm text-neutral-500 mt-1">
+                <p className="text-xs sm:text-sm text-neutral-500 mt-1.5 font-medium">
                   Last updated: February 2025 · Tecno Mart Technologies Pvt Ltd
                 </p>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="bg-white rounded-3xl border border-neutral-200 shadow-sm p-6 sm:p-8 space-y-7">
+            {/* Content - Clean Cardless Text Flow */}
+            <div className="space-y-8 max-w-3xl">
               {sections.map((s) => (
-                <section key={s.title} className="space-y-2.5">
-                  <h2 className="text-sm sm:text-base font-black text-neutral-950 uppercase pb-2 border-b border-neutral-100">
+                <section key={s.title} className="space-y-2">
+                  <h2 className="text-base sm:text-lg font-black text-neutral-950 tracking-tight">
                     {s.title}
                   </h2>
                   {s.custom || (
-                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
                       {s.body}
                     </p>
                   )}

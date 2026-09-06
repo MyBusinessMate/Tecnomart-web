@@ -343,16 +343,16 @@ export default function ExchangePage() {
           </BlurRevealBox>
         </section>
 
-        {/* Why Trade-in at TecnoMart */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-16">
-          <BlurRevealBox delay={0.2}>
-            <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-8">
-              <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-6 text-center">
+        {/* Why Trade-in at TecnoMart - Seamless Surface */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pb-16">
+          <BlurRevealBox delay={0.15}>
+            <div className="py-4">
+              <h2 className="text-lg sm:text-xl font-black text-neutral-950 uppercase tracking-tight mb-6 text-center">
                 Why Trade-In at TecnoMart?
               </h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {WHY_BENEFITS.map((b) => (
-                  <div key={b.title} className="flex flex-col items-center text-center gap-2.5 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+                  <div key={b.title} className="flex flex-col items-center text-center gap-2.5 p-4 rounded-xl">
                     <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
                       <b.icon className="w-5 h-5" />
                     </div>

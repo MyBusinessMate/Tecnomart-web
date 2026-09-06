@@ -61,15 +61,15 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10">
+            {/* Stats Row - Clean Integrated Metrics */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 py-6 border-y border-neutral-200/80">
               {stats.map((s, idx) => (
-                <BlurRevealBox key={s.label} delay={idx * 0.06} yOffset={16}>
-                  <div className="p-5 sm:p-6 rounded-2xl bg-white border border-neutral-200 text-center hover:border-amber-400 hover:shadow-lg transition-all">
-                    <span className="text-2xl sm:text-4xl font-black text-neutral-950 block mb-1">
+                <BlurRevealBox key={s.label} delay={idx * 0.05} yOffset={10}>
+                  <div className="text-left sm:text-center">
+                    <span className="text-2xl sm:text-4xl font-black text-neutral-950 block mb-0.5 tracking-tight">
                       {s.number}
                     </span>
-                    <span className="text-[11px] sm:text-sm font-bold text-neutral-500">
+                    <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
                       {s.label}
                     </span>
                   </div>
@@ -77,22 +77,22 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Story Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-10">
-              <div className="lg:col-span-6 space-y-4 bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm">
-                <span className="text-[11px] font-black tracking-widest text-amber-500 uppercase">
+            {/* Story Grid - Blended Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
+              <div className="lg:col-span-6 space-y-4">
+                <span className="text-[11px] font-black tracking-widest text-amber-600 uppercase">
                   HOW WE STARTED
                 </span>
-                <h2 className="text-xl sm:text-2xl font-black text-neutral-950 uppercase leading-tight">
+                <h2 className="text-xl sm:text-3xl font-black text-neutral-950 uppercase leading-tight tracking-tight">
                   From Passionate PC Enthusiasts to Hyderabad's Trusted Tech Store
                 </h2>
-                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   TecnoMart began with a simple observation in 2016: finding authentic tech products, fair pricing, and trustworthy repair engineers under one roof was nearly impossible in the local retail market. Customers were forced to choose between overpriced showroom markups and unreliable grey-market repairs.
                 </p>
-                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   We established our flagship store at Road No. 36, Jubilee Hills, Hyderabad, with an uncompromising commitment: <strong className="text-neutral-900">100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
                 </p>
-                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   Today, over 45,000 students, developers, creative professionals, and esports gamers trust TecnoMart for their hardware upgrades and critical repairs.
                 </p>
               </div>
