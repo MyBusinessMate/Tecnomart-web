@@ -100,6 +100,7 @@ export default function App() {
 
           <Route path="/repairs" element={<RepairsPage />} />
           <Route path="/pc-builds" element={<PcBuildsPage />} />
+          <Route path="/build-your-setup" element={<PcBuildsPage />} />
           <Route path="/deals" element={<DealsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

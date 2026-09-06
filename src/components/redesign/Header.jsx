@@ -197,6 +197,8 @@ export default function Header() {
     { label: 'All Categories', href: '#categories' },
     { label: 'Mobiles', href: '/mobiles' },
     { label: 'Laptops', href: '/laptops' },
+    { label: 'PC Builder', href: '/pc-builds' },
+    { label: 'Gaming', href: '/gaming' },
     { label: 'Accessories', href: '/accessories' },
     { label: 'Repair', href: '/repairs' },
     { label: 'Trade-In', href: '/exchange' },
@@ -226,6 +228,17 @@ export default function Header() {
       ],
     },
     {
+      id: 'gaming-pcs',
+      title: 'Gaming & PC Builds',
+      href: '/gaming',
+      items: [
+        { name: 'Custom PC Builder & Configurator', href: '/pc-builds' },
+        { name: 'Pre-Built Gaming Rigs', href: '/gaming' },
+        { name: 'Gaming Laptops', href: '/laptops' },
+        { name: 'Gaming Accessories', href: '/accessories' },
+      ],
+    },
+    {
       id: 'accessories',
       title: 'Accessories',
       href: '/accessories',
@@ -250,13 +263,13 @@ export default function Header() {
     },
     {
       id: 'others',
-      title: 'Others & Custom',
-      href: '/gaming',
+      title: 'Services & Perks',
+      href: '/corporate',
       items: [
-        { name: 'Gaming PC Custom Builds', href: '/gaming' },
         { name: 'Corporate Bulk Orders', href: '/corporate' },
         { name: 'Student Discounts', href: '/students' },
         { name: 'EMI Calculator', href: '/emi-calculator' },
+        { name: 'Trade-In / Exchange', href: '/exchange' },
       ],
     },
   ];

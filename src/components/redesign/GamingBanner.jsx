@@ -78,13 +78,20 @@ export default function GamingBanner() {
                 </p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <Link
+                  href="/pc-builds"
+                  className="btn-wipe-yellow inline-flex items-center gap-2 font-black text-xs sm:text-sm uppercase tracking-wider px-6 sm:px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 active:scale-98 cursor-pointer"
+                >
+                  <span className="relative z-10">CUSTOM PC BUILDER</span>
+                  <ChevronRight className="w-4 h-4 stroke-[3] relative z-10" />
+                </Link>
+
                 <Link
                   href="/gaming"
-                  className="btn-wipe-yellow inline-flex items-center gap-2 font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 active:scale-98 cursor-pointer"
+                  className="inline-flex items-center gap-2 font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all active:scale-98 cursor-pointer"
                 >
-                  <span className="relative z-10">EXPLORE GAMING PCS</span>
-                  <ChevronRight className="w-4 h-4 stroke-[3] relative z-10" />
+                  <span>Explore Rigs</span>
                 </Link>
               </div>
 
