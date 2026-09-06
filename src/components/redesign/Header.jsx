@@ -497,8 +497,9 @@ export default function Header() {
         <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
           
           {/* USER ACCOUNT DROPDOWN */}
-          <div ref={accountDropdownRef} className="relative">
+          <div className="relative" data-account-menu>
             <button
+              ref={accountBtnRef}
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
               className="flex items-center gap-1 text-neutral-800 hover:text-amber-600 transition-colors p-1.5 rounded-lg cursor-pointer"
               aria-label="User Account"
