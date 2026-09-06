@@ -113,7 +113,11 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                   {prod.badge && (
                     <div className="ribbon-wrapper ribbon-wrapper-right">
                       <div className={`ribbon-badge-right ${
-                        prod.badgeType === 'gold' ? 'ribbon-gold' : 'ribbon-red'
+                        prod.badge === 'NEW' || prod.badgeType === 'green'
+                          ? 'ribbon-green'
+                          : prod.badgeType === 'gold' || prod.badge === 'BESTSELLER'
+                          ? 'ribbon-gold'
+                          : 'ribbon-red'
                       }`}>
                         {prod.badge}
                       </div>

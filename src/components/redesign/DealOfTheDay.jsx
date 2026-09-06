@@ -156,14 +156,16 @@ export default function DealOfTheDay() {
               </button>
             </div>
 
-            {/* Trust badge */}
-            <div className="flex items-center gap-4 text-xs font-semibold text-neutral-400 pt-3 border-t border-neutral-800/80">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-500" />
+            {/* Trust badge - Single line on mobile */}
+            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 text-[10px] sm:text-xs font-semibold text-neutral-400 pt-3 border-t border-neutral-800/80 whitespace-nowrap overflow-x-auto no-scrollbar">
+              <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
                 <span>Official Apple India Warranty</span>
               </div>
-              <div>•</div>
-              <div>Free Doorstep Delivery in Hyderabad</div>
+              <span className="text-neutral-600 flex-shrink-0">•</span>
+              <div className="flex-shrink-0">
+                <span>Free Doorstep Delivery in Hyderabad</span>
+              </div>
             </div>
 
           </div>

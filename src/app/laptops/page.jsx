@@ -68,51 +68,41 @@ export default function LaptopsPage() {
               <span className="text-neutral-900 font-bold">Laptops</span>
             </nav>
 
-            {/* Department Hero Banner */}
-            <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/25 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
-                <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-amber-400 uppercase">
-                  MACBOOKS · GAMING RIGS · WORKSTATIONS · ULTRABOOKS
-                </span>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mt-2 leading-tight">
-                  Premium Laptops
-                </h1>
-                <p className="text-xs sm:text-sm text-neutral-400 mt-3 max-w-xl leading-relaxed">
-                  Authorized laptops with official brand warranty · Free setup &amp; OS installation · RAM/SSD upgrades on request · 0% No-Cost EMI options.
-                </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-5 text-xs font-bold text-neutral-300">
-                  <span className="flex items-center gap-1.5 text-amber-400">
-                    <Star className="w-3.5 h-3.5 fill-current" /> 4.8★ Rated
-                  </span>
-                  <span className="text-neutral-700">|</span>
-                  <span>50+ Models In Stock</span>
-                  <span className="text-neutral-700">|</span>
-                  <span className="flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-amber-400" /> Free Same-Day Setup
-                  </span>
-                  <span className="text-neutral-700">|</span>
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> Brand Authorized
-                  </span>
+            {/* Sleek Modern Laptops Header Banner */}
+            <div className="relative rounded-3xl overflow-hidden mb-8 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-xl">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="relative z-10 max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[11px] font-bold tracking-wider uppercase mb-3">
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span>MacBooks · Gaming Rigs · Workstations · Ultrabooks</span>
                 </div>
-              </div>
-            </div>
+                
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+                  Premium Laptops &amp; MacBooks
+                </h1>
+                
+                <p className="text-xs sm:text-sm text-neutral-400 mt-3 leading-relaxed max-w-2xl font-medium">
+                  Authorized laptops with official brand warranty. Free doorstep onsite setup &amp; OS installation in Hyderabad, custom RAM/SSD upgrades on request, and 0% No-Cost EMI options.
+                </p>
 
-            {/* Value Pillars Strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-7 p-3.5 sm:p-4 bg-white rounded-2xl border border-neutral-200 shadow-sm text-xs font-bold text-neutral-800">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>Brand New Sealed with GST Tax Bill</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>Free Same-Day Setup in Hyderabad</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <RotateCcw className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>Custom RAM &amp; SSD Upgrades Available</span>
+                {/* Integrated Trust & Delivery Perks */}
+                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 pt-5 border-t border-neutral-800/80 text-xs font-semibold text-neutral-300">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span>Sealed Box with GST Tax Bill</span>
+                  </div>
+                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <div className="flex items-center gap-2">
+                    <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span>Free Same-Day Setup in Hyderabad</span>
+                  </div>
+                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <div className="flex items-center gap-2">
+                    <RotateCcw className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span>Custom RAM &amp; SSD Upgrades</span>
+                  </div>
+                </div>
               </div>
             </div>
 

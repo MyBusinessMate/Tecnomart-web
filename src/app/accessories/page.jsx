@@ -141,32 +141,39 @@ export default function AccessoriesPage() {
               <span className="text-neutral-900 font-bold">Accessories</span>
             </nav>
 
-            {/* Department Hero Banner */}
-            <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/25 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
-                <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-amber-400 uppercase">
-                  AUDIO · PERIPHERALS · MONITORS · WEARABLES · POWER
-                </span>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mt-2 leading-tight">
+            {/* Sleek Modern Accessories Header Banner */}
+            <div className="relative rounded-3xl overflow-hidden mb-8 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-xl">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="relative z-10 max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-[11px] font-bold tracking-wider uppercase mb-3">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Audio · Peripherals · Monitors · Wearables · Power</span>
+                </div>
+                
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
                   Complete Your Tech Setup
                 </h1>
-                <p className="text-xs sm:text-sm text-neutral-400 mt-3 max-w-xl leading-relaxed">
-                  Official audio, peripherals, fast chargers, cables, and OLED gaming monitors with original brand warranty. 200+ accessories in stock.
+                
+                <p className="text-xs sm:text-sm text-neutral-400 mt-3 leading-relaxed max-w-2xl font-medium">
+                  Official high-fidelity audio, mechanical keyboards, fast GaN chargers, and high-refresh OLED gaming monitors with original brand warranty.
                 </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-5 text-xs font-bold text-neutral-300">
-                  <span className="flex items-center gap-1.5 text-amber-400">
-                    <ShieldCheck className="w-3.5 h-3.5" /> 100% Genuine OEM
-                  </span>
-                  <span className="text-neutral-700">|</span>
-                  <span>200+ Accessories</span>
-                  <span className="text-neutral-700">|</span>
-                  <span className="flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-amber-400" /> Same-Day Delivery
-                  </span>
-                  <span className="text-neutral-700">|</span>
-                  <span>Brand Warranty Included</span>
+
+                {/* Integrated Trust Strip */}
+                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 pt-5 border-t border-neutral-800/80 text-xs font-semibold text-neutral-300">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span>100% Genuine OEM &amp; Sealed Box</span>
+                  </div>
+                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <div className="flex items-center gap-2">
+                    <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span>Same-Day Hyderabad Delivery</span>
+                  </div>
+                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <div>
+                    <span>Official Brand Warranty Included</span>
+                  </div>
                 </div>
               </div>
             </div>
