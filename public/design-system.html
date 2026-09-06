@@ -30,6 +30,23 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
+    /* Ballance Smooth Scroll Critical CSS */
+    html.lenis, html.lenis body {
+      height: auto !important;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
     body {
       background-color: var(--tm-bg);
       color: var(--tm-text);
@@ -1148,9 +1165,44 @@
 
   </div>
 
+  <!-- Lenis CDN for Ballance Smooth Scroll Physics -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Ballance Lenis v1.1.9 Smooth Scroll Physics
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+      const lenis = new Lenis({
+        lerp: 0.1, // Exact Ballance lerp linear interpolation (10% distance per frame)
+        smoothWheel: true,
+        syncTouch: false, // Never hijack mobile touch
+        wheelMultiplier: 1,
+        touchInertiaMultiplier: 35,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Anchor link interception
+      document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        const targetHref = anchor.getAttribute('href');
+        if (!targetHref || targetHref === '#' || targetHref.length <= 1) return;
+        try {
+          const targetElem = document.querySelector(targetHref);
+          if (targetElem) {
+            e.preventDefault();
+            lenis.scrollTo(targetElem, { offset: -30, lerp: 0.1, duration: 1.2 });
+          }
+        } catch(err) {}
+      });
+    }
   </script>
 </body>
 </html>

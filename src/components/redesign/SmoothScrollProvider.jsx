@@ -48,10 +48,13 @@ export default function SmoothScrollProvider({ children }) {
       }
       animationFrameId = requestAnimationFrame(raf);
 
-      // 3. Anchor Link Interception Loop (Ballance physics for internal navigation)
-      const handleAnchorClick = (e, targetHref) => {
-        if (!targetHref || targetHref === '#') return;
-        
+      // 3. Anchor Link Interception with Document Delegation (Ballance physics for all links, static & dynamic)
+      const handleGlobalClick = (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        const targetHref = anchor.getAttribute('href');
+        if (!targetHref || targetHref === '#' || targetHref.length <= 1) return;
+
         try {
           const targetElem = document.querySelector(targetHref);
           if (targetElem) {
@@ -63,27 +66,14 @@ export default function SmoothScrollProvider({ children }) {
             });
           }
         } catch (err) {
-          // If selector is invalid, fallback to native behavior
+          // Selector fallback
         }
       };
 
-      const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
-      const listeners = [];
+      document.addEventListener('click', handleGlobalClick, { passive: false });
 
-      anchorLinks.forEach((anchor) => {
-        const targetHref = anchor.getAttribute('href');
-        if (targetHref && targetHref !== '#') {
-          const listener = (e) => handleAnchorClick(e, targetHref);
-          anchor.addEventListener('click', listener);
-          listeners.push({ anchor, listener });
-        }
-      });
-
-      // Cleanup listeners on unmount
       return () => {
-        listeners.forEach(({ anchor, listener }) => {
-          anchor.removeEventListener('click', listener);
-        });
+        document.removeEventListener('click', handleGlobalClick);
       };
     });
 
