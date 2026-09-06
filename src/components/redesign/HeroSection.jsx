@@ -22,7 +22,7 @@ const TYPEWRITER_WORDS = [
   'SETUP.'
 ];
 
-export default function HeroSection({ onOpenRepairModal }) {
+function TypewriterText() {
   const [wordIndex, setWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -30,13 +30,13 @@ export default function HeroSection({ onOpenRepairModal }) {
   useEffect(() => {
     const currentFullWord = TYPEWRITER_WORDS[wordIndex];
     const typingSpeed = isDeleting ? 60 : 120;
+    let pauseTimer = null;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setDisplayText(currentFullWord.substring(0, displayText.length + 1));
         if (displayText.length + 1 === currentFullWord.length) {
-          // Pause 2 seconds at the complete word
-          setTimeout(() => setIsDeleting(true), 2000);
+          pauseTimer = setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         setDisplayText(currentFullWord.substring(0, displayText.length - 1));
@@ -47,14 +47,26 @@ export default function HeroSection({ onOpenRepairModal }) {
       }
     }, typingSpeed);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (pauseTimer) clearTimeout(pauseTimer);
+    };
   }, [displayText, isDeleting, wordIndex]);
 
+  return (
+    <span className="inline-block text-[#F5B800]">
+      {displayText}
+      <span className="inline-block w-1 h-[0.9em] bg-[#F5B800] ml-1 animate-pulse align-middle" />
+    </span>
+  );
+}
+
+export default function HeroSection({ onOpenRepairModal }) {
   const scrollToBudget = () => {
     const el = document.getElementById('budget-finder');
     if (el) {
       if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -40, lerp: 0.1 });
+        window.__lenis.scrollTo(el, { offset: -40 });
       } else {
         el.scrollIntoView({ behavior: 'smooth' });
       }
@@ -93,10 +105,7 @@ export default function HeroSection({ onOpenRepairModal }) {
               <span className="block text-neutral-950 drop-shadow-xs">YOUR BUDGET.</span>
               <span className="block text-[#F5B800] min-h-[1.15em] flex items-center flex-wrap">
                 <span className="mr-2">YOUR RIGHT</span>
-                <span className="inline-block text-[#F5B800]">
-                  {displayText}
-                  <span className="inline-block w-1 h-[0.9em] bg-[#F5B800] ml-1 animate-pulse align-middle" />
-                </span>
+                <TypewriterText />
               </span>
             </h1>
 
@@ -130,8 +139,13 @@ export default function HeroSection({ onOpenRepairModal }) {
           {/* Right Column: Interactive 3D Model */}
           <div className="lg:col-span-7 relative flex items-center justify-center -mt-4 sm:-mt-8 lg:-mt-12 py-1 sm:py-2">
             
-            {/* Ambient Radial Backlight Glow */}
-            <div className="absolute w-96 h-96 sm:w-[700px] sm:h-[700px] bg-gradient-to-tr from-amber-500/25 via-amber-400/10 to-transparent rounded-full blur-3xl opacity-80 pointer-events-none -z-0" />
+            {/* Ambient Radial Backlight Glow (Hardware-accelerated radial gradient without blur rasterization) */}
+            <div
+              className="absolute w-96 h-96 sm:w-[650px] sm:h-[650px] rounded-full pointer-events-none -z-0 opacity-75"
+              style={{
+                background: 'radial-gradient(circle, rgba(245, 184, 0, 0.22) 0%, rgba(245, 184, 0, 0.06) 50%, transparent 70%)',
+              }}
+            />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}

@@ -63,26 +63,37 @@ export default function Page() {
           <CategoryGrid />
 
           {/* 6. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
-          <BudgetFinder />
+          <div className="section-contain">
+            <BudgetFinder />
+          </div>
 
           {/* 7. Why Choose Us (6 Features) */}
-          <WhyChooseUs />
+          <div className="section-contain">
+            <WhyChooseUs />
+          </div>
 
           {/* 8. Gaming PC Banner ("BUILT FOR VICTORY.") */}
-          <GamingBanner />
+          <div className="section-contain">
+            <GamingBanner />
+          </div>
 
           {/* 9. Popular Picks Carousel */}
-          <PopularPicks
-            onAddToCart={handleAddToCart}
-            addedItems={addedItems}
-          />
+          <div className="section-contain">
+            <PopularPicks
+              onAddToCart={handleAddToCart}
+              addedItems={addedItems}
+            />
+          </div>
 
           {/* 10. Highlight Cards (Expert Repairs & Smarter Prices) */}
-          <PromoBanners
-          />
+          <div className="section-contain">
+            <PromoBanners />
+          </div>
 
           {/* 11. Visit Our Store & Google Reviews */}
-          <ReviewsAndLocation />
+          <div className="section-contain">
+            <ReviewsAndLocation />
+          </div>
         </main>
 
         {/* 12. Footer with Stay Updated Card & Socials */}

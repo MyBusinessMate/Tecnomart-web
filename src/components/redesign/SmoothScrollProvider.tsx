@@ -6,67 +6,53 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    let animationFrameId: number;
+    if (typeof window === 'undefined') return;
 
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+    // Respect user's OS reduced-motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // 1. Initialize Lenis with exact Ballance lerp math & mobile touch safety
+    // Mobile / Touch detection: Never hijack touch gestures to preserve native 120Hz OS inertia
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
+    // Snappy, lag-free smooth wheel configuration
     const lenis = new Lenis({
-      lerp: 0.1, // Exact Ballance linear interpolation rate (10% distance per frame)
+      duration: 0.75, // Quick, responsive deceleration (eliminates sluggish float lag)
       smoothWheel: true,
-      syncTouch: false, // MANDATORY: Never hijack mobile touch to preserve native 120Hz physics
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      syncTouch: false,
+      wheelMultiplier: 1.05,
+      autoRaf: true, // Native internal RAF handling
     });
 
     lenisRef.current = lenis;
     (window as any).__lenis = lenis;
 
-    // 2. High-performance RAF loop (decouples visual render from DOM scroll)
-    function raf(time: number) {
-      lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
-    }
-    animationFrameId = requestAnimationFrame(raf);
+    // Global Anchor Link Delegation
+    const handleGlobalClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest('a[href^="#"]');
+      if (!anchor) return;
+      const targetHref = anchor.getAttribute('href');
+      if (!targetHref || targetHref === '#' || targetHref.length <= 1) return;
 
-    // 3. Anchor Link Interception Loop (Ballance physics for internal navigation)
-    const handleAnchorClick = (e: MouseEvent, targetHref: string) => {
-      if (!targetHref || targetHref === '#') return;
       try {
         const targetElem = document.querySelector(targetHref);
         if (targetElem) {
           e.preventDefault();
           lenis.scrollTo(targetElem as HTMLElement, {
             offset: -40,
-            lerp: 0.1,
-            duration: 1.2,
+            duration: 0.8,
           });
         }
-      } catch (err) {
-        // fallback
+      } catch (_err) {
+        // Fallback to native behavior if querySelector fails
       }
     };
 
-    const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
-    const listeners: { anchor: Element; listener: (e: MouseEvent) => void }[] = [];
-
-    anchorLinks.forEach((anchor) => {
-      const targetHref = anchor.getAttribute('href');
-      if (targetHref && targetHref !== '#') {
-        const listener = (e: Event) => handleAnchorClick(e as MouseEvent, targetHref);
-        anchor.addEventListener('click', listener);
-        listeners.push({ anchor, listener });
-      }
-    });
+    document.addEventListener('click', handleGlobalClick, { passive: false });
 
     return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
+      document.removeEventListener('click', handleGlobalClick);
       if (lenisRef.current) {
         lenisRef.current.destroy();
         lenisRef.current = null;
@@ -74,9 +60,6 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       if ((window as any).__lenis) {
         delete (window as any).__lenis;
       }
-      listeners.forEach(({ anchor, listener }) => {
-        anchor.removeEventListener('click', listener);
-      });
     };
   }, []);
 

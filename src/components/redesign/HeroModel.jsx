@@ -14,7 +14,7 @@ const EXPOSURE      = 1.15;   // §2  ACESFilmic brightness
 const ENV_INTENSITY = 0.9;    // §3  IBL reflection strength
 const KEY_INTENSITY = 2.2;    // §3  Key-light intensity
 const FILL_INTENSITY= 0.65;   // §3  Fill-light intensity
-const SHADOW_SIZE   = 2048;   // §4  Shadow map resolution
+const SHADOW_SIZE   = 1024;   // §4  Shadow map resolution (1024 optimal for high-FPS GPU performance)
 const TARGET_SIZE   = 11.5;   // §6  World-unit size after auto-scale  (raise = bigger)
 const ZOOM_MARGIN   = 0.75;   // §6  Breathing room around model  (1.0 = tight, 1.5 = roomy)
 const CAMERA_FOV    = 36;     // §6  Perspective FOV in degrees
@@ -128,8 +128,8 @@ export default function HeroModel() {
         powerPreference: 'high-performance',
       });
 
-      // Cap pixel ratio — above 2× visual gain is negligible, GPU cost doubles.
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // Cap pixel ratio at 1.5 — avoids doubling/tripling GPU fillrate on Retina/4K
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
       // setSize() writes canvas width/height attributes = CSS pixels × dpr.
       // No CSS stretching: attributes match rendered pixels exactly.
       renderer.setSize(container.clientWidth, container.clientHeight);
@@ -356,9 +356,21 @@ export default function HeroModel() {
       const ro = new ResizeObserver(syncSize);
       ro.observe(container);
 
-      // ── RAF loop ──────────────────────────────────────────────────────────
-      let rafId;
-      (function animate() {
+      // ── RAF loop & Viewport Throttling ────────────────────────────────────
+      let rafId = null;
+      let isVisible = true;
+      let isTabActive = !document.hidden;
+
+      function shouldRender() {
+        return isVisible && isTabActive;
+      }
+
+      function animate() {
+        if (!shouldRender()) {
+          rafId = null;
+          return;
+        }
+
         rafId = requestAnimationFrame(animate);
 
         if (!isUserInteracting) {
@@ -379,11 +391,44 @@ export default function HeroModel() {
 
         controls.update();
         renderer.render(scene, camera);
-      })();
+      }
+
+      function startAnimation() {
+        if (!rafId && shouldRender()) {
+          animate();
+        }
+      }
+
+      // Start initial render loop
+      animate();
+
+      // Pause when scrolled out of view to free 100% GPU for the rest of the site
+      const io = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            startAnimation();
+          }
+        },
+        { threshold: 0 }
+      );
+      io.observe(container);
+
+      // Pause when tab is backgrounded
+      const handleVisibilityChange = () => {
+        isTabActive = !document.hidden;
+        if (isTabActive) {
+          startAnimation();
+        }
+      };
+      document.addEventListener('visibilitychange', handleVisibilityChange);
 
       // ── §6  Full GPU disposal on unmount ──────────────────────────────────
       cleanupRef.current = () => {
-        cancelAnimationFrame(rafId);
+        if (rafId) cancelAnimationFrame(rafId);
+        io.disconnect();
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
         ro.disconnect();
         controls.dispose();
         scene.traverse((node) => {

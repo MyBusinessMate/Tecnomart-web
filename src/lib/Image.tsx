@@ -33,6 +33,7 @@ export default function Image({
       height={height}
       className={className}
       loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
       style={style}
       {...props}
     />

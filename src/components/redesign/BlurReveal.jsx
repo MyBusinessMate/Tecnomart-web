@@ -3,12 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Words or Characters Blur Reveal animation
+// High-performance Text Reveal animation without expensive filter:blur GPU thrashing
 export function BlurRevealText({
   text,
   className = "",
   delay = 0,
-  stagger = 0.04,
+  stagger = 0.03,
   as = "div",
   highlightWord = "",
   highlightClass = "text-amber-500",
@@ -18,29 +18,25 @@ export function BlurRevealText({
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: (i = 1) => ({
+    visible: {
       opacity: 1,
       transition: { staggerChildren: stagger, delayChildren: delay },
-    }),
+    },
   };
 
   const childVariants = {
     hidden: {
       opacity: 0,
-      filter: "blur(12px)",
-      y: 20,
-      scale: 0.96,
+      y: 12,
+      scale: 0.98,
     },
     visible: {
       opacity: 1,
-      filter: "blur(0px)",
       y: 0,
       scale: 1,
       transition: {
-        type: "spring",
-        damping: 18,
-        stiffness: 100,
-        duration: 0.6,
+        duration: 0.35,
+        ease: [0.21, 0.47, 0.32, 0.98],
       },
     },
   };
@@ -52,7 +48,7 @@ export function BlurRevealText({
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, margin: "-40px" }}
       >
         {words.map((word, idx) => {
           const isHighlighted =
@@ -76,28 +72,25 @@ export function BlurRevealText({
   );
 }
 
-// Fade & Blur Reveal Container for cards and sections
+// Hardware-accelerated Fade-up Reveal Container without GPU filter rasterization stalls
 export function BlurRevealBox({
   children,
   className = "",
   delay = 0,
-  yOffset = 30,
-  blurAmount = "16px",
-  duration = 0.7,
+  yOffset = 20,
+  duration = 0.45,
 }) {
   return (
     <motion.div
       initial={{
         opacity: 0,
-        filter: `blur(${blurAmount})`,
         y: yOffset,
       }}
       whileInView={{
         opacity: 1,
-        filter: "blur(0px)",
         y: 0,
       }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{
         duration,
         delay,
@@ -109,4 +102,3 @@ export function BlurRevealBox({
     </motion.div>
   );
 }
-

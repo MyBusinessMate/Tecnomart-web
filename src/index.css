@@ -46,6 +46,12 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+/* Hardware acceleration & paint containment for high-FPS scroll */
+.section-contain {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 /* Clean scrollbar utilities */
 .no-scrollbar::-webkit-scrollbar,
 .scrollbar-none::-webkit-scrollbar {
