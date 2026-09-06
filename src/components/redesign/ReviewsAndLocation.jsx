@@ -70,7 +70,10 @@ export default function ReviewsAndLocation() {
                 <div className="absolute inset-0 bg-neutral-950/15 flex items-center justify-center">
                   <div className="bg-white px-3 py-1.5 rounded-lg shadow-md border border-neutral-200 flex items-center gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping" />
-                    <span className="text-[11px] font-black text-neutral-950">📍 Tecno Mart</span>
+                    <span className="text-[11px] font-black text-neutral-950 flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-red-600 fill-red-600" />
+                      <span>Tecno Mart</span>
+                    </span>
                   </div>
                 </div>
               </div>

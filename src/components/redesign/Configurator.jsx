@@ -568,8 +568,9 @@ export default function Configurator() {
                     <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-wider block">
                       Active Architecture Platform
                     </span>
-                    <span className="text-xs sm:text-sm font-black text-amber-400">
-                      {buildState.platform === 'Intel' ? '🔵 Intel LGA1851 / 14th Gen Ecosystem' : '🔴 AMD Ryzen AM5 Zen 5 Ecosystem'}
+                    <span className="text-xs sm:text-sm font-black text-amber-400 flex items-center gap-1.5">
+                      <span className={`w-2 h-2 rounded-full ${buildState.platform === 'Intel' ? 'bg-blue-400' : 'bg-red-400'} inline-block`} />
+                      {buildState.platform === 'Intel' ? 'Intel LGA1851 / 14th Gen Ecosystem' : 'AMD Ryzen AM5 Zen 5 Ecosystem'}
                     </span>
                   </div>
                 </div>

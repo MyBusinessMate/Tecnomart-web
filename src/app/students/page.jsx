@@ -8,13 +8,13 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ChevronRight, GraduationCap, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronRight, GraduationCap, ChevronDown, ChevronUp, Laptop, Smartphone, Headphones, Monitor, ShieldCheck, Zap } from 'lucide-react';
 
 const BENEFITS = [
-  { icon: "🎓", title: "Extra 5% Off Laptops", desc: "Exclusive laptop discounts for college students buying their study companion.", color: "bg-blue-50 border-blue-200" },
-  { icon: "📱", title: "Extra 2% Off All Products", desc: "Stacked on top of any ongoing offers. Cannot be combined with other coupons.", color: "bg-amber-50 border-amber-200" },
-  { icon: "⚡", title: "Free Setup & Data Transfer", desc: "Free 30-min laptop OS setup (worth ₹500) and phone data migration on every purchase.", color: "bg-emerald-50 border-emerald-200" },
-  { icon: "🛡️", title: "Priority Repair (24h SLA)", desc: "Your repair slot is guaranteed within 24 hours. Extended 9-month repair warranty.", color: "bg-purple-50 border-purple-200" },
+  { icon: GraduationCap, title: "Extra 5% Off Laptops", desc: "Exclusive laptop discounts for college students buying their study companion.", color: "bg-blue-50 border-blue-200 text-blue-600" },
+  { icon: Smartphone, title: "Extra 2% Off All Products", desc: "Stacked on top of any ongoing offers. Cannot be combined with other coupons.", color: "bg-amber-50 border-amber-200 text-amber-600" },
+  { icon: Zap, title: "Free Setup & Data Transfer", desc: "Free 30-min laptop OS setup (worth ₹500) and phone data migration on every purchase.", color: "bg-emerald-50 border-emerald-200 text-emerald-600" },
+  { icon: ShieldCheck, title: "Priority Repair (24h SLA)", desc: "Your repair slot is guaranteed within 24 hours. Extended 9-month repair warranty.", color: "bg-purple-50 border-purple-200 text-purple-600" },
 ];
 
 const STEPS = [
@@ -32,10 +32,10 @@ const COLLEGES = [
 ];
 
 const ELIGIBLE_CATEGORIES = [
-  { name: "Laptops (5% Extra Off)", desc: "MacBooks, Gaming, Ultrabooks, Budget", href: "/laptops", icon: "💻" },
-  { name: "Smartphones (2% Extra Off)", desc: "Apple, Samsung, OnePlus, Google", href: "/mobiles", icon: "📱" },
-  { name: "Accessories (2% Extra Off)", desc: "Headphones, Keyboards, Monitors", href: "/accessories", icon: "🎧" },
-  { name: "PC Builds (Special Pricing)", desc: "Custom gaming and workstation rigs", href: "/gaming", icon: "🖥️" },
+  { name: "Laptops (5% Extra Off)", desc: "MacBooks, Gaming, Ultrabooks, Budget", href: "/laptops", icon: Laptop },
+  { name: "Smartphones (2% Extra Off)", desc: "Apple, Samsung, OnePlus, Google", href: "/mobiles", icon: Smartphone },
+  { name: "Accessories (2% Extra Off)", desc: "Headphones, Keyboards, Monitors", href: "/accessories", icon: Headphones },
+  { name: "PC Builds (Special Pricing)", desc: "Custom gaming and workstation rigs", href: "/gaming", icon: Monitor },
 ];
 
 const SHOW_INITIALLY = 8;
@@ -111,7 +111,9 @@ export default function StudentsPage() {
             {BENEFITS.map((b, i) => (
               <BlurRevealBox key={b.title} delay={i * 0.05 + 0.1}>
                 <div className={`flex gap-4 p-6 rounded-2xl border ${b.color}`}>
-                  <span className="text-4xl flex-shrink-0">{b.icon}</span>
+                  <div className="w-12 h-12 rounded-xl bg-white/80 border border-current/10 flex items-center justify-center flex-shrink-0 shadow-xs">
+                    <b.icon className="w-6 h-6 text-current" />
+                  </div>
                   <div>
                     <h3 className="text-base font-black text-neutral-950 mb-1">{b.title}</h3>
                     <p className="text-sm text-neutral-600 font-medium leading-relaxed">{b.desc}</p>
@@ -159,7 +161,9 @@ export default function StudentsPage() {
                   href={cat.href}
                   className="group flex flex-col gap-3 p-5 bg-white rounded-2xl border border-neutral-200 shadow-sm hover:border-amber-300 hover:shadow-md transition-all"
                 >
-                  <span className="text-3xl">{cat.icon}</span>
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
+                    <cat.icon className="w-5 h-5" />
+                  </div>
                   <div>
                     <h3 className="text-sm font-black text-neutral-950 group-hover:text-amber-600 transition-colors leading-snug">{cat.name}</h3>
                     <p className="text-xs text-neutral-500 font-medium mt-1">{cat.desc}</p>
@@ -212,7 +216,9 @@ export default function StudentsPage() {
             <div className="bg-midgrey-900 rounded-2xl border border-midgrey-700/60 p-8 sm:p-10 relative overflow-hidden text-center">
               <div className="absolute inset-0 bg-amber-500/5 pointer-events-none" />
               <div className="relative z-10">
-                <div className="text-4xl mb-4">🎓</div>
+                <div className="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-4 border border-amber-500/30">
+                  <GraduationCap className="w-8 h-8" />
+                </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">
                   Ready to Claim Your Student Discount?
                 </h2>

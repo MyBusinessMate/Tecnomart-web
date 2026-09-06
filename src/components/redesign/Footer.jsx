@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   const shopLinks = [
-    { label: '⚡ Flash Deals', href: '/deals' },
+    { label: 'Flash Deals', href: '/deals' },
     { label: 'Mobiles', href: '/mobiles' },
     { label: 'Laptops', href: '/laptops' },
     { label: 'Gaming PCs', href: '/gaming' },

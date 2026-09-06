@@ -121,7 +121,7 @@ export function ShopProvider({ children }) {
         showToast(`Removed item from Wishlist`);
         return prev.filter((id) => id !== productId);
       } else {
-        showToast(`Saved to Wishlist ❤️`);
+        showToast(`Saved to Wishlist`);
         return [...prev, productId];
       }
     });

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle, MessageSquare } from 'lucide-react';
 
 export default function BudgetFinder() {
   const [category, setCategory] = useState('');
@@ -118,7 +118,7 @@ export default function BudgetFinder() {
 
             {/* Subnote with WhatsApp Icon */}
             <p className="text-center text-xs text-neutral-400 font-medium pt-2 flex items-center justify-center gap-2">
-              <span className="text-emerald-500 text-base">💬</span>
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
               <span>Our experts will suggest the best options within your budget.</span>
             </p>
           </form>

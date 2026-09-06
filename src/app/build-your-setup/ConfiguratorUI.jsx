@@ -441,7 +441,8 @@ function ComponentStep({ stepName, stepNumber, totalSteps, onNext, onBack, onSwi
                 onSwitchPlatform('Intel');
               }}
             >
-              🔵 Intel CPUs
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block mr-1.5" />
+              Intel CPUs
             </button>
             <button 
               type="button"
@@ -451,7 +452,8 @@ function ComponentStep({ stepName, stepNumber, totalSteps, onNext, onBack, onSwi
                 onSwitchPlatform('AMD');
               }}
             >
-              🔴 AMD CPUs
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block mr-1.5" />
+              AMD CPUs
             </button>
           </div>
         )}

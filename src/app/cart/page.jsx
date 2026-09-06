@@ -81,7 +81,7 @@ export default function CartPage() {
           {(celebrationBanner || appliedCoupon) && (
             <div className="mb-6 rounded-2xl bg-[#047857] text-white px-5 py-3.5 flex items-center justify-between shadow-lg overflow-hidden relative animate-[fadeIn_0.3s_ease]">
               <div className="flex items-center gap-2.5 z-10">
-                <span className="text-lg">🎉</span>
+                <Sparkles className="w-5 h-5 text-amber-300 flex-shrink-0" />
                 <span className="text-sm font-black tracking-wide animate-[couponCelebrationSlide_1.2s_ease-out]">
                   Coupon code applied on this order
                 </span>
@@ -150,9 +150,14 @@ export default function CartPage() {
                   <div className="flex items-center justify-between text-xs font-bold mb-2">
                     <span className="flex items-center gap-2 text-neutral-700">
                       <Truck className="w-4 h-4 text-amber-500" />
-                      {amountNeededForFreeShipping === 0
-                        ? "🎉 FREE Express Hyderabad Delivery Unlocked!"
-                        : `Add ₹${amountNeededForFreeShipping.toLocaleString('en-IN')} more for FREE Express Delivery`}
+                      {amountNeededForFreeShipping === 0 ? (
+                        <span className="flex items-center gap-1 text-emerald-700 font-extrabold">
+                          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                          FREE Express Hyderabad Delivery Unlocked!
+                        </span>
+                      ) : (
+                        `Add ₹${amountNeededForFreeShipping.toLocaleString('en-IN')} more for FREE Express Delivery`
+                      )}
                     </span>
                     <span className="font-extrabold text-neutral-900">{progressToFreeShipping}%</span>
                   </div>
@@ -450,8 +455,9 @@ export default function CartPage() {
                   </button>
 
                   <div className="text-center pt-2">
-                    <span className="text-[11px] text-neutral-400 font-bold">
-                      🔒 Guaranteed Safe & Encrypted Checkout
+                    <span className="text-[11px] text-neutral-400 font-bold inline-flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Guaranteed Safe &amp; Encrypted Checkout</span>
                     </span>
                   </div>
                 </div>

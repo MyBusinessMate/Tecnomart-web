@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useShop } from '@/context/ShopContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, Plus, Minus, Trash2, Tag, ArrowRight, ShieldCheck, Truck, Check } from 'lucide-react';
+import { X, ShoppingBag, Plus, Minus, Trash2, Tag, ArrowRight, ShieldCheck, Truck, Check, Sparkles } from 'lucide-react';
 
 export default function CartDrawer() {
   const {
@@ -90,7 +90,7 @@ export default function CartDrawer() {
                   className="flex items-center gap-2 whitespace-nowrap"
                   style={{ animation: 'couponCelebrationSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
                 >
-                  <span className="text-base">🎉</span>
+                  <Sparkles className="w-4 h-4 text-amber-300 flex-shrink-0" />
                   <span>Coupon code applied on this order</span>
                 </div>
                 <button
@@ -125,9 +125,14 @@ export default function CartDrawer() {
               <div className="flex items-center justify-between font-bold mb-1.5 text-neutral-800">
                 <span className="flex items-center gap-1.5">
                   <Truck className="w-4 h-4 text-amber-500" />
-                  {amountNeededForFreeShipping === 0 || appliedCoupon?.freeDelivery
-                    ? '🎉 FREE Express Hyderabad Delivery Unlocked!'
-                    : `Add ₹${amountNeededForFreeShipping.toLocaleString('en-IN')} more for Free Delivery`}
+                  {amountNeededForFreeShipping === 0 || appliedCoupon?.freeDelivery ? (
+                    <span className="flex items-center gap-1 text-emerald-700 font-extrabold">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                      FREE Express Hyderabad Delivery Unlocked!
+                    </span>
+                  ) : (
+                    `Add ₹${amountNeededForFreeShipping.toLocaleString('en-IN')} more for Free Delivery`
+                  )}
                 </span>
                 <span className="text-amber-600 font-extrabold">{progressToFreeShipping}%</span>
               </div>

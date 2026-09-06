@@ -8,7 +8,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ChevronRight, Calculator } from 'lucide-react';
+import { ChevronRight, Calculator, Smartphone, Laptop, Gamepad2, Headphones } from 'lucide-react';
 
 const BANKS = [
   { name: "No Cost EMI", rate: 0, note: "0% interest, small processing fee may apply" },
@@ -30,10 +30,10 @@ const QUICK_EXAMPLES = [
 ];
 
 const CATEGORY_LINKS = [
-  { name: "Smartphones", href: "/mobiles", icon: "📱" },
-  { name: "Laptops", href: "/laptops", icon: "💻" },
-  { name: "Gaming PCs", href: "/gaming", icon: "🎮" },
-  { name: "Accessories", href: "/accessories", icon: "🎧" },
+  { name: "Smartphones", href: "/mobiles", icon: Smartphone },
+  { name: "Laptops", href: "/laptops", icon: Laptop },
+  { name: "Gaming PCs", href: "/gaming", icon: Gamepad2 },
+  { name: "Accessories", href: "/accessories", icon: Headphones },
 ];
 
 function calculateEMI(principal, annualRate, months) {
@@ -287,16 +287,19 @@ export default function EMICalculatorPage() {
             <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-8">
               <h2 className="text-base font-black text-neutral-950 uppercase tracking-tight mb-4">Start Shopping</h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {CATEGORY_LINKS.map((cat) => (
-                  <Link
-                    key={cat.name}
-                    href={cat.href}
-                    className="flex flex-col items-center gap-2 p-4 bg-neutral-50 hover:bg-amber-50 border border-neutral-200 hover:border-amber-300 rounded-xl transition-all group"
-                  >
-                    <span className="text-2xl">{cat.icon}</span>
-                    <span className="text-xs font-bold text-neutral-700 group-hover:text-amber-700">{cat.name}</span>
-                  </Link>
-                ))}
+                {CATEGORY_LINKS.map((cat) => {
+                  const Icon = cat.icon;
+                  return (
+                    <Link
+                      key={cat.name}
+                      href={cat.href}
+                      className="flex flex-col items-center gap-2 p-4 bg-neutral-50 hover:bg-amber-50 border border-neutral-200 hover:border-amber-300 rounded-xl transition-all group"
+                    >
+                      <Icon className="w-6 h-6 text-neutral-700 group-hover:text-amber-600 transition-colors" />
+                      <span className="text-xs font-bold text-neutral-700 group-hover:text-amber-700">{cat.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </BlurRevealBox>

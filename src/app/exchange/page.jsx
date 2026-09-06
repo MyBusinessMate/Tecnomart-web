@@ -8,7 +8,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ChevronRight, RefreshCw, CheckCircle2, Zap, TrendingUp, ArrowRight } from 'lucide-react';
+import { ChevronRight, RefreshCw, CheckCircle2, Zap, TrendingUp, ArrowRight, Sparkles, ThumbsUp, AlertTriangle, Wrench, Award } from 'lucide-react';
 
 const TRADE_IN_DATA = {
   Apple: {
@@ -59,17 +59,17 @@ const TRADE_IN_DATA = {
 };
 
 const CONDITIONS = [
-  { key: "like-new", label: "Like New", desc: "No scratches, 95%+ battery", multiplier: 0.90, color: "bg-emerald-100 text-emerald-800 border-emerald-300", icon: "✨" },
-  { key: "good", label: "Good", desc: "Minor scratches, 85%+ battery", multiplier: 0.75, color: "bg-blue-100 text-blue-800 border-blue-300", icon: "👍" },
-  { key: "fair", label: "Fair", desc: "Visible wear, 75%+ battery", multiplier: 0.60, color: "bg-amber-100 text-amber-800 border-amber-300", icon: "⚠️" },
-  { key: "poor", label: "Poor", desc: "Cracked/damaged, functional", multiplier: 0.40, color: "bg-red-100 text-red-800 border-red-300", icon: "🔧" },
+  { key: "like-new", label: "Like New", desc: "No scratches, 95%+ battery", multiplier: 0.90, color: "bg-emerald-100 text-emerald-800 border-emerald-300", icon: Sparkles },
+  { key: "good", label: "Good", desc: "Minor scratches, 85%+ battery", multiplier: 0.75, color: "bg-blue-100 text-blue-800 border-blue-300", icon: ThumbsUp },
+  { key: "fair", label: "Fair", desc: "Visible wear, 75%+ battery", multiplier: 0.60, color: "bg-amber-100 text-amber-800 border-amber-300", icon: AlertTriangle },
+  { key: "poor", label: "Poor", desc: "Cracked/damaged, functional", multiplier: 0.40, color: "bg-red-100 text-red-800 border-red-300", icon: Wrench },
 ];
 
 const WHY_BENEFITS = [
-  { icon: "⚡", title: "Instant same-day payment" },
-  { icon: "✅", title: "No hidden deductions" },
-  { icon: "🏆", title: "Best rates in Hyderabad" },
-  { icon: "🔄", title: "Direct upgrade option" },
+  { icon: Zap, title: "Instant same-day payment" },
+  { icon: CheckCircle2, title: "No hidden deductions" },
+  { icon: Award, title: "Best rates in Hyderabad" },
+  { icon: RefreshCw, title: "Direct upgrade option" },
 ];
 
 function formatINR(amount) {
@@ -286,7 +286,9 @@ export default function ExchangePage() {
                               : 'bg-neutral-50 border-neutral-200 hover:border-neutral-300'
                           }`}
                         >
-                          <div className="text-2xl mb-1">{c.icon}</div>
+                          <div className="mb-2 flex items-center">
+                            <c.icon className="w-6 h-6 text-current" />
+                          </div>
                           <div className="font-black text-sm">{c.label}</div>
                           <div className="text-xs mt-0.5 opacity-75">{c.desc}</div>
                         </button>
@@ -315,7 +317,7 @@ export default function ExchangePage() {
                       {formatINR(result.low)} – {formatINR(result.high)}
                     </p>
                     <div className={`inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full text-xs font-bold border ${result.condition.color}`}>
-                      {result.condition.icon} {result.condition.label} Condition
+                      <result.condition.icon className="w-3.5 h-3.5" /> {result.condition.label} Condition
                     </div>
                   </div>
 
@@ -354,8 +356,10 @@ export default function ExchangePage() {
               </h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {WHY_BENEFITS.map((b) => (
-                  <div key={b.title} className="flex flex-col items-center text-center gap-2 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
-                    <span className="text-3xl">{b.icon}</span>
+                  <div key={b.title} className="flex flex-col items-center text-center gap-2.5 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
+                      <b.icon className="w-5 h-5" />
+                    </div>
                     <p className="text-sm font-bold text-neutral-800 leading-snug">{b.title}</p>
                   </div>
                 ))}

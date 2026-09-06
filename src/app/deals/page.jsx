@@ -125,8 +125,9 @@ export default function DealsPage() {
                   <Zap className="w-3.5 h-3.5" />
                   Flash Deals
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3">
-                  ⚡ Flash Deals
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 flex items-center justify-center gap-3">
+                  <Zap className="w-8 h-8 text-amber-400" />
+                  <span>Flash Deals</span>
                 </h1>
                 <p className="text-neutral-400 text-base sm:text-lg font-medium mb-8">
                   Prices drop. Stock vanishes. Today only.

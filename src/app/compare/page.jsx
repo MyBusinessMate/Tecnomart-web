@@ -9,7 +9,7 @@ import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
 import { MOBILES_DATA, LAPTOPS_DATA } from '@/data/products';
-import { ChevronRight, X, Star, Search, GitCompare } from 'lucide-react';
+import { ChevronRight, X, Star, Search, GitCompare, Smartphone, Laptop } from 'lucide-react';
 
 function formatINR(n) {
   return '₹' + n.toLocaleString('en-IN');
@@ -135,24 +135,26 @@ export default function ComparePage() {
               <button
                 type="button"
                 onClick={() => handleCategorySwitch('mobiles')}
-                className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border ${
+                className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border flex items-center justify-center gap-2 ${
                   category === 'mobiles'
                     ? 'bg-neutral-950 text-amber-400 border-neutral-950'
                     : 'bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400'
                 }`}
               >
-                📱 Smartphones
+                <Smartphone className="w-4 h-4" />
+                <span>Smartphones</span>
               </button>
               <button
                 type="button"
                 onClick={() => handleCategorySwitch('laptops')}
-                className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border ${
+                className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border flex items-center justify-center gap-2 ${
                   category === 'laptops'
                     ? 'bg-neutral-950 text-amber-400 border-neutral-950'
                     : 'bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400'
                 }`}
               >
-                💻 Laptops
+                <Laptop className="w-4 h-4" />
+                <span>Laptops</span>
               </button>
             </div>
           </BlurRevealBox>
@@ -209,7 +211,9 @@ export default function ComparePage() {
                             loading="lazy"
                           />
                         ) : (
-                          <span className="text-2xl">{category === 'mobiles' ? '📱' : '💻'}</span>
+                          <div className="w-full h-full flex items-center justify-center text-neutral-400">
+                            {category === 'mobiles' ? <Smartphone className="w-6 h-6" /> : <Laptop className="w-6 h-6" />}
+                          </div>
                         )}
                       </div>
                       <div className="w-full">
@@ -275,7 +279,9 @@ export default function ComparePage() {
                                   {p.images && p.images[0] ? (
                                     <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
                                   ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-2xl">{category === 'mobiles' ? '📱' : '💻'}</div>
+                                    <div className="w-full h-full flex items-center justify-center text-neutral-400">
+                                      {category === 'mobiles' ? <Smartphone className="w-6 h-6" /> : <Laptop className="w-6 h-6" />}
+                                    </div>
                                   )}
                                 </div>
                               </div>
