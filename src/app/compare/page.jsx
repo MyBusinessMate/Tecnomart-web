@@ -240,10 +240,10 @@ export default function ComparePage() {
           {/* Comparison Table */}
           {selectedProducts.length === 0 ? (
             <BlurRevealBox delay={0.15}>
-              <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-12 text-center">
-                <GitCompare className="w-12 h-12 text-neutral-200 mx-auto mb-4" />
-                <p className="text-neutral-500 font-semibold text-base">Select products above to compare</p>
-                <p className="text-neutral-400 text-sm mt-1">Choose up to 3 products from the picker above</p>
+              <div className="py-14 text-center border-t border-neutral-200 mt-2">
+                <GitCompare className="w-10 h-10 text-neutral-300 mx-auto mb-3" />
+                <p className="text-neutral-600 font-bold text-base">Select products above to compare</p>
+                <p className="text-neutral-400 text-xs sm:text-sm mt-1">Choose up to 3 products from the list above</p>
               </div>
             </BlurRevealBox>
           ) : (
