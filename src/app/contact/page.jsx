@@ -71,85 +71,75 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Main Contact Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start mb-8">
+            {/* Main Contact Grid - Clean Editorial Two-Column */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
 
               {/* Left Contact Info */}
-              <div className="lg:col-span-5 space-y-4">
-                <div className="bg-neutral-950 text-white rounded-3xl p-6 sm:p-8 border border-neutral-800 shadow-xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-56 h-56 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
-
-                  <h3 className="text-base sm:text-lg font-black uppercase text-white tracking-tight mb-5">
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-5">
+                  <h3 className="text-lg font-black uppercase text-neutral-950 tracking-tight">
                     Store &amp; Service Center
                   </h3>
 
-                  <div className="space-y-4 text-xs sm:text-sm text-neutral-300">
+                  <div className="space-y-4 text-xs sm:text-sm text-neutral-600">
                     <div className="flex items-start gap-3.5">
-                      <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <strong className="text-white block font-bold mb-0.5">Address</strong>
+                        <strong className="text-neutral-900 block font-bold mb-0.5">Address</strong>
                         <span>H.No. B-2-293/82/A/1287, Road No. 36,<br />Jubilee Hills, Hyderabad, Telangana – 500033</span>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <Phone className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Phone className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <strong className="text-white block font-bold mb-0.5">Phone &amp; WhatsApp</strong>
-                        <a href="tel:+919010667726" className="hover:text-amber-400 transition-colors">+91 90106 67726</a>
+                        <strong className="text-neutral-900 block font-bold mb-0.5">Phone &amp; WhatsApp</strong>
+                        <a href="tel:+919010667726" className="hover:text-amber-600 transition-colors font-semibold">+91 90106 67726</a>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <Mail className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Mail className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <strong className="text-white block font-bold mb-0.5">Email</strong>
-                        <a href="mailto:support@tecnomart.in" className="hover:text-amber-400 transition-colors">support@tecnomart.in</a>
+                        <strong className="text-neutral-900 block font-bold mb-0.5">Email</strong>
+                        <a href="mailto:support@tecnomart.in" className="hover:text-amber-600 transition-colors font-semibold">support@tecnomart.in</a>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <Clock className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <strong className="text-white block font-bold mb-0.5">Working Hours</strong>
+                        <strong className="text-neutral-900 block font-bold mb-0.5">Working Hours</strong>
                         <span>Monday – Sunday: 10:00 AM – 9:30 PM</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-neutral-800">
+                  <div className="pt-2 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={openGoogleMaps}
+                      className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Open Google Maps</span>
+                    </button>
+
                     <a
                       href="https://wa.me/919010667726"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-black uppercase text-amber-400 hover:text-amber-300 transition-colors"
+                      className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200/80 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
                     >
-                      <MessageCircle className="w-4 h-4" />
-                      <span>Chat with a Tech Specialist →</span>
+                      <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Chat on WhatsApp</span>
                     </a>
-                  </div>
-                </div>
-
-                {/* Find Us Card */}
-                <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm overflow-hidden">
-                  <div className="p-5 flex items-center justify-between gap-3">
-                    <div>
-                      <h4 className="text-sm font-black text-neutral-950 uppercase">Find Us in Jubilee Hills</h4>
-                      <p className="text-xs text-neutral-500 mt-0.5">Road No. 36, Jubilee Hills, Hyderabad – 500033</p>
-                    </div>
-                    <button
-                      onClick={openGoogleMaps}
-                      className="min-h-[40px] flex-shrink-0 inline-flex items-center justify-center gap-1.5 bg-neutral-950 hover:bg-neutral-800 text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all active:scale-95 cursor-pointer"
-                    >
-                      <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Maps</span>
-                    </button>
                   </div>
                 </div>
               </div>
 
               {/* Right Contact Form */}
-              <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm">
+              <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200/90 shadow-sm">
                 <h3 className="text-base sm:text-lg font-black uppercase text-neutral-950 tracking-tight mb-1">
                   Drop Us a Message
                 </h3>

@@ -221,23 +221,23 @@ export default function RepairsPage() {
               ))}
             </div>
 
-            {/* Service Center Promise */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-white border border-neutral-200 shadow-sm">
-              <h3 className="text-base sm:text-lg font-black text-neutral-950 uppercase mb-6 text-center tracking-tight">
+            {/* Service Center Promise - Seamless Editorial Layout */}
+            <div className="py-8 border-t border-neutral-200/80">
+              <h3 className="text-base sm:text-lg font-black text-neutral-950 uppercase mb-8 text-center tracking-tight">
                 Our Service Center Promise
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 {[
                   { title: "100% Genuine Parts", desc: "Direct OEM components matching factory specifications." },
                   { title: "Zero Data Loss", desc: "Safe privacy protocols guaranteeing complete data secrecy." },
                   { title: "No Fix, No Fee", desc: "If we cannot fix your device issue, you pay ₹0 diagnosis charge." },
                   { title: "90-Day Warranty", desc: "Hassle-free replacement warranty on all replaced hardware parts." },
                 ].map((p) => (
-                  <div key={p.title} className="flex items-start gap-3">
+                  <div key={p.title} className="flex items-start gap-3.5">
                     <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                     <div>
                       <h4 className="font-bold text-neutral-900 text-sm mb-1">{p.title}</h4>
-                      <p className="text-xs text-neutral-500 leading-relaxed">{p.desc}</p>
+                      <p className="text-xs text-neutral-500 leading-relaxed font-normal">{p.desc}</p>
                     </div>
                   </div>
                 ))}

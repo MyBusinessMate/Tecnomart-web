@@ -96,23 +96,23 @@ export default function StudentsPage() {
           </BlurRevealBox>
         </section>
 
-        {/* Benefits Grid */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-10">
+        {/* Benefits Section - Seamless Clean Typography */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-12">
           <BlurRevealBox delay={0.05}>
-            <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-5">
+            <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-6">
               What You Get
             </h2>
           </BlurRevealBox>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
             {BENEFITS.map((b, i) => (
-              <BlurRevealBox key={b.title} delay={i * 0.05 + 0.1}>
-                <div className={`flex gap-4 p-6 rounded-2xl border ${b.color}`}>
-                  <div className="w-12 h-12 rounded-xl bg-white/80 border border-current/10 flex items-center justify-center flex-shrink-0 shadow-xs">
-                    <b.icon className="w-6 h-6 text-current" />
+              <BlurRevealBox key={b.title} delay={i * 0.04 + 0.05}>
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <b.icon className="w-5 h-5 text-current" />
                   </div>
                   <div>
                     <h3 className="text-base font-black text-neutral-950 mb-1">{b.title}</h3>
-                    <p className="text-sm text-neutral-600 font-medium leading-relaxed">{b.desc}</p>
+                    <p className="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed">{b.desc}</p>
                   </div>
                 </div>
               </BlurRevealBox>
@@ -120,23 +120,20 @@ export default function StudentsPage() {
           </div>
         </section>
 
-        {/* How to Claim */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-10">
+        {/* How to Claim - Clean Minimal Horizontal Timeline */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-12">
           <BlurRevealBox delay={0.05}>
-            <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-5">
+            <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-6">
               How to Claim
             </h2>
           </BlurRevealBox>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 pt-2 border-t border-neutral-200/80">
             {STEPS.map((step, i) => (
-              <BlurRevealBox key={step.step} delay={i * 0.07 + 0.1}>
-                <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 relative">
-                  <div className="text-5xl font-black text-neutral-100 mb-3 leading-none">{step.step}</div>
-                  <h3 className="text-base font-black text-neutral-950 mb-2">{step.title}</h3>
-                  <p className="text-sm text-neutral-600 font-medium leading-relaxed">{step.desc}</p>
-                  {i < STEPS.length - 1 && (
-                    <div className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-amber-500 rounded-full z-10" />
-                  )}
+              <BlurRevealBox key={step.step} delay={i * 0.05 + 0.05}>
+                <div>
+                  <div className="text-3xl font-black text-amber-500 mb-2">{step.step}</div>
+                  <h3 className="text-sm sm:text-base font-black text-neutral-950 mb-1.5">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed">{step.desc}</p>
                 </div>
               </BlurRevealBox>
             ))}
@@ -144,7 +141,7 @@ export default function StudentsPage() {
         </section>
 
         {/* Eligible Categories */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-10">
+        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-12">
           <BlurRevealBox delay={0.05}>
             <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-5">
               Eligible Categories
@@ -155,7 +152,7 @@ export default function StudentsPage() {
               <BlurRevealBox key={cat.name} delay={i * 0.05 + 0.1}>
                 <Link
                   href={cat.href}
-                  className="group flex flex-col gap-3 p-5 bg-white rounded-2xl border border-neutral-200 shadow-sm hover:border-amber-300 hover:shadow-md transition-all"
+                  className="group flex flex-col gap-3 p-5 bg-white rounded-2xl border border-neutral-200 shadow-xs hover:border-amber-400 hover:shadow-md transition-all"
                 >
                   <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
                     <cat.icon className="w-5 h-5" />
@@ -171,34 +168,34 @@ export default function StudentsPage() {
           </div>
         </section>
 
-        {/* Colleges List - Clean Integrated Section */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-10">
+        {/* Colleges List - Clean Minimal Flow */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-12">
           <BlurRevealBox delay={0.05}>
-            <div className="py-2">
-              <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-5">
+            <div className="pt-6 border-t border-neutral-200/80">
+              <h2 className="text-xl font-black text-neutral-950 uppercase tracking-tight mb-4">
                 Accepted Colleges &amp; Universities
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {visibleColleges.map((college) => (
-                  <div
+                  <span
                     key={college}
-                    className="flex items-center gap-2.5 p-3 bg-white border border-neutral-200/80 rounded-xl"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-neutral-100/90 text-neutral-700 text-xs font-semibold rounded-lg"
                   >
-                    <span className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />
-                    <span className="text-sm font-semibold text-neutral-700">{college}</span>
-                  </div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    <span>{college}</span>
+                  </span>
                 ))}
               </div>
               {COLLEGES.length > SHOW_INITIALLY && (
                 <button
                   type="button"
                   onClick={() => setShowAllColleges(!showAllColleges)}
-                  className="mt-4 flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700 cursor-pointer transition-colors"
+                  className="mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 cursor-pointer transition-colors"
                 >
                   {showAllColleges ? (
-                    <>Show Less <ChevronUp className="w-4 h-4" /></>
+                    <>Show Less <ChevronUp className="w-3.5 h-3.5" /></>
                   ) : (
-                    <>Show All {COLLEGES.length} Colleges <ChevronDown className="w-4 h-4" /></>
+                    <>Show All {COLLEGES.length} Colleges <ChevronDown className="w-3.5 h-3.5" /></>
                   )}
                 </button>
               )}

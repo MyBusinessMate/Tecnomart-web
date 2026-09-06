@@ -277,10 +277,10 @@ export default function EMICalculatorPage() {
           </BlurRevealBox>
         </section>
 
-        {/* Start Shopping */}
+        {/* Start Shopping - Clean Category Links */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto pb-16">
           <BlurRevealBox delay={0.2}>
-            <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-8">
+            <div className="pt-2">
               <h2 className="text-base font-black text-neutral-950 uppercase tracking-tight mb-4">Start Shopping</h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {CATEGORY_LINKS.map((cat) => {
@@ -289,7 +289,7 @@ export default function EMICalculatorPage() {
                     <Link
                       key={cat.name}
                       href={cat.href}
-                      className="flex flex-col items-center gap-2 p-4 bg-neutral-50 hover:bg-amber-50 border border-neutral-200 hover:border-amber-300 rounded-xl transition-all group"
+                      className="flex flex-col items-center gap-2 p-4 bg-white hover:bg-amber-50/60 border border-neutral-200/80 hover:border-amber-300 rounded-2xl shadow-xs transition-all group"
                     >
                       <Icon className="w-6 h-6 text-neutral-700 group-hover:text-amber-600 transition-colors" />
                       <span className="text-xs font-bold text-neutral-700 group-hover:text-amber-700">{cat.name}</span>
