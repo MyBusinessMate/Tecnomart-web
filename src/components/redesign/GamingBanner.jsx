@@ -43,18 +43,15 @@ export default function GamingBanner() {
           {/* Banner Main Grid: Centered Left Setup Graphic & Centered Right Text Content */}
           <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-12 px-6 sm:px-10 py-10">
             
-            {/* Left Column: Gaming Setup with Logo Emblem Watermark */}
+            {/* Left Column: Gaming Setup Rig */}
             <div className="w-full lg:w-1/2 flex items-center justify-center relative">
               <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
                 <img
-                  src="/images/landing/img-1.png"
-                  alt="Gold ARGB Gaming Rig"
-                  className="w-full h-full object-contain rounded-xl opacity-95"
+                  src="/images/gaming-pc.png"
+                  alt="TecnoMart Custom Gaming PC"
+                  className="w-full h-full object-contain rounded-xl opacity-95 transition-transform duration-300 hover:scale-105"
+                  loading="eager"
                 />
-                {/* Logo Emblem Watermark on Monitor Screen */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <img src="/logo.png" alt="Emblem" className="w-16 h-16 object-contain opacity-70 filter drop-shadow-lg" />
-                </div>
               </div>
             </div>
 

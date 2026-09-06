@@ -65,6 +65,6 @@ temp/
 browser/
 
 # Raw staging assets & ChatGPT Generated Images
-images/
+/images/
 *ChatGPT*
 *[Cc]hat[Gg]pt*
