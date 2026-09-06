@@ -154,7 +154,7 @@ export default function AccessoriesPage() {
             </nav>
 
             {/* Sleek Modern Accessories Header Banner */}
-            <div className="relative rounded-3xl overflow-hidden mb-8 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-xl">
+            <div className="relative rounded-3xl overflow-hidden mb-8 bg-midgrey-900 text-white p-6 sm:p-10 lg:p-12 border border-midgrey-700/60 shadow-xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
               
               <div className="relative z-10 max-w-3xl">
@@ -162,22 +162,22 @@ export default function AccessoriesPage() {
                   Complete Your Tech Setup
                 </h1>
                 
-                <p className="text-xs sm:text-sm text-neutral-400 mt-3 leading-relaxed max-w-2xl font-medium">
+                <p className="text-xs sm:text-sm text-neutral-300 mt-3 leading-relaxed max-w-2xl font-medium">
                   Official high-fidelity audio, mechanical keyboards, fast GaN chargers, and high-refresh OLED gaming monitors with original brand warranty.
                 </p>
 
                 {/* Integrated Trust Strip */}
-                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 pt-5 border-t border-neutral-800/80 text-xs font-semibold text-neutral-300">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 pt-5 border-t border-midgrey-700/60 text-xs font-semibold text-neutral-200">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
                     <span>100% Genuine OEM &amp; Sealed Box</span>
                   </div>
-                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <span className="hidden sm:inline text-neutral-400">•</span>
                   <div className="flex items-center gap-2">
                     <Truck className="w-4 h-4 text-amber-400 flex-shrink-0" />
                     <span>Same-Day Hyderabad Delivery</span>
                   </div>
-                  <span className="hidden sm:inline text-neutral-700">•</span>
+                  <span className="hidden sm:inline text-neutral-400">•</span>
                   <div>
                     <span>Official Brand Warranty Included</span>
                   </div>
@@ -194,7 +194,7 @@ export default function AccessoriesPage() {
                   onClick={() => setSelectedCat(c)}
                   className={`min-h-[36px] px-4 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all flex-shrink-0 active:scale-95 cursor-pointer ${
                     selectedCat === c
-                      ? 'bg-neutral-950 text-amber-400 shadow-sm'
+                      ? 'bg-midgrey-900 text-amber-400 shadow-sm'
                       : 'bg-white text-neutral-700 hover:bg-neutral-100 border border-neutral-200'
                   }`}
                 >

@@ -131,7 +131,7 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={openGoogleMaps}
-                      className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 bg-midgrey-900 hover:bg-midgrey-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm"
                     >
                       <MapPin className="w-3.5 h-3.5 text-amber-400" />
                       <span>Open Google Maps</span>

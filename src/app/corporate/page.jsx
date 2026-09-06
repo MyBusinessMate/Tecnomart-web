@@ -53,7 +53,7 @@ export default function CorporatePage() {
             </nav>
 
             {/* Hero Banner */}
-            <div className="rounded-3xl bg-neutral-950 overflow-hidden mb-8 relative border border-neutral-800 shadow-2xl">
+            <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/25 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
@@ -82,7 +82,7 @@ export default function CorporatePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
 
               {/* Left Info Column */}
-              <div className="lg:col-span-7 bg-neutral-950 text-white rounded-3xl p-6 sm:p-10 border border-neutral-800 flex flex-col justify-between shadow-xl relative overflow-hidden">
+              <div className="lg:col-span-7 bg-midgrey-900 text-white rounded-3xl p-6 sm:p-10 border border-midgrey-700/60 flex flex-col justify-between shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="space-y-5 relative z-10">

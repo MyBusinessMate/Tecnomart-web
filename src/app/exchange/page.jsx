@@ -156,7 +156,7 @@ export default function ExchangePage() {
           </nav>
 
           <BlurRevealBox>
-            <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
+            <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               {/* Radial glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
@@ -210,7 +210,7 @@ export default function ExchangePage() {
                           onClick={() => handleBrandSelect(b)}
                           className={`p-3 rounded-xl border text-sm font-bold transition-all cursor-pointer ${
                             brand === b
-                              ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                              ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
                               : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                           }`}
                         >

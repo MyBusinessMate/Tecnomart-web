@@ -6,34 +6,34 @@ export const ASSETS = {
   logoFull: "/tecnomart-logo.png",
 
   // Hero Pedestal Products (High-res transparent cutouts)
-  heroPc: "/images/landing/img-15.png",
-  heroLaptop: "/images/landing/img-20.png",
-  heroPhone: "/images/landing/img-16.png",
+  heroPc: "/images/landing/flagship-rog-strix-gaming-pc-gold-amber.png",
+  heroLaptop: "/images/landing/apple-macbook-pro-16-amber-gold-glow.png",
+  heroPhone: "/images/landing/apple-iphone-16-pro-desert-amber-titanium.png",
 
   // Category Visuals (Clean high-res PNGs)
-  catMobile: "/images/landing/img-16.png",
-  catLaptop: "/images/landing/img-5.png",
-  catGamingPc: "/images/landing/img-1.png",
-  catRefurbished: "/images/landing/img-11.png",
-  catRepairs: "/images/landing/img-4.png",
-  catAccessories: "/images/landing/img-10.png",
+  catMobile: "/images/landing/apple-iphone-16-pro-desert-amber-titanium.png",
+  catLaptop: "/images/landing/apple-macbook-air-silver-open.png",
+  catGamingPc: "/images/landing/gaming-pc-setup-beast-gold.png",
+  catRefurbished: "/images/landing/asus-zenbook-ultrabook-charcoal.png",
+  catRepairs: "/images/landing/smartphone-motherboard-repair-technician.png",
+  catAccessories: "/images/landing/gaming-peripherals-bundle-headset-controller.png",
 
   // Gaming Banner Visuals
-  gamingBannerPc: "/images/landing/img-1.png",
-  blackCabinet: "/images/landing/img-14.png",
-  whiteCabinet: "/images/landing/img-15.png",
+  gamingBannerPc: "/images/landing/gaming-pc-setup-beast-gold.png",
+  blackCabinet: "/images/landing/custom-gaming-pc-corsair-black-amber-rgb.png",
+  whiteCabinet: "/images/landing/flagship-rog-strix-gaming-pc-gold-amber.png",
 
   // Popular Picks Products
-  productSmartwatch: "/images/landing/img-8.png",
-  productHeadphones: "/images/landing/img-6.png",
-  productGpu: "/images/landing/img-3.png",
-  productGamingLaptop: "/images/landing/img-9.png",
-  productIphone15: "/images/landing/img-12.png",
+  productSmartwatch: "/images/accessories/boat-wave-ultima-smartwatch-front.png",
+  productHeadphones: "/images/accessories/sony-wh-1000xm5-wireless-anc-headphones.png",
+  productGpu: "/images/landing/aorus-geforce-rtx-4090-triple-fan-gpu.png",
+  productGamingLaptop: "/images/landing/asus-tuf-gaming-laptop-front.png",
+  productIphone15: "/images/landing/apple-iphone-15-pro-black-titanium.png",
 
   // Highlight Promo Cards
-  refurbishedLaptop: "/images/landing/img-11.png",
-  repairHand: "/images/landing/img-4.png",
-  repairTechnician: "/images/landing/img-4.png",
+  refurbishedLaptop: "/images/refurbished/refurbished-apple-macbook-pro-14-m1-pro.png",
+  repairHand: "/images/landing/smartphone-motherboard-repair-technician.png",
+  repairTechnician: "/images/landing/smartphone-motherboard-repair-technician.png",
 
   // Brand SVG Logos
   svgApple: "/svg/apple.svg",

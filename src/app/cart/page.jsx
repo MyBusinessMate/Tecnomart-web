@@ -359,7 +359,7 @@ export default function CartPage() {
                     </div>
                     <button
                       type="submit"
-                      className="bg-neutral-950 hover:bg-neutral-800 text-white font-black text-xs uppercase tracking-wider px-4 py-3 rounded-xl transition-all active:scale-95 cursor-pointer"
+                      className="bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 font-black text-xs uppercase tracking-wider px-4 py-3 rounded-xl transition-all active:scale-95 cursor-pointer shadow-sm"
                     >
                       Apply
                     </button>

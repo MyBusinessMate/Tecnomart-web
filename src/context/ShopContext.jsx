@@ -258,7 +258,7 @@ export function ShopProvider({ children }) {
 
       {/* Floating Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-neutral-950 text-amber-400 font-black text-xs sm:text-sm px-5 py-3 rounded-2xl shadow-2xl border border-amber-500/30 flex items-center gap-2 animate-bounce">
+        <div className="fixed bottom-6 right-6 z-50 bg-midgrey-900 text-amber-400 font-black text-xs sm:text-sm px-5 py-3 rounded-2xl shadow-2xl border border-amber-500/40 flex items-center gap-2 animate-bounce">
           <span>{toastMessage}</span>
         </div>
       )}

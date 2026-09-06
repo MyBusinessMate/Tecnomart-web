@@ -128,7 +128,7 @@ export default function MobilesPage() {
                     onClick={() => { setSelectedBrand(brand); setVisibleCount(8); }}
                     className={`min-h-[36px] px-4 py-1.5 rounded-full text-xs font-bold transition-all flex-shrink-0 cursor-pointer ${
                       selectedBrand === brand
-                        ? 'bg-neutral-950 text-amber-400 shadow-sm'
+                        ? 'bg-midgrey-900 text-amber-400 shadow-sm'
                         : 'bg-white text-neutral-600 hover:bg-neutral-100 border border-neutral-200/80 hover:text-neutral-900'
                     }`}
                   >
@@ -257,7 +257,7 @@ export default function MobilesPage() {
               <div className="text-center pt-2 pb-4">
                 <button
                   onClick={() => setVisibleCount((prev) => prev + 8)}
-                  className="min-h-[46px] px-10 bg-neutral-950 hover:bg-neutral-800 text-amber-400 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-95 cursor-pointer border border-neutral-800"
+                  className="min-h-[46px] px-10 bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-95 cursor-pointer border border-midgrey-700/60"
                 >
                   View More Phones ({filteredAndSortedMobiles.length - visibleCount} remaining)
                 </button>

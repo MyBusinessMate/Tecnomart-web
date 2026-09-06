@@ -106,7 +106,7 @@ export default function GamingDetailClient({ slug }) {
               
               {/* Left Column: Image Gallery (Col 6) */}
               <div className="lg:col-span-6 space-y-4 sticky top-24">
-                <div className="w-full aspect-square max-h-[500px] bg-neutral-950 rounded-3xl p-6 sm:p-10 border border-neutral-800 flex items-center justify-center relative overflow-hidden group shadow-2xl">
+                <div className="w-full aspect-square max-h-[500px] bg-midgrey-900 rounded-3xl p-6 sm:p-10 border border-midgrey-700/60 flex items-center justify-center relative overflow-hidden group shadow-2xl">
                   <span className={`absolute top-4 left-4 px-3 py-1 rounded-md text-[11px] font-black uppercase tracking-wider ${rig.badgeColor}`}>
                     {rig.badge}
                   </span>
@@ -186,7 +186,7 @@ export default function GamingDetailClient({ slug }) {
 
                 {/* FPS Benchmark Grid */}
                 {rig.fpsBenchmarks && (
-                  <div className="p-4 bg-neutral-950 text-white rounded-2xl space-y-2.5">
+                  <div className="p-4 bg-midgrey-900 text-white rounded-2xl space-y-2.5 border border-midgrey-700/60">
                     <div className="flex items-center justify-between text-xs font-black text-amber-400 uppercase tracking-wider">
                       <span className="flex items-center gap-1.5">
                         <Zap className="w-4 h-4 text-amber-400 fill-current" />
@@ -196,8 +196,8 @@ export default function GamingDetailClient({ slug }) {
 
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       {rig.fpsBenchmarks.map((b, i) => (
-                        <div key={i} className="bg-neutral-900 p-2.5 rounded-xl border border-neutral-800">
-                          <span className="text-neutral-400 text-[10px] block font-bold truncate">{b.game}</span>
+                        <div key={i} className="bg-midgrey-800 p-2.5 rounded-xl border border-midgrey-700/60">
+                          <span className="text-neutral-300 text-[10px] block font-bold truncate">{b.game}</span>
                           <span className="text-amber-400 font-black text-sm">{b.fps}</span>
                         </div>
                       ))}
@@ -254,7 +254,7 @@ export default function GamingDetailClient({ slug }) {
                     />
                     <button
                       type="submit"
-                      className="px-4 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-bold uppercase rounded-xl cursor-pointer"
+                      className="px-4 bg-midgrey-900 hover:bg-midgrey-800 text-white text-xs font-bold uppercase rounded-xl cursor-pointer shadow-sm transition-colors"
                     >
                       Check
                     </button>

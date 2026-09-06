@@ -200,12 +200,12 @@ export default function GamingPage() {
                           alt={rig.name}
                           className="w-full h-full object-contain filter drop-shadow-lg group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-midgrey-950/90 via-midgrey-900/30 to-transparent pointer-events-none" />
                         <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                           <span className={`px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider ${rig.badgeColor}`}>
                             {rig.badge}
                           </span>
-                          <span className="text-[11px] font-bold text-amber-400 bg-black/60 px-2.5 py-1 rounded-full flex items-center gap-1">
+                          <span className="text-[11px] font-bold text-amber-400 bg-midgrey-900/80 backdrop-blur-xs px-2.5 py-1 rounded-full flex items-center gap-1 border border-midgrey-700/60">
                             <Gauge className="w-3.5 h-3.5" />
                             {rig.fps}
                           </span>

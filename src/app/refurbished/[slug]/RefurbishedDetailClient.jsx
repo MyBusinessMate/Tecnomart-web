@@ -189,7 +189,7 @@ export default function RefurbishedDetailClient({ slug }) {
                       onChange={(e) => setPincode(e.target.value)}
                       className="flex-1 h-10 px-3.5 text-xs bg-white border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium"
                     />
-                    <button type="submit" className="px-4 bg-neutral-950 text-white text-xs font-bold uppercase rounded-xl cursor-pointer">
+                    <button type="submit" className="px-4 bg-midgrey-900 hover:bg-midgrey-800 text-white text-xs font-bold uppercase rounded-xl cursor-pointer shadow-sm transition-colors">
                       Check
                     </button>
                   </form>

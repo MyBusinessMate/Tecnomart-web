@@ -67,7 +67,7 @@ export default function ReviewsAndLocation() {
                   alt="Tecno Mart Location Map"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-neutral-950/15 flex items-center justify-center">
+                <div className="absolute inset-0 bg-midgrey-900/20 flex items-center justify-center">
                   <div className="bg-white px-3 py-1.5 rounded-lg shadow-md border border-neutral-200 flex items-center gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping" />
                     <span className="text-[11px] font-black text-neutral-950 flex items-center gap-1">

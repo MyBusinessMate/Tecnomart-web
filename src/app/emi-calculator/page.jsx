@@ -110,7 +110,7 @@ export default function EMICalculatorPage() {
           </nav>
 
           <BlurRevealBox>
-            <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
+            <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
@@ -168,7 +168,7 @@ export default function EMICalculatorPage() {
                       onClick={() => setPrice(ex.price)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
                         price === ex.price
-                          ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                          ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
                           : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                       }`}
                     >
@@ -204,7 +204,7 @@ export default function EMICalculatorPage() {
                       onClick={() => setTenure(t)}
                       className={`px-4 py-2 rounded-xl text-sm font-bold border transition-all cursor-pointer ${
                         tenure === t
-                          ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                          ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
                           : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                       }`}
                     >

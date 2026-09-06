@@ -140,7 +140,7 @@ export default function LaptopsPage() {
                       onClick={() => setSelectedCategory(cat)}
                       className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
                         selectedCategory === cat
-                          ? 'bg-neutral-950 text-amber-400'
+                          ? 'bg-midgrey-900 text-amber-400'
                           : 'text-neutral-700 hover:bg-neutral-100'
                       }`}
                     >
@@ -159,7 +159,7 @@ export default function LaptopsPage() {
                       onClick={() => setSelectedBrand(b)}
                       className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
                         selectedBrand === b
-                          ? 'bg-neutral-950 text-amber-400'
+                          ? 'bg-midgrey-900 text-amber-400'
                           : 'text-neutral-700 hover:bg-neutral-100'
                       }`}
                     >

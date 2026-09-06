@@ -211,7 +211,7 @@ export default function RefurbishedPage() {
                     onClick={() => setSelectedGrade(g)}
                     className={`min-h-[34px] px-4 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all cursor-pointer ${
                       selectedGrade === g
-                        ? 'bg-neutral-950 text-amber-400'
+                        ? 'bg-midgrey-900 text-amber-400'
                         : 'bg-white text-neutral-700 hover:bg-neutral-100 border border-neutral-200'
                     }`}
                   >

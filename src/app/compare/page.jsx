@@ -121,7 +121,7 @@ export default function ComparePage() {
           </nav>
 
           <BlurRevealBox>
-            <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
+            <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
@@ -145,7 +145,7 @@ export default function ComparePage() {
                 onClick={() => handleCategorySwitch('mobiles')}
                 className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border flex items-center justify-center gap-2 ${
                   category === 'mobiles'
-                    ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                    ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
                     : 'bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400'
                 }`}
               >
@@ -157,7 +157,7 @@ export default function ComparePage() {
                 onClick={() => handleCategorySwitch('laptops')}
                 className={`flex-1 sm:flex-none px-6 py-3 rounded-2xl text-sm font-black transition-all cursor-pointer border flex items-center justify-center gap-2 ${
                   category === 'laptops'
-                    ? 'bg-neutral-950 text-amber-400 border-neutral-950'
+                    ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
                     : 'bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400'
                 }`}
               >

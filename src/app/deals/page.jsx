@@ -130,7 +130,7 @@ export default function DealsPage() {
           </nav>
 
           <BlurRevealBox>
-            <div className="bg-neutral-950 rounded-3xl border border-neutral-800 p-8 sm:p-12 relative overflow-hidden">
+            <div className="bg-midgrey-900 rounded-3xl border border-midgrey-700/60 p-8 sm:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 text-center">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 flex items-center justify-center gap-3">
@@ -246,7 +246,7 @@ export default function DealsPage() {
         {/* Bottom CTA */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto pb-12">
           <BlurRevealBox delay={0.1}>
-            <div className="bg-neutral-950 rounded-2xl border border-neutral-800 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden shadow-lg">
+            <div className="bg-midgrey-900 rounded-2xl border border-midgrey-700/60 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden shadow-lg">
               <div className="absolute inset-0 bg-emerald-500/5 pointer-events-none" />
               <div className="relative z-10 text-center sm:text-left">
                 <p className="text-white font-black text-base sm:text-lg leading-tight">Get Daily Deals on WhatsApp</p>

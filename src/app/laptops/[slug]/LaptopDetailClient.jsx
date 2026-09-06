@@ -205,7 +205,7 @@ export default function LaptopDetailClient({ slug }) {
                           onClick={() => setSelectedColor(c)}
                           className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all cursor-pointer ${
                             selectedColor.name === c.name
-                              ? 'border-neutral-950 bg-neutral-950 text-white shadow-xs'
+                              ? 'border-midgrey-700/60 bg-midgrey-900 text-white shadow-xs'
                               : 'border-neutral-200 bg-white text-neutral-800 hover:border-neutral-400'
                           }`}
                         >
@@ -230,7 +230,7 @@ export default function LaptopDetailClient({ slug }) {
                           onClick={() => setSelectedConfig(cfg)}
                           className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
                             selectedConfig.name === cfg.name
-                              ? 'border-neutral-950 bg-neutral-950 text-white'
+                              ? 'border-midgrey-700/60 bg-midgrey-900 text-white'
                               : 'border-neutral-200 bg-white text-neutral-900 hover:border-neutral-400'
                           }`}
                         >
@@ -249,7 +249,7 @@ export default function LaptopDetailClient({ slug }) {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       onClick={handleAddToCart}
-                      className="flex-1 bg-neutral-950 text-white py-4 rounded-xl font-bold uppercase tracking-[0.05em] flex justify-center items-center gap-2 hover:bg-neutral-800 transition-all active:scale-[0.98] text-xs cursor-pointer shadow-sm"
+                      className="flex-1 bg-midgrey-900 text-white py-4 rounded-xl font-bold uppercase tracking-[0.05em] flex justify-center items-center gap-2 hover:bg-midgrey-800 transition-all active:scale-[0.98] text-xs cursor-pointer shadow-sm"
                     >
                       {isAdded ? <Check size={16} /> : <ShoppingBag size={16} />}
                       <span>{isAdded ? 'Added to Cart' : 'Add to Cart'}</span>
