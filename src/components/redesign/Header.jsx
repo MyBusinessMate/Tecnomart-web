@@ -263,8 +263,9 @@ export default function Header() {
 
   const handlePincodeSubmit = (e) => {
     e.preventDefault();
-    if (tempPincode.length >= 6) {
-      changePincode(tempPincode);
+    const cleanDigits = tempPincode.replace(/\D/g, '');
+    if (cleanDigits.length === 6) {
+      changePincode(cleanDigits);
       setPincodeModalOpen(false);
     }
   };
@@ -822,15 +823,18 @@ export default function Header() {
               <form onSubmit={handlePincodeSubmit} className="space-y-3">
                 <input
                   type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   maxLength={6}
                   value={tempPincode}
-                  onChange={(e) => setTempPincode(e.target.value)}
+                  onChange={(e) => setTempPincode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                   placeholder="e.g. 500033"
                   className="w-full h-11 px-3.5 bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-bold text-sm"
                 />
                 <button
                   type="submit"
-                  className="w-full h-11 bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 font-black text-xs uppercase rounded-xl shadow-md"
+                  disabled={tempPincode.replace(/\D/g, '').length !== 6}
+                  className="w-full h-11 bg-midgrey-900 hover:bg-midgrey-800 disabled:opacity-50 disabled:cursor-not-allowed text-amber-400 font-black text-xs uppercase rounded-xl shadow-md transition-all"
                 >
                   Update Pincode
                 </button>

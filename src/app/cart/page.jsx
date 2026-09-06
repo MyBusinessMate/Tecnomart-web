@@ -377,7 +377,7 @@ export default function CartPage() {
                     <div className="mt-3 flex items-center justify-between p-3 bg-emerald-50/80 border border-emerald-200 rounded-xl text-xs font-bold text-emerald-800">
                       <div className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-emerald-600" />
-                        <span>{appliedCoupon.code} applied ({appliedCoupon.discount}% OFF)</span>
+                        <span>{appliedCoupon.code} applied ({appliedCoupon.discountPercent ? `${appliedCoupon.discountPercent}% OFF` : appliedCoupon.description})</span>
                       </div>
                       <button
                         onClick={handleRemoveCoupon}

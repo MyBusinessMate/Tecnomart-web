@@ -99,13 +99,19 @@ export function ShopProvider({ children }) {
   };
 
   const updateQuantity = (cartItemId, newQty) => {
-    if (newQty <= 0) {
+    const qty = parseInt(newQty, 10);
+    if (isNaN(qty) || qty <= 0) {
       removeFromCart(cartItemId);
       return;
     }
+    // Cap at 10 items per product to prevent inventory / calculation exploits
+    const safeQty = Math.min(10, Math.max(1, qty));
+    if (qty > 10) {
+      showToast('Maximum 10 units allowed per customer');
+    }
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.cartItemId === cartItemId ? { ...item, quantity: newQty } : item
+        item.cartItemId === cartItemId ? { ...item, quantity: safeQty } : item
       )
     );
   };
@@ -127,8 +133,28 @@ export function ShopProvider({ children }) {
     });
   };
 
+  // Rate-limiting for coupon attempts (prevents brute forcing)
+  const couponAttemptsRef = React.useRef([]);
+
   const applyCoupon = (code) => {
-    const cleanCode = code.trim().toUpperCase();
+    if (!code || typeof code !== 'string') {
+      return { success: false, message: 'Please enter a coupon code.' };
+    }
+
+    // Rate-limiting: Max 5 attempts per 30 seconds
+    const now = Date.now();
+    couponAttemptsRef.current = couponAttemptsRef.current.filter((time) => now - time < 30000);
+    if (couponAttemptsRef.current.length >= 5) {
+      return { success: false, message: 'Too many attempts. Please wait 30 seconds.' };
+    }
+    couponAttemptsRef.current.push(now);
+
+    // Sanitize to alphanumeric max 20 chars
+    const cleanCode = code.replace(/[^a-zA-Z0-9]/g, '').trim().toUpperCase().slice(0, 20);
+    if (cleanCode.length < 3) {
+      return { success: false, message: 'Invalid coupon code.' };
+    }
+
     if (cleanCode === 'TECNOMART10' || cleanCode === 'TECNO10') {
       setAppliedCoupon({ code: 'TECNOMART10', discountPercent: 10, description: '10% Instant Discount' });
       showToast('Coupon TECNOMART10 Applied! 10% Discount');
