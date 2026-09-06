@@ -384,12 +384,9 @@ export default function Header() {
           {/* PC Builder Link */}
           <Link
             href="/pc-builds"
-            className="flex items-center gap-1.5 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium group"
+            className="hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
           >
-            <span>PC Builder</span>
-            <span className="text-[9px] font-black uppercase tracking-wider bg-amber-400 text-neutral-950 px-1.5 py-0.5 rounded-md shadow-2xs group-hover:bg-amber-300 transition-colors">
-              Custom
-            </span>
+            PC Builder
           </Link>
 
           {/* Accessories Dropdown */}
@@ -645,16 +642,9 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-full hover:bg-white/10 hover:text-amber-300 transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
-                  link.label === 'PC Builder'
-                    ? 'text-neutral-950 bg-amber-400 font-bold hover:bg-amber-300 hover:text-neutral-950'
-                    : ''
-                }`}
+                className="px-3 py-1.5 rounded-full hover:bg-white/10 hover:text-amber-300 transition-all flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
               >
                 <span>{link.label}</span>
-                {link.label === 'PC Builder' && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 animate-pulse" />
-                )}
               </Link>
             ))}
           </div>
