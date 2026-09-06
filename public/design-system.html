@@ -38,7 +38,7 @@
     }
 
     .container {
-      max-width: 1320px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -138,12 +138,13 @@
       overflow: hidden;
     }
 
+    /* Side Annotation Line styling */
     .annotation-bar {
       border-left: 4px solid var(--tm-yellow);
-      padding-left: 12px;
+      padding-left: 14px;
       margin-top: 18px;
-      background: #fff;
-      padding: 10px 12px;
+      background: #ffffff;
+      padding: 12px 14px;
       border-radius: 0 10px 10px 0;
       border-top: 1px solid #f1f5f9;
       border-right: 1px solid #f1f5f9;
@@ -166,26 +167,30 @@
       border-left-color: #ef4444;
     }
 
+    .annotation-bar.accent-amber {
+      border-left-color: #f59e0b;
+    }
+
     .ann-tag {
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       color: #64748b;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
     .ann-location {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
       color: #0f172a;
     }
 
     .ann-desc {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 2px;
-      line-height: 1.4;
+      font-size: 12px;
+      color: #475569;
+      margin-top: 3px;
+      line-height: 1.45;
     }
 
     .ann-specs {
@@ -193,11 +198,11 @@
       font-family: monospace;
       color: #d97706;
       font-weight: 700;
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
     .preview-box {
-      min-height: 90px;
+      min-height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,19 +343,172 @@
       color: #111111;
     }
 
-    /* Toast Notification */
-    .toast-preview {
-      background: #15803d;
-      color: #ffffff;
-      padding: 12px 20px;
+    /* ---------------------------------------------------- */
+    /* DEEP CARD SYSTEM SHOWCASE STYLES */
+    /* ---------------------------------------------------- */
+
+    /* Live Product Card Component (Popular Picks) */
+    .real-product-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
-      font-weight: 700;
-      font-size: 13px;
+      padding: 14px;
+      width: 200px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+
+    .real-product-card:hover {
+      border-color: var(--tm-yellow);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 110px;
+      background: #f8fafc;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(21, 128, 61, 0.35);
-      border: 1px solid rgba(74, 222, 128, 0.3);
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .product-img-box img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+    }
+
+    /* Category Hub Card (What Do You Need) */
+    .category-hub-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px 12px;
+      width: 150px;
+      text-align: center;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .category-hub-card:hover {
+      border-color: #cbd5e1;
+      background: #fafbfc;
+      transform: translateY(-3px);
+    }
+
+    .cat-icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+
+    /* Quad Grid Container (Amazon Quad 4-in-1 Card) */
+    .quad-grid-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 20px;
+      width: 290px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .quad-grid-sub {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .quad-sub-item {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .quad-sub-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    /* Deal of the Day Focal Card */
+    .deal-focal-card {
+      background: var(--tm-card-dark);
+      border: 1px solid var(--tm-border-dark);
+      border-radius: 24px;
+      padding: 24px;
+      width: 320px;
+      color: #ffffff;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+    }
+
+    /* Promo Split Banner Card */
+    .promo-banner-card {
+      background: #F6EEE3;
+      border: 1px solid #E8D5B7;
+      border-radius: 22px;
+      padding: 20px;
+      width: 310px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gaming PC Rig Card */
+    .gaming-rig-card {
+      background: var(--tm-card-dark);
+      border: 1px solid var(--tm-border-dark);
+      border-radius: 18px;
+      padding: 16px;
+      width: 260px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    /* Cart Row Card */
+    .cart-row-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    /* Compare Product Choice Card */
+    .compare-choice-card {
+      background: #ffffff;
+      border: 2px solid var(--tm-yellow);
+      border-radius: 14px;
+      padding: 12px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 0 0 2px rgba(245, 184, 0, 0.2);
+    }
+
+    /* Compact Student CTA Card */
+    .compact-student-cta {
+      background: var(--tm-dark);
+      border: 1px solid #2a3444;
+      border-radius: 16px;
+      padding: 18px 22px;
+      width: 320px;
+      text-align: center;
+      color: #fff;
     }
 
     /* Typography Scale Table */
@@ -384,55 +542,6 @@
     .type-sample {
       color: #0f172a;
       font-family: 'Inter', sans-serif;
-    }
-
-    /* Compact Card Comparison */
-    .comp-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .comp-box {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card-allowed {
-      border: 2px solid #10b981;
-      border-radius: 16px;
-      background: #ffffff;
-      padding: 20px;
-      position: relative;
-    }
-
-    .card-removed {
-      border: 2px dashed #94a3b8;
-      border-radius: 16px;
-      background: transparent;
-      padding: 20px;
-      position: relative;
-    }
-
-    .tag-status {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .tag-status.allowed {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .tag-status.blended {
-      background: #e2e8f0;
-      color: #475569;
     }
 
     /* Color Swatches */
@@ -479,7 +588,7 @@
     <header class="header">
       <div>
         <h1>TecnoMart <span>Design System</span></h1>
-        <p>Comprehensive Visual Audit, Typography Scale & Layout Reference</p>
+        <p>Complete Interactive Audit: Product Cards, Section Cards, Typography & Side Annotation Lines</p>
       </div>
       <div style="display: flex; gap: 8px; flex-wrap: wrap;">
         <span class="badge-pill">Branch: final-design</span>
@@ -488,9 +597,257 @@
       </div>
     </header>
 
-    <!-- SECTION 1: BUTTON SYSTEMS & INTERACTION WIPE -->
+    <!-- SECTION 1: DEEP PRODUCT CARD CATALOG -->
     <section class="section">
-      <h2 class="section-title"><i data-lucide="mouse-pointer-click" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 1. Button Systems & Wipe Interactions</h2>
+      <h2 class="section-title"><i data-lucide="package" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 1. Product Cards Catalog (Where & How Used)</h2>
+      <p class="section-subtitle">Deep breakdown of every product card variant across the platform, with side lines stating exact usage location, corner radii, and interactions.</p>
+
+      <div class="audit-grid">
+        
+        <!-- Product Card Type 1: Popular Picks Standard Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="real-product-card">
+              <div class="ribbon-corner green">NEW</div>
+              <div class="product-img-box">
+                <img src="/bento-grid-images/mackbook.png" alt="MacBook Pro" />
+              </div>
+              <p style="font-size: 10px; font-weight: 700; color: #64748b;">Apple M3 Max</p>
+              <h4 style="font-size: 12px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">MacBook Pro 16"</h4>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 8px;">
+                <span style="font-size: 13px; font-weight: 900; color: #0f172a;">₹3,49,900</span>
+                <button style="width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--tm-yellow); background: #fef9c3; color: #a16207; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                  <i data-lucide="shopping-cart" style="width: 14px; height: 14px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="annotation-bar accent-emerald">
+            <div class="ann-tag">Product Card Variant A</div>
+            <div class="ann-location">Popular Tech Picks & Catalogues (/mobiles, /laptops)</div>
+            <div class="ann-desc">Used on homepage carousel and main category pages. Features angled ribbon badge, image zoom on hover, instant cart button, and direct navigation to PDP.</div>
+            <div class="ann-specs">Token: rounded-2xl (16px) | Border: 1px #e2e8f0 &rarr; hover #f5b800</div>
+          </div>
+        </div>
+
+        <!-- Product Card Type 2: Quad Grid Sub-Item Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:10px; width:170px; text-align:center;">
+              <div style="background:#f8fafc; border-radius:8px; height:70px; display:flex; align-items:center; justify-content:center; margin-bottom:6px;">
+                <img src="/bento-grid-images/samsungs24.png" style="height:55px; object-fit:contain;" alt="S24 Ultra" />
+              </div>
+              <p style="font-size:11px; font-weight:800; color:#0f172a;">Galaxy S24 Ultra</p>
+              <p style="font-size:10px; font-weight:700; color:#d97706; margin-top:2px;">₹1,29,999</p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-amber">
+            <div class="ann-tag">Product Card Variant B</div>
+            <div class="ann-location">Amazon 4-in-1 Quad Grid Hub (/index)</div>
+            <div class="ann-desc">Mini-card nested inside the 4-box section. Serves as a quick teaser for flagship smartphones, laptops, and certified refurbished devices.</div>
+            <div class="ann-specs">Token: rounded-xl (12px) | Background: #ffffff / #f8fafc</div>
+          </div>
+        </div>
+
+        <!-- Product Card Type 3: Comparison Selection Tile -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="compare-choice-card">
+              <div style="background:#fef3c7; width:20px; height:20px; border-radius:50%; margin:0 auto 6px; display:flex; align-items:center; justify-content:center;">
+                <i data-lucide="check" style="width:12px; height:12px; color:#92400e;"></i>
+              </div>
+              <div style="height:50px; display:flex; align-items:center; justify-content:center;">
+                <i data-lucide="smartphone" style="width:28px; height:28px; color:#475569;"></i>
+              </div>
+              <p style="font-size:11px; font-weight:800; color:#0f172a;">iPhone 15 Pro</p>
+              <p style="font-size:10px; font-weight:900; color:#d97706;">₹1,24,900</p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-blue">
+            <div class="ann-tag">Product Card Variant C</div>
+            <div class="ann-location">Comparison Product Selector (/compare)</div>
+            <div class="ann-desc">Selectable product tile for side-by-side spec comparison. Displays active yellow ring when chosen (max 3 allowed) and dims when limit reached.</div>
+            <div class="ann-specs">Token: rounded-xl (12px) | Active Ring: 2px #F5B800</div>
+          </div>
+        </div>
+
+        <!-- Product Card Type 4: Cart Item Row Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="cart-row-card">
+              <div style="width:48px; height:48px; background:#f8fafc; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <i data-lucide="laptop" style="width:24px; height:24px; color:#64748b;"></i>
+              </div>
+              <div style="flex:1;">
+                <p style="font-size:11px; font-weight:800; color:#0f172a; line-height:1.2;">ROG Zephyrus G16</p>
+                <p style="font-size:10px; color:#64748b;">32GB • 1TB SSD</p>
+                <p style="font-size:12px; font-weight:900; color:#0f172a; margin-top:2px;">₹2,69,990</p>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:11px; font-weight:800; background:#f1f5f9; padding:2px 8px; border-radius:6px;">Qty: 1</span>
+              </div>
+            </div>
+          </div>
+          <div class="annotation-bar accent-purple">
+            <div class="ann-tag">Product Card Variant D</div>
+            <div class="ann-location">Dedicated Cart Page (/cart) & Cart Drawer</div>
+            <div class="ann-desc">Displays carted item with hardware configuration, quantity stepper (- / +), instant item subtotal, and trash removal action.</div>
+            <div class="ann-specs">Token: rounded-2xl (16px) | Border: 1px #e2e8f0</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: PRODUCT SECTION CARDS (MACRO SECTIONS) -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="layout-grid" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 2. Product Section Cards & Containers</h2>
+      <p class="section-subtitle">Macro-level cards that house groups of products, category navigation hubs, and high-conversion deal focal blocks.</p>
+
+      <div class="audit-grid">
+
+        <!-- Section Card 1: Category Hub Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="category-hub-card">
+              <div class="cat-icon-circle">
+                <i data-lucide="smartphone" style="width:28px; height:28px; color:var(--tm-yellow);"></i>
+              </div>
+              <h4 style="font-size:12px; font-weight:900; color:#0f172a; text-transform:uppercase;">MOBILES</h4>
+              <p style="font-size:10px; color:#64748b; margin-top:2px;">New & Refurbished</p>
+            </div>
+          </div>
+          <div class="annotation-bar">
+            <div class="ann-tag">Section Card: Category Hub</div>
+            <div class="ann-location">"What Do You Need?" Grid (Homepage)</div>
+            <div class="ann-desc">Horizontal 6-card grid routing users directly to Mobiles, Laptops, Gaming PCs, Refurbished, Repairs, and Accessories.</div>
+            <div class="ann-specs">Token: rounded-2xl (16px) | Hover: y -3px + border #cbd5e1</div>
+          </div>
+        </div>
+
+        <!-- Section Card 2: Amazon 4-in-1 Quad Grid Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="quad-grid-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h4 style="font-size:13px; font-weight:900; color:#0f172a; text-transform:uppercase;">Top Deals in Mobiles</h4>
+                <span style="width:6px; height:6px; border-radius:50%; background:var(--tm-yellow);"></span>
+              </div>
+              <div class="quad-grid-sub">
+                <div class="quad-sub-item">
+                  <div style="height:36px; display:flex; align-items:center; justify-content:center;"><i data-lucide="smartphone" style="width:20px; height:20px; color:#64748b;"></i></div>
+                  <p style="font-size:9px; font-weight:800;">iPhone 16</p>
+                </div>
+                <div class="quad-sub-item">
+                  <div style="height:36px; display:flex; align-items:center; justify-content:center;"><i data-lucide="smartphone" style="width:20px; height:20px; color:#64748b;"></i></div>
+                  <p style="font-size:9px; font-weight:800;">Galaxy S24</p>
+                </div>
+                <div class="quad-sub-item">
+                  <div style="height:36px; display:flex; align-items:center; justify-content:center;"><i data-lucide="smartphone" style="width:20px; height:20px; color:#64748b;"></i></div>
+                  <p style="font-size:9px; font-weight:800;">OnePlus 12</p>
+                </div>
+                <div class="quad-sub-item">
+                  <div style="height:36px; display:flex; align-items:center; justify-content:center;"><i data-lucide="smartphone" style="width:20px; height:20px; color:#64748b;"></i></div>
+                  <p style="font-size:9px; font-weight:800;">iPhone 15</p>
+                </div>
+              </div>
+              <p style="font-size:11px; font-weight:800; color:#d97706; display:flex; align-items:center; gap:4px;">
+                See all smartphones <i data-lucide="chevron-right" style="width:12px; height:12px;"></i>
+              </p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-amber">
+            <div class="ann-tag">Section Card: Quad Grid Hub</div>
+            <div class="ann-location">Amazon Quad Showcase Section (Homepage)</div>
+            <div class="ann-desc">Amazon-inspired multi-category quad cards grouping 4 items per box (Mobiles, Laptops, Refurbished, and Repairs).</div>
+            <div class="ann-specs">Token: rounded-3xl (24px) | Shadow: 0 4px 24px rgba(0,0,0,0.04)</div>
+          </div>
+        </div>
+
+        <!-- Section Card 3: Deal of the Day High-Impact Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="deal-focal-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span style="font-size:10px; font-weight:900; background:#dc2626; color:#fff; padding:2px 8px; border-radius:6px; text-transform:uppercase;">FLASH DEAL</span>
+                <span style="font-size:11px; font-family:monospace; color:var(--tm-yellow);">07:42:19 left</span>
+              </div>
+              <h4 style="font-size:14px; font-weight:900; line-height:1.3; margin-bottom:6px;">MacBook Pro 16" M3 Max</h4>
+              <p style="font-size:18px; font-weight:900; color:var(--tm-yellow); margin-bottom:12px;">₹3,49,900</p>
+              <button class="btn-wipe-yellow" style="width:100%; padding:8px 12px; font-size:11px;">Claim Deal Now</button>
+            </div>
+          </div>
+          <div class="annotation-bar accent-red">
+            <div class="ann-tag">Section Card: Deal of the Day</div>
+            <div class="ann-location">Deal of the Day Mega Section (Homepage)</div>
+            <div class="ann-desc">High-urgency single product conversion block featuring live countdown timer, discount percentage badge, and instant quick-buy flow.</div>
+            <div class="ann-specs">Token: rounded-3xl (24px) | Background: #1b2330 | Border: #2a3444</div>
+          </div>
+        </div>
+
+        <!-- Section Card 4: Promo Split Banner Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="promo-banner-card">
+              <span style="font-size:10px; font-weight:900; color:#92400e; text-transform:uppercase; letter-spacing:0.05em;">EXPERT REPAIRS</span>
+              <h4 style="font-size:15px; font-weight:900; color:#0f172a; margin:4px 0 8px;">Same-Day Screen & Battery Fix</h4>
+              <p style="font-size:11px; color:#78350f; margin-bottom:12px;">Certified technicians with genuine Apple parts.</p>
+              <button class="btn-wipe-yellow" style="padding:6px 14px; font-size:10px; border-radius:9999px;">Book Repair</button>
+            </div>
+          </div>
+          <div class="annotation-bar accent-blue">
+            <div class="ann-tag">Section Card: Promo Banner</div>
+            <div class="ann-location">Dual Promo Banners Section (Homepage)</div>
+            <div class="ann-desc">Warm beige/cream dual promotional card highlighting repair services and certified refurbished warranty devices.</div>
+            <div class="ann-specs">Token: rounded-[22px] (22px) | Background: #F6EEE3 | Border: #E8D5B7</div>
+          </div>
+        </div>
+
+        <!-- Section Card 5: Gaming Rig Inner Card -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="gaming-rig-card">
+              <div style="background:#0d121a; border-radius:12px; padding:12px; margin-bottom:8px;">
+                <i data-lucide="cpu" style="width:32px; height:32px; color:var(--tm-yellow); margin:0 auto;"></i>
+              </div>
+              <h4 style="font-size:12px; font-weight:900; margin-bottom:4px;">Custom Liquid Cooled Rig</h4>
+              <p style="font-size:10px; color:#94a3b8;">RTX 4090 • Core i9 • 64GB DDR5</p>
+            </div>
+          </div>
+          <div class="annotation-bar accent-purple">
+            <div class="ann-tag">Section Card: Gaming Setup Card</div>
+            <div class="ann-location">Gaming PC Showcase Section (Homepage)</div>
+            <div class="ann-desc">Nested inside the full-width dark gaming banner with gold chevron accents. Highlights bespoke craftsmanship of custom builds.</div>
+            <div class="ann-specs">Token: rounded-2xl (16px) | Background: #1b2330 | Shadow: 2xl</div>
+          </div>
+        </div>
+
+        <!-- Section Card 6: Compact Student Discount CTA -->
+        <div class="audit-item">
+          <div class="preview-box">
+            <div class="compact-student-cta">
+              <div style="width:32px; height:32px; border-radius:10px; background:rgba(245,184,0,0.2); color:var(--tm-yellow); display:flex; align-items:center; justify-content:center; margin:0 auto 8px;">
+                <i data-lucide="graduation-cap" style="width:18px; height:18px;"></i>
+              </div>
+              <h4 style="font-size:13px; font-weight:900; margin-bottom:4px;">Ready to Claim Your Discount?</h4>
+              <p style="font-size:11px; color:#94a3b8; margin-bottom:10px;">Verification takes just 5 minutes on WhatsApp.</p>
+              <button class="btn-whatsapp" style="padding:6px 14px; font-size:11px; border-radius:10px; width:100%; justify-content:center;">Claim Discount</button>
+            </div>
+          </div>
+          <div class="annotation-bar accent-emerald">
+            <div class="ann-tag">Section Card: Compact CTA Banner</div>
+            <div class="ann-location">Student Discount Bottom Section (/students)</div>
+            <div class="ann-desc">Fixed extra space issue: reduced container from max-w-6xl to max-w-2xl with snug padding, eliminating empty black flanks.</div>
+            <div class="ann-specs">Token: rounded-2xl (16px) | Container: max-w-2xl | Background: #131923</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: BUTTON SYSTEMS & INTERACTION WIPE -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="mouse-pointer-click" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 3. Button Systems & Wipe Interactions</h2>
       <p class="section-subtitle">Visual rendering of action buttons, corner radii, and dynamic hover transitions.</p>
 
       <div class="audit-grid">
@@ -544,9 +901,9 @@
       </div>
     </section>
 
-    <!-- SECTION 2: FOLDED CORNER RIBBON BADGES -->
+    <!-- SECTION 4: FOLDED CORNER RIBBON BADGES -->
     <section class="section">
-      <h2 class="section-title"><i data-lucide="bookmark" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 2. Folded Corner Ribbon Badges</h2>
+      <h2 class="section-title"><i data-lucide="bookmark" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 4. Folded Corner Ribbon Badges</h2>
       <p class="section-subtitle">Folded 45° corner badges replacing legacy rounded pill badges on product showcases.</p>
 
       <div class="audit-grid">
@@ -603,15 +960,15 @@
       </div>
     </section>
 
-    <!-- SECTION 3: CARDS VS CARDLESS (BACKGROUND BLENDING) -->
+    <!-- SECTION 5: CARDS VS CARDLESS (BACKGROUND BLENDING) -->
     <section class="section">
-      <h2 class="section-title"><i data-lucide="layers" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 3. Cards vs. Cardless Editorial Surfaces</h2>
+      <h2 class="section-title"><i data-lucide="layers" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 5. Cards vs. Cardless Editorial Surfaces</h2>
       <p class="section-subtitle">Strict compliance with /cards-component-patterns-auditor: cards reserved strictly for interactive items.</p>
 
-      <div class="comp-box">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
         <!-- Card Allowed -->
-        <div class="card-allowed">
-          <span class="tag-status allowed">&check; Card Permitted</span>
+        <div style="border: 2px solid #10b981; border-radius: 16px; background: #ffffff; padding: 20px;">
+          <span style="display:inline-block; font-size:10px; font-weight:900; text-transform:uppercase; padding:2px 8px; border-radius:6px; background:#dcfce7; color:#166534; margin-bottom:10px;">&check; Card Permitted</span>
           <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 8px;">Interactive Product & Input Modules</h3>
           <p style="font-size: 13px; color: #475569; margin-bottom: 14px;">
             Cards with subtle borders and shadows are strictly reserved for clickable products, selectable specs, form inputs, and checkout price summaries.
@@ -624,8 +981,8 @@
         </div>
 
         <!-- Card Removed -->
-        <div class="card-removed">
-          <span class="tag-status blended">&cross; Cards Removed (Blended Directly on Canvas)</span>
+        <div style="border: 2px dashed #94a3b8; border-radius: 16px; background: transparent; padding: 20px;">
+          <span style="display:inline-block; font-size:10px; font-weight:900; text-transform:uppercase; padding:2px 8px; border-radius:6px; background:#e2e8f0; color:#475569; margin-bottom:10px;">&cross; Cards Removed (Blended Directly on Canvas)</span>
           <h3 style="font-size: 15px; font-weight: 800; margin-bottom: 8px;">Editorial & Informational Content</h3>
           <p style="font-size: 13px; color: #64748b; margin-bottom: 14px;">
             Eliminated nested boxed cards from informational and legal sections. Content now sits seamlessly on the canvas (#f7f8fa) with clear typographic hierarchy.
@@ -639,9 +996,9 @@
       </div>
     </section>
 
-    <!-- SECTION 4: TYPOGRAPHY SCALE AUDIT -->
+    <!-- SECTION 6: TYPOGRAPHY SCALE AUDIT -->
     <section class="section">
-      <h2 class="section-title"><i data-lucide="type" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 4. Typography Scale & Font Sizing Architecture</h2>
+      <h2 class="section-title"><i data-lucide="type" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 6. Typography Scale & Font Sizing Architecture</h2>
       <p class="section-subtitle">Complete computed pixel scale, line height relationships, and page context assignments.</p>
 
       <div style="overflow-x: auto;">
@@ -738,9 +1095,9 @@
       </div>
     </section>
 
-    <!-- SECTION 5: COLOR PALETTE -->
+    <!-- SECTION 7: COLOR PALETTE -->
     <section class="section">
-      <h2 class="section-title"><i data-lucide="palette" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 5. Standardized Color Palette</h2>
+      <h2 class="section-title"><i data-lucide="palette" style="width:20px;height:20px;color:var(--tm-yellow);"></i> 7. Standardized Color Palette</h2>
       <p class="section-subtitle">Official TecnoMart brand tokens across background, accents, and feedback states.</p>
 
       <div class="palette-grid">
