@@ -6,6 +6,7 @@ import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { Building2, ShieldCheck, FileText, ChevronRight, Star, Users } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import Link from 'next/link';
@@ -15,6 +16,11 @@ export default function CorporatePage() {
   const [contactPerson, setContactPerson] = useState('');
   const [email, setEmail] = useState('');
   const [requirement, setRequirement] = useState('Bulk Laptops (10+ units)');
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Corporate & B2B', url: '/corporate' },
+  ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +32,12 @@ export default function CorporatePage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Corporate Tech Procurement & Bulk IT in Hyderabad | TecnoMart"
+        description="B2B IT hardware procurement, volume MacBook discounts, workstations, and GST invoicing for startups and enterprises in Hyderabad."
+        canonicalUrl="https://tecnomart.in/corporate"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

@@ -1,0 +1,33 @@
+# TecnoMart (Hyderabad, India)
+
+> TecnoMart is an authorized retail tech store and premium product catalogue located in Jubilee Hills, Hyderabad, Telangana, India. TecnoMart specializes in brand-new smartphones (Apple, Samsung, OnePlus, Google), authorized laptops (MacBooks, ASUS ROG, Dell XPS, Lenovo Legion, HP), custom water-cooled ARGB gaming rigs, certified Grade-A+ refurbished devices, genuine computer accessories, and certified same-day hardware repairs.
+
+## Business Model
+- **Website Role**: Product Catalogue & Lead Generation / Direct Consultation
+- **Primary Enquiry & Booking Channel**: WhatsApp (+91 9010667726) & In-Store Visit
+- **Physical Flagship Store**: H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills, Hyderabad, Telangana - 500033
+- **Local Express Delivery**: Same-day 3–4 hour doorstep delivery across Hyderabad & Secunderabad
+- **Payment & Checkout**: Offline in-store payment or confirmed directly via official WhatsApp invoice; no anonymous online cart checkout.
+
+## Core Catalogs & Pages
+- Homepage: https://tecnomart.in/
+- Smartphones & Mobiles: https://tecnomart.in/mobiles
+- Laptops & Ultrabooks: https://tecnomart.in/laptops
+- Accessories & Peripherals: https://tecnomart.in/accessories
+- Custom Gaming PCs: https://tecnomart.in/gaming
+- Certified Refurbished: https://tecnomart.in/refurbished
+- Device Repairs & Diagnostics: https://tecnomart.in/repairs
+- Custom PC Builder Tool: https://tecnomart.in/pc-builds
+- Flash Deals: https://tecnomart.in/deals
+- Trade-In & Exchange Value Calculator: https://tecnomart.in/exchange
+- EMI Calculator: https://tecnomart.in/emi-calculator
+- Product Comparison Tool: https://tecnomart.in/compare
+- Corporate Bulk Orders: https://tecnomart.in/corporate
+- Student Discount Program: https://tecnomart.in/students
+
+## Information & Policies
+- About Us: https://tecnomart.in/about
+- Store Contact & Maps: https://tecnomart.in/contact
+- Privacy Policy: https://tecnomart.in/privacy
+- Terms & Conditions: https://tecnomart.in/terms
+- XML Sitemap: https://tecnomart.in/sitemap.xml

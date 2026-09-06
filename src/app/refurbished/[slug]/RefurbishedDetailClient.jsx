@@ -7,20 +7,19 @@ import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
-import { REFURBISHED_DATA, getRefurbishedBySlug } from '@/data/products';
+import SEO, { createProductSchema, createBreadcrumbSchema } from '@/components/SEO';
+import { getRefurbishedBySlug } from '@/data/products';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
 import Link from 'next/link';
 import {
   Star,
   ShieldCheck,
-  Truck,
   RotateCcw,
   ShoppingBag,
   Check,
   ChevronRight,
   MapPin,
-  Sparkles,
   CreditCard,
   Award,
 } from 'lucide-react';
@@ -34,6 +33,21 @@ export default function RefurbishedDetailClient({ slug }) {
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
+  const canonicalUrl = `https://tecnomart.in/refurbished/${item.slug}`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Certified Refurbished', url: '/refurbished' },
+    { name: item.name, url: `/refurbished/${item.slug}` },
+  ]);
+  const productSchema = createProductSchema(item, canonicalUrl);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(productSchema ? [productSchema] : []),
+    ],
+  };
+
   const handleAddToCart = () => {
     addToCart(item, 1);
     setIsAdded(true);
@@ -42,7 +56,7 @@ export default function RefurbishedDetailClient({ slug }) {
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Hello TecnoMart! ♻️ I want to purchase Certified Refurbished *${item.name}* at ${item.price}.\n\nPlease confirm availability and warranty details.`
+      `Hello TecnoMart! ♻️ I am interested in Certified Refurbished *${item.name}* at ${item.price}.\n\nPlease confirm availability, actual unit condition photos, and warranty details.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
@@ -56,6 +70,13 @@ export default function RefurbishedDetailClient({ slug }) {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title={`${item.name} Certified Refurbished Price | TecnoMart`}
+        description={item.tagline || `Certified refurbished ${item.name} at TecnoMart Jubilee Hills, Hyderabad. 40-point tested, 100% genuine parts, and 1-year warranty.`}
+        canonicalUrl={canonicalUrl}
+        ogImage={item.images?.[0]}
+        schema={combinedSchema}
+      />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} />
@@ -198,7 +219,7 @@ export default function RefurbishedDetailClient({ slug }) {
                     className="min-h-[48px] bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider shadow-md cursor-pointer"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current" />
-                    <span>Buy on WhatsApp</span>
+                    <span>Enquire on WhatsApp</span>
                   </button>
                 </div>
 

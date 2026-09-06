@@ -20,7 +20,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       smoothWheel: true,
       syncTouch: false, // MANDATORY: Never hijack mobile touch to preserve native 120Hz physics
       wheelMultiplier: 1,
-      touchInertiaMultiplier: 35,
+      touchMultiplier: 2,
     });
 
     lenisRef.current = lenis;

@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { ShieldCheck, Award, HeartHandshake, Sparkles, ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 
@@ -18,8 +19,19 @@ export default function AboutPage() {
     { number: "4.8 / 5", label: "Google Star Rating" },
   ];
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'About Us', url: '/about' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="About TecnoMart | Hyderabad's Trusted Tech Destination"
+        description="Learn about TecnoMart, founded in 2016 in Jubilee Hills, Hyderabad. Authorized retailer for genuine smartphones, custom gaming PCs, and chip-level repairs."
+        canonicalUrl="https://tecnomart.in/about"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

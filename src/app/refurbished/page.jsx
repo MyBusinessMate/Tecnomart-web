@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { useShop } from '@/context/ShopContext';
 import { CheckCircle2, ShieldCheck, Sparkles, ShoppingBag, Check, ChevronRight, Star, Truck, Tag, CreditCard } from 'lucide-react';
 import Link from 'next/link';
@@ -115,6 +116,11 @@ export default function RefurbishedPage() {
     ? REFURBISHED_ITEMS
     : REFURBISHED_ITEMS.filter((i) => i.grade === selectedGrade);
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Certified Refurbished', url: '/refurbished' },
+  ]);
+
   const handleAddToCart = (item) => {
     addToCart(item);
     setAddedItems((prev) => ({ ...prev, [item.id]: true }));
@@ -129,6 +135,12 @@ export default function RefurbishedPage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Certified Refurbished Apple & Tech in Hyderabad | TecnoMart"
+        description="Buy certified refurbished MacBooks, iPhones, and premium laptops in Hyderabad. 40-point diagnostic tested, 100% genuine parts, and 1-year TecnoMart warranty."
+        canonicalUrl="https://tecnomart.in/refurbished"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header />

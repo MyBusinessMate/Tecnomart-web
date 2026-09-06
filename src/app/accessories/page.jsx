@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { useShop } from '@/context/ShopContext';
 import { ShoppingBag, Check, ChevronRight, Star, Truck, ShieldCheck, CreditCard } from 'lucide-react';
 import Link from 'next/link';
@@ -109,6 +110,11 @@ export default function AccessoriesPage() {
 
   const categories = ['All', 'Audio', 'Keyboards', 'Mice', 'Monitors', 'Power', 'Wearables'];
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Accessories', url: '/accessories' },
+  ]);
+
   const filteredItems = selectedCat === 'All'
     ? ACCESSORIES_DATA
     : ACCESSORIES_DATA.filter((a) => a.category === selectedCat);
@@ -120,13 +126,19 @@ export default function AccessoriesPage() {
 
   const handleWhatsAppOrder = (item) => {
     const text = encodeURIComponent(
-      `Hi TecnoMart! 🎧 I want to purchase the ${item.name} (${item.price}). Please share availability and payment link.`
+      `Hi TecnoMart! 🎧 I am interested in ${item.name} (${item.price}). Please confirm stock availability and offers in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Tech Accessories & Audio in Hyderabad | TecnoMart"
+        description="Shop genuine tech accessories, Sony & Apple headphones, mechanical keyboards, GaN chargers, and gaming monitors at TecnoMart Hyderabad."
+        canonicalUrl="https://tecnomart.in/accessories"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header />
@@ -269,7 +281,7 @@ export default function AccessoriesPage() {
                               onClick={() => handleWhatsAppOrder(item)}
                               className="min-h-[38px] rounded-lg bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-[11px] font-black uppercase tracking-wide shadow-sm transition-all active:scale-95 cursor-pointer"
                             >
-                              Buy on WA
+                              Enquire on WA
                             </button>
                           </div>
                         </div>

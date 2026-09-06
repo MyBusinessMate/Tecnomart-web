@@ -6,6 +6,7 @@ import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { ChevronRight, FileText } from 'lucide-react';
 import Link from 'next/link';
 
@@ -33,8 +34,19 @@ const sections = [
 ];
 
 export default function TermsPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Terms & Conditions', url: '/terms' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Terms & Conditions | TecnoMart Hyderabad"
+        description="Terms and conditions, warranty coverage, repair guarantees, and return policies for purchases and services at TecnoMart Jubilee Hills, Hyderabad."
+        canonicalUrl="https://tecnomart.in/terms"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

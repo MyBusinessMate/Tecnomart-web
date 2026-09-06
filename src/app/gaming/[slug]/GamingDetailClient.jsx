@@ -7,6 +7,7 @@ import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createProductSchema, createBreadcrumbSchema } from '@/components/SEO';
 import { GAMING_DATA, getGamingBySlug } from '@/data/products';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
@@ -40,6 +41,21 @@ export default function GamingDetailClient({ slug }) {
 
   const activePrice = selectedConfig?.price || rig.price;
 
+  const canonicalUrl = `https://tecnomart.in/gaming/${rig.slug}`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Gaming PCs', url: '/gaming' },
+    { name: rig.name, url: `/gaming/${rig.slug}` },
+  ]);
+  const productSchema = createProductSchema(rig, canonicalUrl);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(productSchema ? [productSchema] : []),
+    ],
+  };
+
   const handleAddToCart = () => {
     addToCart(rig, 1, selectedConfig);
     setIsAdded(true);
@@ -48,7 +64,7 @@ export default function GamingDetailClient({ slug }) {
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Hello TecnoMart! 🎮 I want to purchase the *${rig.name}* (${selectedConfig.name}) at ${activePrice}.\n\nPlease share delivery schedule in Hyderabad.`
+      `Hello TecnoMart! 🎮 I am interested in the *${rig.name}* (${selectedConfig.name}) at ${activePrice}.\n\nPlease share customization options and delivery schedule in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
@@ -62,6 +78,13 @@ export default function GamingDetailClient({ slug }) {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title={`${rig.name} Gaming PC Price in Hyderabad | TecnoMart`}
+        description={rig.tagline || `Handcrafted, benchmarked ${rig.name} custom gaming PC in Jubilee Hills, Hyderabad. 3-year warranty and same-day delivery.`}
+        canonicalUrl={canonicalUrl}
+        ogImage={rig.images?.[0]}
+        schema={combinedSchema}
+      />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} />
@@ -265,7 +288,7 @@ export default function GamingDetailClient({ slug }) {
                       className="min-h-[48px] bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider shadow-md transition-all active:scale-98 cursor-pointer"
                     >
                       <WhatsAppIcon className="w-4 h-4 fill-current" />
-                      <span>Buy on WhatsApp</span>
+                      <span>Enquire on WhatsApp</span>
                     </button>
                   </div>
                 </div>

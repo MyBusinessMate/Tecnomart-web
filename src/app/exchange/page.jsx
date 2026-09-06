@@ -8,7 +8,8 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ChevronRight, RefreshCw, CheckCircle2, Zap, TrendingUp, ArrowRight, Sparkles, ThumbsUp, AlertTriangle, Wrench, Award } from 'lucide-react';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import { ChevronRight, RefreshCw, CheckCircle2, Zap, ArrowRight, Sparkles, ThumbsUp, AlertTriangle, Wrench, Award } from 'lucide-react';
 
 const TRADE_IN_DATA = {
   Apple: {
@@ -126,8 +127,19 @@ export default function ExchangePage() {
     window.open(`https://wa.me/919010667726?text=${msg}`, '_blank');
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Trade-In & Exchange', url: '/exchange' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Device Exchange & Trade-In Valuation in Hyderabad | TecnoMart"
+        description="Get instant trade-in valuation for your old smartphone, MacBook, or laptop. Upgrade to new tech with doorstep exchange in Hyderabad."
+        canonicalUrl="https://tecnomart.in/exchange"
+        schema={breadcrumbSchema}
+      />
       <ScrollProgress />
       <Header />
       <MobileBottomBar />

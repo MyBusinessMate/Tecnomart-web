@@ -8,6 +8,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { ChevronRight, GraduationCap, ChevronDown, ChevronUp, Laptop, Smartphone, Headphones, Monitor, ShieldCheck, Zap } from 'lucide-react';
 
 const BENEFITS = [
@@ -52,8 +53,19 @@ export default function StudentsPage() {
     window.open(`https://wa.me/919010667726?text=${msg}`, '_blank');
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Student Discounts', url: '/students' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Student Tech Discounts in Hyderabad | TecnoMart"
+        description="Exclusive student discounts on Apple MacBooks, laptops, smartphones, and accessories for university & college students in Hyderabad."
+        canonicalUrl="https://tecnomart.in/students"
+        schema={breadcrumbSchema}
+      />
       <ScrollProgress />
       <Header />
       <MobileBottomBar />

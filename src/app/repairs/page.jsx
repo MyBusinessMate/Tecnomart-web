@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { Wrench, ShieldCheck, Clock, CheckCircle2, ChevronRight, Star } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
@@ -78,6 +79,11 @@ const REPAIR_SERVICES = [
 export default function RepairsPage() {
   const { setIsRepairOpen } = useShop();
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Repair Services', url: '/repairs' },
+  ]);
+
   const handleWhatsAppBooking = (serviceName) => {
     const text = encodeURIComponent(
       `Hello TecnoMart Service Center! 🔧 I need assistance with "${serviceName}" for my device. Please share repair estimate and booking slot.`
@@ -87,6 +93,12 @@ export default function RepairsPage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Mobile & Laptop Repair Center in Hyderabad | TecnoMart"
+        description="Expert screen replacement, battery repair, chip-level diagnostics, and water damage recovery in Jubilee Hills, Hyderabad. Original parts with 90-day warranty."
+        canonicalUrl="https://tecnomart.in/repairs"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

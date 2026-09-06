@@ -5,6 +5,7 @@ import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createProductSchema, createBreadcrumbSchema } from '@/components/SEO';
 import { MOBILES_DATA, getMobileBySlug } from '@/data/products';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
@@ -42,6 +43,21 @@ export default function MobileDetailClient({ slug }) {
   const images = product.images?.length ? product.images : ['/images/landing/img-1.png'];
   const activePrice = selectedStorage?.price || product.price;
 
+  const canonicalUrl = `https://tecnomart.in/mobiles/${product.slug}`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Smartphones', url: '/mobiles' },
+    { name: product.name, url: `/mobiles/${product.slug}` },
+  ]);
+  const productSchema = createProductSchema(product, canonicalUrl);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(productSchema ? [productSchema] : []),
+    ],
+  };
+
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
@@ -54,7 +70,7 @@ export default function MobileDetailClient({ slug }) {
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Hello TecnoMart! 📱 I want to purchase the *${product.name}* (${selectedColor.name}, ${selectedStorage.size}) at ${activePrice}.\n\nPlease confirm availability and delivery schedule in Hyderabad.`
+      `Hello TecnoMart! 📱 I am interested in *${product.name}* (${selectedColor.name}, ${selectedStorage.size}) at ${activePrice}.\n\nPlease confirm availability and delivery schedule in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
@@ -70,6 +86,13 @@ export default function MobileDetailClient({ slug }) {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title={`${product.name} Price in Hyderabad | TecnoMart`}
+        description={product.tagline || `Buy 100% genuine ${product.name} at TecnoMart Jubilee Hills, Hyderabad. Sealed GST invoice with official warranty and same-day delivery.`}
+        canonicalUrl={canonicalUrl}
+        ogImage={product.images?.[0]}
+        schema={combinedSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#fafafa] text-[#111111] font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} />
@@ -237,7 +260,7 @@ export default function MobileDetailClient({ slug }) {
                       className="flex-1 bg-[#25D366] text-white py-4 rounded-xl font-bold uppercase tracking-[0.05em] flex justify-center items-center gap-2 hover:bg-[#20bd5a] transition-all active:scale-[0.98] text-xs cursor-pointer shadow-sm"
                     >
                       <WhatsAppIcon className="w-4 h-4 fill-current" />
-                      <span>Order on WhatsApp</span>
+                      <span>Enquire on WhatsApp</span>
                     </button>
                   </div>
 

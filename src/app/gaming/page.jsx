@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { useShop } from '@/context/ShopContext';
 import { Gauge, ShoppingBag, Check, ChevronRight, Star, Cpu, MemoryStick, HardDrive, Zap } from 'lucide-react';
 import Link from 'next/link';
@@ -98,6 +99,11 @@ export default function GamingPage() {
   const { addToCart } = useShop();
   const [addedItems, setAddedItems] = useState({});
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Gaming PCs', url: '/gaming' },
+  ]);
+
   const handleAddToCart = (product) => {
     addToCart(product);
     setAddedItems((prev) => ({ ...prev, [product.id]: true }));
@@ -112,6 +118,12 @@ export default function GamingPage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Custom Gaming PCs & Rigs in Hyderabad | TecnoMart"
+        description="Handcrafted, benchmarked custom gaming PCs powered by NVIDIA RTX 40-series and AMD Ryzen/Intel Core in Hyderabad. 3-year warranty and same-day consultation."
+        canonicalUrl="https://tecnomart.in/gaming"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header />

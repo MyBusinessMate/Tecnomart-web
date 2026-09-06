@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { LAPTOPS_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 import {
@@ -25,6 +26,11 @@ export default function LaptopsPage() {
 
   const categories = ['All', 'Gaming', 'Creator', 'Ultrabook', 'Budget'];
   const brands = ['All', 'Apple', 'ASUS', 'Dell', 'Lenovo', 'HP'];
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Laptops', url: '/laptops' },
+  ]);
 
   const filteredAndSortedLaptops = useMemo(() => {
     let list = [...LAPTOPS_DATA];
@@ -47,13 +53,19 @@ export default function LaptopsPage() {
     e.stopPropagation();
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hi TecnoMart! 💻 I am interested in ${product.name} priced at ${product.price}. Please share availability and current offers.`
+      `Hi TecnoMart! 💻 I am interested in ${product.name} priced at ${product.price}. Please share availability, offers, and warranty details.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Laptops & MacBooks in Hyderabad | TecnoMart"
+        description="Explore Apple MacBook, ASUS ROG, Dell, Lenovo, and HP laptops at TecnoMart Hyderabad. Official Indian warranty, 0% EMI, and expert configuration support."
+        canonicalUrl="https://tecnomart.in/laptops"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header />

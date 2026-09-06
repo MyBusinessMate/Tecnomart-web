@@ -8,7 +8,8 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import { ChevronRight, Calculator, Smartphone, Laptop, Gamepad2, Headphones } from 'lucide-react';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import { ChevronRight, Smartphone, Laptop, Gamepad2, Headphones } from 'lucide-react';
 
 const BANKS = [
   { name: "No Cost EMI", rate: 0, note: "0% interest, small processing fee may apply" },
@@ -81,8 +82,19 @@ export default function EMICalculatorPage() {
     setPrice(n);
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'EMI Calculator', url: '/emi-calculator' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="No Cost EMI Calculator for Mobiles & Laptops | TecnoMart"
+        description="Calculate monthly installments and No Cost EMI options on smartphones, MacBooks, and gaming PCs in Hyderabad with leading banks."
+        canonicalUrl="https://tecnomart.in/emi-calculator"
+        schema={breadcrumbSchema}
+      />
       <ScrollProgress />
       <Header />
       <MobileBottomBar />

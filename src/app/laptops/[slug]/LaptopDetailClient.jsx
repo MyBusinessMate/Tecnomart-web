@@ -5,6 +5,7 @@ import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createProductSchema, createBreadcrumbSchema } from '@/components/SEO';
 import { LAPTOPS_DATA, getLaptopBySlug } from '@/data/products';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
@@ -42,6 +43,21 @@ export default function LaptopDetailClient({ slug }) {
   const images = laptop.images?.length ? laptop.images : ['/images/landing/img-20.png'];
   const activePrice = selectedConfig?.price || laptop.price;
 
+  const canonicalUrl = `https://tecnomart.in/laptops/${laptop.slug}`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Laptops', url: '/laptops' },
+    { name: laptop.name, url: `/laptops/${laptop.slug}` },
+  ]);
+  const productSchema = createProductSchema(laptop, canonicalUrl);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(productSchema ? [productSchema] : []),
+    ],
+  };
+
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
@@ -54,7 +70,7 @@ export default function LaptopDetailClient({ slug }) {
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Hello TecnoMart! 💻 I want to purchase the *${laptop.name}* (${selectedColor.name}, ${selectedConfig.name}) at ${activePrice}.\n\nPlease confirm availability and delivery schedule in Hyderabad.`
+      `Hello TecnoMart! 💻 I am interested in *${laptop.name}* (${selectedColor.name}, ${selectedConfig.name}) at ${activePrice}.\n\nPlease confirm availability, offers, and delivery schedule in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
@@ -70,6 +86,13 @@ export default function LaptopDetailClient({ slug }) {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title={`${laptop.name} Price in Hyderabad | TecnoMart`}
+        description={laptop.tagline || `Buy genuine ${laptop.name} at TecnoMart Jubilee Hills, Hyderabad. Official Indian warranty, 0% EMI, and express delivery.`}
+        canonicalUrl={canonicalUrl}
+        ogImage={laptop.images?.[0]}
+        schema={combinedSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#fafafa] text-[#111111] font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} />
@@ -237,7 +260,7 @@ export default function LaptopDetailClient({ slug }) {
                       className="flex-1 bg-[#25D366] text-white py-4 rounded-xl font-bold uppercase tracking-[0.05em] flex justify-center items-center gap-2 hover:bg-[#20bd5a] transition-all active:scale-[0.98] text-xs cursor-pointer shadow-sm"
                     >
                       <WhatsAppIcon className="w-4 h-4 fill-current" />
-                      <span>Order on WhatsApp</span>
+                      <span>Enquire on WhatsApp</span>
                     </button>
                   </div>
 

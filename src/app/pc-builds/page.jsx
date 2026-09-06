@@ -7,12 +7,25 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import Configurator from '@/components/redesign/Configurator';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { ChevronRight, Star, Cpu, ShieldCheck, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PCBuildsConfiguratorPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Gaming PCs', url: '/gaming' },
+    { name: 'PC Configurator', url: '/pc-builds' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Custom PC Builder & Configurator in Hyderabad | TecnoMart"
+        description="Configure your custom gaming, editing, or workstation PC online with 100% component compatibility and instant WhatsApp quote in Hyderabad."
+        canonicalUrl="https://tecnomart.in/pc-builds"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

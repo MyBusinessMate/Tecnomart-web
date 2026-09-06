@@ -16,6 +16,7 @@ import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA } from '@/components/SEO';
 import { useShop } from '@/context/ShopContext';
 
 export default function Page() {
@@ -32,6 +33,12 @@ export default function Page() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="TecnoMart | Authorized Mobiles, Laptops, Gaming PCs & Repairs Hyderabad"
+        description="Authorized retailer in Jubilee Hills, Hyderabad. Browse latest Apple iPhones, MacBooks, gaming laptops, and certified repairs with same-day delivery."
+        canonical="/"
+        schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA]}
+      />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         
         {/* Top Scroll Progress Indicator */}

@@ -6,6 +6,7 @@ import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 
@@ -16,6 +17,11 @@ export default function ContactPage() {
     subject: 'Product Inquiry',
     message: ''
   });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Contact Us', url: '/contact' },
+  ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +38,12 @@ export default function ContactPage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Contact TecnoMart Jubilee Hills, Hyderabad | Store & Service Hub"
+        description="Visit TecnoMart on Road No. 36 Jubilee Hills, Hyderabad. Contact us via WhatsApp or call +91 9010667726 for product inquiries, PC builds, and repair bookings."
+        canonicalUrl="https://tecnomart.in/contact"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />

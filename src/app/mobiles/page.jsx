@@ -7,6 +7,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { MOBILES_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 import {
@@ -23,6 +24,11 @@ export default function MobilesPage() {
   const [addedItems, setAddedItems] = useState({});
 
   const brands = ['All', 'Apple', 'Samsung', 'OnePlus', 'Google'];
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Smartphones', url: '/mobiles' },
+  ]);
 
   const filteredAndSortedMobiles = useMemo(() => {
     let list = selectedBrand === 'All'
@@ -49,13 +55,19 @@ export default function MobilesPage() {
     e.stopPropagation();
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hi TecnoMart! 📱 I want to purchase the ${product.name} (${product.price}). Please confirm stock and delivery in Hyderabad.`
+      `Hi TecnoMart! 📱 I am interested in ${product.name} (${product.price}). Please confirm stock availability, offers, and delivery in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Smartphones & Mobiles in Hyderabad | TecnoMart"
+        description="Explore the latest Apple iPhone, Samsung Galaxy, Google Pixel, and OnePlus smartphones at TecnoMart Jubilee Hills, Hyderabad. Sealed GST invoice with same-day express delivery."
+        canonicalUrl="https://tecnomart.in/mobiles"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header />
@@ -229,7 +241,7 @@ export default function MobilesPage() {
                               onClick={(e) => handleWhatsAppBuy(item, e)}
                               className="min-h-[38px] rounded-lg bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-[11px] font-black uppercase tracking-wide shadow-sm transition-all active:scale-95 cursor-pointer"
                             >
-                              Buy on WA
+                              Enquire on WA
                             </button>
                           </div>
                         </div>

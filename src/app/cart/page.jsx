@@ -13,6 +13,7 @@ import {
   ShieldCheck, Truck, Check, ArrowLeft, RotateCcw, AlertCircle, Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 
 export default function CartPage() {
   const {
@@ -64,6 +65,12 @@ export default function CartPage() {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Your Cart | TecnoMart"
+        description="Review items selected for enquiry at TecnoMart Jubilee Hills, Hyderabad."
+        canonicalUrl="https://tecnomart.in/cart"
+        robots="noindex, nofollow"
+      />
       <div className="min-h-screen bg-[#FBFBFA] flex flex-col selection:bg-amber-400 selection:text-neutral-950 font-sans antialiased text-neutral-900 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header />

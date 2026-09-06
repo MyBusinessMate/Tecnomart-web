@@ -7,20 +7,17 @@ import RepairModal from '@/components/redesign/RepairModal';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
-import { ACCESSORIES_DATA, getAccessoryBySlug } from '@/data/products';
+import SEO, { createProductSchema, createBreadcrumbSchema } from '@/components/SEO';
+import { getAccessoryBySlug } from '@/data/products';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
 import Link from 'next/link';
 import {
   Star,
-  ShieldCheck,
-  Truck,
-  RotateCcw,
   ShoppingBag,
   Check,
   ChevronRight,
   MapPin,
-  Sparkles,
   CreditCard,
 } from 'lucide-react';
 
@@ -33,6 +30,21 @@ export default function AccessoryDetailClient({ slug }) {
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
+  const canonicalUrl = `https://tecnomart.in/accessories/${product.slug}`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Accessories', url: '/accessories' },
+    { name: product.name, url: `/accessories/${product.slug}` },
+  ]);
+  const productSchema = createProductSchema(product, canonicalUrl);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(productSchema ? [productSchema] : []),
+    ],
+  };
+
   const handleAddToCart = () => {
     addToCart(product, 1);
     setIsAdded(true);
@@ -41,7 +53,7 @@ export default function AccessoryDetailClient({ slug }) {
 
   const handleWhatsAppBuy = () => {
     const text = encodeURIComponent(
-      `Hello TecnoMart! 🎧 I want to purchase *${product.name}* at ${product.price}.\n\nPlease confirm availability in Hyderabad.`
+      `Hello TecnoMart! 🎧 I am interested in *${product.name}* at ${product.price}.\n\nPlease confirm availability, warranty, and delivery schedule in Hyderabad.`
     );
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
@@ -55,6 +67,13 @@ export default function AccessoryDetailClient({ slug }) {
 
   return (
     <SmoothScrollProvider>
+      <SEO
+        title={`${product.name} Price in Hyderabad | TecnoMart`}
+        description={product.tagline || `Buy 100% genuine ${product.name} at TecnoMart Jubilee Hills, Hyderabad. Official Indian warranty and fast delivery.`}
+        canonicalUrl={canonicalUrl}
+        ogImage={product.images?.[0]}
+        schema={combinedSchema}
+      />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">
         <ScrollProgress />
         <Header onOpenRepairModal={() => setIsRepairOpen(true)} />
@@ -176,7 +195,7 @@ export default function AccessoryDetailClient({ slug }) {
                     className="min-h-[48px] bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider shadow-md cursor-pointer"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current" />
-                    <span>Buy on WhatsApp</span>
+                    <span>Enquire on WhatsApp</span>
                   </button>
                 </div>
 

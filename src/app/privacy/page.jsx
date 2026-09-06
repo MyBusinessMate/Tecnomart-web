@@ -6,6 +6,7 @@ import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
+import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { ChevronRight, Lock } from 'lucide-react';
 import Link from 'next/link';
 
@@ -42,8 +43,19 @@ const sections = [
 ];
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Privacy Policy', url: '/privacy' },
+  ]);
+
   return (
     <SmoothScrollProvider>
+      <SEO
+        title="Privacy Policy | TecnoMart Hyderabad"
+        description="Privacy policy and data protection commitments for TecnoMart customers, repair clients, and store visitors in Hyderabad."
+        canonicalUrl="https://tecnomart.in/privacy"
+        schema={breadcrumbSchema}
+      />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
         <ScrollProgress />
         <Header cartCount={0} />
