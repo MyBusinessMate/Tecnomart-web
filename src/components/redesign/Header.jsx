@@ -696,46 +696,46 @@ export default function Header() {
           - Center: TecnoMart Logo & Branding (Visually centered, no account/cart flanking it)
           - Right: Cart Icon
           ========================================================================= */}
-      <div className="lg:hidden relative flex items-center justify-between h-16 px-4">
+      <div className="lg:hidden relative flex items-center justify-between h-11 sm:h-12 px-3 sm:px-4">
         
         {/* Left Side: Hamburger Menu + Account */}
-        <div className="flex items-center gap-1.5 z-10 min-w-[76px]">
+        <div className="flex items-center gap-1 z-10 min-w-[60px]">
           {/* Hamburger Menu button */}
           <button
             onClick={() => setDrawerOpen(true)}
             aria-label="Open menu"
-            className="p-1.5 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
+            className="p-1 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
           >
-            <Menu className="w-6 h-6 stroke-[2.2]" />
+            <Menu className="w-5 h-5 stroke-[2.2]" />
           </button>
 
           {/* Account button */}
           <button
             onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
             aria-label="Account"
-            className="p-1.5 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
+            className="p-1 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
           >
-            <User className="w-5 h-5" />
+            <User className="w-4.5 h-4.5" />
           </button>
         </div>
 
         {/* Center: TecnoMart Branding strictly centered */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-auto">
           <Link href="/" aria-label="TecnoMart Home" className="flex flex-col items-center justify-center">
-            <TecnoMartLogo textClass="text-white font-black text-sm" subtitleClass="text-neutral-200 font-semibold text-[7.5px]" />
+            <TecnoMartLogo className="w-6.5 h-6.5 sm:w-7.5 sm:h-7.5" textClass="text-white font-black text-xs sm:text-sm" subtitleClass="text-neutral-200 font-semibold text-[6.5px] sm:text-[7.5px]" />
           </Link>
         </div>
 
         {/* Right Side: Cart with item badge */}
-        <div className="flex items-center justify-end z-10 min-w-[76px]">
+        <div className="flex items-center justify-end z-10 min-w-[60px]">
           <Link
             href="/cart"
-            className="p-1.5 text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
+            className="p-1 text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
             aria-label={`Cart, ${cartCount} items`}
           >
-            <ShoppingBag className="w-6 h-6" />
+            <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 bg-amber-400 text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+              <span className="absolute -top-1 -right-1 bg-amber-400 text-neutral-950 font-black text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center shadow-xs">
                 {cartCount}
               </span>
             )}
@@ -799,10 +799,10 @@ export default function Header() {
       )}
 
       {/* Mobile Search Bar below mobile header */}
-      <div className="lg:hidden px-4 py-2.5 bg-[#141414]">
+      <div className="lg:hidden px-3 py-1.5 bg-[#141414]">
         <div className="relative flex items-center">
-          <div className="absolute left-3.5 pointer-events-none text-neutral-400">
-            <Search className="w-4 h-4 stroke-[2]" />
+          <div className="absolute left-3 pointer-events-none text-neutral-400">
+            <Search className="w-3.5 h-3.5 stroke-[2]" />
           </div>
           <label htmlFor="search-mobile" className="sr-only">Search TecnoMart</label>
           <input
@@ -811,7 +811,7 @@ export default function Header() {
             placeholder="Search for MacBooks, iPhones, laptops..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-10 pl-10 pr-4 bg-white/95 focus:bg-white text-xs text-neutral-900 rounded-full border border-white/20 outline-none focus:border-amber-400 font-medium"
+            className="w-full h-8 pl-8.5 pr-3 bg-white/95 focus:bg-white text-[11px] sm:text-xs text-neutral-900 rounded-full border border-white/20 outline-none focus:border-amber-400 font-medium"
           />
         </div>
       </div>
