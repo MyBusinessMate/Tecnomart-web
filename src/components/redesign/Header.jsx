@@ -28,8 +28,11 @@ import {
   PhoneCall
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 
 export default function Header() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const {
     cartCount,
     setIsCartOpen,
@@ -333,10 +336,11 @@ export default function Header() {
   const isNavRevealed = navVisible || drawerOpen || searchOpen || accountDropdownOpen || activeNavDropdown !== null;
 
   return (
+    <>
     <header
-      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#0a0a0a] transition-transform duration-300 ease-in-out ${
-        isNavRevealed ? 'translate-y-0' : '-translate-y-full pointer-events-none'
-      }`}
+      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#0a0a0a] ${
+        isNavRevealed ? 'translate-y-0' : 'max-lg:translate-y-0 lg:-translate-y-full lg:pointer-events-none'
+      } lg:transition-transform lg:duration-300 lg:ease-in-out`}
     >
       
       {/* =========================================================================
@@ -815,21 +819,23 @@ export default function Header() {
           />
         </div>
       </div>
+    </header>
 
-      {/* =========================================================================
-          3. ALL CATEGORIES NAVIGATION DRAWER (Both Desktop & Mobile)
-          Requirements 11 & 15: Smooth slide-in, complete categories, never blank,
-          smooth accordions, book repair CTA, lock body scroll, clean close interaction.
-          ========================================================================= */}
-      <AnimatePresence>
-        {drawerOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-neutral-950/75 backdrop-blur-xs flex justify-start"
-            onClick={() => setDrawerOpen(false)}
-          >
+    {/* =========================================================================
+        3. ALL CATEGORIES NAVIGATION DRAWER (Rendered in Portal directly on body)
+        Mounted outside <header> so CSS transforms never trap or cut off drawer
+        ========================================================================= */}
+    {mounted && typeof document !== 'undefined' && createPortal(
+      <>
+        <AnimatePresence>
+          {drawerOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[9999] bg-neutral-950/75 backdrop-blur-xs flex justify-start"
+              onClick={() => setDrawerOpen(false)}
+            >
             <motion.div
               ref={drawerRef}
               data-lenis-prevent="true"
@@ -1044,7 +1050,9 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
-    </header>
+      </>,
+      document.body
+    )}
+    </>
   );
 }

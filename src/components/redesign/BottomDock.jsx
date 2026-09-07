@@ -1,22 +1,61 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Cpu, Wrench, ArrowLeftRight, Sparkles } from 'lucide-react';
+import { Wrench, RefreshCw } from 'lucide-react';
 import { WhatsAppIcon } from './Icons';
 import { useShop } from '@/context/ShopContext';
 
+// 4-pointed sparkle diamond icon matching Image 4
+function SpinDiamondIcon({ className = "w-5 h-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+    </svg>
+  );
+}
+
+// 3 isometric cubes icon matching Image 4
+function PcBuilderCubesIcon({ className = "w-5 h-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {/* Top cube */}
+      <path d="M12 2L16 4.5V9L12 11.5L8 9V4.5L12 2Z" />
+      <path d="M12 11.5V6.8" />
+      <path d="M16 4.5L12 6.8L8 4.5" />
+      {/* Bottom left cube */}
+      <path d="M7 11.5L11 14V18.5L7 21L3 18.5V14L7 11.5Z" />
+      <path d="M7 21V16.3" />
+      <path d="M11 14L7 16.3L3 14" />
+      {/* Bottom right cube */}
+      <path d="M17 11.5L21 14V18.5L17 21L13 18.5V14L17 11.5Z" />
+      <path d="M17 21V16.3" />
+      <path d="M21 14L17 16.3L13 14" />
+    </svg>
+  );
+}
+
 export default function BottomDock({ onOpenSpin }) {
   const { setIsRepairOpen } = useShop();
+  const [activeTab, setActiveTab] = useState('repair'); // Default active on repair as shown in Image 4
 
   const handleWhatsApp = () => {
+    setActiveTab('whatsapp');
     const text = encodeURIComponent("Hi TecnoMart! 👋 I would like to enquire about products, repairs, or offers.");
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
   const handleRepair = () => {
+    setActiveTab('repair');
     if (setIsRepairOpen) {
       setIsRepairOpen(true);
+    }
+  };
+
+  const handleSpin = () => {
+    setActiveTab('spin');
+    if (onOpenSpin) {
+      onOpenSpin();
     }
   };
 
@@ -26,80 +65,102 @@ export default function BottomDock({ onOpenSpin }) {
       className="fixed bottom-2.5 left-1/2 -translate-x-1/2 z-40 max-w-[96vw] pointer-events-auto md:hidden"
     >
       <nav
-        aria-label="Quick Actions Dock"
-        className="relative bg-neutral-950/95 backdrop-blur-xl border border-neutral-800/90 rounded-xl px-3 py-1.5 flex items-center justify-between gap-3.5 shadow-2xl shadow-black/90"
+        aria-label="Quick Actions Mobile Dock"
+        className="relative bg-white border border-neutral-200/90 rounded-2xl px-1.5 py-1.5 flex items-center justify-between shadow-xl shadow-neutral-900/10"
       >
-        {/* 1. Spin Lucky Wheel */}
+        {/* 1. Spin */}
         <button
           type="button"
-          onClick={onOpenSpin}
-          aria-label="Spin & Win Lucky Wheel"
-          className="group flex flex-col items-center justify-center p-0.5 cursor-pointer transition-transform active:scale-95 text-neutral-400 hover:text-amber-400"
+          onClick={handleSpin}
+          aria-label="Spin & Win"
+          className={`flex flex-col items-center justify-center px-3 py-1.5 rounded-xl cursor-pointer transition-all duration-200 ${
+            activeTab === 'spin'
+              ? 'bg-[#F5B800] text-neutral-950 font-bold shadow-xs'
+              : 'text-neutral-900 hover:text-amber-500'
+          }`}
         >
-          <div className="relative w-7 h-7 rounded-lg bg-neutral-900 group-hover:bg-amber-500/20 flex items-center justify-center transition-colors">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform" />
-            <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-          </div>
-          <span className="text-[8.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
+          <SpinDiamondIcon className="w-4.5 h-4.5 stroke-[2.2]" />
+          <span className="text-[9.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
             Spin
           </span>
         </button>
 
+        {/* Divider 1 */}
+        <div className="h-6 w-[1px] bg-neutral-200/90 self-center" />
+
         {/* 2. PC Builder */}
         <Link
           href="/pc-builds"
-          aria-label="PC Builder Configurator"
-          className="group flex flex-col items-center justify-center p-0.5 cursor-pointer transition-transform active:scale-95 text-neutral-400 hover:text-white"
+          onClick={() => setActiveTab('pc-builder')}
+          aria-label="PC Builder"
+          className={`flex flex-col items-center justify-center px-2.5 py-1.5 rounded-xl cursor-pointer transition-all duration-200 ${
+            activeTab === 'pc-builder'
+              ? 'bg-[#F5B800] text-neutral-950 font-bold shadow-xs'
+              : 'text-neutral-900 hover:text-amber-500'
+          }`}
         >
-          <div className="w-7 h-7 rounded-lg bg-neutral-900 group-hover:bg-white/15 flex items-center justify-center transition-colors">
-            <Cpu className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white" />
-          </div>
-          <span className="text-[8.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
-            PC Builder
+          <PcBuilderCubesIcon className="w-4.5 h-4.5" />
+          <span className="text-[9.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
+            Pc Builder
           </span>
         </Link>
 
-        {/* 3. REPAIR (Priority / Focus Center Item with minimum rounded corners) */}
-        <div className="relative -mt-3.5 flex flex-col items-center">
-          <button
-            type="button"
-            onClick={handleRepair}
-            aria-label="Book a Repair Appointment"
-            className="group relative w-10.5 h-10.5 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 text-neutral-950 ring-2 ring-neutral-950 shadow-lg shadow-amber-500/40 flex items-center justify-center transition-transform active:scale-90 hover:scale-105 cursor-pointer"
-          >
-            <div className="absolute inset-0 rounded-xl bg-white/20 animate-pulse pointer-events-none" />
-            <Wrench className="w-5 h-5 stroke-[2.5] text-neutral-950 group-hover:rotate-45 transition-transform" />
-          </button>
-          <span className="text-[9px] font-black tracking-tight text-amber-400 uppercase mt-0.5 drop-shadow-sm whitespace-nowrap">
+        {/* Divider 2 */}
+        <div className="h-6 w-[1px] bg-neutral-200/90 self-center" />
+
+        {/* 3. Repair (Active Default per Image 4) */}
+        <button
+          type="button"
+          onClick={handleRepair}
+          aria-label="Book a Repair Appointment"
+          className={`flex flex-col items-center justify-center px-3.5 py-1.5 rounded-xl cursor-pointer transition-all duration-200 ${
+            activeTab === 'repair'
+              ? 'bg-[#F5B800] text-neutral-950 font-bold shadow-xs'
+              : 'text-neutral-900 hover:text-amber-500'
+          }`}
+        >
+          <Wrench className="w-4.5 h-4.5 stroke-[2.5]" />
+          <span className="text-[9.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
             Repair
           </span>
-        </div>
+        </button>
+
+        {/* Divider 3 */}
+        <div className="h-6 w-[1px] bg-neutral-200/90 self-center" />
 
         {/* 4. WhatsApp */}
         <button
           type="button"
           onClick={handleWhatsApp}
-          aria-label="Chat with TecnoMart on WhatsApp"
-          className="group flex flex-col items-center justify-center p-0.5 cursor-pointer transition-transform active:scale-95 text-neutral-400 hover:text-emerald-400"
+          aria-label="WhatsApp Chat"
+          className={`flex flex-col items-center justify-center px-2.5 py-1.5 rounded-xl cursor-pointer transition-all duration-200 ${
+            activeTab === 'whatsapp'
+              ? 'bg-[#F5B800] text-neutral-950 font-bold shadow-xs'
+              : 'text-neutral-900 hover:text-amber-500'
+          }`}
         >
-          <div className="w-7 h-7 rounded-lg bg-neutral-900 group-hover:bg-emerald-500/20 flex items-center justify-center transition-colors">
-            <WhatsAppIcon className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-          </div>
-          <span className="text-[8.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
+          <WhatsAppIcon className="w-4.5 h-4.5" />
+          <span className="text-[9.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
             WhatsApp
           </span>
         </button>
 
+        {/* Divider 4 */}
+        <div className="h-6 w-[1px] bg-neutral-200/90 self-center" />
+
         {/* 5. Exchange */}
         <Link
           href="/exchange"
-          aria-label="Trade-In & Exchange Options"
-          className="group flex flex-col items-center justify-center p-0.5 cursor-pointer transition-transform active:scale-95 text-neutral-400 hover:text-white"
+          onClick={() => setActiveTab('exchange')}
+          aria-label="Trade-In and Exchange"
+          className={`flex flex-col items-center justify-center px-2.5 py-1.5 rounded-xl cursor-pointer transition-all duration-200 ${
+            activeTab === 'exchange'
+              ? 'bg-[#F5B800] text-neutral-950 font-bold shadow-xs'
+              : 'text-neutral-900 hover:text-amber-500'
+          }`}
         >
-          <div className="w-7 h-7 rounded-lg bg-neutral-900 group-hover:bg-white/15 flex items-center justify-center transition-colors">
-            <ArrowLeftRight className="w-3.5 h-3.5 text-neutral-300 group-hover:text-white" />
-          </div>
-          <span className="text-[8.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
+          <RefreshCw className="w-4 h-4 stroke-[2.4]" />
+          <span className="text-[9.5px] font-bold tracking-tight mt-0.5 whitespace-nowrap">
             Exchange
           </span>
         </Link>
