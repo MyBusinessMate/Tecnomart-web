@@ -6,12 +6,12 @@ import { X, Sparkles, Trophy, Check, Copy } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 
 const SEGMENTS = [
-  { label: '₹500 OFF', code: 'FLAT500', color: '#F59E0B' },
+  { label: '₹500 OFF', code: 'FLAT500', color: '#FFD21C' },
   { label: '10% OFF', code: 'TECNO10', color: '#10B981' },
   { label: 'FREE SERVICE', code: 'FREECARE', color: '#3B82F6' },
   { label: '₹1,000 OFF', code: 'PRO1000', color: '#EC4899' },
   { label: 'FREE TEMPERED', code: 'FREESCREEN', color: '#8B5CF6' },
-  { label: '5% CASHBACK', code: 'CASH5', color: '#F97316' },
+  { label: '5% CASHBACK', code: 'CASH5', color: '#F5B800' },
   { label: '₹250 OFF', code: 'SAVE250', color: '#14B8A6' },
   { label: 'LUCKY GIFT', code: 'LUCKYGIFT', color: '#EAB308' },
 ];
@@ -148,8 +148,8 @@ export default function LuckyWheelModal({ isOpen, onClose }) {
                   );
                 })}
                 {/* Center Hub */}
-                <circle cx="100" cy="100" r="22" fill="#000000" stroke="#f59e0b" strokeWidth="3" />
-                <circle cx="100" cy="100" r="14" fill="#f59e0b" />
+                <circle cx="100" cy="100" r="22" fill="#000000" stroke="#FFD21C" strokeWidth="3" />
+                <circle cx="100" cy="100" r="14" fill="#FFD21C" />
               </svg>
             </div>
 

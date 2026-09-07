@@ -119,7 +119,7 @@ export default function ProductFilters({
     { name: 'Titanium', hex: '#78716c', label: 'Titanium / Gray' },
     { name: 'Silver', hex: '#e2e8f0', label: 'Silver / White' },
     { name: 'Blue', hex: '#2563eb', label: 'Blue / Indigo' },
-    { name: 'Gold', hex: '#d97706', label: 'Gold / Amber' },
+    { name: 'Gold', hex: '#F5B800', label: 'Gold / Yellow' },
   ];
 
   const filterContent = (

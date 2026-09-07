@@ -9,6 +9,7 @@ import CategoryGrid from '@/components/redesign/CategoryGrid';
 import BudgetFinder from '@/components/redesign/BudgetFinder';
 import WhyChooseUs from '@/components/redesign/WhyChooseUs';
 import GamingBanner from '@/components/redesign/GamingBanner';
+import SpinBannerSection from '@/components/redesign/SpinBannerSection';
 import PopularPicks from '@/components/redesign/PopularPicks';
 import PromoBanners from '@/components/redesign/PromoBanners';
 import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
@@ -75,6 +76,11 @@ export default function Page() {
           {/* 8. Gaming PC Banner ("BUILT FOR VICTORY.") */}
           <div className="section-contain">
             <GamingBanner />
+          </div>
+
+          {/* 8b. Spin & Win Reward Machine Banner ("GET A LUCKY CHANCE TO WIN") */}
+          <div className="section-contain">
+            <SpinBannerSection />
           </div>
 
           {/* 9. Popular Picks Carousel */}

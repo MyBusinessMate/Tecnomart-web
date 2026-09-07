@@ -54,9 +54,7 @@ export default function BottomDock({ onOpenSpin }) {
 
   const handleSpin = () => {
     setActiveTab('spin');
-    if (onOpenSpin) {
-      onOpenSpin();
-    }
+    window.location.href = '/spin';
   };
 
   return (

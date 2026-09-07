@@ -109,7 +109,7 @@ export default function PromoBanners({ onOpenRepairModal }) {
 
                 {/* Main Headline */}
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight leading-tight">
-                  <span className="text-[#D97706]">SMARTER</span>{" "}
+                  <span className="text-[#F5B800]">SMARTER</span>{" "}
                   <span className="text-neutral-950">PRICES.</span>
                 </h3>
 

@@ -29,6 +29,7 @@ import ExchangePage from './app/exchange/page';
 import CorporatePage from './app/corporate/page';
 import StudentsPage from './app/students/page';
 import CartPage from './app/cart/page';
+import SpinPage from './app/spin/page';
 import NotFoundPage from './app/not-found/page';
 
 // Product detail dynamic routing
@@ -116,6 +117,7 @@ export default function App() {
           <Route path="/corporate" element={<CorporatePage />} />
           <Route path="/students" element={<StudentsPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/spin" element={<SpinPage />} />
           {/* 404 Page */}
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
