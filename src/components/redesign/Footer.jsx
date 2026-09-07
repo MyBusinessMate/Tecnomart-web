@@ -608,7 +608,18 @@ export default function Footer() {
           </div>
 
           {/* Giant TECNOMART® Text in Charcoal on Cream with Yellow "Tech Lives Here" Script (Matching Screenshot 3) */}
-          <div className="relative pt-6 pb-0 select-none overflow-hidden">
+          <div className="relative pt-16 pb-0 select-none overflow-hidden">
+            {/* Handwritten Yellow "Tech Lives Here" script nicely perched above the right side of TECNOMART */}
+            <div className="absolute top-2 right-1 rotate-[-7deg] z-10 pointer-events-none">
+              <div className="font-['Caveat',cursive] font-bold text-amber-500 text-[26px] leading-[0.92] drop-shadow-xs text-right tracking-wide">
+                Tech<br />Lives Here
+              </div>
+              <div className="w-full space-y-0.5 mt-0.5 flex flex-col items-end">
+                <div className="h-[2px] bg-amber-500 rounded-full w-[90%]" />
+                <div className="h-[1.5px] bg-amber-500/80 rounded-full w-[75%]" />
+              </div>
+            </div>
+
             <div className="relative flex items-baseline">
               <span className="font-black text-[13.5vw] tracking-[-0.04em] text-neutral-800/90 uppercase font-sans leading-none block w-full whitespace-nowrap">
                 TECNOMART
@@ -616,17 +627,6 @@ export default function Footer() {
               <span className="text-xs text-neutral-600 font-bold ml-0.5 self-start">
                 ®
               </span>
-            </div>
-
-            {/* Handwritten Yellow "Tech Lives Here" script tilted over right side of TECNOMART */}
-            <div className="absolute top-2 right-2 rotate-[-5deg]">
-              <div className="font-serif italic font-black text-amber-500 text-xl leading-none drop-shadow-xs">
-                Tech<br />Lives Here
-              </div>
-              <div className="w-full space-y-0.5 mt-0.5">
-                <div className="h-[2px] bg-amber-500 rounded-full w-full" />
-                <div className="h-[1.5px] bg-amber-500/80 rounded-full w-4/5" />
-              </div>
             </div>
           </div>
 
