@@ -123,16 +123,20 @@ export default function TrustStrip() {
             </div>
 
             {/* Carousel Indicator Dots */}
-            <div className="flex items-center justify-center gap-1.5 pt-1">
+            <div className="flex items-center justify-center gap-1 pt-1">
               {items.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeIndex === i ? 'w-5 bg-amber-500' : 'w-1.5 bg-neutral-300'
-                  }`}
-                />
+                  className="min-w-[36px] min-h-[36px] flex items-center justify-center cursor-pointer p-1 focus:outline-none"
+                >
+                  <span
+                    className={`h-1.5 rounded-full transition-all duration-300 block ${
+                      activeIndex === i ? 'w-5 bg-amber-500' : 'w-1.5 bg-neutral-300'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>

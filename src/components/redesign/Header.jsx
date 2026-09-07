@@ -381,8 +381,6 @@ export default function Header() {
           >
             <Link
               href="/laptops"
-              aria-haspopup="true"
-              aria-expanded={activeNavDropdown === 'laptops'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Laptops</span>
@@ -416,8 +414,6 @@ export default function Header() {
           >
             <Link
               href="/mobiles"
-              aria-haspopup="true"
-              aria-expanded={activeNavDropdown === 'mobiles'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Mobiles</span>
@@ -425,7 +421,7 @@ export default function Header() {
             </Link>
 
             {activeNavDropdown === 'mobiles' && (
-              <div role="menu" aria-label="Mobiles sub-menu" className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {navDropdownData.mobiles.map((item) => (
                   <Link
                     key={item.name}
@@ -451,8 +447,6 @@ export default function Header() {
           >
             <Link
               href="/accessories"
-              aria-haspopup="true"
-              aria-expanded={activeNavDropdown === 'accessories'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Accessories</span>
@@ -460,7 +454,7 @@ export default function Header() {
             </Link>
 
             {activeNavDropdown === 'accessories' && (
-              <div role="menu" aria-label="Accessories sub-menu" className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {navDropdownData.accessories.map((item) => (
                   <Link
                     key={item.name}
@@ -496,7 +490,7 @@ export default function Header() {
             </button>
 
             {activeNavDropdown === 'support' && (
-              <div id="support-dropdown-menu" role="menu" aria-label="Support & tools menu" className="absolute left-0 top-full mt-1 w-72 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div id="support-dropdown-menu" aria-label="Support & tools menu" className="absolute left-0 top-full mt-1 w-72 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {/* Highlighted PC Builder Item */}
                 <Link
                   href="/pc-builds"
@@ -602,7 +596,7 @@ export default function Header() {
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
               className="flex items-center gap-1.5 text-white hover:text-amber-300 transition-colors p-1.5 rounded-xl hover:bg-white/10 cursor-pointer"
               aria-label="User Account"
-              aria-haspopup="menu"
+              aria-haspopup="true"
               aria-expanded={accountDropdownOpen}
               aria-controls="desktop-account-menu"
             >
@@ -611,10 +605,10 @@ export default function Header() {
             </button>
 
             {accountDropdownOpen && (
-              <div id="desktop-account-menu" role="menu" aria-label="User Account Menu" className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div id="desktop-account-menu" aria-label="User Account Menu" className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 <div className="px-3 py-2 border-b border-neutral-100 mb-1">
                   <p className="text-xs font-bold text-neutral-900">My Account</p>
-                  <p className="text-[11px] text-neutral-400 truncate">user@tecnomart.in</p>
+                  <p className="text-[11px] text-neutral-600 truncate">user@tecnomart.in</p>
                 </div>
 
                 <div className="space-y-0.5 text-xs font-medium text-neutral-700">
@@ -722,7 +716,7 @@ export default function Header() {
           <button
             onClick={() => setDrawerOpen(true)}
             aria-label="Open menu"
-            className="p-1 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
           >
             <Menu className="w-5 h-5 stroke-[2.2]" />
           </button>
@@ -734,7 +728,7 @@ export default function Header() {
             aria-haspopup="dialog"
             aria-expanded={accountDropdownOpen}
             aria-controls="mobile-account-popover"
-            className="p-1 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
           >
             <User className="w-4.5 h-4.5" />
           </button>
@@ -751,7 +745,7 @@ export default function Header() {
         <div className="flex items-center justify-end z-10 min-w-[60px]">
           <Link
             href="/cart"
-            className="p-1 text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
             aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
           >
             <ShoppingBag className="w-5 h-5" />

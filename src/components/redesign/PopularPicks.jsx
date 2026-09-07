@@ -66,7 +66,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
             <div className="flex items-center justify-center gap-2 mt-1.5">
               <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
               {/* Decorative divider — hidden from screen readers */}
-              <img src="/logo.png" alt="" aria-hidden="true" className="w-5 h-5 object-contain" />
+              <img src="/logo.png" alt="" aria-hidden="true" width={20} height={20} className="w-5 h-5 object-contain" />
               <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
             </div>
           </div>

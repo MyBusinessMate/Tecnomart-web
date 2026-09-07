@@ -106,8 +106,10 @@ export default function HeroModel() {
     if (!container || !canvas) return;
 
     let cancelled = false;
+    let idleHandle = null;
 
     async function init() {
+      if (cancelled) return;
       setStatus('loading');
       console.info('[HeroModel] Container:', container.clientWidth, '×', container.clientHeight);
 
@@ -446,15 +448,28 @@ export default function HeroModel() {
       };
     }
 
-    // Hero is always above the fold — init immediately (no IO delay needed)
-    init().catch((err) => {
-      console.error('[HeroModel] Init failed:', err);
-      setErrMsg(`Init error: ${err.message || 'unknown'}`);
-      setStatus('error');
-    });
+    const startInit = () => {
+      if (cancelled) return;
+      init().catch((err) => {
+        console.error('[HeroModel] Init failed:', err);
+        setErrMsg(`Init error: ${err.message || 'unknown'}`);
+        setStatus('error');
+      });
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleHandle = window.requestIdleCallback(startInit, { timeout: 800 });
+    } else {
+      idleHandle = setTimeout(startInit, 200);
+    }
 
     return () => {
       cancelled = true;
+      if (typeof window !== 'undefined' && 'cancelIdleCallback' in window && typeof idleHandle === 'number') {
+        window.cancelIdleCallback(idleHandle);
+      } else if (idleHandle) {
+        clearTimeout(idleHandle);
+      }
       cleanupRef.current?.();
     };
   }, []);

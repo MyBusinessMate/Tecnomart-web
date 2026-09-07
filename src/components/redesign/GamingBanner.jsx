@@ -46,12 +46,18 @@ export default function GamingBanner() {
             {/* Left Column: Gaming Setup Rig */}
             <div className="w-full lg:w-1/2 flex items-center justify-center relative">
               <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
-                <img
-                  src="/images/gaming-pc.png"
-                  alt="TecnoMart Custom Gaming PC"
-                  className="w-full h-full object-contain rounded-xl opacity-95 transition-transform duration-300 hover:scale-105"
-                  loading="eager"
-                />
+                <picture>
+                  <source srcSet="/images/gaming-pc.webp" type="image/webp" />
+                  <img
+                    src="/images/gaming-pc.png"
+                    alt="TecnoMart Custom Gaming PC"
+                    width={600}
+                    height={375}
+                    className="w-full h-full object-contain rounded-xl opacity-95 transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
 

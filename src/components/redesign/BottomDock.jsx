@@ -90,7 +90,7 @@ export default function BottomDock({ onOpenSpin }) {
           type="button"
           onClick={handleSpin}
           aria-label="Spin & Win"
-          className="flex-1 flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
+          className="flex-1 min-h-[52px] flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
         >
           <div
             className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all duration-200 ${
@@ -104,7 +104,7 @@ export default function BottomDock({ onOpenSpin }) {
           <span
             className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap transition-colors duration-200 ${
               activeTab === 'spin'
-                ? 'font-bold text-[#D99B00]'
+                ? 'font-bold text-[#854D0E]'
                 : 'font-medium text-neutral-600 group-hover:text-neutral-900'
             }`}
           >
@@ -127,7 +127,7 @@ export default function BottomDock({ onOpenSpin }) {
           href="/pc-builds"
           onClick={() => setActiveTab('pc-builder')}
           aria-label="PC Builder"
-          className="flex-1 flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
+          className="flex-1 min-h-[52px] flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
         >
           <div
             className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all duration-200 ${
@@ -141,7 +141,7 @@ export default function BottomDock({ onOpenSpin }) {
           <span
             className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap transition-colors duration-200 ${
               activeTab === 'pc-builder'
-                ? 'font-bold text-[#D99B00]'
+                ? 'font-bold text-[#854D0E]'
                 : 'font-medium text-neutral-600 group-hover:text-neutral-900'
             }`}
           >
@@ -164,7 +164,7 @@ export default function BottomDock({ onOpenSpin }) {
           type="button"
           onClick={handleRepair}
           aria-label="Book a Repair Appointment"
-          className="flex-1 flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
+          className="flex-1 min-h-[52px] flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
         >
           <div
             className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all duration-200 ${
@@ -178,7 +178,7 @@ export default function BottomDock({ onOpenSpin }) {
           <span
             className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap transition-colors duration-200 ${
               activeTab === 'repair'
-                ? 'font-bold text-[#D99B00]'
+                ? 'font-bold text-[#854D0E]'
                 : 'font-medium text-neutral-600 group-hover:text-neutral-900'
             }`}
           >
@@ -201,7 +201,7 @@ export default function BottomDock({ onOpenSpin }) {
           type="button"
           onClick={handleWhatsApp}
           aria-label="Contact Us on WhatsApp"
-          className="flex-1 flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
+          className="flex-1 min-h-[52px] flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
         >
           <div
             className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all duration-200 ${
@@ -215,7 +215,7 @@ export default function BottomDock({ onOpenSpin }) {
           <span
             className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap transition-colors duration-200 ${
               activeTab === 'contact'
-                ? 'font-bold text-[#D99B00]'
+                ? 'font-bold text-[#854D0E]'
                 : 'font-medium text-neutral-600 group-hover:text-neutral-900'
             }`}
           >
@@ -238,7 +238,7 @@ export default function BottomDock({ onOpenSpin }) {
           href="/exchange"
           onClick={() => setActiveTab('exchange')}
           aria-label="Trade-In and Exchange"
-          className="flex-1 flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
+          className="flex-1 min-h-[52px] flex flex-col items-center justify-center py-1 cursor-pointer transition-all duration-200 focus:outline-none group"
         >
           <div
             className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all duration-200 ${
@@ -252,7 +252,7 @@ export default function BottomDock({ onOpenSpin }) {
           <span
             className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap transition-colors duration-200 ${
               activeTab === 'exchange'
-                ? 'font-bold text-[#D99B00]'
+                ? 'font-bold text-[#854D0E]'
                 : 'font-medium text-neutral-600 group-hover:text-neutral-900'
             }`}
           >

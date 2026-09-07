@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
           </h2>
           <div className="flex items-center justify-center gap-2 mt-2">
             <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
-            <img src="/logo.png" alt="Emblem" className="w-5 h-5 object-contain" />
+            <img src="/logo.png" alt="Emblem" width={20} height={20} className="w-5 h-5 object-contain" />
             <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
           </div>
         </div>

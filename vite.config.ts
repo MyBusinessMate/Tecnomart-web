@@ -19,4 +19,20 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
   },
+  build: {
+    sourcemap: true,
+    cssMinify: true,
+    minify: 'esbuild',
+    target: 'esnext',
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-icons': ['lucide-react'],
+          'vendor-framer': ['framer-motion'],
+        },
+      },
+    },
+  },
 });

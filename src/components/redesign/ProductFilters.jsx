@@ -201,7 +201,7 @@ export default function ProductFilters({
 
       {/* 1. FILTER BY BRAND */}
       <div className="space-y-2">
-        <label className="text-[11px] font-black uppercase text-neutral-400 tracking-wider block">
+        <label className="text-[11px] font-black uppercase text-neutral-700 tracking-wider block">
           Filter by Brand
         </label>
         <div className="grid grid-cols-2 gap-1.5">
@@ -224,7 +224,7 @@ export default function ProductFilters({
 
       {/* 2. FILTER BY PRICE */}
       <div className="space-y-2 pt-3 border-t border-neutral-100">
-        <label className="text-[11px] font-black uppercase text-neutral-400 tracking-wider block">
+        <label className="text-[11px] font-black uppercase text-neutral-700 tracking-wider block">
           Filter by Price
         </label>
         <div className="space-y-1.5">
@@ -247,7 +247,7 @@ export default function ProductFilters({
 
       {/* 3. FILTER BY RAM */}
       <div className="space-y-2 pt-3 border-t border-neutral-100">
-        <label className="text-[11px] font-black uppercase text-neutral-400 tracking-wider block">
+        <label className="text-[11px] font-black uppercase text-neutral-700 tracking-wider block">
           Filter by RAM
         </label>
         <div className="grid grid-cols-4 gap-1.5">
@@ -269,7 +269,7 @@ export default function ProductFilters({
 
       {/* 4. FILTER BY STORAGE */}
       <div className="space-y-2 pt-3 border-t border-neutral-100">
-        <label className="text-[11px] font-black uppercase text-neutral-400 tracking-wider block">
+        <label className="text-[11px] font-black uppercase text-neutral-700 tracking-wider block">
           Filter by Storage
         </label>
         <div className="grid grid-cols-3 gap-1.5">
@@ -291,7 +291,7 @@ export default function ProductFilters({
 
       {/* 5. FILTER BY COLOR */}
       <div className="space-y-2 pt-3 border-t border-neutral-100">
-        <label className="text-[11px] font-black uppercase text-neutral-400 tracking-wider block">
+        <label className="text-[11px] font-black uppercase text-neutral-700 tracking-wider block">
           Filter by Color
         </label>
         <div className="space-y-1.5">

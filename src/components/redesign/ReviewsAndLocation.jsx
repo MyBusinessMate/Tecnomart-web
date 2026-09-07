@@ -75,6 +75,10 @@ export default function ReviewsAndLocation() {
                 <img
                   src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80"
                   alt="Tecno Mart Location Map"
+                  width={600}
+                  height={340}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-midgrey-900/20 flex items-center justify-center">

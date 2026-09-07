@@ -7,6 +7,8 @@ export function TecnoMartLogo({ className = "w-10 h-10", textClass = "text-black
       <img
         src="/logo.png"
         alt="TecnoMart Logo"
+        width={40}
+        height={40}
         className={`${className} object-contain transition-transform duration-300 group-hover:scale-105`}
       />
       <div className="flex flex-col">
@@ -255,36 +257,36 @@ export function SamsungLogoSvg({ className = "h-5 w-auto fill-current" }) {
 
 export function AsusLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/asus.svg" alt="ASUS" className={className} />
+    <img src="/svg/asus.svg" alt="ASUS" width={64} height={24} className={className} />
   );
 }
 
 export function DellLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/dell-mono.svg" alt="DELL" className={className} />
+    <img src="/svg/dell-mono.svg" alt="DELL" width={64} height={24} className={className} />
   );
 }
 
 export function HpLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/hp.svg" alt="HP" className={className} />
+    <img src="/svg/hp.svg" alt="HP" width={64} height={24} className={className} />
   );
 }
 
 export function LenovoLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/lenovo-mono.svg" alt="Lenovo" className={className} />
+    <img src="/svg/lenovo-mono.svg" alt="Lenovo" width={64} height={24} className={className} />
   );
 }
 
 export function MsiLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/msi.svg" alt="MSI" className={className} />
+    <img src="/svg/msi.svg" alt="MSI" width={64} height={24} className={className} />
   );
 }
 
 export function AcerLogoSvg({ className = "h-5 w-auto" }) {
   return (
-    <img src="/svg/acer.svg" alt="Acer" className={className} />
+    <img src="/svg/acer.svg" alt="Acer" width={64} height={24} className={className} />
   );
 }

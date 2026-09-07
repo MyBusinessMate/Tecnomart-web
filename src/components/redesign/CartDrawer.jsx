@@ -179,7 +179,11 @@ export default function CartDrawer() {
                           <img
                             src={item.product.images?.[0] || item.product.images || '/bento-grid-images/mackbook.png'}
                             alt={item.product.name}
+                            width={72}
+                            height={72}
                             className="w-full h-full object-contain"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
 

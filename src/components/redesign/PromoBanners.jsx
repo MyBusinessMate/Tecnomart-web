@@ -82,6 +82,10 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 <img
                   src={REPAIR_FALLBACKS[repairImgIdx]}
                   alt="Expert Phone Repair"
+                  width={320}
+                  height={240}
+                  loading="lazy"
+                  decoding="async"
                   onError={() => {
                     if (repairImgIdx < REPAIR_FALLBACKS.length - 1) {
                       setRepairImgIdx((prev) => prev + 1);
@@ -146,6 +150,10 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 <img
                   src={REFURB_FALLBACKS[refurbImgIdx]}
                   alt="Refurbished Laptop Deals"
+                  width={320}
+                  height={210}
+                  loading="lazy"
+                  decoding="async"
                   onError={() => {
                     if (refurbImgIdx < REFURB_FALLBACKS.length - 1) {
                       setRefurbImgIdx((prev) => prev + 1);
