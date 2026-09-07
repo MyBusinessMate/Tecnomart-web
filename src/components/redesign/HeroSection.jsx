@@ -24,7 +24,7 @@ const TYPEWRITER_WORDS = [
 
 function TypewriterText() {
   const [wordIndex, setWordIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState('PC.');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export default function HeroSection({ onOpenRepairModal }) {
           </div>
 
           {/* Right Column: Interactive 3D Model */}
-          <div className="lg:col-span-7 relative flex items-center justify-center -mt-4 sm:-mt-8 lg:-mt-12 py-1 sm:py-2">
+          <div className="lg:col-span-7 relative flex items-center justify-center min-h-[440px] xs:min-h-[500px] sm:min-h-[600px] lg:min-h-[680px] lg:-mt-12 py-1 sm:py-2" style={{ contain: 'layout' }}>
             
             {/* Ambient Radial Backlight Glow (Hardware-accelerated radial gradient without blur rasterization) */}
             <div

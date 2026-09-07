@@ -97,7 +97,6 @@ export default function SpinBannerSection() {
             {/* Spinning Visual Machine Teaser Container */}
             <a
               href="/spin"
-              aria-label="SPIN - Open Spin & Win Machine to claim rewards"
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center group/wheel cursor-pointer"
               title="Click to Open Spin & Win Machine"
             >
@@ -107,7 +106,7 @@ export default function SpinBannerSection() {
               {/* Decorative Wheel Frame with Segment Accents */}
               <div className="w-[90%] h-[90%] rounded-full bg-[#111111] border-4 border-[#FFD21C] p-2 shadow-2xl relative overflow-hidden flex items-center justify-center group-hover/wheel:scale-105 transition-transform duration-500">
                 {/* Wheel SVG Dial */}
-                <svg viewBox="0 0 200 200" className="w-full h-full animate-[spin_25s_linear_infinite]">
+                <svg viewBox="0 0 200 200" aria-hidden="true" className="w-full h-full animate-[spin_25s_linear_infinite]">
                   <defs>
                     <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
                       <stop offset="0%" stopColor="#FFD21C" stopOpacity="0.4" />
