@@ -10,6 +10,12 @@ import { BlurRevealBox } from '@/components/redesign/BlurReveal';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { MOBILES_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
+import ProductFilters, {
+  PRICE_RANGES,
+  productMatchesRam,
+  productMatchesStorage,
+  productMatchesColor,
+} from '@/components/redesign/ProductFilters';
 import {
   ShoppingBag, Check, ShieldCheck, Truck, RotateCcw,
   ChevronRight, SlidersHorizontal, Star, CreditCard,
@@ -19,11 +25,14 @@ import Link from 'next/link';
 export default function MobilesPage() {
   const { addToCart } = useShop();
   const [selectedBrand, setSelectedBrand] = useState('All');
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
+  const [selectedRam, setSelectedRam] = useState('All');
+  const [selectedStorage, setSelectedStorage] = useState('All');
+  const [selectedColor, setSelectedColor] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
-  const [visibleCount, setVisibleCount] = useState(8);
   const [addedItems, setAddedItems] = useState({});
 
-  const brands = ['All', 'Apple', 'Samsung', 'OnePlus', 'Google'];
+  const brands = ['Apple', 'Samsung', 'OnePlus', 'Google'];
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -31,18 +40,51 @@ export default function MobilesPage() {
   ]);
 
   const filteredAndSortedMobiles = useMemo(() => {
-    let list = selectedBrand === 'All'
-      ? [...MOBILES_DATA]
-      : MOBILES_DATA.filter((m) => m.brand === selectedBrand);
+    let list = [...MOBILES_DATA];
 
+    // 1. Filter by Brand
+    if (selectedBrand !== 'All') {
+      list = list.filter((m) => m.brand.toLowerCase() === selectedBrand.toLowerCase());
+    }
+
+    // 2. Filter by Price
+    if (selectedPriceRange !== 'all') {
+      const range = PRICE_RANGES.find((r) => r.id === selectedPriceRange);
+      if (range) {
+        list = list.filter((m) => m.rawPrice >= range.min && m.rawPrice < range.max);
+      }
+    }
+
+    // 3. Filter by RAM
+    if (selectedRam !== 'All') {
+      list = list.filter((m) => productMatchesRam(m, selectedRam));
+    }
+
+    // 4. Filter by Storage
+    if (selectedStorage !== 'All') {
+      list = list.filter((m) => productMatchesStorage(m, selectedStorage));
+    }
+
+    // 5. Filter by Color
+    if (selectedColor !== 'All') {
+      list = list.filter((m) => productMatchesColor(m, selectedColor));
+    }
+
+    // Sorting
     if (sortBy === 'price-low') list.sort((a, b) => a.rawPrice - b.rawPrice);
     else if (sortBy === 'price-high') list.sort((a, b) => b.rawPrice - a.rawPrice);
     else if (sortBy === 'rating') list.sort((a, b) => b.rating - a.rating);
-    return list;
-  }, [selectedBrand, sortBy]);
 
-  const displayedMobiles = filteredAndSortedMobiles.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredAndSortedMobiles.length;
+    return list;
+  }, [selectedBrand, selectedPriceRange, selectedRam, selectedStorage, selectedColor, sortBy]);
+
+  const handleClearAllFilters = () => {
+    setSelectedBrand('All');
+    setSelectedPriceRange('all');
+    setSelectedRam('All');
+    setSelectedStorage('All');
+    setSelectedColor('All');
+  };
 
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
@@ -68,7 +110,7 @@ export default function MobilesPage() {
         canonicalUrl="https://tecnomart.in/mobiles"
         schema={breadcrumbSchema}
       />
-      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
+      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />
         <Header />
 
@@ -116,54 +158,72 @@ export default function MobilesPage() {
               </div>
             </div>
 
-            {/* Clean Category & Filter Strip */}
-            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-6 pb-4 border-b border-neutral-200">
-              
-              {/* Category Segment Tabs */}
-              <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 lg:pb-0">
-                <span className="text-[11px] font-black text-neutral-400 uppercase tracking-wider mr-1 flex-shrink-0">Filter:</span>
-                {brands.map((brand) => (
-                  <button
-                    key={brand}
-                    onClick={() => { setSelectedBrand(brand); setVisibleCount(8); }}
-                    className={`min-h-[36px] px-4 py-1.5 rounded-full text-xs font-bold transition-all flex-shrink-0 cursor-pointer ${
-                      selectedBrand === brand
-                        ? 'bg-midgrey-900 text-amber-400 shadow-sm'
-                        : 'bg-white text-neutral-600 hover:bg-neutral-100 border border-neutral-200/80 hover:text-neutral-900'
-                    }`}
-                  >
-                    {brand === 'All' ? 'All Phones' : brand}
-                  </button>
-                ))}
-              </div>
+            {/* Product Filters + Products Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-              {/* Sort & Count Controls */}
-              <div className="flex items-center justify-between sm:justify-end gap-3 flex-shrink-0">
-                <span className="text-xs font-semibold text-neutral-500">
-                  <strong className="text-neutral-900">{filteredAndSortedMobiles.length}</strong> devices found
-                </span>
-                
-                <div className="flex items-center gap-1.5 bg-white border border-neutral-200/80 rounded-xl px-2.5 py-1 shadow-2xs">
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-neutral-400" />
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    aria-label="Sort products"
-                    className="h-8 text-xs font-bold bg-transparent outline-none text-neutral-800 cursor-pointer pr-1"
-                  >
-                    <option value="featured">Featured</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                    <option value="rating">Top Rated</option>
-                  </select>
+              {/* Product Filters (Desktop Sidebar & Mobile Drawer) */}
+              <ProductFilters
+                availableBrands={brands}
+                selectedBrand={selectedBrand}
+                onSelectBrand={setSelectedBrand}
+                selectedPriceRange={selectedPriceRange}
+                onSelectPriceRange={setSelectedPriceRange}
+                selectedRam={selectedRam}
+                onSelectRam={setSelectedRam}
+                selectedStorage={selectedStorage}
+                onSelectStorage={setSelectedStorage}
+                selectedColor={selectedColor}
+                onSelectColor={setSelectedColor}
+                onClearAll={handleClearAllFilters}
+                totalResultsCount={filteredAndSortedMobiles.length}
+              />
+
+              {/* Right Products Grid */}
+              <div className="lg:col-span-9 space-y-5">
+
+                {/* Sort Bar & Count */}
+                <div className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl border border-neutral-200 shadow-sm">
+                  <span className="text-xs font-bold text-neutral-600">
+                    <strong className="text-neutral-950">{filteredAndSortedMobiles.length}</strong> devices found
+                    {selectedBrand !== 'All' && <span className="text-neutral-500"> by {selectedBrand}</span>}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold text-neutral-500">Sort:</span>
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      aria-label="Sort products"
+                      className="h-8 px-2.5 text-[11px] font-bold bg-neutral-50 border border-neutral-200 rounded-lg outline-none focus:border-amber-500 text-neutral-900 cursor-pointer"
+                    >
+                      <option value="featured">Featured</option>
+                      <option value="price-low">Price: Low to High</option>
+                      <option value="price-high">Price: High to Low</option>
+                      <option value="rating">Top Rated</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {displayedMobiles.map((item, idx) => {
+                {/* Empty State */}
+                {filteredAndSortedMobiles.length === 0 ? (
+                  <div className="bg-white rounded-3xl p-10 text-center border border-neutral-200 shadow-sm space-y-4 my-6">
+                    <div className="w-14 h-14 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                      <SlidersHorizontal className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-black text-neutral-900">No Smartphones match your selected filters</h3>
+                    <p className="text-xs text-neutral-500 max-w-sm mx-auto">
+                      Try adjusting your brand, RAM, storage, or price range filters to discover available phones.
+                    </p>
+                    <button
+                      onClick={handleClearAllFilters}
+                      className="px-6 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-amber-400 font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
+                    >
+                      Reset All Filters
+                    </button>
+                  </div>
+                ) : (
+                  /* Products Grid */
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
+              {filteredAndSortedMobiles.map((item, idx) => {
                 const isAdded = !!addedItems[item.id];
                 const emi = item.rawPrice > 4999 ? `₹${Math.round(item.rawPrice / 12).toLocaleString('en-IN')}/mo` : null;
 
@@ -251,19 +311,10 @@ export default function MobilesPage() {
                 );
               })}
             </div>
+          )}
 
-            {/* View More */}
-            {hasMore && (
-              <div className="text-center pt-2 pb-4">
-                <button
-                  onClick={() => setVisibleCount((prev) => prev + 8)}
-                  className="min-h-[46px] px-10 bg-midgrey-900 hover:bg-midgrey-800 text-amber-400 text-xs font-black uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-95 cursor-pointer border border-midgrey-700/60"
-                >
-                  View More Phones ({filteredAndSortedMobiles.length - visibleCount} remaining)
-                </button>
               </div>
-            )}
-
+            </div>
           </div>
         </main>
 

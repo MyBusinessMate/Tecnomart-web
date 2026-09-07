@@ -208,13 +208,30 @@ export function GoogleIcon({ className = "w-5 h-5" }) {
 
 // Payment Methods SVGs
 export function PaymentMethodsRow() {
+  const methods = [
+    { name: "Visa", src: "/svg/visa.svg" },
+    { name: "Mastercard", src: "/svg/mastercard.svg" },
+    { name: "UPI", src: "/svg/upi.svg" },
+    { name: "Razorpay", src: "/svg/razorpay.svg" },
+    { name: "Apple Pay", src: "/svg/apple-pay.svg" },
+  ];
+
   return (
-    <div className="flex items-center gap-2 flex-wrap">
-      <span className="px-2 py-0.5 bg-white/10 text-white rounded text-[10px] font-bold tracking-wider border border-white/10">VISA</span>
-      <span className="px-2 py-0.5 bg-white/10 text-white rounded text-[10px] font-bold tracking-wider border border-white/10">MASTERCARD</span>
-      <span className="px-2 py-0.5 bg-white/10 text-white rounded text-[10px] font-bold tracking-wider border border-white/10">UPI</span>
-      <span className="px-2 py-0.5 bg-white/10 text-white rounded text-[10px] font-bold tracking-wider border border-white/10">RUPAY</span>
-      <span className="px-2 py-0.5 bg-white/10 text-white rounded text-[10px] font-bold tracking-wider border border-white/10">APPLE PAY</span>
+    <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+      {methods.map((method) => (
+        <div
+          key={method.name}
+          className="h-6 sm:h-7 px-2 py-0.5 bg-white rounded-md shadow-xs flex items-center justify-center border border-neutral-200/50"
+          title={method.name}
+        >
+          <img
+            src={method.src}
+            alt={method.name}
+            className="h-3 sm:h-3.5 w-auto max-w-[36px] sm:max-w-[42px] object-contain"
+            loading="lazy"
+          />
+        </div>
+      ))}
     </div>
   );
 }

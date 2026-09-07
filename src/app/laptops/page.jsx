@@ -10,6 +10,12 @@ import { BlurRevealBox } from '@/components/redesign/BlurReveal';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { LAPTOPS_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
+import ProductFilters, {
+  PRICE_RANGES,
+  productMatchesRam,
+  productMatchesStorage,
+  productMatchesColor,
+} from '@/components/redesign/ProductFilters';
 import {
   ShoppingBag, Check, Cpu, ChevronRight, SlidersHorizontal,
   Star, ShieldCheck, Truck, RotateCcw, CreditCard,
@@ -19,13 +25,15 @@ import Link from 'next/link';
 export default function LaptopsPage() {
   const { addToCart } = useShop();
 
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedBrand, setSelectedBrand] = useState('All');
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
+  const [selectedRam, setSelectedRam] = useState('All');
+  const [selectedStorage, setSelectedStorage] = useState('All');
+  const [selectedColor, setSelectedColor] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
 
-  const categories = ['All', 'Gaming', 'Creator', 'Ultrabook', 'Budget'];
-  const brands = ['All', 'Apple', 'ASUS', 'Dell', 'Lenovo', 'HP'];
+  const brands = ['Apple', 'ASUS', 'Dell', 'Lenovo', 'HP'];
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -34,13 +42,50 @@ export default function LaptopsPage() {
 
   const filteredAndSortedLaptops = useMemo(() => {
     let list = [...LAPTOPS_DATA];
-    if (selectedCategory !== 'All') list = list.filter((l) => l.category === selectedCategory);
-    if (selectedBrand !== 'All') list = list.filter((l) => l.brand.toLowerCase() === selectedBrand.toLowerCase());
+
+    // 1. Filter by Brand
+    if (selectedBrand !== 'All') {
+      list = list.filter((l) => l.brand.toLowerCase() === selectedBrand.toLowerCase());
+    }
+
+    // 2. Filter by Price
+    if (selectedPriceRange !== 'all') {
+      const range = PRICE_RANGES.find((r) => r.id === selectedPriceRange);
+      if (range) {
+        list = list.filter((l) => l.rawPrice >= range.min && l.rawPrice < range.max);
+      }
+    }
+
+    // 3. Filter by RAM
+    if (selectedRam !== 'All') {
+      list = list.filter((l) => productMatchesRam(l, selectedRam));
+    }
+
+    // 4. Filter by Storage
+    if (selectedStorage !== 'All') {
+      list = list.filter((l) => productMatchesStorage(l, selectedStorage));
+    }
+
+    // 5. Filter by Color
+    if (selectedColor !== 'All') {
+      list = list.filter((l) => productMatchesColor(l, selectedColor));
+    }
+
+    // Sorting
     if (sortBy === 'price-low') list.sort((a, b) => a.rawPrice - b.rawPrice);
     else if (sortBy === 'price-high') list.sort((a, b) => b.rawPrice - a.rawPrice);
     else if (sortBy === 'rating') list.sort((a, b) => b.rating - a.rating);
+
     return list;
-  }, [selectedCategory, selectedBrand, sortBy]);
+  }, [selectedBrand, selectedPriceRange, selectedRam, selectedStorage, selectedColor, sortBy]);
+
+  const handleClearAllFilters = () => {
+    setSelectedBrand('All');
+    setSelectedPriceRange('all');
+    setSelectedRam('All');
+    setSelectedStorage('All');
+    setSelectedColor('All');
+  };
 
   const handleAddToCart = (laptop, e) => {
     e.stopPropagation();
@@ -66,7 +111,7 @@ export default function LaptopsPage() {
         canonicalUrl="https://tecnomart.in/laptops"
         schema={breadcrumbSchema}
       />
-      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
+      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />
         <Header />
 
@@ -113,71 +158,33 @@ export default function LaptopsPage() {
               </div>
             </div>
 
-            {/* Amazon-Style Sidebar + Grid */}
+            {/* Product Filters + Products Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-              {/* Left Filter Sidebar */}
-              <div className="lg:col-span-3 bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm space-y-5 sticky top-24">
-                <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
-                  <h3 className="text-sm font-black uppercase text-neutral-950 flex items-center gap-1.5">
-                    <SlidersHorizontal className="w-4 h-4 text-amber-500" />
-                    Filters
-                  </h3>
-                  <button
-                    onClick={() => { setSelectedCategory('All'); setSelectedBrand('All'); }}
-                    className="text-[11px] font-bold text-amber-600 hover:underline"
-                  >
-                    Clear All
-                  </button>
-                </div>
-
-                {/* Category Filter */}
-                <div className="space-y-1.5">
-                  <span className="text-[10px] font-black uppercase text-neutral-400 tracking-wider block">Use Case</span>
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setSelectedCategory(cat)}
-                      className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
-                        selectedCategory === cat
-                          ? 'bg-midgrey-900 text-amber-400'
-                          : 'text-neutral-700 hover:bg-neutral-100'
-                      }`}
-                    >
-                      <span>{cat}</span>
-                      {selectedCategory === cat && <Check className="w-3.5 h-3.5" />}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Brand Filter */}
-                <div className="space-y-1.5 pt-3 border-t border-neutral-100">
-                  <span className="text-[10px] font-black uppercase text-neutral-400 tracking-wider block">Brand</span>
-                  {brands.map((b) => (
-                    <button
-                      key={b}
-                      onClick={() => setSelectedBrand(b)}
-                      className={`w-full text-left px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
-                        selectedBrand === b
-                          ? 'bg-midgrey-900 text-amber-400'
-                          : 'text-neutral-700 hover:bg-neutral-100'
-                      }`}
-                    >
-                      <span>{b}</span>
-                      {selectedBrand === b && <Check className="w-3.5 h-3.5" />}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              {/* Product Filters (Desktop Sidebar & Mobile Drawer) */}
+              <ProductFilters
+                availableBrands={brands}
+                selectedBrand={selectedBrand}
+                onSelectBrand={setSelectedBrand}
+                selectedPriceRange={selectedPriceRange}
+                onSelectPriceRange={setSelectedPriceRange}
+                selectedRam={selectedRam}
+                onSelectRam={setSelectedRam}
+                selectedStorage={selectedStorage}
+                onSelectStorage={setSelectedStorage}
+                selectedColor={selectedColor}
+                onSelectColor={setSelectedColor}
+                onClearAll={handleClearAllFilters}
+                totalResultsCount={filteredAndSortedLaptops.length}
+              />
 
               {/* Right Products Grid */}
               <div className="lg:col-span-9 space-y-5">
 
-                {/* Sort Bar */}
+                {/* Sort Bar & Count */}
                 <div className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl border border-neutral-200 shadow-sm">
                   <span className="text-xs font-bold text-neutral-600">
-                    <strong className="text-neutral-950">{filteredAndSortedLaptops.length}</strong> results
-                    {selectedCategory !== 'All' && <span className="text-neutral-500"> for "{selectedCategory}"</span>}
+                    <strong className="text-neutral-950">{filteredAndSortedLaptops.length}</strong> laptops found
                     {selectedBrand !== 'All' && <span className="text-neutral-500"> by {selectedBrand}</span>}
                   </span>
                   <div className="flex items-center gap-2">
@@ -195,8 +202,26 @@ export default function LaptopsPage() {
                   </div>
                 </div>
 
-                {/* Laptop Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {/* Empty State */}
+                {filteredAndSortedLaptops.length === 0 ? (
+                  <div className="bg-white rounded-3xl p-10 text-center border border-neutral-200 shadow-sm space-y-4 my-6">
+                    <div className="w-14 h-14 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                      <SlidersHorizontal className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-black text-neutral-900">No Laptops match your selected filters</h3>
+                    <p className="text-xs text-neutral-500 max-w-sm mx-auto">
+                      Try adjusting your brand, RAM, storage, or price range filters to find matching laptops.
+                    </p>
+                    <button
+                      onClick={handleClearAllFilters}
+                      className="px-6 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-amber-400 font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
+                    >
+                      Reset All Filters
+                    </button>
+                  </div>
+                ) : (
+                  /* Laptop Cards Grid */
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                   {filteredAndSortedLaptops.map((laptop, idx) => {
                     const isAdded = !!addedItems[laptop.id];
                     const emi = laptop.rawPrice > 9999 ? `₹${Math.round(laptop.rawPrice / 12).toLocaleString('en-IN')}/mo` : null;
@@ -285,13 +310,8 @@ export default function LaptopsPage() {
                     );
                   })}
                 </div>
-
-                {filteredAndSortedLaptops.length === 0 && (
-                  <div className="text-center py-20 text-neutral-400 font-bold">
-                    No laptops match your current filters. Try resetting.
-                  </div>
-                )}
-              </div>
+              )}
+            </div>
 
             </div>
           </div>

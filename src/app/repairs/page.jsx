@@ -99,7 +99,7 @@ export default function RepairsPage() {
         canonicalUrl="https://tecnomart.in/repairs"
         schema={breadcrumbSchema}
       />
-      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-16 lg:pb-0">
+      <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />
         <Header cartCount={0} />
 

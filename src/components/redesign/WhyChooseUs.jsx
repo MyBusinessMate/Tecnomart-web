@@ -51,8 +51,9 @@ export default function WhyChooseUs() {
         
         {/* Section Heading with Emblem Divider */}
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight">
-            WHY CHOOSE TECNO MART?
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight leading-tight sm:leading-normal">
+            <span className="block sm:inline">Why choose</span>{" "}
+            <span className="block sm:inline">TecnoMart</span>
           </h2>
           <div className="flex items-center justify-center gap-2 mt-2">
             <div className="w-8 h-[2px] bg-amber-500 rounded-full" />

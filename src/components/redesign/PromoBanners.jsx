@@ -48,12 +48,12 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 </ul>
 
                 {/* Solid Yellow Pill CTA Button */}
-                <div className="pt-2">
+                <div className="pt-1.5 sm:pt-2">
                   <button
                     onClick={onOpenRepairModal}
-                    className="btn-wipe-yellow inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 cursor-pointer shadow-sm"
+                    className="btn-wipe-yellow inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold sm:font-black tracking-normal sm:tracking-wider active:scale-95 cursor-pointer shadow-xs sm:shadow-sm"
                   >
-                    <Wrench className="w-4 h-4 fill-current relative z-10" />
+                    <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current relative z-10" />
                     <span className="relative z-10">BOOK A REPAIR</span>
                   </button>
                 </div>
@@ -107,13 +107,13 @@ export default function PromoBanners({ onOpenRepairModal }) {
                 </ul>
 
                 {/* Solid Yellow Pill CTA Button */}
-                <div className="pt-2">
+                <div className="pt-1.5 sm:pt-2">
                   <Link
                     href="/refurbished"
-                    className="btn-wipe-yellow inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 shadow-sm"
+                    className="btn-wipe-yellow inline-flex items-center gap-1 sm:gap-1.5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold sm:font-black tracking-normal sm:tracking-wider active:scale-95 shadow-xs sm:shadow-sm"
                   >
                     <span className="relative z-10">EXPLORE REFURBISHED</span>
-                    <ChevronRight className="w-4 h-4 stroke-[3] relative z-10" />
+                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] relative z-10" />
                   </Link>
                 </div>
               </div>

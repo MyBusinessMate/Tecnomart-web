@@ -166,29 +166,29 @@ export default function Footer() {
           </div>
 
           {/* Column 5: STAY UPDATED */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-1 space-y-3">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-1 space-y-3 pt-2 sm:pt-0">
             <h5 className="text-xs font-black tracking-wider text-amber-500 uppercase">
               STAY UPDATED
             </h5>
-            <p className="text-xs text-neutral-400 font-medium leading-relaxed">
+            <p className="text-xs text-neutral-400 font-medium leading-relaxed max-w-sm">
               Subscribe to get exclusive offers, new arrivals and tech updates.
             </p>
-            <form onSubmit={handleSubscribe}>
-              <div className="relative flex items-center overflow-hidden rounded-xl bg-white p-0.5 border border-neutral-700">
+            <form onSubmit={handleSubscribe} className="max-w-md w-full">
+              <div className="relative flex items-center overflow-hidden rounded-xl bg-white p-0.5 border border-neutral-700 w-full focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all">
                 <input
                   type="email"
                   required
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white text-neutral-900 text-xs px-3 py-2.5 outline-none font-bold placeholder-neutral-400"
+                  className="w-full min-w-0 bg-white text-neutral-900 text-xs sm:text-sm px-3.5 py-2.5 outline-none font-medium placeholder:text-neutral-500 placeholder:font-normal"
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe"
-                  className="px-3 py-2.5 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black flex items-center justify-center transition-colors cursor-pointer rounded-lg flex-shrink-0"
+                  className="px-3.5 py-2.5 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black flex items-center justify-center transition-colors cursor-pointer rounded-lg flex-shrink-0"
                 >
-                  <Send className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <Send className="w-4 h-4 stroke-[2.5]" />
                 </button>
               </div>
               {subscribed && (

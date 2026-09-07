@@ -1,7 +1,9 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { ALL_PRODUCTS } from '@/data/products';
+import { ArrowRight, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ShopContext = createContext(null);
 
@@ -51,13 +53,15 @@ export function ShopProvider({ children }) {
     }, 3000);
   };
 
-  const [cartPopup, setCartPopup] = useState(null); // { message: string, visible: boolean }
+  const [cartPopup, setCartPopup] = useState(null); // { message: string, productName?: string, visible: boolean }
+  const cartPopupTimerRef = useRef(null);
 
   const showCartPopup = (productName) => {
+    if (cartPopupTimerRef.current) clearTimeout(cartPopupTimerRef.current);
     setCartPopup({ message: `1 item added to cart`, productName, visible: true });
-    setTimeout(() => {
+    cartPopupTimerRef.current = setTimeout(() => {
       setCartPopup(null);
-    }, 1600);
+    }, 4000);
   };
 
   const addToCart = (product, quantity = 1, selectedConfig = null, selectedColor = null) => {
@@ -232,29 +236,82 @@ export function ShopProvider({ children }) {
     >
       {children}
 
-      {/* Floating Bottom Green Popup ("X item added to cart") */}
-      {cartPopup && (
-        <div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 pointer-events-none"
-          style={{ animation: 'slideUpAndDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
-        >
-          <div className="bg-[#15803d] text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-emerald-400/40 pointer-events-auto">
-            <div className="w-5 h-5 rounded-full bg-white text-[#15803d] flex items-center justify-center font-black text-xs shadow-xs">
-              ✓
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-sm tracking-wide">
-                {cartPopup.message}
+      {/* Floating Bottom Add-to-Cart Toast (Matching Reference Image) */}
+      <AnimatePresence>
+        {cartPopup && (
+          <motion.div
+            key="cart-popup-toast"
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 25, scale: 0.95 }}
+            transition={{ type: 'spring', damping: 26, stiffness: 340 }}
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] max-w-[95vw] pointer-events-auto"
+            onMouseEnter={() => {
+              if (cartPopupTimerRef.current) clearTimeout(cartPopupTimerRef.current);
+            }}
+            onMouseLeave={() => {
+              cartPopupTimerRef.current = setTimeout(() => setCartPopup(null), 3000);
+            }}
+          >
+            <div className="bg-[#10a352] text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-2xl shadow-emerald-950/40 border border-emerald-400/40 flex items-center gap-2.5 sm:gap-3.5">
+              
+              {/* Glowing Cart Icon Bubble with Sparks & Badge */}
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-400/25 flex items-center justify-center flex-shrink-0 shadow-inner">
+                {/* 3 tiny spark rays on top-left matching reference image */}
+                <span className="absolute -top-0.5 -left-0.5 w-1.5 h-0.5 bg-white/90 rounded-full -rotate-45" />
+                <span className="absolute -top-1 left-2 w-1.5 h-0.5 bg-white/90 rounded-full -rotate-12" />
+                <span className="absolute top-2 -left-1 w-1.5 h-0.5 bg-white/90 rounded-full rotate-12" />
+
+                {/* Shopping Cart SVG */}
+                <svg
+                  className="w-5 h-5 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="8" cy="21" r="1" />
+                  <circle cx="19" cy="21" r="1" />
+                  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                </svg>
+
+                {/* White circular badge with green '1' */}
+                <div className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-white text-[#10a352] flex items-center justify-center font-black text-[10px] shadow-xs leading-none">
+                  1
+                </div>
+              </div>
+
+              {/* Message */}
+              <span className="font-bold text-xs sm:text-sm text-white tracking-wide whitespace-nowrap">
+                {cartPopup.message || '1 item added to cart'}
               </span>
-              {cartPopup.productName && (
-                <span className="text-emerald-100 text-xs font-semibold max-w-[200px] truncate hidden sm:inline">
-                  ({cartPopup.productName})
-                </span>
-              )}
+
+              {/* White Pill 'View Cart →' Button */}
+              <button
+                onClick={() => {
+                  setCartPopup(null);
+                  setIsCartOpen(true);
+                }}
+                className="bg-white hover:bg-neutral-50 active:scale-95 text-[#10a352] font-bold text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full flex items-center gap-1 shadow-sm transition-transform cursor-pointer whitespace-nowrap ml-1"
+              >
+                <span>View Cart</span>
+                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              </button>
+
+              {/* Dismiss 'X' Button */}
+              <button
+                onClick={() => setCartPopup(null)}
+                aria-label="Close notification"
+                className="text-white/80 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors cursor-pointer flex-shrink-0"
+              >
+                <X className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
+              </button>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Floating Toast Notification */}
       {toastMessage && (
