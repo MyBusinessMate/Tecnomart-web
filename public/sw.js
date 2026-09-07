@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tecnomart-v2';
+const CACHE_NAME = 'tecnomart-v3';
 
 const PRECACHE_URLS = [
   '/',
@@ -15,7 +15,7 @@ const PRECACHE_URLS = [
   '/students',
   '/about',
   '/contact',
-  '/logo.png',
+  '/webp/logo.webp',
 ];
 
 // Install: cache all main pages
