@@ -6,6 +6,8 @@ import CheckoutModal from './components/redesign/CheckoutModal';
 import RepairModal from './components/redesign/RepairModal';
 import WishlistDrawer from './components/redesign/WishlistDrawer';
 import WhatsAppWidget from './components/redesign/WhatsAppWidget';
+import BottomDock from './components/redesign/BottomDock';
+import LuckyWheelModal from './components/redesign/LuckyWheelModal';
 
 // Pages
 import Page from './app/page';
@@ -75,6 +77,8 @@ function RefurbishedDetailPage() {
 }
 
 export default function App() {
+  const [isSpinOpen, setIsSpinOpen] = React.useState(false);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -122,6 +126,8 @@ export default function App() {
         <RepairModal />
         <WishlistDrawer />
         <WhatsAppWidget />
+        <BottomDock onOpenSpin={() => setIsSpinOpen(true)} />
+        <LuckyWheelModal isOpen={isSpinOpen} onClose={() => setIsSpinOpen(false)} />
       </ShopProvider>
     </BrowserRouter>
   );

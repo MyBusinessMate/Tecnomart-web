@@ -363,7 +363,7 @@ export default function ProductFilters({
               onClick={(e) => e.stopPropagation()}
             >
               {/* Drawer Header */}
-              <div className="p-4 bg-[#727377] text-white flex items-center justify-between sticky top-0 z-10 shadow-xs">
+              <div className="p-4 bg-[#0a0a0a] text-white flex items-center justify-between sticky top-0 z-10 shadow-xs">
                 <div className="flex items-center gap-2">
                   <SlidersHorizontal className="w-4 h-4 text-amber-400" />
                   <span className="font-black text-sm uppercase">Filter Products</span>

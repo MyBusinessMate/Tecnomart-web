@@ -334,7 +334,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#727377] transition-transform duration-300 ease-in-out ${
+      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#0a0a0a] transition-transform duration-300 ease-in-out ${
         isNavRevealed ? 'translate-y-0' : '-translate-y-full pointer-events-none'
       }`}
     >
@@ -799,7 +799,7 @@ export default function Header() {
       )}
 
       {/* Mobile Search Bar below mobile header */}
-      <div className="lg:hidden px-4 py-2.5 bg-[#68696d]">
+      <div className="lg:hidden px-4 py-2.5 bg-[#141414]">
         <div className="relative flex items-center">
           <div className="absolute left-3.5 pointer-events-none text-neutral-400">
             <Search className="w-4 h-4 stroke-[2]" />
@@ -846,7 +846,7 @@ export default function Header() {
               <div data-lenis-prevent="true" className="overflow-y-auto flex-1 overscroll-contain">
                 
                 {/* Drawer Header */}
-                <div className="bg-[#727377] text-white p-4 flex items-center justify-between sticky top-0 z-20 shadow-xs">
+                <div className="bg-[#0a0a0a] text-white p-4 flex items-center justify-between sticky top-0 z-20 shadow-xs">
                   <div className="flex items-center gap-2">
                     <TecnoMartLogo textClass="text-white font-black text-sm" subtitleClass="text-neutral-200 font-semibold text-[7px]" />
                   </div>
