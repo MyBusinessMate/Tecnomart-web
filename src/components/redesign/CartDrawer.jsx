@@ -80,6 +80,9 @@ export default function CartDrawer() {
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
             data-lenis-prevent="true"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cart-drawer-title"
             className="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between overflow-hidden relative overscroll-contain"
             onClick={(e) => e.stopPropagation()}
           >
@@ -107,7 +110,7 @@ export default function CartDrawer() {
             <div className="p-4 sm:p-5 border-b border-neutral-200 flex items-center justify-between bg-midgrey-900 text-white flex-shrink-0">
               <div className="flex items-center gap-2">
                 <ShoppingBag className="w-5 h-5 text-amber-400" />
-                <h2 className="text-base sm:text-lg font-black uppercase tracking-wider">
+                <h2 id="cart-drawer-title" className="text-base sm:text-lg font-black uppercase tracking-wider">
                   Your Cart ({cartCount})
                 </h2>
               </div>
@@ -195,17 +198,17 @@ export default function CartDrawer() {
                               <button
                                 onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
                                 className="w-7 h-7 flex items-center justify-center hover:bg-neutral-200 text-neutral-700 cursor-pointer"
-                                aria-label="Decrease quantity"
+                                aria-label={`Decrease quantity of ${item.product.name}`}
                               >
                                 <Minus className="w-3 h-3" />
                               </button>
-                              <span className="w-8 text-center text-xs font-black text-neutral-900">
+                              <span className="w-8 text-center text-xs font-black text-neutral-900" aria-label={`Quantity: ${item.quantity}`}>
                                 {item.quantity}
                               </span>
                               <button
                                 onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
                                 className="w-7 h-7 flex items-center justify-center hover:bg-neutral-200 text-neutral-700 cursor-pointer"
-                                aria-label="Increase quantity"
+                                aria-label={`Increase quantity of ${item.product.name}`}
                               >
                                 <Plus className="w-3 h-3" />
                               </button>
@@ -219,7 +222,7 @@ export default function CartDrawer() {
                               <button
                                 onClick={() => removeFromCart(item.cartItemId)}
                                 className="text-neutral-400 hover:text-red-500 p-1 cursor-pointer"
-                                aria-label="Remove item"
+                                aria-label={`Remove ${item.product.name} from cart`}
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
@@ -254,7 +257,11 @@ export default function CartDrawer() {
                         <div className="flex gap-2">
                           <div className="flex-1 relative">
                             <Tag className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+                            <label htmlFor="cart-coupon-input" className="sr-only">
+                              Discount Coupon Code
+                            </label>
                             <input
+                              id="cart-coupon-input"
                               type="text"
                               placeholder="Coupon (e.g. TECNOMART10)"
                               value={couponInput}
@@ -289,6 +296,7 @@ export default function CartDrawer() {
                             <button
                               type="button"
                               onClick={handleRemoveCoupon}
+                              aria-label="Remove coupon"
                               className="text-red-600 hover:underline text-xs font-black cursor-pointer ml-2 px-1.5 py-0.5 bg-red-50 rounded"
                             >
                               Remove

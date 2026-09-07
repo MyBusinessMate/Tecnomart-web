@@ -256,7 +256,11 @@ export default function Footer() {
                 {/* Email Input Pill */}
                 <form onSubmit={handleSubscribe} className="w-full">
                   <div className="relative flex items-center bg-white rounded-full border border-neutral-300 shadow-xs p-1 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all">
+                    <label htmlFor="newsletter-email-desktop" className="sr-only">
+                      Enter your email for TecnoMart newsletter
+                    </label>
                     <input
+                      id="newsletter-email-desktop"
                       type="email"
                       required
                       placeholder="Enter your email"
@@ -266,7 +270,7 @@ export default function Footer() {
                     />
                     <button
                       type="submit"
-                      aria-label="Subscribe"
+                      aria-label="Subscribe to newsletter"
                       className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-neutral-950 font-black flex items-center justify-center transition-all cursor-pointer flex-shrink-0 shadow-xs"
                     >
                       {subscribed ? <Check className="w-4 h-4 stroke-[2.5]" /> : <Send className="w-4 h-4 stroke-[2.2]" />}
@@ -464,7 +468,11 @@ export default function Footer() {
             {/* Email Input Pill */}
             <form onSubmit={handleSubscribe} className="pt-2 w-full">
               <div className="relative flex items-center bg-white rounded-full border border-neutral-300 shadow-xs p-1 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20">
+                <label htmlFor="newsletter-email-mobile" className="sr-only">
+                  Enter your email for TecnoMart newsletter
+                </label>
                 <input
+                  id="newsletter-email-mobile"
                   type="email"
                   required
                   placeholder="Enter your email"
@@ -474,7 +482,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  aria-label="Subscribe"
+                  aria-label="Subscribe to newsletter"
                   className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-neutral-950 font-black flex items-center justify-center flex-shrink-0 shadow-xs"
                 >
                   {subscribed ? <Check className="w-4 h-4 stroke-[2.5]" /> : <Send className="w-4 h-4 stroke-[2.2]" />}
@@ -518,16 +526,18 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={() => toggleAccordion('shop')}
+                aria-expanded={openAccordions.shop}
+                aria-controls="footer-accordion-shop"
                 className="w-full flex items-center justify-between py-3.5 text-left text-xs font-black tracking-wider text-neutral-950 uppercase cursor-pointer"
               >
                 <span>SHOP</span>
                 <ChevronDown className={`w-4 h-4 text-neutral-800 transition-transform duration-200 ${openAccordions.shop ? 'rotate-180' : ''}`} />
               </button>
               {openAccordions.shop && (
-                <ul className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
+                <ul id="footer-accordion-shop" className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
                   {shopLinks.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="hover:text-amber-600 transition-colors block py-0.5">
+                      <Link href={link.href} className="hover:text-[#F5B800] transition-colors block py-0.5">
                         {link.label}
                       </Link>
                     </li>
@@ -541,16 +551,18 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={() => toggleAccordion('help')}
+                aria-expanded={openAccordions.help}
+                aria-controls="footer-accordion-help"
                 className="w-full flex items-center justify-between py-3.5 text-left text-xs font-black tracking-wider text-neutral-950 uppercase cursor-pointer"
               >
                 <span>HELP &amp; SUPPORT</span>
                 <ChevronDown className={`w-4 h-4 text-neutral-800 transition-transform duration-200 ${openAccordions.help ? 'rotate-180' : ''}`} />
               </button>
               {openAccordions.help && (
-                <ul className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
+                <ul id="footer-accordion-help" className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
                   {helpLinks.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="hover:text-amber-600 transition-colors block py-0.5">
+                      <Link href={link.href} className="hover:text-[#F5B800] transition-colors block py-0.5">
                         {link.label}
                       </Link>
                     </li>
@@ -564,16 +576,18 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={() => toggleAccordion('company')}
+                aria-expanded={openAccordions.company}
+                aria-controls="footer-accordion-company"
                 className="w-full flex items-center justify-between py-3.5 text-left text-xs font-black tracking-wider text-neutral-950 uppercase cursor-pointer"
               >
                 <span>COMPANY</span>
                 <ChevronDown className={`w-4 h-4 text-neutral-800 transition-transform duration-200 ${openAccordions.company ? 'rotate-180' : ''}`} />
               </button>
               {openAccordions.company && (
-                <ul className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
+                <ul id="footer-accordion-company" className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
                   {companyLinks.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="hover:text-amber-600 transition-colors block py-0.5">
+                      <Link href={link.href} className="hover:text-[#F5B800] transition-colors block py-0.5">
                         {link.label}
                       </Link>
                     </li>
@@ -587,16 +601,18 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={() => toggleAccordion('more')}
+                aria-expanded={openAccordions.more}
+                aria-controls="footer-accordion-more"
                 className="w-full flex items-center justify-between py-3.5 text-left text-xs font-black tracking-wider text-neutral-950 uppercase cursor-pointer"
               >
                 <span>MORE FROM TECNOMART</span>
                 <ChevronDown className={`w-4 h-4 text-neutral-800 transition-transform duration-200 ${openAccordions.more ? 'rotate-180' : ''}`} />
               </button>
               {openAccordions.more && (
-                <ul className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
+                <ul id="footer-accordion-more" className="pb-3.5 space-y-2 text-xs font-medium text-neutral-600 pl-1">
                   {moreLinks.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="hover:text-amber-600 transition-colors block py-0.5">
+                      <Link href={link.href} className="hover:text-[#F5B800] transition-colors block py-0.5">
                         {link.label}
                       </Link>
                     </li>

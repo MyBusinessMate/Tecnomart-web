@@ -50,6 +50,7 @@ export default function ReviewsAndLocation() {
                 <div>
                   <button
                     onClick={openGoogleMaps}
+                    aria-label="Get directions to TecnoMart Jubilee Hills store on Google Maps"
                     className="btn-wipe-yellow inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 cursor-pointer shadow-xs"
                   >
                     <span className="relative z-10">GET DIRECTIONS</span>
@@ -60,6 +61,15 @@ export default function ReviewsAndLocation() {
               {/* Right Column: Embedded Map Image (46%) */}
               <div
                 onClick={openGoogleMaps}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openGoogleMaps();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label="Open TecnoMart store location on Google Maps"
                 className="w-full sm:w-[46%] min-h-[160px] sm:min-h-full relative overflow-hidden cursor-pointer bg-neutral-100 group border-t sm:border-t-0 sm:border-l border-[#ECECEC]"
               >
                 <img

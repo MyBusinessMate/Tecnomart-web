@@ -49,19 +49,18 @@ export default function BudgetFinder() {
 
         {/* Solid Mid Grey Card container matching reference theme */}
         <div className="bg-midgrey-900 rounded-3xl px-6 py-8 sm:px-10 sm:py-10 shadow-2xl border border-midgrey-700/60">
-
           {/* Title: BUDGET BATAO. BEST OPTION PAO. */}
           <div className="text-center mb-7 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight leading-tight inline-flex flex-wrap items-center justify-center gap-x-2">
-              <span className="text-amber-500">BUDGET</span>
+              <span className="text-[#FFD21C]">BUDGET</span>
               <span className="text-white">BATAO.</span>
-              <span className="text-amber-500">BEST OPTION</span>
+              <span className="text-[#FFD21C]">BEST OPTION</span>
               <span className="text-white">PAO.</span>
             </h2>
           </div>
 
           {/* Form: 3 Dropdowns + Yellow WhatsApp CTA Button */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" aria-label="Budget Recommendation Form">
             <div className="flex flex-col lg:flex-row gap-3 lg:gap-4 items-stretch lg:items-center">
 
               {/* Select Category Dropdown */}
@@ -69,7 +68,8 @@ export default function BudgetFinder() {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 appearance-none cursor-pointer shadow-xs"
+                  aria-label="Select product category"
+                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-[#FFD21C] appearance-none cursor-pointer shadow-xs"
                 >
                   <option value="">Select Category</option>
                   {categories.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -82,7 +82,8 @@ export default function BudgetFinder() {
                 <select
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 appearance-none cursor-pointer shadow-xs"
+                  aria-label="Select your budget range"
+                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-[#FFD21C] appearance-none cursor-pointer shadow-xs"
                 >
                   <option value="">Your Budget (₹)</option>
                   {budgets.map((b) => <option key={b} value={b}>{b}</option>)}
@@ -95,7 +96,8 @@ export default function BudgetFinder() {
                 <select
                   value={usage}
                   onChange={(e) => setUsage(e.target.value)}
-                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 appearance-none cursor-pointer shadow-xs"
+                  aria-label="Select intended device usage"
+                  className="w-full h-12 bg-white text-neutral-900 text-sm font-bold pl-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-[#FFD21C] appearance-none cursor-pointer shadow-xs"
                 >
                   <option value="">Usage</option>
                   {usages.map((u) => <option key={u} value={u}>{u}</option>)}
@@ -106,9 +108,10 @@ export default function BudgetFinder() {
               {/* Yellow WhatsApp Submit Button */}
               <button
                 type="submit"
-                className="flex-shrink-0 h-12 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl px-6 flex items-center justify-center gap-2.5 transition-all cursor-pointer active:scale-98 whitespace-nowrap shadow-lg shadow-amber-500/20"
+                aria-label="Tell us your budget on WhatsApp"
+                className="flex-shrink-0 h-12 bg-[#FFD21C] hover:bg-[#F5B800] active:bg-[#F5B800] text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl px-6 flex items-center justify-center gap-2.5 transition-all cursor-pointer active:scale-98 whitespace-nowrap shadow-lg shadow-yellow-500/20"
               >
-                <div className="w-5 h-5 rounded-full bg-midgrey-950 text-amber-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-5 h-5 rounded-full bg-midgrey-950 text-[#FFD21C] flex items-center justify-center flex-shrink-0">
                   <MessageCircle className="w-3.5 h-3.5 fill-current" />
                 </div>
                 <span>TELL US ON WHATSAPP</span>

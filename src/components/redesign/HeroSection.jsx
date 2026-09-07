@@ -119,6 +119,7 @@ export default function HeroSection({ onOpenRepairModal }) {
             <div className="flex items-center gap-3 pt-2">
               <button
                 onClick={scrollToBudget}
+                aria-label="Scroll to Budget Recommendation Finder"
                 className="btn-wipe-yellow min-h-[48px] inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 active:scale-98 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-current relative z-10" />
@@ -127,6 +128,7 @@ export default function HeroSection({ onOpenRepairModal }) {
 
               <button
                 onClick={onOpenRepairModal}
+                aria-label="Book a Device Repair Appointment"
                 className="min-h-[48px] inline-flex items-center justify-center gap-2 bg-white hover:bg-midgrey-900 hover:text-white text-neutral-950 border-2 border-midgrey-900 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-xs transition-all active:scale-98 cursor-pointer"
               >
                 <Wrench className="w-4 h-4" />

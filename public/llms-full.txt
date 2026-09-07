@@ -1,0 +1,47 @@
+# TecnoMart - Full LLM Knowledge Specification
+
+> Complete machine-readable catalog, hardware repair pricing, specifications, and business policies for TecnoMart (Hyderabad, India).
+
+## About TecnoMart
+TecnoMart is an authorized multi-brand retail electronics store and certified service laboratory in Jubilee Hills, Hyderabad.
+- Physical Location: H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills, Hyderabad, Telangana - 500033
+- Landmark: Near Jubilee Hills Check Post / Metro Station
+- Operating Hours: 10:00 AM – 09:30 PM IST (Open 7 Days a Week)
+- Contact Phone: +91 90106 67726
+- WhatsApp Support: +91 90106 67726
+- Email: support@tecnomart.in
+
+## Product Categories & Availability
+1. Apple Lineup:
+   - iPhone 16 Pro Max, iPhone 16 Pro, iPhone 16, iPhone 15, iPhone 14
+   - MacBook Pro (M3/M4 Pro & Max chips), MacBook Air 13" and 15" (M2/M3)
+   - Apple Watch Series 10, Ultra 2, AirPods Pro 2 (USB-C)
+2. Windows & Gaming Laptops:
+   - ASUS ROG Strix SCAR, Zephyrus G14/G16, TUF Gaming
+   - Lenovo Legion Pro 7i, Legion Slim, IdeaPad Gaming
+   - Dell XPS 13/15/16, Alienware m16, Inspiron
+   - HP OMEN 16, Victus, Spectre x360
+3. Custom Gaming Desktops:
+   - CPUs: Intel Core i9-14900K, i7-14700K; AMD Ryzen 9 7950X3D, Ryzen 7 7800X3D
+   - GPUs: NVIDIA GeForce RTX 4090 24GB, RTX 4080 Super, RTX 4070 Ti Super, RTX 4060
+   - Cooling: Custom hard-line and AIO liquid cooling (Corsair, NZXT, DeepCool)
+4. Certified Pre-Owned & Refurbished:
+   - 32-point inspection covering display, battery health (>85%), cameras, microphones, biometric sensors, and connectivity.
+   - Includes 6-month comprehensive TecnoMart warranty and certified bill with GST.
+5. Hardware Repair Services:
+   - Smartphone screen and glass replacement (genuine OLED/AMOLED)
+   - High-capacity battery replacements with health warranty
+   - Laptop motherboard chip-level repair (BGA reballing, power IC replacement)
+   - Liquid damage ultrasonic cleaning and corrosion treatment
+   - Custom PC deep cleaning, cable management, and thermal repasting (liquid metal / Kryonaut)
+
+## Delivery and Fulfilment Policies
+- Hyperlocal Express: 3 to 4-hour delivery within Greater Hyderabad and Secunderabad.
+- In-Store Demonstration: Free hardware unboxing, setup, data migration, and protective tempered glass application in-store.
+- Payment Options: UPI (Google Pay, PhonePe, Paytm), All Major Credit/Debit Cards, NetBanking, and Instant Paperless No-Cost EMI through Bajaj Finserv, HDFC, and ICICI.
+
+## Interactive Customer Reward Program (Spin & Win)
+- Machine URL: https://tecnomart.in/spin
+- Eligibility: 1 lucky spin per device / customer
+- Guaranteed Prizes: Wireless neckbands, Bluetooth headphones, tempered glass passes, ₹250 to ₹2,000 in-store discount coupons.
+- Digital Pass: 2.5D cryptographic pass with dynamic QR code valid for 30 days at checkout.

@@ -155,7 +155,7 @@ export default function ProductFilters({
           {selectedBrand !== 'All' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-neutral-900 text-white">
               <span>Brand: {selectedBrand}</span>
-              <button onClick={() => onSelectBrand('All')} className="hover:text-amber-400">
+              <button onClick={() => onSelectBrand('All')} aria-label={`Remove brand filter: ${selectedBrand}`} className="hover:text-amber-400 cursor-pointer">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -164,7 +164,7 @@ export default function ProductFilters({
           {selectedPriceRange !== 'all' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-neutral-900 text-white">
               <span>{PRICE_RANGES.find((r) => r.id === selectedPriceRange)?.label}</span>
-              <button onClick={() => onSelectPriceRange('all')} className="hover:text-amber-400">
+              <button onClick={() => onSelectPriceRange('all')} aria-label="Remove price filter" className="hover:text-amber-400 cursor-pointer">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -173,7 +173,7 @@ export default function ProductFilters({
           {selectedRam !== 'All' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-neutral-900 text-white">
               <span>RAM: {selectedRam}</span>
-              <button onClick={() => onSelectRam('All')} className="hover:text-amber-400">
+              <button onClick={() => onSelectRam('All')} aria-label={`Remove RAM filter: ${selectedRam}`} className="hover:text-amber-400 cursor-pointer">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -182,7 +182,7 @@ export default function ProductFilters({
           {selectedStorage !== 'All' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-neutral-900 text-white">
               <span>Storage: {selectedStorage}</span>
-              <button onClick={() => onSelectStorage('All')} className="hover:text-amber-400">
+              <button onClick={() => onSelectStorage('All')} aria-label={`Remove storage filter: ${selectedStorage}`} className="hover:text-amber-400 cursor-pointer">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -191,7 +191,7 @@ export default function ProductFilters({
           {selectedColor !== 'All' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-neutral-900 text-white">
               <span>Color: {selectedColor}</span>
-              <button onClick={() => onSelectColor('All')} className="hover:text-amber-400">
+              <button onClick={() => onSelectColor('All')} aria-label={`Remove color filter: ${selectedColor}`} className="hover:text-amber-400 cursor-pointer">
                 <X className="w-3 h-3" />
               </button>
             </span>
@@ -359,6 +359,9 @@ export default function ProductFilters({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="filter-drawer-title"
               className="w-full max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
@@ -366,7 +369,9 @@ export default function ProductFilters({
               <div className="p-4 bg-[#0a0a0a] text-white flex items-center justify-between sticky top-0 z-10 shadow-xs">
                 <div className="flex items-center gap-2">
                   <SlidersHorizontal className="w-4 h-4 text-amber-400" />
-                  <span className="font-black text-sm uppercase">Filter Products</span>
+                  <h3 id="filter-drawer-title" className="font-black text-sm uppercase">
+                    Filter Products
+                  </h3>
                   {activeFilterCount > 0 && (
                     <span className="px-2 py-0.5 rounded-full bg-amber-400 text-neutral-950 text-[10px] font-black">
                       {activeFilterCount} Active
@@ -375,7 +380,8 @@ export default function ProductFilters({
                 </div>
                 <button
                   onClick={() => setMobileFilterDrawerOpen(false)}
-                  className="p-1 text-neutral-200 hover:text-white"
+                  aria-label="Close filters"
+                  className="p-1 text-neutral-200 hover:text-white cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>

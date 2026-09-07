@@ -816,10 +816,11 @@ export default function Configurator() {
                 {/* Form Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="config-fullname" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
                       Your Full Name
                     </label>
                     <input
+                      id="config-fullname"
                       type="text"
                       placeholder="e.g. Rahul Sharma"
                       value={customer.fullName}
@@ -829,10 +830,11 @@ export default function Configurator() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="config-phone" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
                       WhatsApp Phone Number
                     </label>
                     <input
+                      id="config-phone"
                       type="tel"
                       placeholder="9876543210"
                       value={customer.phone}
@@ -842,10 +844,11 @@ export default function Configurator() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="config-city" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
                       City / Locality
                     </label>
                     <input
+                      id="config-city"
                       type="text"
                       placeholder="Hyderabad (Tolichowki / Gachibowli / Hitec City...)"
                       value={customer.city}
@@ -855,10 +858,11 @@ export default function Configurator() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                    <label htmlFor="config-notes" className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1">
                       Special Requests / Notes (Optional)
                     </label>
                     <input
+                      id="config-notes"
                       type="text"
                       placeholder="e.g. RGB cable combs, same-day delivery"
                       value={customer.notes}

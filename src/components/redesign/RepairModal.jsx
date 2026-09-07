@@ -55,7 +55,13 @@ export default function RepairModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-midgrey-950/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div data-lenis-prevent className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-neutral-200 p-5 sm:p-8 animate-in zoom-in-95 duration-200">
+      <div
+        data-lenis-prevent
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="repair-modal-title"
+        className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-neutral-200 p-5 sm:p-8 animate-in zoom-in-95 duration-200"
+      >
 
         {/* Close Button */}
         <button
@@ -72,7 +78,7 @@ export default function RepairModal() {
             <Wrench className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-lg font-black text-neutral-950 uppercase tracking-tight">
+            <h3 id="repair-modal-title" className="text-lg font-black text-neutral-950 uppercase tracking-tight">
               Book A Repair Slot
             </h3>
             <p className="text-xs text-neutral-500 font-medium">
@@ -85,10 +91,11 @@ export default function RepairModal() {
         <form onSubmit={handleSubmit} className="space-y-3.5">
 
           <div>
-            <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+            <label htmlFor="repair-device-type" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
               Device Type
             </label>
             <select
+              id="repair-device-type"
               value={deviceType}
               onChange={(e) => setDeviceType(e.target.value)}
               className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
@@ -102,10 +109,11 @@ export default function RepairModal() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+            <label htmlFor="repair-model-name" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
               Device Model Name
             </label>
             <input
+              id="repair-model-name"
               type="text"
               required
               placeholder="e.g. iPhone 15 Pro, Dell XPS 15..."
@@ -116,10 +124,11 @@ export default function RepairModal() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+            <label htmlFor="repair-issue" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
               Problem / Issue
             </label>
             <select
+              id="repair-issue"
               value={issue}
               onChange={(e) => setIssue(e.target.value)}
               className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
@@ -138,12 +147,13 @@ export default function RepairModal() {
             <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
               Preferred Date
             </label>
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <div role="group" aria-label="Preferred Date" className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
               {dateOptions.map((d) => (
                 <button
                   key={d.index}
                   type="button"
                   onClick={() => setSelectedDate(d.index)}
+                  aria-pressed={selectedDate === d.index}
                   className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
                     selectedDate === d.index
                       ? 'bg-midgrey-900 text-amber-400 border-midgrey-900'
@@ -161,12 +171,13 @@ export default function RepairModal() {
             <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
               Preferred Time Slot
             </label>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div role="group" aria-label="Preferred Time Slot" className="grid grid-cols-3 gap-1.5">
               {TIME_SLOTS.map((slot) => (
                 <button
                   key={slot}
                   type="button"
                   onClick={() => setSelectedSlot(slot)}
+                  aria-pressed={selectedSlot === slot}
                   className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer border ${
                     selectedSlot === slot
                       ? 'bg-midgrey-900 text-amber-400 border-midgrey-900'
@@ -181,10 +192,11 @@ export default function RepairModal() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+              <label htmlFor="repair-customer-name" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
                 Your Name
               </label>
               <input
+                id="repair-customer-name"
                 type="text"
                 required
                 placeholder="Rahul"
@@ -194,10 +206,11 @@ export default function RepairModal() {
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+              <label htmlFor="repair-phone" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
                 Phone Number
               </label>
               <input
+                id="repair-phone"
                 type="tel"
                 required
                 placeholder="9876543210"

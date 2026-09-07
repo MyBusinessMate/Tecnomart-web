@@ -42,7 +42,12 @@ export default function CategoryGrid() {
             const route = getCategoryRoute(cat.id);
 
             return (
-              <Link key={cat.id} href={route} className="block w-full h-full">
+              <Link
+                key={cat.id}
+                href={route}
+                aria-label={`Explore ${cat.name}: ${cat.subtitle}`}
+                className="block w-full h-full"
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}

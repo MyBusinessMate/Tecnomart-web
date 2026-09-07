@@ -1,33 +1,43 @@
-# TecnoMart (Hyderabad, India)
+# TecnoMart
 
-> TecnoMart is an authorized retail tech store and premium product catalogue located in Jubilee Hills, Hyderabad, Telangana, India. TecnoMart specializes in brand-new smartphones (Apple, Samsung, OnePlus, Google), authorized laptops (MacBooks, ASUS ROG, Dell XPS, Lenovo Legion, HP), custom water-cooled ARGB gaming rigs, certified Grade-A+ refurbished devices, genuine computer accessories, and certified same-day hardware repairs.
+> TecnoMart is Hyderabad's premier authorized electronics showroom and specialized repair center located in Jubilee Hills, Hyderabad, India. Specializing in brand-new Apple, Samsung, OnePlus, and Google smartphones; high-performance laptops (MacBook, ASUS ROG, Dell XPS, Lenovo Legion, HP); custom water-cooled ARGB gaming desktop PCs; Grade-A+ certified refurbished devices; genuine computer accessories; and same-day certified hardware repairs.
 
-## Business Model
-- **Website Role**: Product Catalogue & Lead Generation / Direct Consultation
-- **Primary Enquiry & Booking Channel**: WhatsApp (+91 9010667726) & In-Store Visit
-- **Physical Flagship Store**: H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills, Hyderabad, Telangana - 500033
-- **Local Express Delivery**: Same-day 3–4 hour doorstep delivery across Hyderabad & Secunderabad
-- **Payment & Checkout**: Offline in-store payment or confirmed directly via official WhatsApp invoice; no anonymous online cart checkout.
+TecnoMart operates as an omnichannel digital catalogue with instant in-store pickup and doorstep express delivery across Hyderabad and Secunderabad within 3–4 hours. Customers can explore live specifications, compute trade-in exchange values, calculate monthly EMI plans, customize PC builds component-by-component, and consult directly with certified hardware technicians via WhatsApp or in-store.
 
-## Core Catalogs & Pages
-- Homepage: https://tecnomart.in/
-- Smartphones & Mobiles: https://tecnomart.in/mobiles
-- Laptops & Ultrabooks: https://tecnomart.in/laptops
-- Accessories & Peripherals: https://tecnomart.in/accessories
-- Custom Gaming PCs: https://tecnomart.in/gaming
-- Certified Refurbished: https://tecnomart.in/refurbished
-- Device Repairs & Diagnostics: https://tecnomart.in/repairs
-- Custom PC Builder Tool: https://tecnomart.in/pc-builds
-- Flash Deals: https://tecnomart.in/deals
-- Trade-In & Exchange Value Calculator: https://tecnomart.in/exchange
-- EMI Calculator: https://tecnomart.in/emi-calculator
-- Product Comparison Tool: https://tecnomart.in/compare
-- Corporate Bulk Orders: https://tecnomart.in/corporate
-- Student Discount Program: https://tecnomart.in/students
+Operating Hours: Monday – Sunday: 10:00 AM – 09:30 PM (IST)
+Flagship Store: H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033, India
+Official Hotline: +91 90106 67726
+Direct WhatsApp Consultation: https://wa.me/919010667726
+Official Website: https://tecnomart.in
 
-## Information & Policies
-- About Us: https://tecnomart.in/about
-- Store Contact & Maps: https://tecnomart.in/contact
-- Privacy Policy: https://tecnomart.in/privacy
-- Terms & Conditions: https://tecnomart.in/terms
-- XML Sitemap: https://tecnomart.in/sitemap.xml
+## Catalogs
+
+- [Smartphones & Mobiles](https://tecnomart.in/mobiles): Complete flagship and mid-range mobile lineup including Apple iPhone 16/15 Pro Max, Samsung Galaxy S25/S24 Ultra, OnePlus, and Google Pixel with official manufacturer warranty.
+- [Laptops & Ultrabooks](https://tecnomart.in/laptops): Business laptops, thin-and-light ultrabooks, student notebooks, and high-performance creator workstations from Apple, Dell, Lenovo, HP, and ASUS.
+- [Accessories & Peripherals](https://tecnomart.in/accessories): Mechanical keyboards, precision gaming mice, studio headphones, wireless neckbands, 4K monitors, fast chargers, GaN adapters, and protective cases.
+- [Custom Gaming PCs](https://tecnomart.in/gaming): Pre-configured and bespoke liquid-cooled gaming battle stations with NVIDIA GeForce RTX 4090/4080/4070 Super and AMD Ryzen 7000/9000 processors.
+- [Certified Refurbished](https://tecnomart.in/refurbished): Grade-A+ pre-owned iPhones, MacBooks, and premium devices certified through 32-point hardware inspection with 6-month TecnoMart warranty.
+
+## Services & Tools
+
+- [Device Repairs & Diagnostics](https://tecnomart.in/repairs): Same-day hardware service for cracked screens, battery replacements, motherboard chip-level repair, thermal repasting, and liquid damage recovery.
+- [Custom PC Builder Tool](https://tecnomart.in/pc-builds): Interactive real-time PC configurator with live wattage calculation, bottleneck checking, and instant quote generation.
+- [Trade-In Exchange Calculator](https://tecnomart.in/exchange): Instant valuation tool to trade in old smartphones and laptops for immediate store credit toward new purchases.
+- [EMI Finance Calculator](https://tecnomart.in/emi-calculator): Flexible 0% interest and low-cost monthly EMI payment plan estimator with major Indian bank partners.
+- [Product Comparison Tool](https://tecnomart.in/compare): Side-by-side technical specification, benchmark, and price comparison engine.
+- [Interactive Spin & Win Machine](https://tecnomart.in/spin): Customer loyalty reward machine with guaranteed prizes, instant 2.5D digital pass issuance, and in-store QR verification.
+
+## Programs & Offers
+
+- [Flash Deals & Clearance](https://tecnomart.in/deals): Time-sensitive discounts, festive bundle bundles, and open-box clearance offers.
+- [Corporate Bulk Procurement](https://tecnomart.in/corporate): Enterprise IT hardware leasing, bulk fleet deployment, GST invoicing, and dedicated account management.
+- [Student Discount Program](https://tecnomart.in/students): Exclusive educational discounts on MacBooks, laptops, tablets, and accessories for verified university students and teachers.
+
+## Optional
+
+- [Store Location & Directions](https://tecnomart.in/contact): Interactive Google Maps directions, parking information, customer service hours, and contact form.
+- [About TecnoMart](https://tecnomart.in/about): Company history, certified technician qualifications, customer review ratings, and brand partnerships.
+- [Privacy Policy](https://tecnomart.in/privacy): Customer data privacy standards, cookie policies, and protection practices.
+- [Terms & Conditions](https://tecnomart.in/terms): Warranty guidelines, trade-in criteria, return conditions, and in-store coupon redemption rules.
+- [XML Sitemap](https://tecnomart.in/sitemap.xml): Machine-readable XML index of all public URLs for web crawlers and agents.
+- [Full LLM Knowledge Document](https://tecnomart.in/llms-full.txt): Comprehensive deep-context catalog and hardware specification dump for extended reasoning models.

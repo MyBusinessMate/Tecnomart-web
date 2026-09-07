@@ -178,6 +178,9 @@ export default function CheckoutModal() {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="checkout-modal-title"
             className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden my-auto"
             onClick={(e) => e.stopPropagation()}
           >
@@ -188,7 +191,7 @@ export default function CheckoutModal() {
                   {step}
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-black uppercase tracking-wider">
+                  <h3 id="checkout-modal-title" className="text-base sm:text-lg font-black uppercase tracking-wider">
                     {step === 1
                       ? 'Step 1: Delivery Details'
                       : step === 2
@@ -203,6 +206,7 @@ export default function CheckoutModal() {
 
               <button
                 onClick={handleClose}
+                aria-label="Close checkout modal"
                 className="w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 flex items-center justify-center text-neutral-300 cursor-pointer"
               >
                 <X className="w-4 h-4" />
@@ -214,12 +218,13 @@ export default function CheckoutModal() {
               <form onSubmit={handleShippingSubmit} className="p-5 sm:p-6 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
+                    <label htmlFor="checkout-fullname" className="block text-xs font-bold text-neutral-700 uppercase mb-1">
                       Full Name *
                     </label>
                     <div className="relative">
                       <User className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
+                        id="checkout-fullname"
                         type="text"
                         name="fullName"
                         required
@@ -238,7 +243,7 @@ export default function CheckoutModal() {
 
                   <div>
                     <div className="flex justify-between items-center mb-1">
-                      <label className="block text-xs font-bold text-neutral-700 uppercase">
+                      <label htmlFor="checkout-phone" className="block text-xs font-bold text-neutral-700 uppercase">
                         Mobile Number (10 Digits) *
                       </label>
                       <span className={`text-[10px] font-mono font-bold ${
@@ -250,6 +255,7 @@ export default function CheckoutModal() {
                     <div className="relative">
                       <Phone className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
+                        id="checkout-phone"
                         type="tel"
                         name="phone"
                         required
@@ -270,12 +276,13 @@ export default function CheckoutModal() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
+                    <label htmlFor="checkout-email" className="block text-xs font-bold text-neutral-700 uppercase mb-1">
                       Email Address (For Invoice PDF)
                     </label>
                     <div className="relative">
                       <Mail className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
+                        id="checkout-email"
                         type="email"
                         name="email"
                         placeholder="rahul@example.com"
@@ -292,12 +299,13 @@ export default function CheckoutModal() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
+                    <label htmlFor="checkout-pincode" className="block text-xs font-bold text-neutral-700 uppercase mb-1">
                       Hyderabad Pincode *
                     </label>
                     <div className="relative">
                       <MapPin className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
                       <input
+                        id="checkout-pincode"
                         type="text"
                         name="pincode"
                         required
@@ -312,7 +320,7 @@ export default function CheckoutModal() {
 
                 <div>
                   <div className="flex justify-between items-center mb-1">
-                    <label className="block text-xs font-bold text-neutral-700 uppercase">
+                    <label htmlFor="checkout-address" className="block text-xs font-bold text-neutral-700 uppercase">
                       Street Address &amp; Landmark *
                     </label>
                     <span className={`text-[10px] font-mono font-bold ${
@@ -322,6 +330,7 @@ export default function CheckoutModal() {
                     </span>
                   </div>
                   <textarea
+                    id="checkout-address"
                     name="address"
                     required
                     rows={2}
@@ -480,23 +489,42 @@ export default function CheckoutModal() {
 
                   {paymentMethod === 'card' && (
                     <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200 space-y-3">
+                      <label htmlFor="checkout-card-number" className="sr-only">
+                        Card Number
+                      </label>
                       <input
+                        id="checkout-card-number"
                         type="text"
+                        aria-label="Card Number"
                         placeholder="Card Number (4532 •••• •••• 8890)"
                         className="w-full h-10 px-3 text-xs bg-white border border-neutral-300 rounded-xl outline-none font-medium"
                       />
                       <div className="grid grid-cols-2 gap-3">
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="w-full h-10 px-3 text-xs bg-white border border-neutral-300 rounded-xl outline-none font-medium"
-                        />
-                        <input
-                          type="password"
-                          maxLength={3}
-                          placeholder="CVV"
-                          className="w-full h-10 px-3 text-xs bg-white border border-neutral-300 rounded-xl outline-none font-medium"
-                        />
+                        <div>
+                          <label htmlFor="checkout-card-expiry" className="sr-only">
+                            Expiry Date
+                          </label>
+                          <input
+                            id="checkout-card-expiry"
+                            type="text"
+                            aria-label="Expiry Date MM/YY"
+                            placeholder="MM/YY"
+                            className="w-full h-10 px-3 text-xs bg-white border border-neutral-300 rounded-xl outline-none font-medium"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="checkout-card-cvv" className="sr-only">
+                            CVV
+                          </label>
+                          <input
+                            id="checkout-card-cvv"
+                            type="password"
+                            maxLength={3}
+                            aria-label="Security Code CVV"
+                            placeholder="CVV"
+                            className="w-full h-10 px-3 text-xs bg-white border border-neutral-300 rounded-xl outline-none font-medium"
+                          />
+                        </div>
                       </div>
                     </div>
                   )}

@@ -338,6 +338,7 @@ export default function Header() {
   return (
     <>
     <header
+      role="banner"
       className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#0a0a0a] ${
         isNavRevealed ? 'translate-y-0' : 'max-lg:translate-y-0 lg:-translate-y-full lg:pointer-events-none'
       } lg:transition-transform lg:duration-300 lg:ease-in-out`}
@@ -356,6 +357,7 @@ export default function Header() {
             ref={hamburgerBtnRef}
             onClick={() => setDrawerOpen(true)}
             aria-label="Open All Categories Menu"
+            aria-expanded={drawerOpen}
             className="p-2 text-white hover:text-amber-400 hover:bg-white/10 rounded-xl transition-all cursor-pointer flex items-center justify-center"
             title="All Categories"
           >
@@ -369,7 +371,7 @@ export default function Header() {
         </div>
 
         {/* Primary Desktop Nav Links (Laptops, Mobiles, Accessories, Support with PC Builder) */}
-        <nav className="flex items-center gap-4 xl:gap-6 text-sm font-semibold text-white">
+        <nav aria-label="Main Navigation" className="flex items-center gap-4 xl:gap-6 text-sm font-semibold text-white">
           
           {/* Laptops Dropdown */}
           <div
@@ -379,6 +381,8 @@ export default function Header() {
           >
             <Link
               href="/laptops"
+              aria-haspopup="true"
+              aria-expanded={activeNavDropdown === 'laptops'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Laptops</span>
@@ -412,6 +416,8 @@ export default function Header() {
           >
             <Link
               href="/mobiles"
+              aria-haspopup="true"
+              aria-expanded={activeNavDropdown === 'mobiles'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Mobiles</span>
@@ -419,7 +425,7 @@ export default function Header() {
             </Link>
 
             {activeNavDropdown === 'mobiles' && (
-              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div role="menu" aria-label="Mobiles sub-menu" className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {navDropdownData.mobiles.map((item) => (
                   <Link
                     key={item.name}
@@ -445,6 +451,8 @@ export default function Header() {
           >
             <Link
               href="/accessories"
+              aria-haspopup="true"
+              aria-expanded={activeNavDropdown === 'accessories'}
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
             >
               <span>Accessories</span>
@@ -452,7 +460,7 @@ export default function Header() {
             </Link>
 
             {activeNavDropdown === 'accessories' && (
-              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div role="menu" aria-label="Accessories sub-menu" className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {navDropdownData.accessories.map((item) => (
                   <Link
                     key={item.name}
@@ -478,6 +486,9 @@ export default function Header() {
           >
             <button
               type="button"
+              aria-haspopup="true"
+              aria-expanded={activeNavDropdown === 'support'}
+              aria-controls="support-dropdown-menu"
               className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium text-white"
             >
               <span>Support</span>
@@ -485,7 +496,7 @@ export default function Header() {
             </button>
 
             {activeNavDropdown === 'support' && (
-              <div className="absolute left-0 top-full mt-1 w-72 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
+              <div id="support-dropdown-menu" role="menu" aria-label="Support & tools menu" className="absolute left-0 top-full mt-1 w-72 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
                 {/* Highlighted PC Builder Item */}
                 <Link
                   href="/pc-builds"
@@ -591,13 +602,16 @@ export default function Header() {
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
               className="flex items-center gap-1.5 text-white hover:text-amber-300 transition-colors p-1.5 rounded-xl hover:bg-white/10 cursor-pointer"
               aria-label="User Account"
+              aria-haspopup="menu"
+              aria-expanded={accountDropdownOpen}
+              aria-controls="desktop-account-menu"
             >
               <User className="w-5 h-5 text-white" />
               <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
             </button>
 
             {accountDropdownOpen && (
-              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div id="desktop-account-menu" role="menu" aria-label="User Account Menu" className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 <div className="px-3 py-2 border-b border-neutral-100 mb-1">
                   <p className="text-xs font-bold text-neutral-900">My Account</p>
                   <p className="text-[11px] text-neutral-400 truncate">user@tecnomart.in</p>
@@ -716,7 +730,10 @@ export default function Header() {
           {/* Account button */}
           <button
             onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-            aria-label="Account"
+            aria-label="User Account"
+            aria-haspopup="dialog"
+            aria-expanded={accountDropdownOpen}
+            aria-controls="mobile-account-popover"
             className="p-1 text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
           >
             <User className="w-4.5 h-4.5" />
@@ -735,7 +752,7 @@ export default function Header() {
           <Link
             href="/cart"
             className="p-1 text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
-            aria-label={`Cart, ${cartCount} items`}
+            aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
@@ -749,7 +766,12 @@ export default function Header() {
 
       {/* Mobile Account Popover when clicked on mobile */}
       {accountDropdownOpen && (
-        <div className="lg:hidden bg-white text-neutral-900 border-t border-neutral-200 px-4 py-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
+        <div
+          id="mobile-account-popover"
+          role="dialog"
+          aria-label="User Account Settings"
+          className="lg:hidden bg-white text-neutral-900 border-t border-neutral-200 px-4 py-3 shadow-lg animate-in slide-in-from-top-2 duration-200"
+        >
           <div className="flex items-center justify-between pb-2 border-b border-neutral-100">
             <div>
               <p className="text-xs font-bold text-neutral-900">Signed In Account</p>
@@ -757,7 +779,8 @@ export default function Header() {
             </div>
             <button
               onClick={() => setAccountDropdownOpen(false)}
-              className="text-neutral-400 p-1"
+              aria-label="Close account menu"
+              className="text-neutral-400 hover:text-neutral-900 p-1 cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -927,6 +950,8 @@ export default function Header() {
                             }}
                             className="p-1 rounded-lg hover:bg-neutral-200/60 text-neutral-500 hover:text-neutral-900 transition-all cursor-pointer"
                             aria-label={`Toggle ${dept.title}`}
+                            aria-expanded={isExpanded}
+                            aria-controls={`dept-accordion-${dept.id}`}
                           >
                             <ChevronDown
                               className={`w-4 h-4 transition-transform duration-200 ease-out ${
@@ -940,6 +965,7 @@ export default function Header() {
                         <AnimatePresence initial={false}>
                           {isExpanded && (
                             <motion.div
+                              id={`dept-accordion-${dept.id}`}
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
@@ -1028,7 +1054,11 @@ export default function Header() {
               </p>
 
               <form onSubmit={handlePincodeSubmit} className="space-y-3">
+                <label htmlFor="pincode-input" className="sr-only">
+                  Hyderabad Pincode
+                </label>
                 <input
+                  id="pincode-input"
                   type="text"
                   inputMode="numeric"
                   pattern="[0-9]*"

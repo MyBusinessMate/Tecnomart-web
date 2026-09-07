@@ -37,13 +37,16 @@ export default function WishlistDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="wishlist-drawer-title"
             className="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 flex flex-col shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-100">
               <div className="flex items-center gap-2">
                 <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                <h2 className="text-base font-black text-neutral-950 uppercase tracking-tight">
+                <h2 id="wishlist-drawer-title" className="text-base font-black text-neutral-950 uppercase tracking-tight">
                   Wishlist
                 </h2>
                 {wishlist.length > 0 && (
@@ -123,6 +126,7 @@ export default function WishlistDrawer() {
                               setIsWishlistOpen(false);
                             }}
                             className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-neutral-950 text-[11px] font-black uppercase tracking-wide px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                            aria-label={`Add ${product.name} to cart`}
                           >
                             <ShoppingBag className="w-3 h-3" />
                             Add to Cart
@@ -130,7 +134,7 @@ export default function WishlistDrawer() {
                           <button
                             onClick={() => toggleWishlist(product.id)}
                             className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-400 hover:text-red-600 transition-colors cursor-pointer border border-neutral-200"
-                            aria-label="Remove from wishlist"
+                            aria-label={`Remove ${product.name} from wishlist`}
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>

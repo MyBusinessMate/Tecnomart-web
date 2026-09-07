@@ -66,6 +66,9 @@ export default function LuckyWheelModal({ isOpen, onClose }) {
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="lucky-wheel-title"
           className="relative w-full max-w-md bg-neutral-950 border border-neutral-800 rounded-3xl p-6 text-white shadow-2xl overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
@@ -88,7 +91,7 @@ export default function LuckyWheelModal({ isOpen, onClose }) {
               <Sparkles className="w-3.5 h-3.5" />
               <span>Lucky Spin &amp; Win</span>
             </div>
-            <h2 className="text-2xl font-black tracking-tight text-white">
+            <h2 id="lucky-wheel-title" className="text-2xl font-black tracking-tight text-white">
               Spin to Win Instant Discounts!
             </h2>
             <p className="text-xs text-neutral-400">

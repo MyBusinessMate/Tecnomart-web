@@ -40,7 +40,7 @@ export default function Page() {
         canonical="/"
         schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA]}
       />
-      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
+      <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-[#FFD21C] selection:text-neutral-950">
         
         {/* Top Scroll Progress Indicator */}
         <ScrollProgress />
@@ -49,7 +49,7 @@ export default function Page() {
         <Header
         />
 
-        <main className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
           {/* 2. Hero Section */}
           <HeroSection
           />

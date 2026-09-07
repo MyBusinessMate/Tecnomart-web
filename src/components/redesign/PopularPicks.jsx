@@ -85,7 +85,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
           {/* Left Arrow */}
           <button
             onClick={scrollLeft}
-            aria-label="Scroll left"
+            aria-label="Scroll popular picks left"
             className="hidden sm:flex flex-shrink-0 w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -126,7 +126,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
 
                   <div>
                     {/* Product Image */}
-                    <Link href={href} className="block mt-2">
+                    <Link href={href} aria-label={`View details for ${prod.name}`} className="block mt-2">
                       <div className="w-full aspect-square bg-neutral-50 rounded-xl flex items-center justify-center p-2 mb-2.5 overflow-hidden group-hover:bg-amber-50/40 transition-colors">
                         <Image
                           src={prod.image}
@@ -174,7 +174,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
           {/* Right Arrow */}
           <button
             onClick={scrollRight}
-            aria-label="Scroll right"
+            aria-label="Scroll popular picks right"
             className="hidden sm:flex flex-shrink-0 w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
           >
             <ChevronRight className="w-5 h-5" />
