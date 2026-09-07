@@ -126,7 +126,11 @@ export default function Footer() {
               {/* Col 1: Brand Info */}
               <div className="col-span-4 lg:col-span-3 space-y-4">
                 <Link href="/" className="inline-block">
-                  <TecnoMartLogo textClass="text-neutral-950 font-black text-xl" subtitleClass="text-neutral-500 font-bold text-[8.5px]" />
+                  <TecnoMartLogo
+                    textClass="text-neutral-950 font-black text-xl"
+                    subtitleClass="text-neutral-500 font-bold text-[8.5px]"
+                    highlightClass="text-amber-800"
+                  />
                 </Link>
 
                 <div className="space-y-1.5 pt-1">
@@ -397,6 +401,7 @@ export default function Footer() {
               <TecnoMartLogo
                 textClass="text-neutral-950 font-black text-xl"
                 subtitleClass="text-neutral-500 font-bold text-[8.5px]"
+                highlightClass="text-amber-800"
               />
             </Link>
 
@@ -627,12 +632,12 @@ export default function Footer() {
           <div className="relative pt-16 pb-0 select-none overflow-hidden">
             {/* Handwritten Yellow "Tech Lives Here" script nicely perched above the right side of TECNOMART */}
             <div className="absolute top-2 right-1 rotate-[-7deg] z-10 pointer-events-none">
-              <div className="font-['Caveat',cursive] font-bold text-amber-500 text-[26px] leading-[0.92] drop-shadow-xs text-right tracking-wide">
+              <div className="font-['Caveat',cursive] font-bold text-amber-800 text-[26px] leading-[0.92] drop-shadow-xs text-right tracking-wide">
                 Tech<br />Lives Here
               </div>
               <div className="w-full space-y-0.5 mt-0.5 flex flex-col items-end">
-                <div className="h-[2px] bg-amber-500 rounded-full w-[90%]" />
-                <div className="h-[1.5px] bg-amber-500/80 rounded-full w-[75%]" />
+                <div className="h-[2px] bg-amber-800 rounded-full w-[90%]" />
+                <div className="h-[1.5px] bg-amber-800/80 rounded-full w-[75%]" />
               </div>
             </div>
 

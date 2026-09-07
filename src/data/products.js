@@ -18,8 +18,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Delivered within 3 to 4 hours in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty with sealed tax invoice",
     images: [
-      "/images/mobiles/apple-iphone-16-pro-max-desert-titanium.png",
-      "/images/landing/apple-iphone-16-pro-desert-amber-titanium.png",
+      "/webp/mobiles/apple-iphone-16-pro-max-desert-titanium.webp",
+      "/webp/landing/apple-iphone-16-pro-desert-amber-titanium.webp",
     ],
     colors: [
       { name: "Desert Titanium", hex: "#C7B39B" },
@@ -92,8 +92,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Doorstep Delivery across Hyderabad",
     warrantyPeriod: "1 Year Official Samsung India Warranty + 7 Years OS Updates",
     images: [
-      "/images/mobiles/samsung-galaxy-s24-ultra-titanium.png",
-      "/images/landing/samsung-galaxy-s24-ultra-black-spen.png",
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp",
+      "/webp/landing/samsung-galaxy-s24-ultra-black-spen.webp",
     ],
     colors: [
       { name: "Titanium Gray", hex: "#77767B" },
@@ -158,8 +158,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official OnePlus Warranty",
     images: [
-      "/images/mobiles/oneplus-12-5g-flowy-emerald.png",
-      "/images/mobiles/img-3.png",
+      "/webp/mobiles/oneplus-12-5g-flowy-emerald.webp",
+      "/webp/mobiles/img-3.webp",
     ],
     colors: [
       { name: "Flowy Emerald", hex: "#295A4B" },
@@ -219,8 +219,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Dispatch in Hyderabad",
     warrantyPeriod: "1 Year Official Google India Warranty",
     images: [
-      "/images/mobiles/google-pixel-9-pro-obsidian.png",
-      "/images/mobiles/img-4.png",
+      "/webp/mobiles/google-pixel-9-pro-obsidian.webp",
+      "/webp/mobiles/img-4.webp",
     ],
     colors: [
       { name: "Obsidian", hex: "#222326" },
@@ -271,8 +271,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
-      "/images/mobiles/apple-iphone-15-pink.png",
-      "/images/landing/apple-iphone-15-pro-black-titanium.png",
+      "/webp/mobiles/apple-iphone-15-pink.webp",
+      "/webp/landing/apple-iphone-15-pro-black-titanium.webp",
     ],
     colors: [
       { name: "Black", hex: "#2E3033" },
@@ -318,8 +318,8 @@ export const MOBILES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Samsung India Warranty + 1 Year Screen Protection",
     images: [
-      "/images/mobiles/samsung-galaxy-z-fold-6-navy.png",
-      "/images/mobiles/samsung-galaxy-s24-ultra-titanium.png",
+      "/webp/mobiles/samsung-galaxy-z-fold-6-navy.webp",
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp",
     ],
     colors: [
       { name: "Silver Shadow", hex: "#C2C3C7" },
@@ -367,8 +367,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad with Free Onsite Setup",
     warrantyPeriod: "1 Year Official Apple India Warranty (Extendable via AppleCare+)",
     images: [
-      "/images/laptops/apple-macbook-pro-16-m3-space-black.png",
-      "/images/landing/apple-macbook-pro-16-space-black-glow.png",
+      "/webp/laptops/apple-macbook-pro-16-m3-space-black.webp",
+      "/webp/landing/apple-macbook-pro-16-space-black-glow.webp",
     ],
     colors: [
       { name: "Space Black", hex: "#2E2F33" },
@@ -431,8 +431,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Official ASUS Global Warranty + 1 Year Damage Protection",
     images: [
-      "/images/laptops/asus-rog-zephyrus-g16-angle.png",
-      "/images/laptops/asus-rog-zephyrus-g16-front.png",
+      "/webp/laptops/asus-rog-zephyrus-g16-angle.webp",
+      "/webp/laptops/asus-rog-zephyrus-g16-front.webp",
     ],
     colors: [
       { name: "Eclipse Gray", hex: "#3B3D40" },
@@ -492,8 +492,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Dell Onsite ProSupport",
     images: [
-      "/images/laptops/dell-xps-14-oled-angle.png",
-      "/images/laptops/dell-xps-14-oled-front.png",
+      "/webp/laptops/dell-xps-14-oled-angle.webp",
+      "/webp/laptops/dell-xps-14-oled-front.webp",
     ],
     colors: [
       { name: "Platinum Silver", hex: "#D6D7D9" },
@@ -538,8 +538,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "2 Years Lenovo Legion Ultimate Support",
     images: [
-      "/images/laptops/lenovo-legion-pro-5i-angle.png",
-      "/images/laptops/lenovo-legion-pro-5i-front.png",
+      "/webp/laptops/lenovo-legion-pro-5i-angle.webp",
+      "/webp/laptops/lenovo-legion-pro-5i-front.webp",
     ],
     colors: [{ name: "Onyx Grey", hex: "#3F4145" }],
     configs: [
@@ -581,8 +581,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
-      "/images/laptops/apple-macbook-air-15-m3-angle.png",
-      "/images/laptops/apple-macbook-air-15-m3-front.png",
+      "/webp/laptops/apple-macbook-air-15-m3-angle.webp",
+      "/webp/laptops/apple-macbook-air-15-m3-front.webp",
     ],
     colors: [
       { name: "Midnight", hex: "#2C3440" },
@@ -629,8 +629,8 @@ export const LAPTOPS_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official HP India Warranty",
     images: [
-      "/images/laptops/hp-victus-15-gaming-front.png",
-      "/images/landing/asus-tuf-gaming-laptop-front.png",
+      "/webp/laptops/hp-victus-15-gaming-front.webp",
+      "/webp/landing/asus-tuf-gaming-laptop-front.webp",
     ],
     colors: [{ name: "Mica Silver", hex: "#4B4D52" }],
     configs: [
@@ -683,9 +683,9 @@ export const GAMING_DATA = [
     deliveryTime: "Delivered & Setup by Engineer in Hyderabad within 4 hours",
     warrantyPeriod: "3 Years Full Onsite Hardware Warranty + Lifetime Tech Support",
     images: [
-      "/images/gaming/tecnomart-beast-v1-custom-pc.png",
-      "/images/landing/flagship-rog-strix-gaming-pc-gold-amber.png",
-      "/images/gaming/geforce-rtx-4090-gpu.png",
+      "/webp/gaming/tecnomart-beast-v1-custom-pc.webp",
+      "/webp/landing/flagship-rog-strix-gaming-pc-gold-amber.webp",
+      "/webp/gaming/geforce-rtx-4090-gpu.webp",
     ],
     configs: [
       { name: "64GB DDR5 / 2TB NVMe / 1000W Gold", price: "₹3,89,999", rawPrice: 389999 },
@@ -740,8 +740,8 @@ export const GAMING_DATA = [
     deliveryTime: "Same-Day Delivery & Setup in Hyderabad",
     warrantyPeriod: "3 Years TecnoMart Onsite Warranty",
     images: [
-      "/images/gaming/tecnomart-streamer-pro-corsair-pc.png",
-      "/images/landing/custom-gaming-pc-corsair-black-amber-rgb.png",
+      "/webp/gaming/tecnomart-streamer-pro-corsair-pc.webp",
+      "/webp/landing/custom-gaming-pc-corsair-black-amber-rgb.webp",
     ],
     fpsBenchmarks: [
       { game: "Valorant (1080p)", fps: "450+ FPS" },
@@ -786,8 +786,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "3 Years Official Samsung India Warranty",
     images: [
-      "/images/accessories/samsung-odyssey-oled-g9-49-curved.png",
-      "/images/accessories/img-1.png",
+      "/webp/accessories/samsung-odyssey-oled-g9-49-curved.webp",
+      "/webp/accessories/img-1.webp",
     ],
     keyHighlights: [
       "49-inch 32:9 Dual QHD (5120x1440) 1800R curved OLED panel",
@@ -824,8 +824,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "2 Years Logitech Official Warranty",
     images: [
-      "/images/accessories/logitech-g-pro-x-superlight-2-wireless-mouse.png",
-      "/images/accessories/img-2.png",
+      "/webp/accessories/logitech-g-pro-x-superlight-2-wireless-mouse.webp",
+      "/webp/accessories/img-2.webp",
     ],
     keyHighlights: [
       "Weighs only 60 grams — ideal for quick flick shots in Valorant and CS2",
@@ -862,8 +862,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official Apple India Warranty",
     images: [
-      "/images/accessories/apple-airpods-pro-2-case-open.png",
-      "/images/accessories/apple-airpods-pro-2-buds-usbc.png",
+      "/webp/accessories/apple-airpods-pro-2-case-open.webp",
+      "/webp/accessories/apple-airpods-pro-2-buds-usbc.webp",
     ],
     keyHighlights: [
       "Apple H2 headphone chip brings intelligent noise cancellation and 3D sound",
@@ -900,8 +900,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Official Sony India Warranty",
     images: [
-      "/images/accessories/sony-wh-1000xm5-wireless-anc-headphones.png",
-      "/images/accessories/img-4.png",
+      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp",
+      "/webp/accessories/img-4.webp",
     ],
     keyHighlights: [
       "Two processors control 8 microphones for unprecedented noise cancellation",
@@ -938,8 +938,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "1 Year Official Keychron Warranty",
     images: [
-      "/images/accessories/keychron-q1-pro-mechanical-keyboard.png",
-      "/images/accessories/img-5.png",
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp",
+      "/webp/accessories/img-5.webp",
     ],
     keyHighlights: [
       "Full CNC machined 6063 aluminum body with anodized and sandblasted finish",
@@ -976,8 +976,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "3 Years LG India Onsite Warranty",
     images: [
-      "/images/accessories/lg-ultragear-27-oled-gaming-monitor.png",
-      "/images/accessories/img-6.png",
+      "/webp/accessories/lg-ultragear-27-oled-gaming-monitor.webp",
+      "/webp/accessories/img-6.webp",
     ],
     keyHighlights: [
       "27-inch QHD (2560x1440) OLED panel with anti-glare low reflection coating",
@@ -1014,9 +1014,9 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day Delivery in Hyderabad",
     warrantyPeriod: "1 Year Official boAt Warranty",
     images: [
-      "/images/accessories/boat-wave-ultima-smartwatch-angle.png",
-      "/images/accessories/boat-wave-ultima-smartwatch-front.png",
-      "/images/accessories/boat-wave-ultima-smartwatch-features.png",
+      "/webp/accessories/boat-wave-ultima-smartwatch-angle.webp",
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp",
+      "/webp/accessories/boat-wave-ultima-smartwatch-features.webp",
     ],
     keyHighlights: [
       "Vibrant 1.83-inch HD curve display with 500 nits brightness",
@@ -1053,8 +1053,8 @@ export const ACCESSORIES_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "2 Years Official Anker Warranty",
     images: [
-      "/images/accessories/anker-737-ganprime-powerbank-140w.png",
-      "/images/accessories/img-11.png",
+      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp",
+      "/webp/accessories/img-11.webp",
     ],
     keyHighlights: [
       "Ultra-powerful 140W two-way charging can charge a 16\" MacBook Pro to 50% in 40 minutes",
@@ -1094,8 +1094,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day Doorstep Delivery in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Direct Replacement Warranty + 7 Days Trial",
     images: [
-      "/images/refurbished/refurbished-apple-macbook-pro-14-m1-pro.png",
-      "/images/refurbished/img-1.png",
+      "/webp/refurbished/refurbished-apple-macbook-pro-14-m1-pro.webp",
+      "/webp/refurbished/img-1.webp",
     ],
     keyHighlights: [
       "Grade A+ condition — zero scratches on body or screen, tested 100% functional",
@@ -1138,8 +1138,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Warranty",
     images: [
-      "/images/refurbished/refurbished-apple-iphone-14-pro-deep-purple.png",
-      "/images/refurbished/img-2.png",
+      "/webp/refurbished/refurbished-apple-iphone-14-pro-deep-purple.webp",
+      "/webp/refurbished/img-2.webp",
     ],
     keyHighlights: [
       "100% original display and chassis — zero aftermarket replacements",
@@ -1176,8 +1176,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Warranty",
     images: [
-      "/images/refurbished/refurbished-dell-xps-13-plus.png",
-      "/images/refurbished/img-3.png",
+      "/webp/refurbished/refurbished-dell-xps-13-plus.webp",
+      "/webp/refurbished/img-3.webp",
     ],
     keyHighlights: [
       "Futuristic minimalist design with capacitive touch function row",
@@ -1214,8 +1214,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Onsite Warranty",
     images: [
-      "/images/refurbished/refurbished-lenovo-thinkpad-t14s.png",
-      "/images/refurbished/img-4.png",
+      "/webp/refurbished/refurbished-lenovo-thinkpad-t14s.webp",
+      "/webp/refurbished/img-4.webp",
     ],
     keyHighlights: [
       "Military-grade MIL-STD 810H certified chassis with spill-resistant keyboard",
@@ -1252,8 +1252,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Direct Warranty",
     images: [
-      "/images/refurbished/refurbished-apple-ipad-pro-11-m2.png",
-      "/images/refurbished/img-5.png",
+      "/webp/refurbished/refurbished-apple-ipad-pro-11-m2.webp",
+      "/webp/refurbished/img-5.webp",
     ],
     keyHighlights: [
       "Apple M2 chip delivers desktop-class performance for 4K video editing and 3D illustration",
@@ -1290,8 +1290,8 @@ export const REFURBISHED_DATA = [
     deliveryTime: "Same-Day in Hyderabad",
     warrantyPeriod: "6 Months TecnoMart Warranty",
     images: [
-      "/images/refurbished/refurbished-samsung-galaxy-s23-ultra.png",
-      "/images/refurbished/img-6.png",
+      "/webp/refurbished/refurbished-samsung-galaxy-s23-ultra.webp",
+      "/webp/refurbished/img-6.webp",
     ],
     keyHighlights: [
       "Original 200MP ultra-clear camera sensor with 10x periscope optical zoom",

@@ -177,7 +177,7 @@ export default function CartDrawer() {
                         {/* Item Image */}
                         <div className="w-18 h-18 bg-neutral-50 rounded-2xl border border-neutral-200 p-2 flex items-center justify-center flex-shrink-0">
                           <img
-                            src={item.product.images?.[0] || item.product.images || '/bento-grid-images/mackbook.png'}
+                            src={item.product.images?.[0] || item.product.images || '/webp/bento-grid-images/mackbook.webp'}
                             alt={item.product.name}
                             width={72}
                             height={72}

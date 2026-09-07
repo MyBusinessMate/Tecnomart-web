@@ -54,7 +54,7 @@ export default function PWASetup() {
       <div className="flex items-center gap-3 bg-midgrey-900 text-white rounded-2xl px-4 py-3 shadow-2xl border border-midgrey-700/60">
         <div className="flex-shrink-0">
           <Image
-            src="/icon-maskable-192.png"
+            src="/webp/icon-maskable-192.webp"
             alt="TecnoMart"
             width={40}
             height={40}

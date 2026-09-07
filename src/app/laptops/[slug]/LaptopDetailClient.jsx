@@ -40,7 +40,7 @@ export default function LaptopDetailClient({ slug }) {
   const [isAdded, setIsAdded] = useState(false);
   const [openAccordion, setOpenAccordion] = useState('specs');
 
-  const images = laptop.images?.length ? laptop.images : ['/images/landing/img-20.png'];
+  const images = laptop.images?.length ? laptop.images : ['/webp/landing/img-20.webp'];
   const activePrice = selectedConfig?.price || laptop.price;
 
   const canonicalUrl = `https://tecnomart.in/laptops/${laptop.slug}`;

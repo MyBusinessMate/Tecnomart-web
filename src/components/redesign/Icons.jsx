@@ -1,11 +1,11 @@
 import React from 'react';
 
-// Official Gold TecnoMart Logo using public/logo.png
-export function TecnoMartLogo({ className = "w-10 h-10", textClass = "text-black", subtitleClass = "text-neutral-500" }) {
+// Official Gold TecnoMart Logo using public/webp/logo.webp
+export function TecnoMartLogo({ className = "w-10 h-10", textClass = "text-black", subtitleClass = "text-neutral-500", highlightClass = "text-amber-500" }) {
   return (
     <div className="flex items-center gap-2.5 select-none cursor-pointer group">
       <img
-        src="/logo.png"
+        src="/webp/logo.webp"
         alt="TecnoMart Logo"
         width={40}
         height={40}
@@ -13,7 +13,7 @@ export function TecnoMartLogo({ className = "w-10 h-10", textClass = "text-black
       />
       <div className="flex flex-col">
         <span className={`font-black tracking-wider text-lg leading-tight uppercase ${textClass}`}>
-          TECNO<span className="text-amber-500">MART</span>
+          TECNO<span className={highlightClass}>MART</span>
         </span>
         <span className={`text-[8.5px] font-semibold tracking-widest uppercase ${subtitleClass}`}>
           YOUR TRUSTED TECH PARTNER

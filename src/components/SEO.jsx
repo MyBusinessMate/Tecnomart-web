@@ -7,7 +7,7 @@ export const ORGANIZATION_SCHEMA = {
   '@type': 'Organization',
   name: 'TecnoMart',
   url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/webp/logo.webp`,
   description: 'Authorized retailer and service specialist for smartphones, laptops, custom gaming PCs, and certified repairs in Jubilee Hills, Hyderabad.',
   telephone: '+919010667726',
   email: 'support@tecnomart.in',
@@ -25,7 +25,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ElectronicsStore',
   name: 'TecnoMart — Tech Store & Service Center',
-  image: `${BASE_URL}/logo.png`,
+  image: `${BASE_URL}/webp/logo.webp`,
   '@id': `${BASE_URL}/#store`,
   url: BASE_URL,
   telephone: '+919010667726',
@@ -67,7 +67,7 @@ export function createProductSchema(product, canonicalUrl) {
     ? product.images[0].startsWith('http')
       ? product.images[0]
       : `${BASE_URL}${product.images[0]}`
-    : `${BASE_URL}/logo.png`;
+    : `${BASE_URL}/webp/logo.webp`;
 
   return {
     '@context': 'https://schema.org',
@@ -102,7 +102,7 @@ export default function SEO({
   description,
   canonical,
   ogType = 'website',
-  ogImage = `${BASE_URL}/logo.png`,
+  ogImage = `${BASE_URL}/webp/logo.webp`,
   noindex = false,
   schema,
   breadcrumbs,

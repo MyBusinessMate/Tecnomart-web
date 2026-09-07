@@ -49,6 +49,7 @@ export default function DealOfTheDay() {
             <Clock className="w-5 h-5 text-amber-400 flex-shrink-0 animate-spin-slow" aria-hidden="true" />
             <span className="text-xs font-extrabold text-neutral-300 uppercase tracking-wider">Ends in:</span>
             <div
+              role="timer"
               aria-live="polite"
               aria-atomic="true"
               aria-label={`${String(timeLeft.hours).padStart(2, '0')} hours ${String(timeLeft.minutes).padStart(2, '0')} minutes ${String(timeLeft.seconds).padStart(2, '0')} seconds remaining`}
@@ -83,7 +84,7 @@ export default function DealOfTheDay() {
               </div>
 
               <img
-                src="/images/landing/apple-macbook-pro-16-space-black-glow.png"
+                src="/webp/landing/apple-macbook-pro-16-space-black-glow.webp"
                 alt={dealProduct.name}
                 className="w-full h-full object-contain p-4 group-hover:scale-108 transition-transform duration-500"
                 loading="eager"
@@ -112,7 +113,7 @@ export default function DealOfTheDay() {
               <span className="text-3xl sm:text-5xl font-black text-[#F5B800]">
                 {dealProduct.price}
               </span>
-              <span className="text-base sm:text-xl text-black font-extrabold line-through decoration-black decoration-2">
+              <span className="text-base sm:text-xl text-neutral-400 font-extrabold line-through decoration-neutral-500 decoration-2">
                 {dealProduct.originalPrice}
               </span>
               <span className="text-xs font-black text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 px-3 py-1.5 rounded-xl uppercase tracking-wider">
@@ -127,7 +128,7 @@ export default function DealOfTheDay() {
                   <Zap className="w-4 h-4 fill-current text-[#F5B800]" />
                   84% Claimed (Only 2 units remaining at this price)
                 </span>
-                <span className="text-black font-black uppercase tracking-wider">Limited Stock</span>
+                <span className="text-amber-400 font-black uppercase tracking-wider">Limited Stock</span>
               </div>
               <div className="w-full h-3 bg-midgrey-900 rounded-full overflow-hidden border border-midgrey-700/60">
                 <div className="h-full bg-gradient-to-r from-amber-500 via-amber-400 to-red-500 rounded-full w-[84%]" />

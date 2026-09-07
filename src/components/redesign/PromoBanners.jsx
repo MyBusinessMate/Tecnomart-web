@@ -8,17 +8,17 @@ import { RefurbishedArrowsIcon, CrossedToolsIcon } from './Icons';
 import { BlurRevealBox } from './BlurReveal';
 
 const REPAIR_FALLBACKS = [
-  "/assets/phone-repair-service.png",
-  "/images/landing/smartphone-motherboard-repair-technician.png",
-  "/images/landing/img-4.png",
+  "/webp/assets/phone-repair-service.webp",
+  "/webp/landing/smartphone-motherboard-repair-technician.webp",
+  "/webp/landing/img-4.webp",
   "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80"
 ];
 
 const REFURB_FALLBACKS = [
-  "/assets/refurbished-laptop-deal.png",
-  "/images/refurbished/refurbished-apple-macbook-pro-14-m1-pro.png",
-  "/images/landing/asus-zenbook-ultrabook-charcoal.png",
-  "/bento-grid-images/mackbook.png",
+  "/webp/assets/refurbished-laptop-deal.webp",
+  "/webp/refurbished/refurbished-apple-macbook-pro-14-m1-pro.webp",
+  "/webp/landing/asus-zenbook-ultrabook-charcoal.webp",
+  "/webp/bento-grid-images/mackbook.webp",
   "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
 ];
 

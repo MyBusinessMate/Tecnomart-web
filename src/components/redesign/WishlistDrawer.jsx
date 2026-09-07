@@ -96,7 +96,7 @@ export default function WishlistDrawer() {
                         className="flex-shrink-0 w-16 h-16 bg-neutral-50 rounded-xl overflow-hidden border border-neutral-100 flex items-center justify-center p-1.5"
                       >
                         <Image
-                          src={Array.isArray(product.images) ? product.images[0] : (product.image || '/logo.png')}
+                          src={Array.isArray(product.images) ? product.images[0] : (product.image || '/webp/logo.webp')}
                           alt={product.name}
                           width={64}
                           height={64}

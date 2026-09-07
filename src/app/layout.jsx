@@ -38,11 +38,11 @@ export const metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/webp/icon-192.webp', sizes: '192x192', type: 'image/webp' },
+      { url: '/webp/icon-512.webp', sizes: '512x512', type: 'image/webp' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/webp/apple-touch-icon.webp', sizes: '180x180', type: 'image/webp' },
     ],
   },
   appleWebApp: {

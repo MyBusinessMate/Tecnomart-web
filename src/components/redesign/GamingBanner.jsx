@@ -17,7 +17,7 @@ export default function GamingBanner() {
           <div
             className="absolute inset-0 opacity-40 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/images/landing/img-1.png')`,
+              backgroundImage: `url('/webp/landing/img-1.webp')`,
             }}
           />
 
@@ -47,9 +47,9 @@ export default function GamingBanner() {
             <div className="w-full lg:w-1/2 flex items-center justify-center relative">
               <div className="relative w-full max-w-sm aspect-[16/10] rounded-2xl overflow-hidden border border-midgrey-700/60 shadow-2xl bg-midgrey-800 flex items-center justify-center p-2">
                 <picture>
-                  <source srcSet="/images/gaming-pc.webp" type="image/webp" />
+                  <source srcSet="/webp/gaming-pc.webp" type="image/webp" />
                   <img
-                    src="/images/gaming-pc.png"
+                    src="/webp/gaming-pc.webp"
                     alt="TecnoMart Custom Gaming PC"
                     width={600}
                     height={375}

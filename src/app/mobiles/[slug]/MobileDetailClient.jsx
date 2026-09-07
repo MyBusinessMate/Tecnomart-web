@@ -40,7 +40,7 @@ export default function MobileDetailClient({ slug }) {
   const [isAdded, setIsAdded] = useState(false);
   const [openAccordion, setOpenAccordion] = useState('specs');
 
-  const images = product.images?.length ? product.images : ['/images/landing/img-1.png'];
+  const images = product.images?.length ? product.images : ['/webp/landing/img-1.webp'];
   const activePrice = selectedStorage?.price || product.price;
 
   const canonicalUrl = `https://tecnomart.in/mobiles/${product.slug}`;

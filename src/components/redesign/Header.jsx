@@ -365,7 +365,7 @@ export default function Header() {
           </button>
 
           {/* TecnoMart Logo & Branding */}
-          <Link href="/" className="inline-block" aria-label="TecnoMart Home">
+          <Link href="/" className="inline-block">
             <TecnoMartLogo textClass="text-white font-black" subtitleClass="text-neutral-200 font-semibold" />
           </Link>
         </div>
@@ -736,7 +736,7 @@ export default function Header() {
 
         {/* Center: TecnoMart Branding strictly centered */}
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-auto">
-          <Link href="/" aria-label="TecnoMart Home" className="flex flex-col items-center justify-center">
+          <Link href="/" className="flex flex-col items-center justify-center">
             <TecnoMartLogo className="w-6.5 h-6.5 sm:w-7.5 sm:h-7.5" textClass="text-white font-black text-xs sm:text-sm" subtitleClass="text-neutral-200 font-semibold text-[6.5px] sm:text-[7.5px]" />
           </Link>
         </div>

@@ -22,7 +22,7 @@ export default function AmazonQuadGrid() {
         {
           name: "Galaxy S24 Ultra",
           price: "₹1,29,999",
-          img: "/bento-grid-images/samsungs24.png",
+          img: "/webp/bento-grid-images/samsungs24.webp",
           href: "/mobiles/samsung-galaxy-s24-ultra",
         },
         {
@@ -48,7 +48,7 @@ export default function AmazonQuadGrid() {
         {
           name: "MacBook Pro 16 M3",
           price: "₹3,49,900",
-          img: "/bento-grid-images/mackbook.png",
+          img: "/webp/bento-grid-images/mackbook.webp",
           href: "/laptops/macbook-pro-16-m3-max",
         },
         {
@@ -80,13 +80,13 @@ export default function AmazonQuadGrid() {
         {
           name: "Beast V1 RTX 5090",
           price: "₹3,89,999",
-          img: "/bento-grid-images/pc.png",
+          img: "/webp/bento-grid-images/pc.webp",
           href: "/gaming/beast-v1-ryzen-9-rtx-5090",
         },
         {
           name: "Streamer Pro Rig",
           price: "₹1,89,990",
-          img: "/black-cabinet.png",
+          img: "/webp/black-cabinet.webp",
           href: "/gaming/streamer-pro-i7-rtx4070ti",
         },
         {
@@ -98,7 +98,7 @@ export default function AmazonQuadGrid() {
         {
           name: "RTX 4050 6GB GPU",
           price: "₹32,999",
-          img: "/GPU-4050.png",
+          img: "/webp/GPU-4050.webp",
           href: "/accessories",
         },
       ],
@@ -112,7 +112,7 @@ export default function AmazonQuadGrid() {
         {
           name: "Refurb MacBook 14",
           price: "₹94,999",
-          img: "/bento-grid-images/mackbook.png",
+          img: "/webp/bento-grid-images/mackbook.webp",
           href: "/refurbished/refurbished-macbook-pro-14-m1-pro",
         },
         {

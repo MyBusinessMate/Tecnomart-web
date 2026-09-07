@@ -2,38 +2,38 @@
 
 export const ASSETS = {
   // Brand Logos & Emblems
-  logoGold: "/logo.png",
-  logoFull: "/tecnomart-logo.png",
+  logoGold: "/webp/logo.webp",
+  logoFull: "/webp/tecnomart-logo.webp",
 
   // Hero Pedestal Products (High-res transparent cutouts)
-  heroPc: "/images/landing/flagship-rog-strix-gaming-pc-gold-amber.png",
-  heroLaptop: "/images/landing/apple-macbook-pro-16-amber-gold-glow.png",
-  heroPhone: "/images/landing/apple-iphone-16-pro-desert-amber-titanium.png",
+  heroPc: "/webp/landing/flagship-rog-strix-gaming-pc-gold-amber.webp",
+  heroLaptop: "/webp/landing/apple-macbook-pro-16-amber-gold-glow.webp",
+  heroPhone: "/webp/landing/apple-iphone-16-pro-desert-amber-titanium.webp",
 
   // Category Visuals (Clean high-res PNGs)
-  catMobile: "/images/landing/apple-iphone-16-pro-desert-amber-titanium.png",
-  catLaptop: "/images/landing/apple-macbook-air-silver-open.png",
-  catGamingPc: "/images/landing/gaming-pc-setup-beast-gold.png",
-  catRefurbished: "/images/landing/asus-zenbook-ultrabook-charcoal.png",
-  catRepairs: "/images/landing/smartphone-motherboard-repair-technician.png",
-  catAccessories: "/images/landing/gaming-peripherals-bundle-headset-controller.png",
+  catMobile: "/webp/landing/apple-iphone-16-pro-desert-amber-titanium.webp",
+  catLaptop: "/webp/landing/apple-macbook-air-silver-open.webp",
+  catGamingPc: "/webp/landing/gaming-pc-setup-beast-gold.webp",
+  catRefurbished: "/webp/landing/asus-zenbook-ultrabook-charcoal.webp",
+  catRepairs: "/webp/landing/smartphone-motherboard-repair-technician.webp",
+  catAccessories: "/webp/landing/gaming-peripherals-bundle-headset-controller.webp",
 
   // Gaming Banner Visuals
-  gamingBannerPc: "/images/landing/gaming-pc-setup-beast-gold.png",
-  blackCabinet: "/images/landing/custom-gaming-pc-corsair-black-amber-rgb.png",
-  whiteCabinet: "/images/landing/flagship-rog-strix-gaming-pc-gold-amber.png",
+  gamingBannerPc: "/webp/landing/gaming-pc-setup-beast-gold.webp",
+  blackCabinet: "/webp/landing/custom-gaming-pc-corsair-black-amber-rgb.webp",
+  whiteCabinet: "/webp/landing/flagship-rog-strix-gaming-pc-gold-amber.webp",
 
   // Popular Picks Products
-  productSmartwatch: "/images/accessories/boat-wave-ultima-smartwatch-front.png",
-  productHeadphones: "/images/accessories/sony-wh-1000xm5-wireless-anc-headphones.png",
-  productGpu: "/images/landing/aorus-geforce-rtx-4090-triple-fan-gpu.png",
-  productGamingLaptop: "/images/landing/asus-tuf-gaming-laptop-front.png",
-  productIphone15: "/images/landing/apple-iphone-15-pro-black-titanium.png",
+  productSmartwatch: "/webp/accessories/boat-wave-ultima-smartwatch-front.webp",
+  productHeadphones: "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp",
+  productGpu: "/webp/landing/aorus-geforce-rtx-4090-triple-fan-gpu.webp",
+  productGamingLaptop: "/webp/landing/asus-tuf-gaming-laptop-front.webp",
+  productIphone15: "/webp/landing/apple-iphone-15-pro-black-titanium.webp",
 
   // Highlight Promo Cards
-  refurbishedLaptop: "/images/refurbished/refurbished-apple-macbook-pro-14-m1-pro.png",
-  repairHand: "/images/landing/smartphone-motherboard-repair-technician.png",
-  repairTechnician: "/images/landing/smartphone-motherboard-repair-technician.png",
+  refurbishedLaptop: "/webp/refurbished/refurbished-apple-macbook-pro-14-m1-pro.webp",
+  repairHand: "/webp/landing/smartphone-motherboard-repair-technician.webp",
+  repairTechnician: "/webp/landing/smartphone-motherboard-repair-technician.webp",
 
   // Brand SVG Logos
   svgApple: "/svg/apple.svg",

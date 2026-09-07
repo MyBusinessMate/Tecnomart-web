@@ -108,7 +108,6 @@ export default function BudgetFinder() {
               {/* Yellow WhatsApp Submit Button */}
               <button
                 type="submit"
-                aria-label="Tell us your budget on WhatsApp"
                 className="flex-shrink-0 h-12 bg-[#FFD21C] hover:bg-[#F5B800] active:bg-[#F5B800] text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl px-6 flex items-center justify-center gap-2.5 transition-all cursor-pointer active:scale-98 whitespace-nowrap shadow-lg shadow-yellow-500/20"
               >
                 <div className="w-5 h-5 rounded-full bg-midgrey-950 text-[#FFD21C] flex items-center justify-center flex-shrink-0">

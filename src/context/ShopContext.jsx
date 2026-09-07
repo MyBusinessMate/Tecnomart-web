@@ -74,7 +74,7 @@ export function ShopProvider({ children }) {
       } else {
         const priceToUse = selectedConfig?.rawPrice || product.rawPrice || (typeof product.price === 'number' ? product.price : (parseInt(String(product.price || '0').replace(/[^0-9]/g, ''), 10) || 0));
         const displayPrice = selectedConfig?.price || product.price || `₹${priceToUse.toLocaleString('en-IN')}`;
-        const itemImage = product.images?.[0] || product.image || product.images || '/bento-grid-images/mackbook.png';
+        const itemImage = product.images?.[0] || product.image || product.images || '/webp/bento-grid-images/mackbook.webp';
         const itemName = product.name || 'Product';
 
         return [

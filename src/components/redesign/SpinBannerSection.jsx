@@ -97,7 +97,7 @@ export default function SpinBannerSection() {
             {/* Spinning Visual Machine Teaser Container */}
             <a
               href="/spin"
-              aria-label="Open Spin & Win Machine to claim rewards"
+              aria-label="SPIN - Open Spin & Win Machine to claim rewards"
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center group/wheel cursor-pointer"
               title="Click to Open Spin & Win Machine"
             >
