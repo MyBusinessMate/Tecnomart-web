@@ -74,6 +74,38 @@ export default function Header() {
 
   const pathname = usePathname();
 
+  // Non-sticky navbar: hides while scrolling, reveals 0.5s after scroll stops
+  const [navVisible, setNavVisible] = useState(true);
+  const scrollTimerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show immediately when at the very top of the page
+      if (currentScrollY <= 15) {
+        setNavVisible(true);
+        if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+        return;
+      }
+
+      // Hide while actively scrolling (non-sticky behavior)
+      setNavVisible(false);
+
+      // Re-appear smoothly 0.5s (500ms) after user stops scrolling
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
+        setNavVisible(true);
+      }, 500);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll, { passive: true });
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    };
+  }, []);
+
   useEffect(() => {
     setDrawerOpen(false);
     setSearchOpen(false);
@@ -298,8 +330,14 @@ export default function Header() {
     },
   ];
 
+  const isNavRevealed = navVisible || drawerOpen || searchOpen || accountDropdownOpen || activeNavDropdown !== null;
+
   return (
-    <header className="sticky top-0 z-50 select-none shadow-md font-sans bg-[#727377]">
+    <header
+      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#727377] transition-transform duration-300 ease-in-out ${
+        isNavRevealed ? 'translate-y-0' : '-translate-y-full pointer-events-none'
+      }`}
+    >
       
       {/* =========================================================================
           1. DESKTOP NAVIGATION BAR (>= 1024px)

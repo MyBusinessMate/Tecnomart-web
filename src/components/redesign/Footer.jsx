@@ -58,8 +58,8 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-midgrey-900 text-neutral-300 border-t border-midgrey-700/60">
       
-      {/* Huge Subtle Emblem Watermark on Far-Right Background matching reference image */}
-      <div className="absolute right-0 top-0 bottom-0 w-80 sm:w-96 flex items-center justify-end pr-4 pointer-events-none select-none opacity-15">
+      {/* Subtle Emblem Watermark on Far-Right Background, pulled down to elegantly fill the empty space on mobile */}
+      <div className="absolute right-0 top-[38%] sm:top-[34%] lg:top-1/2 lg:-translate-y-1/2 w-72 sm:w-80 lg:w-96 flex items-center justify-end pr-2 sm:pr-4 pointer-events-none select-none opacity-20 sm:opacity-15">
         <img src="/logo.png" alt="TecnoMart Watermark" className="w-full h-auto object-contain filter drop-shadow-2xl" />
       </div>
 

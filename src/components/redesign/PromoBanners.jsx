@@ -7,9 +7,27 @@ import { ASSETS } from '@/data/redesignAssets';
 import { RefurbishedArrowsIcon, CrossedToolsIcon } from './Icons';
 import { BlurRevealBox } from './BlurReveal';
 
+const REPAIR_FALLBACKS = [
+  "/assets/phone-repair-service.png",
+  "/images/landing/smartphone-motherboard-repair-technician.png",
+  "/images/landing/img-4.png",
+  "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80"
+];
+
+const REFURB_FALLBACKS = [
+  "/assets/refurbished-laptop-deal.png",
+  "/images/refurbished/refurbished-apple-macbook-pro-14-m1-pro.png",
+  "/images/landing/asus-zenbook-ultrabook-charcoal.png",
+  "/bento-grid-images/mackbook.png",
+  "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
+];
+
 export default function PromoBanners({ onOpenRepairModal }) {
+  const [repairImgIdx, setRepairImgIdx] = React.useState(0);
+  const [refurbImgIdx, setRefurbImgIdx] = React.useState(0);
+
   return (
-    <section id="promos" className="py-4 sm:py-6 bg-white">
+    <section id="services-spotlight" className="py-4 sm:py-6 bg-white">
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           
@@ -62,8 +80,13 @@ export default function PromoBanners({ onOpenRepairModal }) {
               {/* Hand Holding Smartphone Cutout Image on Right Side */}
               <div className="absolute right-0 bottom-0 top-0 w-[45%] sm:w-[42%] flex items-end justify-end pointer-events-none pr-1">
                 <img
-                  src="/images/landing/img-4.png"
+                  src={REPAIR_FALLBACKS[repairImgIdx]}
                   alt="Expert Phone Repair"
+                  onError={() => {
+                    if (repairImgIdx < REPAIR_FALLBACKS.length - 1) {
+                      setRepairImgIdx((prev) => prev + 1);
+                    }
+                  }}
                   className="w-full max-h-[210px] sm:max-h-[240px] object-contain object-bottom group-hover:scale-105 transition-transform duration-500 filter drop-shadow-md"
                 />
               </div>
@@ -121,8 +144,13 @@ export default function PromoBanners({ onOpenRepairModal }) {
               {/* Laptop Cutout Image on Right Side */}
               <div className="absolute right-0 bottom-0 top-0 w-[45%] sm:w-[42%] flex items-center justify-end pointer-events-none pr-2">
                 <img
-                  src="/images/landing/img-11.png"
+                  src={REFURB_FALLBACKS[refurbImgIdx]}
                   alt="Refurbished Laptop Deals"
+                  onError={() => {
+                    if (refurbImgIdx < REFURB_FALLBACKS.length - 1) {
+                      setRefurbImgIdx((prev) => prev + 1);
+                    }
+                  }}
                   className="w-full max-h-[180px] sm:max-h-[210px] object-contain group-hover:scale-105 transition-transform duration-500 filter drop-shadow-md"
                 />
               </div>
