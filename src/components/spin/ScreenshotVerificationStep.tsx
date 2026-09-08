@@ -135,56 +135,38 @@ export function ScreenshotVerificationStep({
             exit={{ opacity: 0, y: -15 }}
             className="w-full flex flex-col items-center"
           >
-            <h1 className="text-2xl sm:text-3xl font-space font-bold tracking-tight text-white uppercase leading-tight">
-              REVIEW <span className="text-electric-yellow">POSTED?</span>
+            <h1 className="text-2xl sm:text-3xl font-space font-bold tracking-tight text-neutral-950 uppercase leading-tight">
+              REVIEW <span className="text-[#F5B800]">POSTED?</span>
             </h1>
 
-            <p className="text-xs sm:text-sm font-sans text-text-secondary mt-1 mb-4 max-w-sm">
+            <p className="text-xs sm:text-sm font-sans text-neutral-600 mt-1 mb-4 max-w-sm">
               Upload a screenshot of your posted Google review to claim your official reward pass.
             </p>
 
             {uploadError && (
-              <div className="w-full p-3 rounded-2xl bg-red-950/70 border border-red-500/60 text-red-300 text-xs font-sans mb-3.5 flex items-center gap-2 text-left">
-                <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
+              <div className="w-full p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans mb-3.5 flex items-center gap-2 text-left">
+                <AlertTriangle className="w-4 h-4 text-red-600 shrink-0" />
                 <span>{uploadError}</span>
               </div>
             )}
 
             {/* Upload Card / Preview */}
-            <div className="w-full p-5 sm:p-6 rounded-3xl bg-[#111111] border border-white/10 shadow-glass text-left space-y-4">
-              {isSuperMode && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setStep("VERIFYING");
-                    setTimeout(() => {
-                      const res = verifyScreenshotAndUnlock(sessionId, true);
-                      setStep("VERIFIED");
-                      setTimeout(() => onVerificationSuccess(res.coupon), 800);
-                    }, 400);
-                  }}
-                  className="w-full py-2.5 px-3 rounded-xl bg-electric-yellow/15 border border-electric-yellow/60 text-electric-yellow text-xs font-mono font-bold tracking-wider uppercase hover:bg-electric-yellow/25 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-yellow-glow-sm mb-3"
-                >
-                  <Zap className="w-3.5 h-3.5 fill-electric-yellow" />
-                  <span>⚡ SUPER INSTANT VERIFY (SKIP SCREENSHOT)</span>
-                </button>
-              )}
-
+            <div className="w-full p-5 sm:p-6 rounded-3xl bg-white border border-neutral-200 shadow-[0_10px_35px_rgba(0,0,0,0.06)] text-left space-y-4">
               {!previewUrl ? (
                 // Dropzone & File Selector
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className="w-full p-8 rounded-2xl border-2 border-dashed border-white/20 hover:border-electric-yellow/80 hover:bg-electric-yellow/[0.03] transition-all cursor-pointer flex flex-col items-center justify-center text-center space-y-3 group select-none"
+                  className="w-full p-8 rounded-2xl border-2 border-dashed border-neutral-300 hover:border-[#F5B800] hover:bg-[#F5B800]/5 transition-all cursor-pointer flex flex-col items-center justify-center text-center space-y-3 group select-none"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-white/10 flex items-center justify-center group-hover:scale-105 group-hover:border-electric-yellow/50 transition-all shadow-md">
-                    <UploadCloud className="w-7 h-7 text-electric-yellow" />
+                  <div className="w-14 h-14 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center group-hover:scale-105 group-hover:border-[#F5B800] transition-all shadow-xs">
+                    <UploadCloud className="w-7 h-7 text-neutral-800" />
                   </div>
 
                   <div>
-                    <p className="text-sm font-space font-bold text-white uppercase tracking-wider">
+                    <p className="text-sm font-space font-bold text-neutral-950 uppercase tracking-wider">
                       SELECT SCREENSHOT
                     </p>
-                    <p className="text-xs font-sans text-text-muted mt-1">
+                    <p className="text-xs font-sans text-neutral-500 mt-1">
                       Choose image from gallery (PNG, JPG, WEBP)
                     </p>
                   </div>
@@ -200,13 +182,13 @@ export function ScreenshotVerificationStep({
               ) : (
                 // Selected Screenshot Preview
                 <div className="space-y-4">
-                  <div className="relative rounded-2xl overflow-hidden border border-electric-yellow/50 bg-black/80 shadow-yellow-glow-sm">
+                  <div className="relative rounded-2xl overflow-hidden border border-[#F5B800] bg-neutral-50 shadow-sm">
                     <img
                       src={previewUrl}
                       alt="Uploaded Review Screenshot"
                       className="w-full max-h-72 object-contain mx-auto"
                     />
-                    <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-md bg-black/80 border border-white/20 text-[10px] font-mono text-white backdrop-blur-md">
+                    <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-md bg-neutral-900 border border-neutral-700 text-[10px] font-mono text-white">
                       READY
                     </div>
                   </div>
@@ -216,7 +198,7 @@ export function ScreenshotVerificationStep({
                       onClick={handleSubmitScreenshot}
                       variant="solid"
                       size="md"
-                      className="w-full shadow-yellow-glow font-space font-bold uppercase tracking-wider text-xs"
+                      className="w-full font-space font-bold uppercase tracking-wider text-xs"
                       leftIcon={<FileCheck className="w-4 h-4 text-black" />}
                     >
                       VERIFY
@@ -227,7 +209,7 @@ export function ScreenshotVerificationStep({
                       variant="secondary"
                       size="md"
                       className="w-full text-xs font-space tracking-wider uppercase"
-                      leftIcon={<RotateCcw className="w-4 h-4 text-electric-yellow" />}
+                      leftIcon={<RotateCcw className="w-4 h-4 text-neutral-800" />}
                     >
                       CHANGE
                     </CyberButton>
@@ -240,7 +222,7 @@ export function ScreenshotVerificationStep({
                   onClick={() => fileInputRef.current?.click()}
                   variant="solid"
                   size="lg"
-                  className="w-full shadow-yellow-glow font-space font-bold uppercase tracking-wider text-xs sm:text-sm"
+                  className="w-full font-space font-bold uppercase tracking-wider text-xs sm:text-sm"
                   leftIcon={<ImageIcon className="w-4 h-4 text-black" />}
                 >
                   UPLOAD SCREENSHOT
@@ -259,17 +241,17 @@ export function ScreenshotVerificationStep({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="w-full p-8 rounded-3xl bg-[#111111] border-2 border-electric-yellow text-center shadow-yellow-glow flex flex-col items-center"
+            className="w-full p-8 rounded-3xl bg-white border-2 border-[#F5B800] text-center shadow-[0_10px_40px_rgba(245,184,0,0.2)] flex flex-col items-center"
           >
-            <div className="w-14 h-14 rounded-2xl bg-electric-yellow/20 border border-electric-yellow flex items-center justify-center mb-3.5 shadow-yellow-glow relative">
-              <Loader2 className="w-7 h-7 text-electric-yellow animate-spin" />
+            <div className="w-14 h-14 rounded-2xl bg-[#F5B800]/20 border border-[#F5B800] flex items-center justify-center mb-3.5 shadow-sm relative">
+              <Loader2 className="w-7 h-7 text-neutral-950 animate-spin" />
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-space font-bold text-white uppercase tracking-tight mb-1">
+            <h2 className="text-xl sm:text-2xl font-space font-bold text-neutral-950 uppercase tracking-tight mb-1">
               CONFIRMING REVIEW...
             </h2>
 
-            <p className="text-xs font-sans text-text-secondary">
+            <p className="text-xs font-sans text-neutral-600">
               Verifying review screenshot...
             </p>
           </motion.div>
@@ -283,22 +265,22 @@ export function ScreenshotVerificationStep({
             key="verified-view"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full p-8 rounded-3xl bg-[#111111] border-2 border-electric-yellow text-center shadow-yellow-glow flex flex-col items-center"
+            className="w-full p-8 rounded-3xl bg-white border-2 border-[#F5B800] text-center shadow-[0_10px_40px_rgba(245,184,0,0.2)] flex flex-col items-center"
           >
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mb-3.5 shadow-[0_0_20px_rgba(52,211,153,0.5)]">
-              <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+            <div className="w-14 h-14 rounded-2xl bg-[#F5B800]/25 border-2 border-[#F5B800] flex items-center justify-center mb-3.5 shadow-sm text-neutral-950">
+              <CheckCircle2 className="w-8 h-8 text-neutral-950" />
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-space font-bold text-white uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-space font-bold text-neutral-950 uppercase tracking-tight">
               ✓ REVIEW CONFIRMED
             </h2>
 
-            <p className="text-sm font-sans text-electric-champagne mt-1 mb-4">
+            <p className="text-sm font-sans text-neutral-700 mt-1 mb-4">
               Your digital reward pass is ready.
             </p>
 
-            <div className="flex items-center gap-2 text-xs font-mono tracking-wider text-electric-yellow">
-              <Loader2 className="w-4 h-4 animate-spin" />
+            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-neutral-900">
+              <Loader2 className="w-4 h-4 animate-spin text-[#F5B800]" />
               <span>GENERATING DIGITAL PASS...</span>
             </div>
           </motion.div>
@@ -313,17 +295,17 @@ export function ScreenshotVerificationStep({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            className="w-full p-7 rounded-3xl bg-[#111111] border border-red-500/50 text-center shadow-glass flex flex-col items-center"
+            className="w-full p-7 rounded-3xl bg-white border border-red-300 text-center shadow-lg flex flex-col items-center"
           >
-            <div className="w-14 h-14 rounded-2xl bg-red-950/80 border-2 border-red-500 flex items-center justify-center mb-3.5 shadow-[0_0_20px_rgba(239,68,68,0.4)]">
-              <XCircle className="w-8 h-8 text-red-400" />
+            <div className="w-14 h-14 rounded-2xl bg-red-50 border-2 border-red-400 flex items-center justify-center mb-3.5 shadow-sm">
+              <XCircle className="w-8 h-8 text-red-600" />
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-space font-bold text-white uppercase tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-space font-bold text-neutral-950 uppercase tracking-tight">
               VERIFICATION NEEDED
             </h2>
 
-            <p className="text-xs sm:text-sm font-sans text-text-secondary mt-1 mb-5 max-w-sm">
+            <p className="text-xs sm:text-sm font-sans text-neutral-600 mt-1 mb-5 max-w-sm">
               {failureReason}
             </p>
 
@@ -333,7 +315,7 @@ export function ScreenshotVerificationStep({
                 onClick={handleUploadAgain}
                 variant="solid"
                 size="lg"
-                className="w-full shadow-yellow-glow font-space font-bold uppercase tracking-wider text-xs"
+                className="w-full font-space font-bold uppercase tracking-wider text-xs"
                 leftIcon={<UploadCloud className="w-4 h-4 text-black" />}
               >
                 UPLOAD AGAIN
@@ -344,7 +326,7 @@ export function ScreenshotVerificationStep({
                 variant="secondary"
                 size="md"
                 className="w-full font-space tracking-wider uppercase text-xs"
-                leftIcon={<ExternalLink className="w-4 h-4 text-electric-yellow" />}
+                leftIcon={<ExternalLink className="w-4 h-4 text-neutral-800" />}
               >
                 OPEN GOOGLE
               </CyberButton>

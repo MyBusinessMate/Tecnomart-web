@@ -79,11 +79,11 @@ export function SoundToggle() {
     <button
       type="button"
       onClick={handleToggle}
-      className="p-2 rounded-xl border border-white/10 bg-neutral-900/80 text-neutral-400 hover:text-amber-400 hover:border-amber-400/40 transition-all duration-200 backdrop-blur-md cursor-pointer"
+      className="p-2 rounded-xl border border-neutral-300 bg-neutral-50 hover:bg-neutral-100 text-neutral-700 hover:text-black transition-all duration-200 backdrop-blur-md cursor-pointer shadow-xs"
       title={isMuted ? "Unmute sound" : "Mute sound"}
       aria-label="Toggle Sound"
     >
-      {isMuted ? <VolumeX className="w-4 h-4 text-neutral-500" /> : <Volume2 className="w-4 h-4 text-[#F5B800]" />}
+      {isMuted ? <VolumeX className="w-4 h-4 text-neutral-400" /> : <Volume2 className="w-4 h-4 text-neutral-800" />}
     </button>
   );
 }

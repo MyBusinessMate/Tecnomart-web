@@ -150,16 +150,16 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
 
       {/* Editorial Header (NO pill badges) */}
       <div className="mb-2 sm:mb-4">
-        <h1 className="text-2xl sm:text-3xl font-heading font-black tracking-tight text-white uppercase leading-none">
+        <h1 className="text-2xl sm:text-3xl font-heading font-black tracking-tight text-neutral-950 uppercase leading-none">
           SPIN & <span className="text-[#F5B800]">WIN</span>
         </h1>
-        <p className="text-[11px] sm:text-xs font-sans text-neutral-400 mt-1 max-w-xs mx-auto">
-          Tap the center <span className="text-[#F5B800] font-bold">SPIN</span> button to unlock your guaranteed prize.
+        <p className="text-[11px] sm:text-xs font-sans text-neutral-600 mt-1 max-w-xs mx-auto">
+          Tap the center <span className="text-neutral-950 font-bold">SPIN</span> button to unlock your guaranteed prize.
         </p>
       </div>
 
       {spinError && (
-        <div className="p-2.5 mb-3 rounded-xl bg-red-950/80 border border-red-500/60 text-red-300 text-xs font-sans">
+        <div className="p-2.5 mb-3 rounded-xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans font-medium">
           {spinError}
         </div>
       )}
@@ -179,14 +179,14 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
         {/* LAYER 1: STATIC FIXED GOLD POINTER (12 O'Clock, Never Rotates) */}
         {/* ============================================================ */}
         <div
-          className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-40 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]"
+          className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-40 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
           style={{ width: "36px", height: "44px" }}
         >
           <svg
             viewBox="0 0 38 46"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full drop-shadow-[0_0_16px_rgba(245,184,0,0.9)]"
+            className="w-full h-full drop-shadow-[0_0_12px_rgba(245,184,0,0.8)]"
           >
             {/* Outer Gold Pointer Triangle */}
             <path
@@ -226,26 +226,26 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
           {/* Wheel Base SVG (8 Alternating Segments + Glowing Gold Outer Ring + Light Bulbs) */}
           <svg
             viewBox="0 0 600 600"
-            className="w-full h-full drop-shadow-[0_0_35px_rgba(245,184,0,0.3)]"
+            className="w-full h-full drop-shadow-[0_10px_35px_rgba(0,0,0,0.12)]"
           >
             <defs>
               {/* Gold Segment Gradient */}
               <radialGradient id="goldSegGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFE066" />
+                <stop offset="0%" stopColor="#FFF099" />
                 <stop offset="60%" stopColor="#F5B800" />
                 <stop offset="100%" stopColor="#D49B00" />
               </radialGradient>
 
-              {/* Obsidian Black Segment Gradient */}
-              <radialGradient id="blackSegGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#1A1A1A" />
-                <stop offset="70%" stopColor="#0B0B0B" />
-                <stop offset="100%" stopColor="#000000" />
+              {/* Crisp Clean White Segment Gradient */}
+              <radialGradient id="whiteSegGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="70%" stopColor="#F8F8F8" />
+                <stop offset="100%" stopColor="#EDEDED" />
               </radialGradient>
 
               {/* Outer Golden Bezel Gradient */}
               <radialGradient id="outerBezelGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="90%" stopColor="#1A1A1A" />
+                <stop offset="90%" stopColor="#FAFAFA" />
                 <stop offset="93%" stopColor="#F5B800" />
                 <stop offset="97%" stopColor="#FFE9A6" />
                 <stop offset="100%" stopColor="#A6730F" />
@@ -254,7 +254,7 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
 
             {/* Outer Gold Ring Background */}
             <circle cx="300" cy="300" r="294" fill="url(#outerBezelGrad)" stroke="#F5B800" strokeWidth="2.5" />
-            <circle cx="300" cy="300" r="280" fill="#000" />
+            <circle cx="300" cy="300" r="280" fill="#FFFFFF" />
 
             {/* 8 Segments */}
             {prizes.map((p, i) => {
@@ -272,7 +272,7 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
                   {/* Segment Pie Slice */}
                   <path
                     d={`M 300 300 L ${startX} ${startY} A 276 276 0 0 1 ${endX} ${endY} Z`}
-                    fill={isGold ? "url(#goldSegGrad)" : "url(#blackSegGrad)"}
+                    fill={isGold ? "url(#goldSegGrad)" : "url(#whiteSegGrad)"}
                   />
 
                   {/* Golden Dividing Ray */}
@@ -283,7 +283,7 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
                     y2={startY}
                     stroke="#F5B800"
                     strokeWidth="2.2"
-                    opacity="0.85"
+                    opacity="0.9"
                   />
                 </g>
               );
@@ -307,7 +307,7 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
                   cy={by}
                   r={isAccent ? 3.5 : 2.5}
                   fill={isAccent ? "#FFFFFF" : "#F5B800"}
-                  filter="drop-shadow(0 0 4px #F5B800)"
+                  filter="drop-shadow(0 0 3px rgba(245,184,0,0.8))"
                 />
               );
             })}
@@ -325,9 +325,6 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
             const xPercent = 50 + CONTENT_RADIUS_PERCENT * Math.sin(toRad(currentAngle));
             const yPercent = 50 - CONTENT_RADIUS_PERCENT * Math.cos(toRad(currentAngle));
 
-            const isGoldSegment = i % 2 === 0;
-            const textColor = isGoldSegment ? "text-neutral-950" : "text-[#F5B800]";
-
             return (
               <div
                 key={p.id}
@@ -342,19 +339,19 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
               >
                 {/* Prize Title Text */}
                 <span
-                  className={`text-[9px] sm:text-[10px] font-heading font-black tracking-wider uppercase leading-none mb-1 drop-shadow-sm line-clamp-1 ${textColor}`}
+                  className="text-[9px] sm:text-[10px] font-heading font-black tracking-wider uppercase leading-none mb-1 text-neutral-950 line-clamp-1 drop-shadow-xs"
                 >
                   {p.name}
                 </span>
 
                 {/* Product / Coupon Artwork Image (Always upright, never upside down) */}
-                <div className="w-full h-full max-h-[75%] max-w-[90%] flex items-center justify-center p-1 rounded-xl bg-black/40 border border-white/10 shadow-sm backdrop-blur-[2px]">
+                <div className="w-full h-full max-h-[75%] max-w-[90%] flex items-center justify-center p-1 rounded-xl bg-white/95 border border-neutral-200/80 shadow-xs backdrop-blur-[2px]">
                   <img
                     src={p.image}
                     alt={p.name}
                     width={64}
                     height={64}
-                    className="w-full h-full object-contain drop-shadow-md select-none"
+                    className="w-full h-full object-contain select-none"
                     loading="eager"
                   />
                 </div>
@@ -375,18 +372,18 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[24%] h-[24%] rounded-full flex flex-col items-center justify-center transition-all duration-200 outline-none select-none group cursor-pointer ${
             isSpinning || (!isSuperMode && hasSpun)
               ? "cursor-not-allowed opacity-95 scale-95"
-              : "hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(245,184,0,0.7)]"
+              : "hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(245,184,0,0.6)]"
           }`}
           style={{
             background: "radial-gradient(circle at 35% 35%, #FFE9A6 0%, #F5B800 55%, #B88118 100%)",
             border: "3px solid #050505",
-            boxShadow: "0 0 25px rgba(245,184,0,0.75), inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -3px 6px rgba(0,0,0,0.5)",
+            boxShadow: "0 0 20px rgba(245,184,0,0.6), inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -3px 6px rgba(0,0,0,0.4)",
           }}
         >
           {/* Deep Obsidian Inner Hub with Gold Text */}
           <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-b from-[#1E1E1E] via-[#0A0A0A] to-[#000000] border-2 border-[#F5B800]/90 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
             {/* Glossy Top Sheen */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.08] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.12] to-transparent pointer-events-none" />
 
             {isSpinning ? (
               <Loader2 className="w-7 h-7 text-[#F5B800] animate-spin" />
@@ -423,15 +420,17 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
       </div>
 
       {spinError && (
-        <div className="mt-3 px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-2 text-red-400 text-xs font-mono max-w-sm animate-pulse">
+        <div className="mt-3 px-4 py-2 rounded-xl bg-red-50 border border-red-300 flex items-center gap-2 text-red-700 text-xs font-mono max-w-sm">
           <ShieldAlert className="w-4 h-4 shrink-0" />
           <span>{spinError}</span>
         </div>
       )}
 
-      {/* Footer Subtext (NO pill badges) */}
-      <p className="text-[10px] font-mono tracking-[0.2em] text-neutral-400 uppercase mt-3 sm:mt-4">
-        OFFICIAL PRIZE WHEEL • 100% WIN GUARANTEED
+      {/* Footer Subtext (Bigger, consistent good font) */}
+      <p className="text-xs sm:text-sm font-space font-extrabold tracking-[0.14em] text-neutral-800 uppercase mt-4 sm:mt-5 text-center flex items-center justify-center gap-2">
+        <span>OFFICIAL PRIZE WHEEL</span>
+        <span className="text-[#F5B800]">•</span>
+        <span>100% WIN GUARANTEED</span>
       </p>
     </div>
   );

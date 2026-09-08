@@ -29,7 +29,7 @@ function getNextDates() {
 }
 
 export default function RepairModal() {
-  const { isRepairOpen: isOpen, setIsRepairOpen } = useShop();
+  const { isRepairOpen: isOpen, setIsRepairOpen, confirmWhatsApp } = useShop();
   const onClose = () => setIsRepairOpen(false);
   const [deviceType, setDeviceType] = useState('Smartphone / iPhone');
   const [issue, setIssue] = useState('Screen Replacement');
@@ -37,7 +37,7 @@ export default function RepairModal() {
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
   const [selectedDate, setSelectedDate] = useState(0);
-  const [selectedSlot, setSelectedSlot] = useState('');
+  const [selectedSlot, setSelectedSlot] = useState(TIME_SLOTS[0]);
 
   const dateOptions = getNextDates();
 
@@ -47,9 +47,14 @@ export default function RepairModal() {
     e.preventDefault();
     const dateLabel = dateOptions[selectedDate]?.label || 'Today';
     const message = encodeURIComponent(
-      `Hello TecnoMart Service Center! 🛠️\nI would like to book a repair:\n- Name: ${customerName}\n- Phone: ${phone}\n- Device: ${deviceType} (${modelName || 'Not specified'})\n- Issue: ${issue}\n- Preferred Date: ${selectedDate === 0 ? 'Today' : selectedDate === 1 ? 'Tomorrow' : dateLabel}\n- Preferred Time: ${selectedSlot || 'Flexible'}\n\nPlease confirm my repair slot & estimate.`
+      `Hello TecnoMart Service Center! 🛠️\nI would like to book a repair:\n- Name: ${customerName}\n- Phone: +91${phone}\n- Device: ${deviceType} (${modelName || 'Not specified'})\n- Issue: ${issue}\n- Preferred Date: ${selectedDate === 0 ? 'Today' : selectedDate === 1 ? 'Tomorrow' : dateLabel}\n- Preferred Time: ${selectedSlot || 'Flexible'}\n\nPlease confirm my repair slot & estimate.`
     );
-    window.open(`https://wa.me/919010667726?text=${message}`, '_blank');
+    const url = `https://wa.me/919010667726?text=${message}`;
+    if (confirmWhatsApp) {
+      confirmWhatsApp(url);
+    } else {
+      window.open(url, '_blank');
+    }
     onClose();
   };
 
@@ -166,28 +171,25 @@ export default function RepairModal() {
             </div>
           </div>
 
-          {/* Preferred Time Slot */}
+          {/* Preferred Time Slot Dropdown */}
           <div>
-            <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
-              Preferred Time Slot
+            <label htmlFor="repair-time-slot" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+              Choose Your Time Slot
             </label>
-            <div role="group" aria-label="Preferred Time Slot" className="grid grid-cols-3 gap-1.5">
+            <select
+              id="repair-time-slot"
+              required
+              value={selectedSlot}
+              onChange={(e) => setSelectedSlot(e.target.value)}
+              className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
+            >
+              <option value="" disabled>Choose your time slot...</option>
               {TIME_SLOTS.map((slot) => (
-                <button
-                  key={slot}
-                  type="button"
-                  onClick={() => setSelectedSlot(slot)}
-                  aria-pressed={selectedSlot === slot}
-                  className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer border ${
-                    selectedSlot === slot
-                      ? 'bg-midgrey-900 text-amber-400 border-midgrey-900'
-                      : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
-                  }`}
-                >
+                <option key={slot} value={slot}>
                   {slot}
-                </button>
+                </option>
               ))}
-            </div>
+            </select>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -209,15 +211,24 @@ export default function RepairModal() {
               <label htmlFor="repair-phone" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
                 Phone Number
               </label>
-              <input
-                id="repair-phone"
-                type="tel"
-                required
-                placeholder="9876543210"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full h-11 px-3.5 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
-              />
+              <div className="relative flex items-center">
+                <span className="absolute left-3 text-xs sm:text-sm font-bold text-neutral-500 select-none pointer-events-none">
+                  +91
+                </span>
+                <input
+                  id="repair-phone"
+                  type="tel"
+                  required
+                  maxLength={10}
+                  placeholder="9876543210"
+                  value={phone}
+                  onChange={(e) => {
+                    const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                    setPhone(digits);
+                  }}
+                  className="w-full h-11 pl-11 pr-3.5 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
+                />
+              </div>
             </div>
           </div>
 

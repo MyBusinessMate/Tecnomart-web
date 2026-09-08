@@ -9,53 +9,92 @@ import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
-import { ChevronRight, RefreshCw, CheckCircle2, Zap, ArrowRight, Sparkles, ThumbsUp, AlertTriangle, Wrench, Award } from 'lucide-react';
+import { useShop } from '@/context/ShopContext';
+import { WhatsAppIcon } from '@/components/redesign/Icons';
+import {
+  ChevronRight,
+  RefreshCw,
+  CheckCircle2,
+  Zap,
+  ArrowRight,
+  Sparkles,
+  ThumbsUp,
+  AlertTriangle,
+  Wrench,
+  Award,
+  Smartphone,
+  Laptop
+} from 'lucide-react';
 
-const TRADE_IN_DATA = {
-  Apple: {
-    "iPhone 15 Pro Max": { "256GB": 72000, "512GB": 78000, "1TB": 85000 },
-    "iPhone 15 Pro": { "128GB": 58000, "256GB": 63000, "512GB": 70000 },
-    "iPhone 15": { "128GB": 42000, "256GB": 48000 },
-    "iPhone 14 Pro Max": { "128GB": 48000, "256GB": 55000, "512GB": 60000 },
-    "iPhone 14 Pro": { "128GB": 38000, "256GB": 44000 },
-    "iPhone 14": { "128GB": 28000, "256GB": 34000 },
-    "iPhone 13": { "128GB": 22000, "256GB": 27000 },
-    "iPhone 12": { "64GB": 14000, "128GB": 17000 },
-    "MacBook Air M2": { "8GB/256GB": 55000, "8GB/512GB": 65000, "16GB/512GB": 72000 },
-    "MacBook Air M1": { "8GB/256GB": 42000, "8GB/512GB": 50000 },
-    'MacBook Pro 14" M2': { "16GB/512GB": 82000, "16GB/1TB": 92000 },
+const CATEGORIZED_TRADE_IN_DATA = {
+  mobile: {
+    label: "Smartphone / Mobile",
+    icon: Smartphone,
+    brands: {
+      Apple: {
+        "iPhone 15 Pro Max": { "256GB": 72000, "512GB": 78000, "1TB": 85000 },
+        "iPhone 15 Pro": { "128GB": 58000, "256GB": 63000, "512GB": 70000 },
+        "iPhone 15": { "128GB": 42000, "256GB": 48000 },
+        "iPhone 14 Pro Max": { "128GB": 48000, "256GB": 55000, "512GB": 60000 },
+        "iPhone 14 Pro": { "128GB": 38000, "256GB": 44000 },
+        "iPhone 14": { "128GB": 28000, "256GB": 34000 },
+        "iPhone 13": { "128GB": 22000, "256GB": 27000 },
+        "iPhone 12": { "64GB": 14000, "128GB": 17000 },
+      },
+      Samsung: {
+        "Galaxy S24 Ultra": { "256GB": 68000, "512GB": 75000 },
+        "Galaxy S24+": { "256GB": 48000, "512GB": 55000 },
+        "Galaxy S24": { "128GB": 35000, "256GB": 40000 },
+        "Galaxy S23 Ultra": { "256GB": 48000, "512GB": 55000 },
+        "Galaxy S23": { "128GB": 25000, "256GB": 30000 },
+        "Galaxy Z Fold 5": { "256GB": 80000, "512GB": 90000 },
+        "Galaxy Z Flip 5": { "256GB": 45000, "512GB": 52000 },
+        "Galaxy S22 Ultra": { "128GB": 30000, "256GB": 36000 },
+      },
+      OnePlus: {
+        "OnePlus 12": { "256GB": 32000, "512GB": 38000 },
+        "OnePlus 11": { "128GB": 22000, "256GB": 28000 },
+        "OnePlus 12R": { "128GB": 20000, "256GB": 25000 },
+        "OnePlus Nord 3": { "128GB": 15000, "256GB": 18000 },
+      },
+      Google: {
+        "Pixel 8 Pro": { "128GB": 38000, "256GB": 45000 },
+        "Pixel 8": { "128GB": 28000, "256GB": 34000 },
+        "Pixel 7 Pro": { "128GB": 28000, "256GB": 34000 },
+        "Pixel 7a": { "128GB": 18000 },
+      },
+    },
   },
-  Samsung: {
-    "Galaxy S24 Ultra": { "256GB": 68000, "512GB": 75000 },
-    "Galaxy S24+": { "256GB": 48000, "512GB": 55000 },
-    "Galaxy S24": { "128GB": 35000, "256GB": 40000 },
-    "Galaxy S23 Ultra": { "256GB": 48000, "512GB": 55000 },
-    "Galaxy S23": { "128GB": 25000, "256GB": 30000 },
-    "Galaxy Z Fold 5": { "256GB": 80000, "512GB": 90000 },
-    "Galaxy Z Flip 5": { "256GB": 45000, "512GB": 52000 },
-    "Galaxy S22 Ultra": { "128GB": 30000, "256GB": 36000 },
-  },
-  OnePlus: {
-    "OnePlus 12": { "256GB": 32000, "512GB": 38000 },
-    "OnePlus 11": { "128GB": 22000, "256GB": 28000 },
-    "OnePlus 12R": { "128GB": 20000, "256GB": 25000 },
-    "OnePlus Nord 3": { "128GB": 15000, "256GB": 18000 },
-  },
-  Google: {
-    "Pixel 8 Pro": { "128GB": 38000, "256GB": 45000 },
-    "Pixel 8": { "128GB": 28000, "256GB": 34000 },
-    "Pixel 7 Pro": { "128GB": 28000, "256GB": 34000 },
-    "Pixel 7a": { "128GB": 18000 },
-  },
-  Dell: {
-    "XPS 15 (2023, i7)": { "16GB/512GB": 75000, "32GB/1TB": 90000 },
-    "XPS 13 (2023)": { "16GB/512GB": 55000 },
-    "Inspiron 15 (i7 13th Gen)": { "16GB/512GB": 38000 },
-  },
-  Lenovo: {
-    "ThinkPad X1 Carbon": { "16GB/512GB": 65000, "32GB/1TB": 78000 },
-    "Legion 5 Pro (RTX 4060)": { "16GB/512GB": 68000 },
-    "IdeaPad Slim 5 (i7)": { "16GB/512GB": 35000 },
+  laptop: {
+    label: "Laptop / MacBook",
+    icon: Laptop,
+    brands: {
+      Apple: {
+        "MacBook Air M2": { "8GB/256GB": 55000, "8GB/512GB": 65000, "16GB/512GB": 72000 },
+        "MacBook Air M1": { "8GB/256GB": 42000, "8GB/512GB": 50000 },
+        'MacBook Pro 14" M2': { "16GB/512GB": 82000, "16GB/1TB": 92000 },
+      },
+      Dell: {
+        "XPS 15 (2023, i7)": { "16GB/512GB": 75000, "32GB/1TB": 90000 },
+        "XPS 13 (2023)": { "16GB/512GB": 55000 },
+        "Inspiron 15 (i7 13th Gen)": { "16GB/512GB": 38000 },
+      },
+      Lenovo: {
+        "ThinkPad X1 Carbon": { "16GB/512GB": 65000, "32GB/1TB": 78000 },
+        "Legion 5 Pro (RTX 4060)": { "16GB/512GB": 68000 },
+        "IdeaPad Slim 5 (i7)": { "16GB/512GB": 35000 },
+      },
+      HP: {
+        "Spectre x360 14 (i7)": { "16GB/512GB": 58000, "16GB/1TB": 68000 },
+        "Pavilion 15 (i5 13th Gen)": { "16GB/512GB": 32000 },
+        "Victus 15 (RTX 3050)": { "16GB/512GB": 36000 },
+      },
+      ASUS: {
+        "ROG Zephyrus G14 (RTX 4060)": { "16GB/512GB": 70000, "16GB/1TB": 80000 },
+        "TUF Gaming A15": { "16GB/512GB": 42000 },
+        "ZenBook 14 OLED": { "16GB/512GB": 48000 },
+      },
+    },
   },
 };
 
@@ -78,16 +117,31 @@ function formatINR(amount) {
 }
 
 export default function ExchangePage() {
+  const { confirmWhatsApp } = useShop();
+
   const [step, setStep] = useState(1);
+  const [category, setCategory] = useState('mobile'); // 'mobile' or 'laptop'
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
   const [storage, setStorage] = useState('');
   const [condition, setCondition] = useState(null);
   const [result, setResult] = useState(null);
 
-  const brands = Object.keys(TRADE_IN_DATA);
-  const models = brand ? Object.keys(TRADE_IN_DATA[brand]) : [];
-  const storages = brand && model ? Object.keys(TRADE_IN_DATA[brand][model]) : [];
+  const activeCategoryData = CATEGORIZED_TRADE_IN_DATA[category] || CATEGORIZED_TRADE_IN_DATA.mobile;
+  const brands = Object.keys(activeCategoryData.brands);
+  const models = brand && activeCategoryData.brands[brand] ? Object.keys(activeCategoryData.brands[brand]) : [];
+  const storages = brand && model && activeCategoryData.brands[brand]?.[model] ? Object.keys(activeCategoryData.brands[brand][model]) : [];
+
+  const handleCategorySelect = (catKey) => {
+    if (catKey !== category) {
+      setCategory(catKey);
+      setBrand('');
+      setModel('');
+      setStorage('');
+      setCondition(null);
+      setResult(null);
+    }
+  };
 
   const handleBrandSelect = (b) => {
     setBrand(b);
@@ -96,12 +150,14 @@ export default function ExchangePage() {
   };
 
   const handleNext1 = () => {
-    if (brand && model) setStep(2);
+    if (category && brand && model) setStep(2);
   };
 
   const handleCalculate = () => {
     if (!storage || !condition) return;
-    const baseValue = TRADE_IN_DATA[brand][model][storage];
+    const baseValue = activeCategoryData.brands[brand]?.[model]?.[storage];
+    if (!baseValue) return;
+
     const selectedCondition = CONDITIONS.find((c) => c.key === condition);
     const estimate = baseValue * selectedCondition.multiplier;
     const low = Math.round((estimate * 0.95) / 500) * 500;
@@ -111,6 +167,7 @@ export default function ExchangePage() {
   };
 
   const handleStartOver = () => {
+    setCategory('mobile');
     setBrand('');
     setModel('');
     setStorage('');
@@ -121,10 +178,16 @@ export default function ExchangePage() {
 
   const handleWhatsApp = () => {
     if (!result) return;
+    const catTitle = activeCategoryData.label;
     const msg = encodeURIComponent(
-      `Hi TecnoMart! I want to get an exact trade-in quote.\n- Device: ${brand} ${model}\n- Storage: ${storage}\n- Condition: ${result.condition.label}\n- My estimate: ${formatINR(result.low)} – ${formatINR(result.high)}\nPlease confirm the actual value.`
+      `Hi TecnoMart! I want to get an exact trade-in quote.\n- Category: ${catTitle}\n- Device: ${brand} ${model}\n- Storage: ${storage}\n- Condition: ${result.condition.label}\n- Estimated Valuation: ${formatINR(result.low)} – ${formatINR(result.high)}\nPlease confirm the actual value.`
     );
-    window.open(`https://wa.me/919010667726?text=${msg}`, '_blank');
+    const url = `https://wa.me/919010667726?text=${msg}`;
+    if (confirmWhatsApp) {
+      confirmWhatsApp(url);
+    } else {
+      window.open(url, '_blank');
+    }
   };
 
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -171,7 +234,7 @@ export default function ExchangePage() {
           </BlurRevealBox>
         </section>
 
-        {/* Calculator */}
+        {/* Valuation Calculator */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto pb-10">
           <BlurRevealBox delay={0.1}>
             <div className="bg-white rounded-2xl border border-neutral-200 shadow-sm p-6 sm:p-8">
@@ -191,26 +254,68 @@ export default function ExchangePage() {
                   </div>
                 ))}
                 <div className="ml-2 text-xs text-neutral-500 font-medium">
-                  {step === 1 && 'Choose your device'}
+                  {step === 1 && 'Choose device & brand'}
                   {step === 2 && 'Storage & condition'}
-                  {step === 3 && 'Your estimate'}
+                  {step === 3 && 'Instant valuation'}
                 </div>
               </div>
 
-              {/* Step 1 */}
+              {/* Step 1: Category, Brand & Model */}
               {step === 1 && (
                 <div className="space-y-6">
+                  {/* Category Selector */}
                   <div>
-                    <p className="text-sm font-bold text-neutral-700 uppercase tracking-wider mb-3">Select Brand</p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <p className="text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2.5">
+                      1. What do you want to exchange?
+                    </p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => handleCategorySelect('mobile')}
+                        className={`p-3.5 rounded-xl border-2 flex items-center justify-center gap-2.5 font-bold text-sm transition-all cursor-pointer ${
+                          category === 'mobile'
+                            ? 'bg-amber-500/10 text-amber-900 border-amber-500 shadow-xs'
+                            : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
+                        }`}
+                      >
+                        <Smartphone className="w-5 h-5 text-amber-600" />
+                        <span>Smartphone / Mobile</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleCategorySelect('laptop')}
+                        className={`p-3.5 rounded-xl border-2 flex items-center justify-center gap-2.5 font-bold text-sm transition-all cursor-pointer ${
+                          category === 'laptop'
+                            ? 'bg-amber-500/10 text-amber-900 border-amber-500 shadow-xs'
+                            : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
+                        }`}
+                      >
+                        <Laptop className="w-5 h-5 text-amber-600" />
+                        <span>Laptop / MacBook</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Brand Selector (Buttons + Dropdown for Maximum Ergonomics) */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-xs font-bold text-neutral-700 uppercase tracking-wider">
+                        2. Select Brand
+                      </p>
+                      <span className="text-[11px] text-neutral-400 font-medium">Or choose from dropdown below</span>
+                    </div>
+
+                    {/* Brand Quick-Tap Buttons */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-3">
                       {brands.map((b) => (
                         <button
                           key={b}
                           type="button"
                           onClick={() => handleBrandSelect(b)}
-                          className={`p-3 rounded-xl border text-sm font-bold transition-all cursor-pointer ${
+                          className={`p-2.5 rounded-xl border text-xs sm:text-sm font-bold transition-all cursor-pointer text-center ${
                             brand === b
-                              ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60'
+                              ? 'bg-midgrey-900 text-amber-400 border-midgrey-700/60 shadow-xs'
                               : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-400'
                           }`}
                         >
@@ -218,19 +323,34 @@ export default function ExchangePage() {
                         </button>
                       ))}
                     </div>
+
+                    {/* Brand Dropdown */}
+                    <select
+                      aria-label="Select Brand Dropdown"
+                      value={brand}
+                      onChange={(e) => handleBrandSelect(e.target.value)}
+                      className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
+                    >
+                      <option value="">Choose brand from dropdown...</option>
+                      {brands.map((b) => (
+                        <option key={b} value={b}>{b}</option>
+                      ))}
+                    </select>
                   </div>
 
+                  {/* Model Dropdown Selector */}
                   {brand && (
                     <div>
-                      <label className="text-sm font-bold text-neutral-700 uppercase tracking-wider mb-2 block">
-                        Select Model
+                      <label htmlFor="exchange-model-select" className="text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2 block">
+                        3. Select {brand} Model
                       </label>
                       <select
+                        id="exchange-model-select"
                         value={model}
                         onChange={(e) => { setModel(e.target.value); setStorage(''); }}
-                        className="w-full h-11 px-3 text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium"
+                        className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
                       >
-                        <option value="">Choose model...</option>
+                        <option value="">Choose {brand} model...</option>
                         {models.map((m) => (
                           <option key={m} value={m}>{m}</option>
                         ))}
@@ -240,16 +360,17 @@ export default function ExchangePage() {
 
                   <button
                     type="button"
-                    disabled={!brand || !model}
+                    disabled={!category || !brand || !model}
                     onClick={handleNext1}
-                    className="w-full h-12 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed text-neutral-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full h-12 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed text-neutral-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-98"
                   >
-                    Next <ArrowRight className="w-4 h-4" />
+                    <span>Continue to Storage &amp; Condition</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               )}
 
-              {/* Step 2 */}
+              {/* Step 2: Storage & Condition */}
               {step === 2 && (
                 <div className="space-y-6">
                   <button
@@ -257,23 +378,26 @@ export default function ExchangePage() {
                     onClick={() => setStep(1)}
                     className="text-xs text-neutral-500 hover:text-neutral-800 font-semibold flex items-center gap-1 cursor-pointer"
                   >
-                    ← Back
+                    ← Back to Device Selection
                   </button>
-                  <div className="text-center">
-                    <p className="text-sm text-neutral-500">Selected device:</p>
-                    <p className="text-lg font-black text-neutral-950">{brand} {model}</p>
+
+                  <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 text-center">
+                    <p className="text-xs text-neutral-500 uppercase tracking-wider font-semibold">Selected Device</p>
+                    <p className="text-base sm:text-lg font-black text-neutral-950">{brand} {model}</p>
+                    <p className="text-[11px] text-amber-600 font-bold uppercase">{activeCategoryData.label}</p>
                   </div>
 
                   <div>
-                    <label className="text-sm font-bold text-neutral-700 uppercase tracking-wider mb-2 block">
-                      Storage / Config
+                    <label htmlFor="exchange-storage-select" className="text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2 block">
+                      Storage / Spec Variant
                     </label>
                     <select
+                      id="exchange-storage-select"
                       value={storage}
                       onChange={(e) => setStorage(e.target.value)}
-                      className="w-full h-11 px-3 text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium"
+                      className="w-full h-11 px-3 text-base sm:text-sm bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium shadow-xs"
                     >
-                      <option value="">Choose storage...</option>
+                      <option value="">Choose storage/spec variant...</option>
                       {storages.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -281,7 +405,7 @@ export default function ExchangePage() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-bold text-neutral-700 uppercase tracking-wider mb-3">Device Condition</p>
+                    <p className="text-xs font-bold text-neutral-700 uppercase tracking-wider mb-3">Device Condition</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {CONDITIONS.map((c) => (
                         <button
@@ -308,46 +432,55 @@ export default function ExchangePage() {
                     type="button"
                     disabled={!storage || !condition}
                     onClick={handleCalculate}
-                    className="w-full h-12 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed text-neutral-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full h-12 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed text-neutral-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-98"
                   >
                     <Zap className="w-4 h-4" />
-                    Calculate Value
+                    <span>Calculate Value</span>
                   </button>
                 </div>
               )}
 
-              {/* Step 3 — Result */}
+              {/* Step 3: Valuation Result & WhatsApp Action */}
               {step === 3 && result && (
                 <div className="space-y-6">
-                  <div className="text-center">
-                    <p className="text-sm text-neutral-500 mb-1">Your {brand} {model} is estimated at</p>
-                    <p className="text-4xl sm:text-5xl font-black text-amber-500 leading-tight">
-                      {formatINR(result.low)} – {formatINR(result.high)}
+                  <div className="text-center px-2">
+                    <p className="text-xs sm:text-sm text-neutral-500 mb-1">
+                      Your {brand} {model} ({storage}) is estimated at
                     </p>
-                    <div className={`inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full text-xs font-bold border ${result.condition.color}`}>
-                      <result.condition.icon className="w-3.5 h-3.5" /> {result.condition.label} Condition
+
+                    {/* Single-line mobile-friendly price quote (will NOT wrap to second line) */}
+                    <div className="py-2">
+                      <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-amber-500 leading-tight whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">
+                        {formatINR(result.low)} – {formatINR(result.high)}
+                      </p>
+                    </div>
+
+                    <div className={`inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-bold border ${result.condition.color}`}>
+                      <result.condition.icon className="w-3.5 h-3.5" />
+                      <span>{result.condition.label} Condition</span>
                     </div>
                   </div>
 
+                  {/* Non-overflowing WhatsApp CTA Button */}
                   <button
                     type="button"
                     onClick={handleWhatsApp}
-                    className="w-full h-12 bg-emerald-500 hover:bg-emerald-600 active:scale-98 text-white font-black text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full min-h-[48px] py-3 px-3 sm:px-4 bg-[#25D366] hover:bg-[#20bd5a] active:scale-98 text-black font-black text-xs sm:text-sm uppercase tracking-wide rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer text-center"
                   >
-                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-                    Get Exact Quote on WhatsApp
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 fill-black flex-shrink-0" />
+                    <span className="truncate">Get Exact Quote on WhatsApp</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleStartOver}
-                    className="w-full h-11 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-sm rounded-xl transition-all cursor-pointer"
+                    className="w-full h-11 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-sm rounded-xl transition-all cursor-pointer active:scale-98"
                   >
-                    Start Over
+                    Start Over / Check Another Device
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-relaxed">
-                    Actual value confirmed after in-store inspection. Price valid for 7 days.
+                    Actual trade-in value confirmed after in-store inspection in Jubilee Hills, Hyderabad. Price estimate valid for 7 days.
                   </p>
                 </div>
               )}
@@ -355,7 +488,7 @@ export default function ExchangePage() {
           </BlurRevealBox>
         </section>
 
-        {/* Why Trade-in at TecnoMart - Seamless Surface */}
+        {/* Why Trade-in at TecnoMart */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pb-16">
           <BlurRevealBox delay={0.15}>
             <div className="py-4">
@@ -364,7 +497,7 @@ export default function ExchangePage() {
               </h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {WHY_BENEFITS.map((b) => (
-                  <div key={b.title} className="flex flex-col items-center text-center gap-2.5 p-4 rounded-xl">
+                  <div key={b.title} className="flex flex-col items-center text-center gap-2.5 p-4 rounded-xl bg-white border border-neutral-200/80 shadow-xs">
                     <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center">
                       <b.icon className="w-5 h-5" />
                     </div>

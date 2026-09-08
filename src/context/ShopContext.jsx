@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 import { ALL_PRODUCTS } from '@/data/products';
 import { ArrowRight, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import WhatsAppConfirmModal from '@/components/redesign/WhatsAppConfirmModal';
 
 const ShopContext = createContext(null);
 
@@ -17,6 +18,44 @@ export function ShopProvider({ children }) {
   const [locationPincode, setLocationPincode] = useState('500033');
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
+
+  // WhatsApp Confirmation Modal state to prevent accidental redirects
+  const [whatsAppModalUrl, setWhatsAppModalUrl] = useState(null);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
+
+  const confirmWhatsApp = (url) => {
+    setWhatsAppModalUrl(url);
+    setIsWhatsAppModalOpen(true);
+  };
+
+  const handleConfirmWhatsApp = () => {
+    if (whatsAppModalUrl) {
+      window.open(whatsAppModalUrl, '_blank', 'noopener,noreferrer');
+    }
+    setIsWhatsAppModalOpen(false);
+    setWhatsAppModalUrl(null);
+  };
+
+  const handleCancelWhatsApp = () => {
+    setIsWhatsAppModalOpen(false);
+    setWhatsAppModalUrl(null);
+  };
+
+  // Intercept direct clicks on WhatsApp links site-wide (especially on mobile)
+  useEffect(() => {
+    const handleGlobalClick = (e) => {
+      const target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
+      const link = target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+      if (link && link.href) {
+        e.preventDefault();
+        e.stopPropagation();
+        confirmWhatsApp(link.href);
+      }
+    };
+    document.addEventListener('click', handleGlobalClick, true);
+    return () => document.removeEventListener('click', handleGlobalClick, true);
+  }, []);
 
   // Load cart and wishlist from localStorage on mount
   useEffect(() => {
@@ -232,6 +271,7 @@ export function ShopProvider({ children }) {
         applyCoupon,
         removeCoupon,
         showToast,
+        confirmWhatsApp,
       }}
     >
       {children}
@@ -319,6 +359,13 @@ export function ShopProvider({ children }) {
           <span>{toastMessage}</span>
         </div>
       )}
+
+      {/* WhatsApp Confirmation Modal to prevent accidental redirects */}
+      <WhatsAppConfirmModal
+        isOpen={isWhatsAppModalOpen}
+        onConfirm={handleConfirmWhatsApp}
+        onCancel={handleCancelWhatsApp}
+      />
     </ShopContext.Provider>
   );
 }

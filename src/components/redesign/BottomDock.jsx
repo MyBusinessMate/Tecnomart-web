@@ -55,13 +55,18 @@ function ExchangeArrowsIcon({ className = "w-5 h-5" }) {
 }
 
 export default function BottomDock({ onOpenSpin }) {
-  const { setIsRepairOpen } = useShop();
+  const { setIsRepairOpen, confirmWhatsApp } = useShop();
   const [activeTab, setActiveTab] = useState('repair'); // Default active on repair as shown in user reference
 
   const handleWhatsApp = () => {
     setActiveTab('contact');
     const text = encodeURIComponent("Hi TecnoMart! 👋 I would like to enquire about products, repairs, or offers.");
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    const url = `https://wa.me/919010667726?text=${text}`;
+    if (confirmWhatsApp) {
+      confirmWhatsApp(url);
+    } else {
+      window.open(url, '_blank');
+    }
   };
 
   const handleRepair = () => {

@@ -68,9 +68,9 @@ export function FeedbackStep({
 
     const phoneValidation = validateIndianPhone(phone);
     if (!phone.trim()) {
-      newErrors.phone = "Phone number is required.";
+      newErrors.phone = "Mobile number is required.";
     } else if (!phoneValidation.isValid) {
-      newErrors.phone = "Enter a valid 10-digit mobile number (+91).";
+      newErrors.phone = phoneValidation.error || "Enter a valid 10-digit mobile number (+91).";
     }
 
     if (!feedback.trim()) {
@@ -134,21 +134,21 @@ export function FeedbackStep({
             </div>
 
             {/* Main Heading (NO pill badges) */}
-            <h1 className="text-2xl sm:text-3xl font-heading font-black tracking-tight text-white uppercase leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-heading font-black tracking-tight text-neutral-950 uppercase leading-tight">
               SHARE YOUR <span className="text-[#F5B800]">EXPERIENCE</span>
             </h1>
 
-            <p className="text-xs font-sans text-neutral-400 mt-1.5 mb-4 max-w-xs leading-relaxed">
+            <p className="text-xs font-sans text-neutral-600 mt-1.5 mb-4 max-w-xs leading-relaxed">
               Enter your details below to copy your review and claim your digital reward pass.
             </p>
 
             {/* Form Card */}
             <form
               onSubmit={handleCopyReviewAndOpenGoogle}
-              className="w-full p-4 sm:p-6 rounded-3xl bg-neutral-900/80 border border-white/10 space-y-4 sm:space-y-5 shadow-2xl text-left relative backdrop-blur-xl"
+              className="w-full p-4 sm:p-6 rounded-3xl bg-white border border-neutral-200 space-y-4 sm:space-y-5 shadow-[0_10px_35px_rgba(0,0,0,0.06)] text-left relative"
             >
               {serverError && (
-                <div className="p-3 rounded-2xl bg-red-950/60 border border-red-500/50 text-red-300 text-xs font-sans leading-relaxed">
+                <div className="p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans leading-relaxed">
                   {serverError}
                 </div>
               )}
@@ -168,18 +168,22 @@ export function FeedbackStep({
                 disabled={isLoading}
               />
 
-              {/* Phone Number */}
+              {/* Phone Number with fixed +91 prefix and 10 digits restriction */}
               <GlassInput
                 label="MOBILE NUMBER *"
-                placeholder="10-digit number"
+                placeholder="9876543210"
                 type="tel"
+                inputMode="numeric"
+                maxLength={10}
+                prefixText="+91"
                 value={phone}
                 onChange={(e) => {
-                  setPhone(e.target.value);
+                  const cleanedDigits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                  setPhone(cleanedDigits);
                   if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
                 }}
                 error={errors.phone}
-                helperText="Official voucher code is bound to this contact."
+                helperText="Official voucher code is bound to this 10-digit contact."
                 leftIcon={<Phone className="w-4 h-4" />}
                 autoComplete="tel"
                 disabled={isLoading}
@@ -190,17 +194,17 @@ export function FeedbackStep({
                 <div className="flex items-center justify-between pl-0.5">
                   <label
                     htmlFor="review-textarea"
-                    className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-white/80 uppercase flex items-center gap-1.5"
+                    className="text-[11px] sm:text-xs font-mono font-bold tracking-wider text-neutral-800 uppercase flex items-center gap-1.5"
                   >
                     <span>YOUR EXPERIENCE REVIEW *</span>
                   </label>
                   <span
                     className={`text-[10px] font-mono ${
                       isMinMet && !isMaxExceeded
-                        ? "text-[#F5B800] font-semibold"
+                        ? "text-neutral-900 font-bold"
                         : isMaxExceeded
-                        ? "text-red-400 font-bold"
-                        : "text-neutral-500"
+                        ? "text-red-500 font-bold"
+                        : "text-neutral-400"
                     }`}
                   >
                     {charCount}/30 min ({charCount}/500)
@@ -208,10 +212,10 @@ export function FeedbackStep({
                 </div>
 
                 <div
-                  className={`relative w-full rounded-2xl bg-black/60 border transition-all duration-200 backdrop-blur-md p-3 sm:p-3.5 ${
+                  className={`relative w-full rounded-2xl bg-neutral-50 border transition-all duration-200 p-3 sm:p-3.5 shadow-xs ${
                     errors.feedback
-                      ? "border-red-500/80 shadow-[0_0_15px_rgba(239,68,68,0.2)] bg-red-950/10"
-                      : "border-white/15 focus-within:border-[#F5B800] focus-within:shadow-[0_0_15px_rgba(245,184,0,0.3)] hover:border-white/25"
+                      ? "border-red-500 shadow-[0_0_12px_rgba(239,68,68,0.2)] bg-red-50/40"
+                      : "border-neutral-300 focus-within:border-[#F5B800] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#F5B800]/20 hover:border-neutral-400"
                   }`}
                 >
                   <textarea
@@ -224,16 +228,16 @@ export function FeedbackStep({
                     }}
                     placeholder="Describe your tech experience, purchased product, or service at TecnoMart..."
                     disabled={isLoading}
-                    className="w-full bg-transparent text-white text-sm font-sans tracking-wide outline-none placeholder:text-neutral-500 resize-none"
+                    className="w-full bg-transparent text-neutral-900 text-sm font-sans tracking-wide outline-none placeholder:text-neutral-400 resize-none"
                   />
-                  <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] text-neutral-400 font-sans">
+                  <div className="flex items-center justify-between pt-2 border-t border-neutral-200 text-[10px] text-neutral-500 font-sans">
                     <span className="flex items-center gap-1">
                       <MessageSquare className="w-3 h-3 text-[#F5B800]" />
                       <span>Copied to clipboard on click</span>
                     </span>
                     {isMinMet && !isMaxExceeded && (
-                      <span className="text-[#F5B800] flex items-center gap-1 font-bold">
-                        <Check className="w-3 h-3 stroke-[3]" />
+                      <span className="text-neutral-900 flex items-center gap-1 font-bold">
+                        <Check className="w-3 h-3 stroke-[3] text-emerald-600" />
                         <span>Ready</span>
                       </span>
                     )}
@@ -241,7 +245,7 @@ export function FeedbackStep({
                 </div>
 
                 {errors.feedback && (
-                  <p className="text-[11px] sm:text-xs text-red-400 font-sans tracking-wide pl-1">
+                  <p className="text-[11px] sm:text-xs text-red-600 font-sans tracking-wide pl-1 font-medium">
                     {errors.feedback}
                   </p>
                 )}
@@ -275,24 +279,24 @@ export function FeedbackStep({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="w-full p-6 sm:p-8 rounded-3xl bg-neutral-900/90 border border-[#F5B800]/50 shadow-[0_0_30px_rgba(245,184,0,0.25)] text-center space-y-4 backdrop-blur-xl"
+            className="w-full p-6 sm:p-8 rounded-3xl bg-white border-2 border-[#F5B800] shadow-[0_10px_40px_rgba(245,184,0,0.25)] text-center space-y-4"
           >
-            <div className="w-14 h-14 rounded-2xl bg-[#F5B800]/15 border border-[#F5B800]/40 flex items-center justify-center mx-auto text-[#F5B800]">
+            <div className="w-14 h-14 rounded-2xl bg-[#F5B800]/20 border border-[#F5B800] flex items-center justify-center mx-auto text-neutral-950">
               <Check className="w-7 h-7 stroke-[3]" />
             </div>
 
             <div className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-heading font-black uppercase text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-heading font-black uppercase text-neutral-950 tracking-tight">
                 REVIEW COPIED!
               </h2>
-              <p className="text-xs font-sans text-neutral-300 max-w-xs mx-auto leading-relaxed">
-                Opening Google Reviews in a new tab... Simply <span className="text-[#F5B800] font-bold">Paste</span> and post!
+              <p className="text-xs font-sans text-neutral-600 max-w-xs mx-auto leading-relaxed">
+                Opening Google Reviews in a new tab... Simply <span className="text-neutral-950 font-bold underline">Paste</span> and post!
               </p>
             </div>
 
             <div className="py-2">
               <Loader2 className="w-6 h-6 text-[#F5B800] animate-spin mx-auto" />
-              <p className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-2">
+              <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-2 font-medium">
                 REDIRECTING TO SCREENSHOT VERIFICATION
               </p>
             </div>

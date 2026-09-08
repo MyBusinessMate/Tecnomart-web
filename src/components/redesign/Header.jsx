@@ -25,7 +25,10 @@ import {
   ShieldCheck,
   Calculator,
   Layers,
-  PhoneCall
+  PhoneCall,
+  BadgePercent,
+  CircleHelp,
+  FileText
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -53,7 +56,7 @@ export default function Header() {
   const [activeNavDropdown, setActiveNavDropdown] = useState(null); // 'laptops' | 'mobiles' | 'accessories' | 'support' | null
   const [signInAlert, setSignInAlert] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState({
-    laptops: true,
+    laptops: false,
     mobiles: false,
     gaming: false,
     accessories: false,
@@ -863,143 +866,242 @@ export default function Header() {
               role="dialog"
               aria-modal="true"
               aria-label="All Categories & Services"
-              className="w-full max-w-sm sm:max-w-md bg-white text-neutral-900 h-full shadow-2xl flex flex-col justify-between overflow-y-auto overscroll-contain"
+              className="w-full max-w-[380px] sm:max-w-[400px] bg-white text-neutral-900 h-full shadow-2xl flex flex-col justify-between overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               <div data-lenis-prevent="true" className="overflow-y-auto flex-1 overscroll-contain">
                 
-                {/* Drawer Header */}
-                <div className="bg-[#0a0a0a] text-white p-4 flex items-center justify-between sticky top-0 z-20 shadow-xs">
+                {/* Drawer Header (Solid Black, Clean Branding + Close X) */}
+                <div className="bg-black text-white px-5 py-4 flex items-center justify-between sticky top-0 z-30 shadow-xs">
                   <div className="flex items-center gap-2">
-                    <TecnoMartLogo textClass="text-white font-black text-sm" subtitleClass="text-neutral-200 font-semibold text-[7px]" />
+                    <TecnoMartLogo
+                      className="w-7 h-7 sm:w-8 sm:h-8"
+                      textClass="text-white font-black text-sm sm:text-base tracking-wider"
+                      subtitleClass="text-neutral-400 font-bold text-[8px] sm:text-[8.5px] tracking-[0.16em]"
+                      highlightClass="text-amber-400"
+                    />
                   </div>
                   <button
+                    type="button"
                     onClick={() => {
                       setDrawerOpen(false);
                       hamburgerBtnRef.current?.focus();
                     }}
                     aria-label="Close menu"
-                    className="p-1.5 text-neutral-200 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+                    className="p-1.5 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
                   >
                     <X className="w-5 h-5 stroke-[2.5]" />
                   </button>
                 </div>
 
                 {/* Delivery Location Strip */}
-                <div className="p-4 bg-neutral-50/80 border-b border-neutral-100 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                    <div>
-                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">
-                        Deliver To
-                      </span>
-                      <span className="text-xs font-bold text-neutral-900 block">
-                        Hyderabad {locationPincode}
-                      </span>
-                    </div>
-                  </div>
-                  <button
+                <div className="px-5 py-3.5 bg-white border-b border-neutral-100 flex items-center justify-between">
+                  <div
                     onClick={() => {
                       setDrawerOpen(false);
                       setPincodeModalOpen(true);
                     }}
-                    className="text-xs font-bold text-amber-600 hover:underline cursor-pointer"
+                    className="flex items-center gap-3 cursor-pointer group"
                   >
-                    Change
-                  </button>
+                    <MapPin className="w-5 h-5 text-amber-500 fill-amber-500/15 flex-shrink-0" />
+                    <div>
+                      <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">
+                        DELIVER TO
+                      </span>
+                      <span className="text-xs sm:text-sm font-black text-neutral-900 flex items-center gap-1 group-hover:text-amber-600 transition-colors">
+                        Hyderabad {locationPincode}
+                        <ChevronDown className="w-3.5 h-3.5 text-neutral-600 group-hover:text-amber-600" />
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center">
+                    <div className="h-6 w-px bg-neutral-200 mx-3" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDrawerOpen(false);
+                        setPincodeModalOpen(true);
+                      }}
+                      className="text-xs sm:text-sm font-bold text-amber-500 hover:text-amber-600 cursor-pointer"
+                    >
+                      Change
+                    </button>
+                  </div>
                 </div>
 
-                {/* Department Categories Accordion */}
-                <div className="p-4 space-y-2.5">
-                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest block mb-2">
-                    Shop Departments &amp; Services
-                  </span>
+                {/* Section 1: SHOP DEPARTMENTS & SERVICES (Clean Flat List Rows - No Cards!) */}
+                <div className="px-5 pt-4 pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider whitespace-nowrap">
+                      SHOP DEPARTMENTS &amp; SERVICES
+                    </span>
+                    <div className="h-px bg-neutral-200 flex-1" />
+                  </div>
 
-                  {drawerDepartments.map((dept) => {
-                    const isExpanded = !!expandedCategories[dept.id];
-                    const DeptIcon = dept.icon;
+                  <div className="space-y-0.5">
+                    {drawerDepartments.map((dept) => {
+                      const isExpanded = !!expandedCategories[dept.id];
+                      const DeptIcon = dept.icon;
 
-                    return (
-                      <div
-                        key={dept.id}
-                        className="rounded-2xl border border-neutral-200/80 overflow-hidden bg-white shadow-2xs"
-                      >
-                        {/* Accordion Header */}
-                        <div className="flex items-center justify-between p-3.5 hover:bg-neutral-50 transition-colors">
-                          <Link
-                            href={dept.href}
-                            onClick={() => setDrawerOpen(false)}
-                            className="flex items-center gap-2.5 font-bold text-xs uppercase tracking-wide text-neutral-900 hover:text-amber-600 transition-colors flex-1"
-                          >
-                            <DeptIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                            <span>{dept.title}</span>
-                          </Link>
-
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              toggleCategoryDropdown(dept.id);
-                            }}
-                            className="p-1 rounded-lg hover:bg-neutral-200/60 text-neutral-500 hover:text-neutral-900 transition-all cursor-pointer"
-                            aria-label={`Toggle ${dept.title}`}
-                            aria-expanded={isExpanded}
-                            aria-controls={`dept-accordion-${dept.id}`}
-                          >
-                            <ChevronDown
-                              className={`w-4 h-4 transition-transform duration-200 ease-out ${
-                                isExpanded ? 'rotate-180 text-amber-500' : 'rotate-0'
-                              }`}
-                            />
-                          </button>
-                        </div>
-
-                        {/* Accordion Sub-items */}
-                        <AnimatePresence initial={false}>
-                          {isExpanded && (
-                            <motion.div
-                              id={`dept-accordion-${dept.id}`}
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2, ease: 'easeOut' }}
-                              className="overflow-hidden bg-neutral-50/70 border-t border-neutral-100"
+                      return (
+                        <div key={dept.id} className="border-b border-transparent">
+                          <div className="flex items-center justify-between py-3 hover:bg-neutral-50 px-1 rounded-lg transition-colors group">
+                            <Link
+                              href={dept.href}
+                              onClick={() => setDrawerOpen(false)}
+                              className="flex items-center gap-3.5 flex-1 min-w-0"
                             >
-                              <div className="p-2.5 space-y-1 pl-4">
+                              <DeptIcon className="w-5 h-5 text-amber-500 stroke-[2] flex-shrink-0 group-hover:scale-110 transition-transform" />
+                              <span className="text-xs sm:text-sm font-black text-neutral-900 uppercase tracking-wide truncate group-hover:text-amber-600 transition-colors">
+                                {dept.title}
+                              </span>
+                            </Link>
+
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCategoryDropdown(dept.id);
+                              }}
+                              aria-label={`Toggle ${dept.title} subcategories`}
+                              aria-expanded={isExpanded}
+                              className="p-1 text-neutral-400 hover:text-neutral-900 cursor-pointer transition-transform"
+                            >
+                              <ChevronRight
+                                className={`w-4 h-4 transition-transform duration-200 ${
+                                  isExpanded ? 'rotate-90 text-amber-500' : 'text-neutral-400'
+                                }`}
+                              />
+                            </button>
+                          </div>
+
+                          {/* Clean indented sub-items if expanded */}
+                          <AnimatePresence initial={false}>
+                            {isExpanded && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2, ease: 'easeOut' }}
+                                className="overflow-hidden pl-9 pr-2 pb-2 space-y-1"
+                              >
                                 {dept.items.map((subItem) => (
                                   <Link
                                     key={subItem.name}
                                     href={subItem.href}
                                     onClick={() => setDrawerOpen(false)}
-                                    className="flex items-center justify-between text-xs font-semibold text-neutral-700 hover:text-amber-600 hover:translate-x-1 py-1.5 px-2 rounded-lg hover:bg-white transition-all"
+                                    className="flex items-center justify-between py-1.5 px-2 text-xs font-semibold text-neutral-600 hover:text-amber-600 hover:bg-neutral-50 rounded-md transition-colors"
                                   >
                                     <span>{subItem.name}</span>
-                                    <ChevronRight className="w-3 h-3 text-neutral-400" />
+                                    <ChevronRight className="w-3 h-3 text-neutral-300" />
                                   </Link>
                                 ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    );
-                  })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Section Divider */}
+                <div className="w-full px-5 py-1">
+                  <div className="w-full h-px bg-neutral-200" />
+                </div>
+
+                {/* Section 2: Secondary Navigation Items */}
+                <div className="px-5 py-2 space-y-0.5">
+                  {/* Offers & Deals */}
+                  <Link
+                    href="/deals"
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex items-center justify-between py-2.5 px-1 hover:bg-neutral-50 rounded-lg transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <BadgePercent className="w-4.5 h-4.5 text-neutral-600 group-hover:text-amber-600 transition-colors flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors">
+                        Offers &amp; Deals
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-700 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+
+                  {/* Help & Support */}
+                  <Link
+                    href="/contact"
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex items-center justify-between py-2.5 px-1 hover:bg-neutral-50 rounded-lg transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <CircleHelp className="w-4.5 h-4.5 text-neutral-600 group-hover:text-amber-600 transition-colors flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors">
+                        Help &amp; Support
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-700 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+
+                  {/* Track Order */}
+                  <Link
+                    href="/cart"
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex items-center justify-between py-2.5 px-1 hover:bg-neutral-50 rounded-lg transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <FileText className="w-4.5 h-4.5 text-neutral-600 group-hover:text-amber-600 transition-colors flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors">
+                        Track Order
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-700 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+
+                  {/* My Account */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDrawerOpen(false);
+                      setAccountDropdownOpen(true);
+                    }}
+                    className="w-full flex items-center justify-between py-2.5 px-1 hover:bg-neutral-50 rounded-lg transition-colors group cursor-pointer text-left"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <User className="w-4.5 h-4.5 text-neutral-600 group-hover:text-amber-600 transition-colors flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors">
+                        My Account
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-700 transition-transform group-hover:translate-x-0.5" />
+                  </button>
                 </div>
 
               </div>
 
-              {/* Drawer Bottom Actions */}
-              <div className="p-4 bg-neutral-50 border-t border-neutral-200 space-y-2 sticky bottom-0 z-20">
+              {/* Drawer Bottom Actions: Yellow Book a Repair Appointment Button with Watermark */}
+              <div className="p-4 sm:p-5 bg-white relative overflow-hidden border-t border-neutral-100 flex-shrink-0">
+                {/* Subtle brand watermark graphic in bottom-right corner matching screenshot */}
+                <div className="absolute right-0 bottom-0 pointer-events-none opacity-[0.06] translate-x-3 translate-y-3">
+                  <svg width="130" height="130" viewBox="0 0 100 100" fill="currentColor" className="text-amber-500">
+                    <path d="M15 15 H85 V38 H58 V85 H42 V38 H15 Z" />
+                  </svg>
+                </div>
+
                 <button
+                  type="button"
                   onClick={() => {
                     setDrawerOpen(false);
                     repairTriggerHandler();
                   }}
-                  className="btn-wipe-yellow w-full py-3 text-neutral-950 font-black text-xs uppercase rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full h-12 sm:h-13 bg-[#FDB813] hover:bg-[#F5A800] active:bg-[#F5A800] text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl shadow-md shadow-amber-400/20 flex items-center justify-between px-4 sm:px-5 transition-all cursor-pointer relative z-10 active:scale-98"
                 >
-                  <Wrench className="w-4 h-4 relative z-10" />
-                  <span className="relative z-10">Book a Repair Appointment</span>
+                  <div className="flex items-center gap-3">
+                    <Wrench className="w-4.5 h-4.5 text-neutral-950 stroke-[2.2] flex-shrink-0" />
+                    <div className="h-5 w-px bg-neutral-950/20" />
+                    <span className="font-black tracking-wide truncate">BOOK A REPAIR APPOINTMENT</span>
+                  </div>
+                  <ArrowRight className="w-4.5 h-4.5 text-neutral-950 stroke-[2.5] flex-shrink-0" />
                 </button>
               </div>
 

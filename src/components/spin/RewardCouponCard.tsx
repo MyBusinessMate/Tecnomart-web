@@ -143,10 +143,7 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-6"
         >
-          <p className="text-[10px] font-mono font-semibold tracking-[0.25em] text-emerald-400 uppercase mb-2">
-            OFFICIAL REWARD UNLOCKED
-          </p>
-          <h1 className="text-2xl sm:text-4xl font-space font-extrabold text-white tracking-tight uppercase">
+          <h1 className="text-2xl sm:text-4xl font-space font-black text-neutral-950 tracking-tight uppercase">
             DIGITAL CREDENTIAL
           </h1>
         </motion.div>
@@ -164,63 +161,62 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           initial={{ opacity: 0, scale: 0.95, y: 25 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="printable-voucher w-full max-w-xl rounded-[32px] bg-gradient-to-b from-[#161616] via-[#0E0E0E] to-[#060606] border border-white/[0.14] shadow-2xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-2xl transition-shadow duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(255,210,28,0.12)]"
+          className="printable-voucher w-full max-w-xl rounded-[32px] bg-white border-2 border-[#F5B800] shadow-[0_15px_45px_rgba(245,184,0,0.18)] p-6 sm:p-8 relative overflow-hidden transition-shadow duration-300"
         >
-          {/* Subtle Satin Sheen & Diagonal Gold Light Sweep */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-electric-yellow/[0.03] to-transparent pointer-events-none" />
+          {/* Subtle Diagonal Gold Light Sweep */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#F5B800]/[0.03] to-transparent pointer-events-none" />
 
-          {/* Pass Top Bar */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] relative z-10">
+          {/* Pass Top Bar (NO green lines, NO ACTIVE badge) */}
+          <div className="flex items-center justify-between pb-4 border-b border-neutral-200 relative z-10">
             <div className="flex items-baseline space-x-1.5 font-space">
-              <span className="text-lg sm:text-xl font-bold tracking-[0.16em] text-white uppercase">
+              <span className="text-lg sm:text-xl font-black tracking-[0.16em] text-neutral-950 uppercase">
                 TECHNO MART
               </span>
-              <span className="text-lg sm:text-xl font-bold tracking-[0.16em] text-electric-yellow uppercase">
+              <span className="text-lg sm:text-xl font-black tracking-[0.16em] text-[#F5B800] uppercase">
                 PASS
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold tracking-wider text-emerald-400">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>ACTIVE</span>
+            <div className="text-[10px] font-mono font-bold tracking-widest text-neutral-600 uppercase">
+              OFFICIAL VERIFIED
             </div>
           </div>
 
           {/* Product Showcase Chamber */}
           <div className="py-6 flex flex-col sm:flex-row items-center gap-5 sm:gap-6 relative z-10">
-            {/* Velvet Black Display Frame with Gold Rim Lighting */}
-            <div className="w-32 h-32 sm:w-36 sm:h-36 shrink-0 rounded-2xl bg-black/80 border border-electric-yellow/50 p-3 flex items-center justify-center shadow-yellow-glow-sm relative overflow-hidden backdrop-blur-md">
+            {/* Display Frame with Gold Rim Lighting */}
+            <div className="w-32 h-32 sm:w-36 sm:h-36 shrink-0 rounded-2xl bg-neutral-50 border border-neutral-200 p-3 flex items-center justify-center shadow-xs relative overflow-hidden">
               <img
                 src={prizeImg}
                 alt={coupon.prizeName}
                 width={144}
                 height={144}
-                className="w-full h-full object-contain drop-shadow-xl select-none transition-transform duration-300 hover:scale-105"
+                className="w-full h-full object-contain select-none transition-transform duration-300 hover:scale-105"
                 loading="eager"
               />
             </div>
 
             {/* Reward Typography */}
             <div className="text-center sm:text-left flex-1">
-              <p className="text-[10px] font-mono tracking-[0.25em] text-text-muted uppercase">
+              <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-500 uppercase font-semibold">
                 UNLOCKED PRIZE
               </p>
-              <h2 className="text-2xl sm:text-3xl font-space font-extrabold text-electric-yellow tracking-tight drop-shadow-[0_0_20px_rgba(255,210,28,0.35)] my-0.5">
+              <h2 className="text-2xl sm:text-3xl font-space font-black text-neutral-950 tracking-tight my-0.5">
                 {coupon.prizeName}
               </h2>
-              <p className="text-xs font-sans text-text-secondary leading-relaxed mt-1">
+              <p className="text-xs font-sans text-neutral-600 leading-relaxed mt-1">
                 {coupon.description}
               </p>
             </div>
           </div>
 
           {/* Technical Monospaced Claim Credential */}
-          <div className="w-full p-4 rounded-2xl bg-[#080808] border border-white/[0.12] flex items-center justify-between shadow-inner relative z-10 my-1">
+          <div className="w-full p-4 rounded-2xl bg-neutral-100 border border-neutral-300 flex items-center justify-between shadow-inner relative z-10 my-1">
             <div className="flex flex-col text-left pl-1">
-              <span className="text-[9px] font-mono tracking-[0.2em] text-text-muted uppercase">
+              <span className="text-[9px] font-mono tracking-[0.2em] text-neutral-500 uppercase font-bold">
                 CLAIM CREDENTIAL
               </span>
-              <span className="text-xl sm:text-2xl font-mono font-bold tracking-wider text-white select-all">
+              <span className="text-xl sm:text-2xl font-mono font-bold tracking-wider text-neutral-950 select-all">
                 {coupon.couponCode}
               </span>
             </div>
@@ -229,12 +225,12 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
               type="button"
               onClick={handleCopyCode}
               aria-label="Copy claim credential code"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-electric-yellow/10 hover:bg-electric-yellow/20 active:scale-95 border border-electric-yellow/40 text-electric-yellow font-space text-xs font-bold transition-all select-none"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#F5B800] hover:bg-[#FFD21C] active:scale-95 border border-[#F5B800] text-neutral-950 font-space text-xs font-extrabold transition-all select-none shadow-xs"
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400">COPIED</span>
+                  <Check className="w-4 h-4 text-neutral-950 stroke-[3]" />
+                  <span>COPIED</span>
                 </>
               ) : (
                 <>
@@ -246,13 +242,13 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           </div>
 
           {/* High-Contrast Ceramic QR Redemption Box */}
-          <div className="mt-5 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col items-center text-center relative z-10">
-            <p className="text-[10px] font-mono tracking-[0.2em] text-text-muted uppercase mb-3 flex items-center gap-1.5">
-              <QrCode className="w-3.5 h-3.5 text-electric-yellow" />
+          <div className="mt-5 p-5 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col items-center text-center relative z-10">
+            <p className="text-[10px] font-mono tracking-[0.2em] text-neutral-600 uppercase mb-3 flex items-center gap-1.5 font-bold">
+              <QrCode className="w-3.5 h-3.5 text-[#F5B800]" />
               PRESENT AT STORE CHECKOUT • SCAN TO VERIFY
             </p>
 
-            <div className="p-3.5 bg-white rounded-2xl shadow-2xl border-2 border-electric-yellow/80 inline-block relative group">
+            <div className="p-3 bg-white rounded-2xl shadow-md border-2 border-[#F5B800] inline-block relative group">
               {qrDataUrl ? (
                 <img
                   src={qrDataUrl}
@@ -269,8 +265,8 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
             </div>
 
             {/* Expiration Countdown */}
-            <div className="flex items-center gap-1.5 mt-3.5 text-xs font-mono text-electric-champagne font-medium">
-              <Clock className="w-3.5 h-3.5 text-electric-yellow" />
+            <div className="flex items-center gap-1.5 mt-3.5 text-xs font-mono text-neutral-900 font-bold">
+              <Clock className="w-3.5 h-3.5 text-[#F5B800]" />
               <span>
                 VALID FOR: {timeLeft.days}D {timeLeft.hours}H {timeLeft.mins}M
               </span>
@@ -278,11 +274,11 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           </div>
 
           {/* Terms Accordion */}
-          <div className="mt-4 pt-3 border-t border-white/[0.08] relative z-10 text-left">
+          <div className="mt-4 pt-3 border-t border-neutral-200 relative z-10 text-left">
             <button
               type="button"
               onClick={() => setShowTerms(!showTerms)}
-              className="w-full flex items-center justify-between text-xs font-space font-medium text-text-secondary hover:text-white transition-colors"
+              className="w-full flex items-center justify-between text-xs font-space font-bold text-neutral-700 hover:text-neutral-950 transition-colors"
             >
               <span>TERMS & STORE CONDITIONS</span>
               {showTerms ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -296,7 +292,7 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <ul className="text-[11px] font-sans text-text-muted space-y-1.5 mt-2.5 pl-2 leading-relaxed">
+                  <ul className="text-[11px] font-sans text-neutral-600 space-y-1.5 mt-2.5 pl-2 leading-relaxed">
                     <li>• Valid only at Techno Mart physical retail store.</li>
                     <li>• Single-use only per customer / physical device.</li>
                     <li>• Present this digital pass or credential code to store staff at checkout.</li>
@@ -318,18 +314,18 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           {/* 1-Tap Phone Call Action */}
           <a
             href={STORE_PHONE_TEL}
-            className="flex items-center justify-between p-4 rounded-2xl bg-electric-yellow/[0.08] hover:bg-electric-yellow/[0.16] active:scale-98 border border-electric-yellow/40 transition-all text-white group shadow-yellow-glow-sm"
+            className="flex items-center justify-between p-4 rounded-2xl bg-amber-50/70 hover:bg-amber-100/70 active:scale-98 border border-[#F5B800] transition-all text-neutral-950 group shadow-xs"
           >
             <div className="flex flex-col text-left">
-              <span className="text-[10px] font-mono text-electric-yellow uppercase tracking-wider">
+              <span className="text-[10px] font-mono text-neutral-700 uppercase tracking-wider font-bold">
                 CALL STORE
               </span>
-              <span className="text-sm font-mono font-bold tracking-wide">
+              <span className="text-sm font-mono font-black tracking-wide">
                 {STORE_PHONE}
               </span>
             </div>
-            <div className="w-8 h-8 rounded-xl bg-electric-yellow/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <PhoneCall className="w-4 h-4 text-electric-yellow" />
+            <div className="w-8 h-8 rounded-xl bg-[#F5B800]/25 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <PhoneCall className="w-4 h-4 text-neutral-950" />
             </div>
           </a>
 
@@ -338,18 +334,18 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
             href={STORE_MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] active:scale-98 border border-white/[0.12] transition-all text-white group"
+            className="flex items-center justify-between p-4 rounded-2xl bg-neutral-50 hover:bg-neutral-100 active:scale-98 border border-neutral-300 transition-all text-neutral-950 group shadow-xs"
           >
             <div className="flex flex-col text-left">
-              <span className="text-[10px] font-mono text-text-muted uppercase tracking-wider">
+              <span className="text-[10px] font-mono text-neutral-600 uppercase tracking-wider font-bold">
                 VISIT STORE
               </span>
-              <span className="text-xs font-sans text-white/90">
+              <span className="text-xs font-sans text-neutral-900 font-semibold">
                 Get Driving Directions →
               </span>
             </div>
-            <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
-              <Navigation className="w-4 h-4 text-electric-yellow" />
+            <div className="w-8 h-8 rounded-xl bg-neutral-200 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+              <Navigation className="w-4 h-4 text-neutral-950" />
             </div>
           </a>
         </motion.div>
@@ -359,19 +355,19 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-sans text-text-muted no-print"
+          className="w-full max-w-xl mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-sans text-neutral-600 no-print"
         >
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>Store Open Daily: 10:00 AM – 09:30 PM (IST)</span>
+            <span className="w-2 h-2 rounded-full bg-[#F5B800]" />
+            <span className="font-medium text-neutral-700">Store Open Daily: 10:00 AM – 09:30 PM (IST)</span>
           </div>
 
           <CyberButton
             onClick={handlePrint}
             variant="secondary"
             size="sm"
-            className="text-xs font-space tracking-wider uppercase"
-            leftIcon={<Printer className="w-3.5 h-3.5 text-electric-yellow" />}
+            className="text-xs font-space tracking-wider uppercase border-neutral-300"
+            leftIcon={<Printer className="w-3.5 h-3.5 text-neutral-800" />}
           >
             SAVE / PRINT PASS
           </CyberButton>

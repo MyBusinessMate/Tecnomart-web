@@ -41,13 +41,13 @@ export function CyberButton({
 
   const variantClasses = {
     primary:
-      "bg-[#0E0E0E] border border-[#F5B800]/80 text-[#F5B800] hover:bg-[#F5B800] hover:text-neutral-950 hover:border-[#F5B800] active:scale-[0.98]",
+      "bg-white border-2 border-[#F5B800] text-neutral-950 hover:bg-[#F5B800] active:scale-[0.98]",
     solid:
-      "bg-[#F5B800] border border-[#F5B800] text-neutral-950 hover:bg-[#FFD21C] hover:shadow-[0_0_20px_rgba(245,184,0,0.6)] active:scale-[0.98]",
+      "bg-[#F5B800] border-2 border-[#F5B800] text-neutral-950 font-black hover:bg-[#FFD21C] hover:border-[#FFD21C] hover:shadow-[0_0_20px_rgba(245,184,0,0.4)] active:scale-[0.98]",
     secondary:
-      "bg-neutral-900/80 border border-white/15 text-neutral-300 hover:text-white hover:border-white/40 active:scale-[0.98]",
+      "bg-neutral-100 border border-neutral-300 text-neutral-800 hover:bg-neutral-200 hover:text-black hover:border-neutral-400 active:scale-[0.98]",
     danger:
-      "bg-red-950/40 border border-red-500/50 text-red-400 hover:bg-red-500 hover:text-white active:scale-[0.98]",
+      "bg-red-50 border border-red-300 text-red-700 hover:bg-red-600 hover:text-white active:scale-[0.98]",
   };
 
   return (

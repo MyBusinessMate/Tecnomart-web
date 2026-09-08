@@ -82,33 +82,24 @@ export function AtmosphericBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-      {/* Layer 1: Obsidian Black Base */}
-      <div className="absolute inset-0 bg-[#050505]" />
+      {/* Layer 1: Crisp Pure White Base */}
+      <div className="absolute inset-0 bg-[#FFFFFF]" />
 
-      {/* Layer 2: Soft Showroom Radial Glow Zones */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(245,184,0,0.06),transparent_70%)] opacity-90" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-[#F5B800]/[0.05] blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#FFD21C]/[0.04] blur-[120px] rounded-full pointer-events-none" />
+      {/* Layer 2: Soft Showroom Warm Gold Radial Glow Zones */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(245,184,0,0.08),transparent_65%)]" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-[#F5B800]/[0.09] blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#FFD21C]/[0.08] blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Layer 3: Micro Technical Grid */}
+      {/* Layer 3: Micro Technical Grid in Subtle Warm Tint */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px)`,
           backgroundSize: "32px 32px",
         }}
       />
 
-      {/* Layer 4: Fine Cinematic Grain */}
-      <div
-        className="absolute inset-0 opacity-[0.025] mix-blend-overlay"
-        style={{
-          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
-        }}
-      />
-
-      {/* Layer 5: Ambient Floating Golden Micro-Particles */}
+      {/* Layer 4: Ambient Floating Golden Micro-Particles */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
     </div>
   );

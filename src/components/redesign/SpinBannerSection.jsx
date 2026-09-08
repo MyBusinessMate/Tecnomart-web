@@ -17,12 +17,6 @@ export default function SpinBannerSection() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Copy & Actions */}
           <div className="lg:col-span-7 space-y-5 text-left">
-            {/* Header Tag (Strictly Rectangular/Rounded-lg, NO pill badges) */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FFD21C]/10 border border-[#FFD21C]/40 text-[#FFD21C] text-xs font-mono font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 fill-[#FFD21C]" />
-              <span>100% Guaranteed Prize • Daily Lucky Spin</span>
-            </div>
-
             {/* Main Punchy Heading */}
             <div className="space-y-1">
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-space tracking-tight text-white uppercase leading-[1.1]">
@@ -39,55 +33,15 @@ export default function SpinBannerSection() {
               Claim your digital pass with verified QR code instantly.
             </p>
 
-            {/* Feature Cards / Benefits (Zero pill badges) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="w-8 h-8 rounded-lg bg-[#FFD21C]/10 border border-[#FFD21C]/30 flex items-center justify-center shrink-0">
-                  <Trophy className="w-4 h-4 text-[#FFD21C]" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[11px] font-bold text-white uppercase font-space">8 Top Prizes</p>
-                  <p className="text-[10px] text-neutral-400">Guaranteed win</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="w-8 h-8 rounded-lg bg-[#FFD21C]/10 border border-[#FFD21C]/30 flex items-center justify-center shrink-0">
-                  <Zap className="w-4 h-4 text-[#FFD21C]" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[11px] font-bold text-white uppercase font-space">Zero Purchase</p>
-                  <p className="text-[10px] text-neutral-400">100% Free to spin</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="w-8 h-8 rounded-lg bg-[#FFD21C]/10 border border-[#FFD21C]/30 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[11px] font-bold text-white uppercase font-space">In-Store QR Pass</p>
-                  <p className="text-[10px] text-neutral-400">Valid for 30 days</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Action CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            {/* Action CTA */}
+            <div className="flex items-center pt-2">
               <a
                 href="/spin"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#FFD21C] hover:bg-[#F5B800] text-black font-space font-extrabold text-sm sm:text-base uppercase tracking-wider shadow-[0_0_30px_rgba(255,210,28,0.4)] hover:shadow-[0_0_45px_rgba(255,210,28,0.6)] active:scale-98 transition-all group/btn"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#FFD21C] hover:bg-[#F5B800] text-black font-space font-extrabold text-sm sm:text-base uppercase tracking-wider shadow-[0_0_30px_rgba(255,210,28,0.4)] hover:shadow-[0_0_45px_rgba(255,210,28,0.6)] active:scale-98 transition-all group/btn"
               >
                 <Gift className="w-5 h-5 fill-black" />
                 <span>SPIN THE WHEEL NOW</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </a>
-
-              <a
-                href="/spin?mode=super"
-                className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.15] text-white/90 font-mono text-xs font-bold uppercase tracking-wider transition-all"
-              >
-                <span>⚡ TEST UNLIMITED SPINS</span>
               </a>
             </div>
           </div>

@@ -118,6 +118,7 @@ export default function App() {
           <Route path="/students" element={<StudentsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/spin" element={<SpinPage />} />
+          <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
           {/* 404 Page */}
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />

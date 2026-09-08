@@ -21,7 +21,14 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      if (params.get("super") === "true" || params.get("mode") === "super" || forceSuperMode) {
+      const isSuperRoute = window.location.pathname.toLowerCase().includes("supertechie");
+      if (
+        params.get("super") === "true" ||
+        params.get("mode") === "super" ||
+        params.get("mode") === "supertechie" ||
+        isSuperRoute ||
+        forceSuperMode
+      ) {
         setIsSuperTestMode(true);
       }
     }
@@ -120,10 +127,10 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between overflow-x-hidden bg-[#050505] text-white">
-      {/* Super Mode Cyber Bar (Prominent, No Pill Badges) */}
+    <div className="w-full min-h-screen flex flex-col justify-between overflow-x-hidden bg-white text-neutral-900">
+      {/* Super Mode Test Bar */}
       {isSuperTestMode && (
-        <div className="w-full bg-[#0d0d0d] border-b border-electric-yellow/30 px-3 sm:px-6 py-2 z-50">
+        <div className="w-full bg-neutral-900 border-b border-amber-400/40 px-3 sm:px-6 py-2 z-50 text-white">
           <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-electric-yellow animate-pulse shadow-[0_0_8px_#FFD21C]" />
@@ -292,13 +299,6 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
           )}
         </AnimatePresence>
       </div>
-
-      {/* Footer */}
-      <footer className="relative z-10 w-full text-center py-3 sm:py-4 px-4 text-[10px] font-mono tracking-[0.2em] text-text-muted uppercase border-t border-white/5">
-        <span>TECHNO MART</span>
-        <span className="mx-2 text-electric-yellow">•</span>
-        <span>OFFICIAL REWARD MACHINE</span>
-      </footer>
     </div>
   );
 }
