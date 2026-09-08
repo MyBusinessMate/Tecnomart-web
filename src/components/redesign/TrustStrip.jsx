@@ -65,13 +65,13 @@ export default function TrustStrip() {
     <section className="bg-transparent pt-0 pb-8 sm:pb-12 lg:pb-14">
       <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
 
-        {/* Blended trust strip container */}
+        {/* Blended trust strip container (seamless, no card-like box) */}
         <div
           ref={carouselRef}
-          className="bg-neutral-50/90 backdrop-blur-xs rounded-2xl border border-neutral-200/80 -mt-6 sm:-mt-10 lg:-mt-12 relative z-20 overflow-hidden shadow-xs transition-all duration-300"
+          className="bg-transparent -mt-4 sm:-mt-8 lg:-mt-10 relative z-20 transition-all duration-300"
         >
-          {/* DESKTOP LAYOUT (4-COLUMN STATIC GRID UNCHANGED) */}
-          <div className="hidden sm:grid sm:grid-cols-4 divide-x divide-neutral-200/60">
+          {/* DESKTOP LAYOUT (4-COLUMN STATIC ROW BLENDED) */}
+          <div className="hidden sm:grid sm:grid-cols-4 gap-4 py-2">
             {items.map((item, idx) => {
               const Icon = item.icon;
               return (

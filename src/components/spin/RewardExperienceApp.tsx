@@ -8,9 +8,9 @@ import { WinnerReveal } from "./WinnerReveal";
 import { FeedbackStep } from "./FeedbackStep";
 import { ScreenshotVerificationStep } from "./ScreenshotVerificationStep";
 import { RewardCouponCard } from "./RewardCouponCard";
-import { RotateCcw } from "lucide-react";
 import { clearParticipationLocks } from "./device";
 import { getOrCreateSession, resetEntireSession, RewardWinner } from "./rewardService";
+import { DEFAULT_PRIZES } from "./prizes";
 
 type CustomerState = "SPIN" | "REVEAL" | "FEEDBACK" | "SCREENSHOT_VERIFY" | "COUPON";
 
@@ -126,6 +126,21 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
     initSession();
   };
 
+  // Safe fallback winner so testing or state restoration never results in a blank screen
+  const effectiveWinner: RewardWinner = winnerData || {
+    prizeId: DEFAULT_PRIZES[1].id,
+    prizeName: DEFAULT_PRIZES[1].name,
+    prizeImage: DEFAULT_PRIZES[1].image,
+    prizeType: DEFAULT_PRIZES[1].type,
+    description: DEFAULT_PRIZES[1].description,
+    value: DEFAULT_PRIZES[1].value,
+    couponCode: "TM-PASS-" + Math.random().toString(36).substring(2, 6).toUpperCase(),
+    issuedAt: new Date().toISOString(),
+    expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+    customerName: customerName || "Techno Mart Guest",
+    customerPhone: customerPhone || "+91 90106 67726",
+  };
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-between overflow-x-hidden bg-white text-neutral-900">
       {/* Super Mode Test Bar */}
@@ -142,54 +157,39 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap text-xs font-mono">
-              <span className="text-[10px] text-text-muted uppercase mr-1 hidden md:inline">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[10px] font-mono text-neutral-400 uppercase mr-1">
                 STAGE:
               </span>
               {(["SPIN", "REVEAL", "FEEDBACK", "SCREENSHOT_VERIFY", "COUPON"] as CustomerState[]).map((st) => (
                 <button
                   key={st}
-                  type="button"
-                  onClick={() => {
-                    if (st === "REVEAL" && !winnerData) {
-                      setWinnerData({
-                        prizeId: "sample",
-                        prizeName: "Wireless Headphones",
-                        description: "Premium Over-Ear Bluetooth 5.3 Headphones",
-                        value: 1499,
-                        couponCode: "TM-SUPER-" + Math.floor(1000 + Math.random() * 9000),
-                        issuedAt: new Date().toISOString(),
-                        expiresAt: new Date(Date.now() + 30 * 86400000).toISOString(),
-                        customerName: customerName || "Techno Mart Tester",
-                      });
-                    }
-                    setCurrentState(st);
-                  }}
-                  className={`px-2 py-0.5 rounded text-[10px] uppercase font-mono transition-all ${
+                  onClick={() => setCurrentState(st)}
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all cursor-pointer ${
                     currentState === st
-                      ? "bg-electric-yellow text-black font-bold"
-                      : "bg-white/5 hover:bg-white/10 text-white/80"
+                      ? "bg-amber-400 text-black font-bold shadow-xs"
+                      : "bg-neutral-800 text-neutral-300 hover:text-white"
                   }`}
                 >
                   {st === "SPIN" ? "Wheel" : st === "REVEAL" ? "Winner" : st === "FEEDBACK" ? "Review" : st === "SCREENSHOT_VERIFY" ? "Verify" : "Pass"}
                 </button>
               ))}
 
-              <div className="h-3.5 w-px bg-white/20 mx-1 hidden sm:block" />
+              <div className="h-3 w-[1px] bg-neutral-700 mx-1" />
 
               <button
-                type="button"
                 onClick={handleSpinAgain}
-                className="px-2 py-0.5 rounded bg-electric-yellow/20 hover:bg-electric-yellow/30 border border-electric-yellow/60 text-electric-yellow text-[10px] font-bold tracking-wider uppercase transition-all flex items-center gap-1"
+                className="px-2 py-0.5 rounded text-[10px] font-mono text-amber-300 border border-amber-400/50 hover:bg-amber-400/20 transition-all flex items-center gap-1 cursor-pointer font-bold"
+                title="Unlock device participation lock"
               >
-                <RotateCcw className="w-3 h-3" />
+                <span>↻</span>
                 <span>SPIN AGAIN</span>
               </button>
 
               <button
-                type="button"
                 onClick={handleResetSession}
-                className="px-2 py-0.5 rounded bg-white/5 hover:bg-white/10 border border-white/20 text-white/80 text-[10px] tracking-wider uppercase transition-all"
+                className="px-2 py-0.5 rounded text-[10px] font-mono text-neutral-300 border border-neutral-700 hover:bg-neutral-800 transition-all cursor-pointer"
+                title="Wipe entire session data"
               >
                 RESET
               </button>
@@ -198,13 +198,13 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
         </div>
       )}
 
-      {/* Brand Header */}
-      <BrandHeader />
+      {/* Main Brand Header */}
+      <BrandHeader isSuperMode={isSuperTestMode} onReset={handleResetSession} />
 
-      {/* Main Flow Stage */}
-      <div className="flex-1 flex flex-col items-center justify-center w-full px-2 sm:px-4 py-2 sm:py-6 max-w-4xl mx-auto relative z-10">
+      {/* Unified Multi-Step Flow Container */}
+      <div className="flex-1 w-full max-w-5xl mx-auto px-4 py-3 sm:py-6 flex flex-col justify-center items-center relative">
         <AnimatePresence mode="wait">
-          {/* STEP 1: LUCKY WHEEL (INSTANT FIRST-PAINT) */}
+          {/* STEP 1: INTERACTIVE WHEEL VIEW */}
           {currentState === "SPIN" && (
             <motion.div
               key="spin-step"
@@ -223,7 +223,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
           )}
 
           {/* STEP 2: WINNER REVEAL */}
-          {currentState === "REVEAL" && winnerData && (
+          {currentState === "REVEAL" && (
             <motion.div
               key="reveal-step"
               initial={{ opacity: 0, y: 15 }}
@@ -233,7 +233,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
               className="w-full flex flex-col items-center"
             >
               <WinnerReveal
-                winner={winnerData}
+                winner={effectiveWinner}
                 onContinue={handleRevealContinue}
                 onSpinAgain={handleSpinAgain}
                 isSuperMode={isSuperTestMode}
@@ -281,7 +281,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
           )}
 
           {/* STEP 5: DIGITAL REWARD PASS (COUPON + QR + EXPIRATION) */}
-          {currentState === "COUPON" && winnerData && (
+          {currentState === "COUPON" && (
             <motion.div
               key="coupon-step"
               initial={{ opacity: 0, scale: 0.97 }}
@@ -291,7 +291,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
               className="w-full flex flex-col items-center"
             >
               <RewardCouponCard
-                coupon={winnerData}
+                coupon={effectiveWinner}
                 isSuperMode={isSuperTestMode}
                 onSpinAgain={handleSpinAgain}
               />

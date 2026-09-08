@@ -58,6 +58,10 @@ export default function BottomDock({ onOpenSpin }) {
   const { setIsRepairOpen, confirmWhatsApp } = useShop();
   const [activeTab, setActiveTab] = useState('repair'); // Default active on repair as shown in user reference
 
+  if (typeof window !== 'undefined' && (window.location.pathname.startsWith('/spin') || window.location.pathname.startsWith('/supertechie'))) {
+    return null;
+  }
+
   const handleWhatsApp = () => {
     setActiveTab('contact');
     const text = encodeURIComponent("Hi TecnoMart! 👋 I would like to enquire about products, repairs, or offers.");

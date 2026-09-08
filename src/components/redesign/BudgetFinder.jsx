@@ -119,10 +119,12 @@ export default function BudgetFinder() {
             </div>
 
             {/* Subnote with WhatsApp Icon */}
-            <p className="text-center text-xs text-neutral-400 font-medium pt-2 flex items-center justify-center gap-2">
-              <MessageSquare className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-              <span>Our experts will suggest the best options within your budget.</span>
-            </p>
+            <div className="pt-2 text-center">
+              <p className="inline-flex items-center justify-center gap-1.5 text-center text-[10px] sm:text-xs text-neutral-400 font-medium whitespace-nowrap">
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Our experts will suggest the best options within your budget.</span>
+              </p>
+            </div>
           </form>
 
         </div>

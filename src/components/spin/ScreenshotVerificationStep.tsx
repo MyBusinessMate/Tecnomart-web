@@ -37,7 +37,7 @@ export function ScreenshotVerificationStep({
 }: ScreenshotVerificationStepProps) {
   const targetGoogleUrl =
     googleReviewUrl ||
-    "https://www.google.com/search?q=NeoMinds+Tech+Hub+Reviews#lrd=0x6818176fa9aab98f:0x1b1e4a4037e0545c,3,,,,";
+    "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Road+No+36+Jubilee+Hills+Hyderabad";
 
   const [step, setStep] = useState<VerificationStep>("UPLOAD");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -119,6 +119,21 @@ export function ScreenshotVerificationStep({
       window.open(targetGoogleUrl, "_blank", "noopener,noreferrer");
     }
     setStep("UPLOAD");
+  };
+
+  const handleAdminBypass = () => {
+    setStep("VERIFYING");
+    setTimeout(() => {
+      try {
+        const result = verifyScreenshotAndUnlock(sessionId, isSuperMode);
+        setStep("VERIFIED");
+        setTimeout(() => {
+          onVerificationSuccess(result.coupon);
+        }, 800);
+      } catch {
+        setStep("VERIFIED");
+      }
+    }, 500);
   };
 
   return (
@@ -227,6 +242,17 @@ export function ScreenshotVerificationStep({
                 >
                   UPLOAD SCREENSHOT
                 </CyberButton>
+              )}
+
+              {isSuperMode && (
+                <button
+                  type="button"
+                  onClick={handleAdminBypass}
+                  className="w-full mt-3 py-2 px-4 rounded-xl bg-neutral-900 border border-amber-400/50 text-amber-300 font-mono text-xs font-bold uppercase tracking-wider hover:bg-amber-400/10 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <Zap className="w-3.5 h-3.5 text-amber-400" />
+                  <span>ADMIN TEST: ONE-CLICK BYPASS &amp; UNLOCK</span>
+                </button>
               )}
             </div>
           </motion.div>

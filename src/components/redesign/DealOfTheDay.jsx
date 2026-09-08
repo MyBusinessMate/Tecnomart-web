@@ -116,7 +116,7 @@ export default function DealOfTheDay() {
               <span className="text-base sm:text-xl text-neutral-400 font-extrabold line-through decoration-neutral-500 decoration-2">
                 {dealProduct.originalPrice}
               </span>
-              <span className="text-xs font-black text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 px-3 py-1.5 rounded-xl uppercase tracking-wider">
+              <span className="text-[10px] sm:text-xs font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-700/50 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg uppercase tracking-wider">
                 Save ₹50,000 Today
               </span>
             </div>

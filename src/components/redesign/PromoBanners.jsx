@@ -37,9 +37,9 @@ export default function PromoBanners({ onOpenRepairModal }) {
               
               <div className="relative z-10 max-w-[60%] sm:max-w-[62%] space-y-3">
                 {/* Header Badge */}
-                <div className="flex items-center gap-2.5">
-                  <CrossedToolsIcon className="w-5 h-5 text-neutral-900" />
-                  <span className="text-[11px] sm:text-xs font-black tracking-wider text-neutral-800 uppercase">
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <CrossedToolsIcon className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-900 shrink-0" />
+                  <span className="text-[10px] min-[380px]:text-[11px] sm:text-xs font-black tracking-wide text-neutral-800 uppercase whitespace-nowrap">
                     FAST. RELIABLE. AFFORDABLE.
                   </span>
                 </div>
