@@ -716,7 +716,7 @@ export default function Configurator() {
                             setBuildState((p) => ({ ...p, stepIndex: 3 + targetSteps.length }));
                           }
                         }}
-                        className="min-h-[40px] px-5 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 text-xs font-black uppercase tracking-wider rounded-xl flex items-center gap-1.5 transition-all shadow-xs"
+                        className="btn-wipe-yellow min-h-[40px] px-5 text-xs font-black uppercase tracking-wider rounded-xl flex items-center gap-1.5 transition-all shadow-xs"
                       >
                         <span>
                           {targetSteps.indexOf(activeStepTab) === targetSteps.length - 1
@@ -785,7 +785,7 @@ export default function Configurator() {
                     <button
                       type="button"
                       onClick={() => setBuildState((p) => ({ ...p, stepIndex: 3 + targetSteps.length }))}
-                      className="min-h-[44px] px-6 bg-amber-500 hover:bg-amber-600 text-neutral-950 text-xs font-black uppercase tracking-wider rounded-xl flex items-center gap-2 shadow-md transition-all"
+                      className="btn-wipe-yellow min-h-[44px] px-6 text-xs font-black uppercase tracking-wider rounded-xl flex items-center gap-2 shadow-md transition-all cursor-pointer"
                     >
                       <span>Review Build &amp; WhatsApp Quote</span>
                       <ArrowRight className="w-4 h-4 stroke-[3]" />

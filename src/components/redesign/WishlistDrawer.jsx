@@ -80,7 +80,7 @@ export default function WishlistDrawer() {
                   <Link
                     href="/mobiles"
                     onClick={() => setIsWishlistOpen(false)}
-                    className="mt-2 px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-neutral-950 text-xs font-black uppercase tracking-wider rounded-xl transition-colors"
+                    className="btn-wipe-yellow mt-2 px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer"
                   >
                     Shop Now
                   </Link>
@@ -154,7 +154,7 @@ export default function WishlistDrawer() {
                     wishedProducts.forEach((p) => addToCart(p));
                     setIsWishlistOpen(false);
                   }}
-                  className="w-full h-11 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="btn-wipe-yellow w-full h-11 font-black text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   Add All to Cart ({wishedProducts.length})

@@ -402,7 +402,7 @@ export default function ProductFilters({
                 </button>
                 <button
                   onClick={() => setMobileFilterDrawerOpen(false)}
-                  className="flex-1 py-3 text-xs font-black uppercase text-neutral-950 bg-amber-400 hover:bg-amber-500 rounded-xl shadow-md cursor-pointer"
+                  className="btn-wipe-yellow flex-1 py-3 text-xs font-black uppercase rounded-xl shadow-md cursor-pointer"
                 >
                   Apply ({totalResultsCount})
                 </button>

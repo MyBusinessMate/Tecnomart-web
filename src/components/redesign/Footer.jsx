@@ -275,7 +275,7 @@ export default function Footer() {
                     <button
                       type="submit"
                       aria-label="Subscribe to newsletter"
-                      className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-neutral-950 font-black flex items-center justify-center transition-all cursor-pointer flex-shrink-0 shadow-xs"
+                      className="btn-wipe-yellow w-9 h-9 rounded-full active:scale-95 font-black flex items-center justify-center transition-all cursor-pointer flex-shrink-0 shadow-xs"
                     >
                       {subscribed ? <Check className="w-4 h-4 stroke-[2.5]" /> : <Send className="w-4 h-4 stroke-[2.2]" />}
                     </button>
@@ -488,7 +488,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-neutral-950 font-black flex items-center justify-center flex-shrink-0 shadow-xs"
+                  className="btn-wipe-yellow w-9 h-9 rounded-full active:scale-95 font-black flex items-center justify-center flex-shrink-0 shadow-xs cursor-pointer"
                 >
                   {subscribed ? <Check className="w-4 h-4 stroke-[2.5]" /> : <Send className="w-4 h-4 stroke-[2.2]" />}
                 </button>

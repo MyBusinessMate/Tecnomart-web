@@ -363,7 +363,7 @@ export default function CheckoutModal() {
                 <div className="flex items-center justify-end gap-3 pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 min-h-[44px] bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-wipe-yellow w-full sm:w-auto px-8 min-h-[44px] font-black text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>Continue to Payment</span>
                     <ArrowRight className="w-4 h-4" />
@@ -544,7 +544,7 @@ export default function CheckoutModal() {
                   <button
                     type="button"
                     onClick={handlePlaceOrder}
-                    className="px-8 min-h-[46px] bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-wipe-yellow px-8 min-h-[46px] font-black text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ShieldCheck className="w-4 h-4" />
                     <span>Complete Order (₹{totalPayable.toLocaleString('en-IN')})</span>
@@ -627,7 +627,7 @@ export default function CheckoutModal() {
 
                   <button
                     onClick={handleClose}
-                    className="px-6 min-h-[46px] bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-md cursor-pointer"
+                    className="btn-wipe-yellow px-6 min-h-[46px] font-black text-xs uppercase tracking-wider rounded-xl shadow-md cursor-pointer"
                   >
                     Done
                   </button>

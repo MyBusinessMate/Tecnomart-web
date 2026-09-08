@@ -235,7 +235,7 @@ export default function RepairModal() {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full h-12 bg-amber-500 hover:bg-amber-600 active:bg-amber-600 text-neutral-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer"
+              className="btn-wipe-yellow w-full h-12 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>Confirm &amp; Book On WhatsApp</span>

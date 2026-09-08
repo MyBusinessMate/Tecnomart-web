@@ -225,7 +225,7 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
               type="button"
               onClick={handleCopyCode}
               aria-label="Copy claim credential code"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#F5B800] hover:bg-[#FFD21C] active:scale-95 border border-[#F5B800] text-neutral-950 font-space text-xs font-extrabold transition-all select-none shadow-xs"
+              className="btn-wipe-yellow flex items-center gap-1.5 px-4 py-2 rounded-xl active:scale-95 border border-[#F5B800] hover:border-black font-space text-xs font-extrabold transition-all select-none shadow-xs cursor-pointer"
             >
               {copied ? (
                 <>

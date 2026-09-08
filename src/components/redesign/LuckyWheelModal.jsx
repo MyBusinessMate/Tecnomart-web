@@ -198,7 +198,7 @@ export default function LuckyWheelModal({ isOpen, onClose }) {
               <button
                 onClick={handleSpin}
                 disabled={isSpinning}
-                className="w-full py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-neutral-950 font-black text-sm uppercase tracking-wider shadow-lg shadow-amber-500/20 active:scale-98 transition-transform disabled:opacity-60 cursor-pointer"
+                className="btn-wipe-yellow w-full py-3 rounded-2xl font-black text-sm uppercase tracking-wider shadow-lg shadow-amber-500/20 active:scale-98 transition-all disabled:opacity-60 cursor-pointer"
               >
                 {isSpinning ? 'Spinning the Wheel...' : 'Tap To Spin Wheel'}
               </button>

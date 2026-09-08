@@ -66,7 +66,7 @@ export default function PWASetup() {
         </p>
         <button
           onClick={handleInstall}
-          className="flex-shrink-0 bg-amber-500 hover:bg-amber-400 active:scale-95 text-neutral-950 text-xs font-black uppercase tracking-wide px-3 py-1.5 rounded-lg transition-all cursor-pointer"
+          className="btn-wipe-yellow flex-shrink-0 active:scale-95 text-xs font-black uppercase tracking-wide px-3 py-1.5 rounded-lg transition-all cursor-pointer"
         >
           Install
         </button>

@@ -43,7 +43,7 @@ export function CyberButton({
     primary:
       "bg-white border-2 border-[#F5B800] text-neutral-950 hover:bg-[#F5B800] active:scale-[0.98]",
     solid:
-      "bg-[#F5B800] border-2 border-[#F5B800] text-neutral-950 font-black hover:bg-[#FFD21C] hover:border-[#FFD21C] hover:shadow-[0_0_20px_rgba(245,184,0,0.4)] active:scale-[0.98]",
+      "btn-wipe-yellow border-2 border-[#F5B800] font-black hover:border-black active:scale-[0.98]",
     secondary:
       "bg-neutral-100 border border-neutral-300 text-neutral-800 hover:bg-neutral-200 hover:text-black hover:border-neutral-400 active:scale-[0.98]",
     danger:
@@ -59,14 +59,14 @@ export function CyberButton({
         sizeClasses[size],
         variantClasses[variant],
         glow && !disabled && variant === "primary" && "hover:shadow-[0_0_18px_rgba(245,184,0,0.5)]",
-        glow && !disabled && variant === "solid" && "shadow-[0_0_15px_rgba(245,184,0,0.4)] hover:shadow-[0_0_25px_rgba(245,184,0,0.7)]",
+        glow && !disabled && variant === "solid" && "shadow-[0_0_15px_rgba(245,184,0,0.4)] hover:shadow-[0_0_25px_rgba(0,0,0,0.5)]",
         className
       )}
       {...props}
     >
-      {leftIcon && <span className="transition-transform group-hover:-translate-x-0.5">{leftIcon}</span>}
-      <span>{children}</span>
-      {rightIcon && <span className="transition-transform group-hover:translate-x-0.5">{rightIcon}</span>}
+      {leftIcon && <span className="relative z-10 transition-transform group-hover:-translate-x-0.5">{leftIcon}</span>}
+      <span className="relative z-10">{children}</span>
+      {rightIcon && <span className="relative z-10 transition-transform group-hover:translate-x-0.5">{rightIcon}</span>}
     </button>
   );
 }
