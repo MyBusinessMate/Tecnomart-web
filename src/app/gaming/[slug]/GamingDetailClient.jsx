@@ -80,8 +80,8 @@ export default function GamingDetailClient({ slug }) {
     <SmoothScrollProvider>
       <SEO
         title={`Best Custom Gaming PC: ${rig.name} in Hyderabad (${rig.price}) | TecnoMart`}
-        description={`Buy the handcrafted ${rig.name} custom liquid-cooled gaming PC in Hyderabad (${rig.price}). Features stress-tested benchmarks, premium ARGB chassis, 3-year warranty, and same-day express delivery in Jubilee Hills.`}
-        keywords={`best custom gaming PC Hyderabad, ${rig.name} price, liquid cooled gaming rig Hyderabad, RTX gaming PC Jubilee Hills, esports battle station Hyderabad`}
+        description={`Buy the handcrafted ${rig.name} custom liquid-cooled gaming PC in Hyderabad (${rig.price}). Features stress-tested benchmarks, premium ARGB chassis, 3-year warranty, and same-day express delivery in Tolichowki.`}
+        keywords={`best custom gaming PC Hyderabad, ${rig.name} price, liquid cooled gaming rig Hyderabad, RTX gaming PC Tolichowki, esports battle station Hyderabad`}
         canonicalUrl={canonicalUrl}
         ogType="product"
         ogImage={rig.images?.[0]}
@@ -250,7 +250,7 @@ export default function GamingDetailClient({ slug }) {
                     <input
                       type="text"
                       maxLength={6}
-                      placeholder="Enter 6-digit Pincode (e.g. 500033)"
+                      placeholder="Enter 6-digit Pincode (e.g. 500008)"
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
                       className="flex-1 h-10 px-3.5 text-base sm:text-xs bg-white border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium"

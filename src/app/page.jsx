@@ -36,8 +36,8 @@ export default function Page() {
     <SmoothScrollProvider>
       <SEO
         title="Best Tech Store in Hyderabad | Mobiles, Laptops, Gaming PCs & Same-Day Repairs"
-        description="TecnoMart is Hyderabad's best tech store and authorized showroom in Jubilee Hills. Best prices on Apple iPhones, MacBooks, gaming laptops, custom liquid-cooled PCs, and certified repairs with same-day delivery."
-        keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Jubilee Hills, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
+        description="TecnoMart is Hyderabad's best tech store and authorized showroom in Tolichowki. Best prices on Apple iPhones, MacBooks, gaming laptops, custom liquid-cooled PCs, and certified repairs with same-day delivery."
+        keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Tolichowki, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
         canonical="/"
         schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA]}
       />

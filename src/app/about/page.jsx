@@ -28,8 +28,8 @@ export default function AboutPage() {
     <SmoothScrollProvider>
       <SEO
         title="About TecnoMart — Best Rated Tech Store & Service Center in Hyderabad"
-        description="Learn why TecnoMart is Hyderabad's best-rated electronics store and certified service center in Jubilee Hills. Over 10+ years of trusted hardware expertise, 100% genuine units, and thousands of satisfied customers."
-        keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Jubilee Hills, trusted computer shop Hyderabad, genuine tech retailer Telangana"
+        description="Learn why TecnoMart is Hyderabad's best-rated electronics store and certified service center in Tolichowki. Over 10+ years of trusted hardware expertise, 100% genuine units, and thousands of satisfied customers."
+        keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Tolichowki, trusted computer shop Hyderabad, genuine tech retailer Telangana"
         canonicalUrl="https://tecnomart.in/about"
         ogImageAlt="About TecnoMart — Hyderabad's Best Rated Tech Store"
         schema={breadcrumbSchema}
@@ -48,14 +48,14 @@ export default function AboutPage() {
               <span className="text-neutral-900 font-bold">About Us</span>
             </nav>
 
-            {/* Hero Banner */}
+            {/* Hero Header */}
             <div className="rounded-3xl bg-midgrey-900 overflow-hidden mb-8 relative border border-midgrey-700/60 shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/25 via-transparent to-transparent pointer-events-none" />
-              <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10 lg:py-12">
+              <div className="relative z-10 px-7 py-8 sm:px-12 sm:py-10">
                 <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-amber-400 uppercase">
-                  OUR JOURNEY · OUR VALUES · OUR PASSION
+                  OUR STORY · ESTABLISHED 2016
                 </span>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mt-2 leading-tight">
+                <h1 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight mt-2 leading-tight">
                   About TecnoMart
                 </h1>
                 <p className="text-xs sm:text-sm text-neutral-400 mt-3 max-w-2xl leading-relaxed">
@@ -68,7 +68,7 @@ export default function AboutPage() {
                   <span className="text-neutral-700">|</span>
                   <span>Est. 2016</span>
                   <span className="text-neutral-700">|</span>
-                  <span>Jubilee Hills, Hyderabad</span>
+                  <span>Tolichowki, Hyderabad</span>
                   <span className="text-neutral-700">|</span>
                   <span className="text-amber-400">45,000+ Customers Served</span>
                 </div>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   TecnoMart began with a simple observation in 2016: finding authentic tech products, fair pricing, and trustworthy repair engineers under one roof was nearly impossible in the local retail market. Customers were forced to choose between overpriced showroom markups and unreliable grey-market repairs.
                 </p>
                 <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
-                  We established our flagship store at Road No. 36, Jubilee Hills, Hyderabad, with an uncompromising commitment: <strong className="text-neutral-900">100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
+                  We established our flagship store at 7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki, Hyderabad, with an uncompromising commitment: <strong className="text-neutral-900">100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
                 </p>
                 <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   Today, over 45,000 students, developers, creative professionals, and esports gamers trust TecnoMart for their hardware upgrades and critical repairs.
@@ -122,7 +122,7 @@ export default function AboutPage() {
                     <div>
                       <span className="text-xs font-black text-amber-400 uppercase tracking-wider block mb-1">Our Flagship Store</span>
                       <span className="text-xs font-semibold text-white">
-                        H.No. B-2-293/82/A/1287, Road No. 36, Jubilee Hills, Hyderabad – 500033
+                        7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki, Hyderabad – 500008
                       </span>
                     </div>
                   </div>

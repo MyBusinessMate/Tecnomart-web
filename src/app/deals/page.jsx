@@ -111,8 +111,8 @@ export default function DealsPage() {
     <SmoothScrollProvider>
       <SEO
         title="Best Tech Deals & Electronics Clearance Offers in Hyderabad | TecnoMart"
-        description="Find the best tech deals in Hyderabad at TecnoMart Jubilee Hills. Save big on open-box MacBooks, flagship smartphones, gaming laptops, and audio gear with instant store pickup."
-        keywords="best tech deals in Hyderabad, electronics sale Hyderabad, discounted laptops Hyderabad, cheap iPhone 16 Hyderabad, electronics clearance Jubilee Hills, festive tech offers Telangana"
+        description="Find the best tech deals in Hyderabad at TecnoMart Tolichowki. Save big on open-box MacBooks, flagship smartphones, gaming laptops, and audio gear with instant store pickup."
+        keywords="best tech deals in Hyderabad, electronics sale Hyderabad, discounted laptops Hyderabad, cheap iPhone 16 Hyderabad, electronics clearance Tolichowki, festive tech offers Telangana"
         canonicalUrl="https://tecnomart.in/deals"
         ogImageAlt="Best Tech Deals & Electronics Clearance Offers in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}

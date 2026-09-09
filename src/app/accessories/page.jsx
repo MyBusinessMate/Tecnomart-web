@@ -136,7 +136,7 @@ export default function AccessoriesPage() {
       <SEO
         title="Best Computer & Gaming Accessories in Hyderabad | Mechanical Keyboards, Audio & Monitors"
         description="Looking for the best tech accessories store in Hyderabad? TecnoMart stocks Keychron mechanical keyboards, Logitech G Pro mice, Apple AirPods, Sony WH-1000XM5, and OLED monitors with instant pickup."
-        keywords="best tech accessories Hyderabad, gaming keyboards Hyderabad, Logitech gaming mouse Hyderabad, Sony ANC headphones Hyderabad, OLED gaming monitor Hyderabad, GaN chargers Jubilee Hills"
+        keywords="best tech accessories Hyderabad, gaming keyboards Hyderabad, Logitech gaming mouse Hyderabad, Sony ANC headphones Hyderabad, OLED gaming monitor Hyderabad, GaN chargers Tolichowki"
         canonicalUrl="https://tecnomart.in/accessories"
         ogImageAlt="Best Tech Accessories & Audio Store in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}

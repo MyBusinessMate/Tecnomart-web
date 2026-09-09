@@ -199,8 +199,8 @@ export default function ExchangePage() {
     <SmoothScrollProvider>
       <SEO
         title="Best Mobile & Laptop Trade-In Exchange in Hyderabad | Instant Cash & Store Credit"
-        description="Get the best trade-in exchange value for your old smartphone, iPhone, MacBook, or Windows laptop in Hyderabad. Instant valuation, zero deduction on minor scratches, and same-day exchange credit at TecnoMart Jubilee Hills."
-        keywords="best exchange value old phone Hyderabad, trade in laptop Hyderabad, sell old MacBook Hyderabad, mobile exchange offer Jubilee Hills, laptop upgrade scheme Telangana"
+        description="Get the best trade-in exchange value for your old smartphone, iPhone, MacBook, or Windows laptop in Hyderabad. Instant valuation, zero deduction on minor scratches, and same-day exchange credit at TecnoMart Tolichowki."
+        keywords="best exchange value old phone Hyderabad, trade in laptop Hyderabad, sell old MacBook Hyderabad, mobile exchange offer Tolichowki, laptop upgrade scheme Telangana"
         canonicalUrl="https://tecnomart.in/exchange"
         ogImageAlt="Best Mobile & Laptop Trade-In Exchange in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
@@ -482,7 +482,7 @@ export default function ExchangePage() {
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-relaxed">
-                    Actual trade-in value confirmed after in-store inspection in Jubilee Hills, Hyderabad. Price estimate valid for 7 days.
+                    Actual trade-in value confirmed after in-store inspection in Tolichowki, Hyderabad. Price estimate valid for 7 days.
                   </p>
                 </div>
               )}

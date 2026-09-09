@@ -15,7 +15,7 @@ export function ShopProvider({ children }) {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isRepairOpen, setIsRepairOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-  const [locationPincode, setLocationPincode] = useState('500033');
+  const [locationPincode, setLocationPincode] = useState('500008');
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
 

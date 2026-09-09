@@ -112,8 +112,8 @@ export default function MobilesPage() {
     <SmoothScrollProvider>
       <SEO
         title="Best Mobile Shop in Hyderabad | Buy Apple iPhone, Samsung & OnePlus Flagships"
-        description="Looking for the best mobile shop in Hyderabad? TecnoMart in Jubilee Hills offers the best prices on iPhone 16 Pro Max, Samsung S24 Ultra, OnePlus 12, and Google Pixel with official warranty and 3-hour doorstep delivery."
-        keywords="best mobile shop in Hyderabad, best smartphone store Hyderabad, buy iPhone 16 Pro Max Hyderabad, buy Samsung Galaxy S24 Ultra Hyderabad, OnePlus store Hyderabad, Google Pixel 9 Pro Hyderabad, flagship mobiles Jubilee Hills"
+        description="Looking for the best mobile shop in Hyderabad? TecnoMart in Tolichowki offers the best prices on iPhone 16 Pro Max, Samsung S24 Ultra, OnePlus 12, and Google Pixel with official warranty and 3-hour doorstep delivery."
+        keywords="best mobile shop in Hyderabad, best smartphone store Hyderabad, buy iPhone 16 Pro Max Hyderabad, buy Samsung Galaxy S24 Ultra Hyderabad, OnePlus store Hyderabad, Google Pixel 9 Pro Hyderabad, flagship mobiles Tolichowki"
         canonicalUrl="https://tecnomart.in/mobiles"
         ogImageAlt="Best Mobile Shop in Hyderabad — TecnoMart Smartphones Catalog"
         schema={breadcrumbSchema}

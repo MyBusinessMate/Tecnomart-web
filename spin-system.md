@@ -32,7 +32,7 @@ The pointer comes to a halt at the top segment: **₹2,000 COUPON**!
 ### 3. The Victory Reveal
 Instantly, gold and white confetti cascades across her screen. The victory card rises with a warm congratulatory chime:
 > **"CONGRATULATIONS! YOU WON AN EXCLUSIVE REWARD: ₹2,000 COUPON"**
-> *Prize Secured • Valid for 30 Days at TecnoMart Jubilee Hills.*
+> *Prize Secured • Valid for 30 Days at TecnoMart Tolichowki.*
 
 Ananya taps **"CLAIM REWARD"** to lock in her prize.
 
@@ -45,7 +45,7 @@ To maintain authenticity and mutual trust, TecnoMart asks Ananya to share her ge
 
 When she taps **"COPY REVIEW & OPEN GOOGLE"**:
 1. Her review is silently copied to her clipboard.
-2. A new tab opens directly to **TecnoMart's official Google Reviews page** (Road No. 36, Jubilee Hills).
+2. A new tab opens directly to **TecnoMart's official Google Reviews page** (7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki).
 3. All she has to do is paste her review and tap Post on Google!
 
 ### 5. Proof & Instant Verification
@@ -59,15 +59,15 @@ Her official **Techno Mart Pass** materializes:
 - **Unique Claim Credential**: A generated tamper-proof code (e.g., `TM-TJC9-MN8F`) with a one-tap copy button.
 - **Dynamic Scannable QR Code**: Generated on the spot, linking directly to verification.
 - **Countdown Clock**: A live 30-day countdown timer showing the exact remaining time before expiry.
-- **Store Location & Call Buttons**: One-tap directions to Road No. 36, Jubilee Hills, and direct call support (`+91 90106 67726`).
+- **Store Location & Call Buttons**: One-tap directions to 7 Tombs Road, Tolichowki, and direct call support (`+91 90106 67726`).
 - **Print / Save Pass**: A dedicated button allowing her to print or PDF-save her voucher.
 
 ---
 
-## Act II: The In-Store Experience (At the Jubilee Hills Counter)
+## Act II: The In-Store Experience (At the Tolichowki Counter)
 
 ### What Happens When the Customer Arrives at the Store?
-A few days later, Ananya visits the TecnoMart flagship store in Jubilee Hills:
+A few days later, Ananya visits the TecnoMart flagship store in Tolichowki:
 1. She chooses an accessory or brings in her gadget for repair.
 2. At checkout, she opens her phone and displays her **Techno Mart Pass**.
 3. The store executive scans the QR code or types the `TM-XXXX-XXXX` credential into the billing terminal.

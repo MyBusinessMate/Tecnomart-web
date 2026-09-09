@@ -14,11 +14,11 @@ export default function ContactPage() {
   const phone = "+91 90106 67726";
   const whatsapp = "919010667726";
   const email = "support@tecnomart.in";
-  const address1 = "H.No. 8-2-293/82/A/1287, Road No. 36";
-  const address2 = "Jubilee Hills";
-  const cityState = "Hyderabad, Telangana – 500033";
+  const address1 = "7 Tombs Road, Opposite Fortune Toyota Service";
+  const address2 = "Tolichowki";
+  const cityState = "Hyderabad, Telangana – 500008";
   const weekdayHours = "Monday – Sunday: 10:00 AM – 9:30 PM";
-  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Road+No+36+Jubilee+Hills+Hyderabad";
+  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad";
 
   const [formData, setFormData] = useState({
     name: '',
@@ -47,11 +47,11 @@ export default function ContactPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Tech Store Location in Hyderabad | TecnoMart Jubilee Hills Address & Hotline"
-        description="Visit Hyderabad's best tech store and service center on Road No. 36, Jubilee Hills. Call +91 9010667726 or WhatsApp for product quotes, custom PC orders, and repair status."
-        keywords="TecnoMart address Jubilee Hills, best tech store location Hyderabad, computer shop near me Hyderabad, mobile store Jubilee Hills, TecnoMart phone number"
+        title="Best Tech Store Location in Hyderabad | TecnoMart Tolichowki Address & Hotline"
+        description="Visit Hyderabad's best tech store and service center at 7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki. Call +91 90106 67726 or WhatsApp for product quotes, custom PC orders, and repair status."
+        keywords="TecnoMart address Tolichowki, best tech store location Hyderabad, computer shop near me Tolichowki, mobile store Tolichowki, 7 Tombs Road electronics, TecnoMart phone number"
         canonicalUrl="https://tecnomart.in/contact"
-        ogImageAlt="TecnoMart Flagship Tech Showroom & Service Hub in Jubilee Hills Hyderabad"
+        ogImageAlt="TecnoMart Flagship Tech Showroom & Service Hub in Tolichowki Hyderabad"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   <span className="text-neutral-700">|</span>
                   <span>Open 7 Days a Week</span>
                   <span className="text-neutral-700">|</span>
-                  <span className="text-amber-400">Jubilee Hills, Hyderabad</span>
+                  <span className="text-amber-400">Tolichowki, Hyderabad</span>
                 </div>
               </div>
             </div>

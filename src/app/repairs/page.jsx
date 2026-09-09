@@ -96,10 +96,10 @@ export default function RepairsPage() {
     <SmoothScrollProvider>
       <SEO
         title="Best Mobile & Laptop Repair Service in Hyderabad | Same-Day Screen, Battery & Chip-Level Fix"
-        description="Looking for the best mobile and laptop repair in Hyderabad? TecnoMart Jubilee Hills service center offers same-day screen replacement, battery upgrades, chip-level logic board repairs, and 90-day warranty."
-        keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Jubilee Hills, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
+        description="Looking for the best mobile and laptop repair in Hyderabad? TecnoMart Tolichowki service center offers same-day screen replacement, battery upgrades, chip-level logic board repairs, and 90-day warranty."
+        keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Tolichowki, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
         canonicalUrl="https://tecnomart.in/repairs"
-        ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Jubilee Hills"
+        ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Tolichowki"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
@@ -128,7 +128,7 @@ export default function RepairsPage() {
                   Fast. Reliable. Expert Repairs.
                 </h1>
                 <p className="text-xs sm:text-sm text-neutral-400 mt-3 max-w-xl leading-relaxed">
-                  Certified hardware engineers, ESD-safe cleanroom laboratory, genuine original parts, and transparent upfront pricing in Jubilee Hills, Hyderabad.
+                  Certified hardware engineers, ESD-safe cleanroom laboratory, genuine original parts, and transparent upfront pricing in Tolichowki, Hyderabad.
                 </p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-5 text-xs font-bold text-neutral-300">
                   <span className="flex items-center gap-1.5 text-amber-400">

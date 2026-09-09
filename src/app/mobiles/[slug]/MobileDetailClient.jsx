@@ -88,8 +88,8 @@ export default function MobileDetailClient({ slug }) {
     <SmoothScrollProvider>
       <SEO
         title={`Best Price ${product.name} in Hyderabad (${product.price}) | TecnoMart`}
-        description={`Buy 100% genuine ${product.name} at the best price in Hyderabad (${product.price}). In stock at TecnoMart Jubilee Hills with sealed GST tax invoice, official manufacturer warranty, and 3-hour doorstep delivery.`}
-        keywords={`best price ${product.name} Hyderabad, buy ${product.name} Hyderabad, ${product.name} online Jubilee Hills, ${product.brand} mobile shop Hyderabad, lowest price ${product.name}`}
+        description={`Buy 100% genuine ${product.name} at the best price in Hyderabad (${product.price}). In stock at TecnoMart Tolichowki with sealed GST tax invoice, official manufacturer warranty, and 3-hour doorstep delivery.`}
+        keywords={`best price ${product.name} Hyderabad, buy ${product.name} Hyderabad, ${product.name} online Tolichowki, ${product.brand} mobile shop Hyderabad, lowest price ${product.name}`}
         canonicalUrl={canonicalUrl}
         ogType="product"
         ogImage={product.images?.[0]}
@@ -274,7 +274,7 @@ export default function MobileDetailClient({ slug }) {
                       <input
                         type="text"
                         maxLength={6}
-                        placeholder="Check delivery pincode (e.g. 500033)"
+                        placeholder="Check delivery pincode (e.g. 500008)"
                         value={pincode}
                         onChange={(e) => setPincode(e.target.value)}
                         className="w-full h-10 pl-9 pr-3 text-xs bg-white border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 font-medium"

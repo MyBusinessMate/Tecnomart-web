@@ -88,8 +88,8 @@ export default function LaptopDetailClient({ slug }) {
     <SmoothScrollProvider>
       <SEO
         title={`Best Price ${laptop.name} in Hyderabad (${laptop.price}) | TecnoMart`}
-        description={`Buy 100% genuine ${laptop.name} at the best price in Hyderabad (${laptop.price}). Available at TecnoMart Jubilee Hills with official manufacturer warranty, 0% EMI options, and express same-day delivery.`}
-        keywords={`best price ${laptop.name} Hyderabad, buy ${laptop.name} Hyderabad, ${laptop.name} deals Jubilee Hills, ${laptop.brand} laptop store Hyderabad, laptop showroom Jubilee Hills`}
+        description={`Buy 100% genuine ${laptop.name} at the best price in Hyderabad (${laptop.price}). Available at TecnoMart Tolichowki with official manufacturer warranty, 0% EMI options, and express same-day delivery.`}
+        keywords={`best price ${laptop.name} Hyderabad, buy ${laptop.name} Hyderabad, ${laptop.name} deals Tolichowki, ${laptop.brand} laptop store Hyderabad, laptop showroom Tolichowki`}
         canonicalUrl={canonicalUrl}
         ogType="product"
         ogImage={laptop.images?.[0]}
@@ -274,7 +274,7 @@ export default function LaptopDetailClient({ slug }) {
                       <input
                         type="text"
                         maxLength={6}
-                        placeholder="Check delivery pincode (e.g. 500033)"
+                        placeholder="Check delivery pincode (e.g. 500008)"
                         value={pincode}
                         onChange={(e) => setPincode(e.target.value)}
                         className="w-full h-10 pl-9 pr-3 text-xs bg-white border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 font-medium"

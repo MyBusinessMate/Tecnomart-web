@@ -83,10 +83,10 @@ export default function SitemapPage() {
     {
       title: "Company, Store & Legal Guidelines",
       icon: ShieldCheck,
-      description: "Flagship showroom location in Jubilee Hills, customer support hotline, comprehensive privacy policies, and service warranty terms.",
+      description: "Flagship showroom location in Tolichowki, customer support hotline, comprehensive privacy policies, and service warranty terms.",
       links: [
         { name: "About TecnoMart Hyderabad", url: "/about", badge: "Our Story" },
-        { name: "Contact & Jubilee Hills Store Directions", url: "/contact", badge: "Open Daily 10 AM - 9:30 PM" },
+        { name: "Contact & Tolichowki Store Directions", url: "/contact", badge: "Open Daily 10 AM - 9:30 PM" },
         { name: "Privacy Policy & Device Data Protection", url: "/privacy", badge: "Data Secrecy" },
         { name: "Terms & Conditions & Warranty Policy", url: "/terms", badge: "Customer Terms" },
         { name: "Shopping Cart & Direct Ordering", url: "/cart", badge: "Checkout" },
@@ -310,11 +310,11 @@ export default function SitemapPage() {
                     Store Verification
                   </h3>
                   <p className="text-[11px] text-neutral-600 leading-relaxed">
-                    All listed products are physically stocked at our Jubilee Hills showroom with official manufacturer warranty cards and GST tax billing.
+                    All listed products are physically stocked at our Tolichowki showroom with official manufacturer warranty cards and GST tax billing.
                   </p>
                   <div className="mt-3 pt-3 border-t border-neutral-200 text-[11px]">
-                    <span className="font-bold text-neutral-900 block">Jubilee Hills Store</span>
-                    <span className="text-neutral-500">Road No. 36, Hyderabad</span>
+                    <span className="font-bold text-neutral-900 block">Tolichowki Store</span>
+                    <span className="text-neutral-500">7 Tombs Road, Opposite Fortune Toyota Service, Hyderabad – 500008</span>
                     <a 
                       href="https://wa.me/919010667726" 
                       target="_blank" 

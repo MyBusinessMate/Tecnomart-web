@@ -72,8 +72,8 @@ export default function RefurbishedDetailClient({ slug }) {
     <SmoothScrollProvider>
       <SEO
         title={`Best Price ${item.name} Certified Refurbished in Hyderabad (${item.price}) | TecnoMart`}
-        description={`Buy Grade-A+ certified refurbished ${item.name} at the best price in Hyderabad (${item.price}). Inspected through 32-point hardware test with 6-month warranty and GST invoice at TecnoMart Jubilee Hills.`}
-        keywords={`best price refurbished ${item.name} Hyderabad, buy used ${item.name} Hyderabad, second hand ${item.name} Jubilee Hills, certified pre owned ${item.brand}`}
+        description={`Buy Grade-A+ certified refurbished ${item.name} at the best price in Hyderabad (${item.price}). Inspected through 32-point hardware test with 6-month warranty and GST invoice at TecnoMart Tolichowki.`}
+        keywords={`best price refurbished ${item.name} Hyderabad, buy used ${item.name} Hyderabad, second hand ${item.name} Tolichowki, certified pre owned ${item.brand}`}
         canonicalUrl={canonicalUrl}
         ogType="product"
         ogImage={item.images?.[0]}
@@ -187,7 +187,7 @@ export default function RefurbishedDetailClient({ slug }) {
                     <input
                       type="text"
                       maxLength={6}
-                      placeholder="Enter Pincode (e.g. 500033)"
+                      placeholder="Enter Pincode (e.g. 500008)"
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
                       className="flex-1 h-10 px-3.5 text-xs bg-white border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-medium"

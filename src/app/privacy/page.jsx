@@ -36,7 +36,7 @@ const sections = [
         <a href="mailto:privacy@tecnomart.in" className="text-amber-600 font-bold underline hover:text-amber-700">
           privacy@tecnomart.in
         </a>{' '}
-        or visit our store at Road No. 36, Jubilee Hills, Hyderabad.
+        or visit our store at 7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki, Hyderabad.
       </p>
     ),
   },

@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: "3. Repair Service SLA & 90-Day Coverage",
-    body: "Screens, batteries, charging ports, and micro-soldered IC replacements performed at our Jubilee Hills service center include a 90-Day Functional Warranty on the replaced component. In the rare event a replaced component fails under normal usage within 90 days, we repair or replace the part at zero cost.",
+    body: "Screens, batteries, charging ports, and micro-soldered IC replacements performed at our Tolichowki service center include a 90-Day Functional Warranty on the replaced component. In the rare event a replaced component fails under normal usage within 90 days, we repair or replace the part at zero cost.",
   },
   {
     title: "4. Custom PC Builds & Stress Testing",
@@ -43,7 +43,7 @@ export default function TermsPage() {
     <SmoothScrollProvider>
       <SEO
         title="Terms & Conditions | TecnoMart Hyderabad"
-        description="Terms and conditions, warranty coverage, repair guarantees, and return policies for purchases and services at TecnoMart Jubilee Hills, Hyderabad."
+        description="Terms and conditions, warranty coverage, repair guarantees, and return policies for purchases and services at TecnoMart Tolichowki, Hyderabad."
         canonicalUrl="https://tecnomart.in/terms"
         schema={breadcrumbSchema}
       />

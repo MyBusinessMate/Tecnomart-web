@@ -19,7 +19,7 @@ const BENEFITS = [
 ];
 
 const STEPS = [
-  { step: "01", title: "Walk In or WhatsApp", desc: "Visit our Jubilee Hills store or send your college ID photo on WhatsApp." },
+  { step: "01", title: "Walk In or WhatsApp", desc: "Visit our Tolichowki store or send your college ID photo on WhatsApp." },
   { step: "02", title: "Verified in 5 Minutes", desc: "Our team verifies your enrollment. Any recognized college/university ID accepted." },
   { step: "03", title: "Discount Applied Instantly", desc: "Discount applied on the spot. Valid for the entire academic year." },
 ];
@@ -62,8 +62,8 @@ export default function StudentsPage() {
     <SmoothScrollProvider>
       <SEO
         title="Best Student Discounts on Laptops & MacBooks in Hyderabad | TecnoMart"
-        description="Get the best student discounts on Apple MacBooks, iPad Pro, and coding laptops in Hyderabad. Show college ID for instant price drops, free accessories, and zero-cost EMI at TecnoMart Jubilee Hills."
-        keywords="best student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, cheap MacBooks students Hyderabad, student tech store Jubilee Hills"
+        description="Get the best student discounts on Apple MacBooks, iPad Pro, and coding laptops in Hyderabad. Show college ID for instant price drops, free accessories, and zero-cost EMI at TecnoMart Tolichowki."
+        keywords="best student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, cheap MacBooks students Hyderabad, student tech store Tolichowki"
         canonicalUrl="https://tecnomart.in/students"
         ogImageAlt="Best Student Tech Discounts on Laptops & MacBooks — TecnoMart"
         schema={breadcrumbSchema}
@@ -230,7 +230,7 @@ export default function StudentsPage() {
                   Ready to Claim Your Student Discount?
                 </h2>
                 <p className="text-neutral-400 text-sm font-medium mb-5 max-w-md mx-auto leading-relaxed">
-                  Walk in to our Jubilee Hills store or WhatsApp us your college ID. Verification takes just 5 minutes.
+                  Walk in to our Tolichowki store or WhatsApp us your college ID. Verification takes just 5 minutes.
                 </p>
                 <button
                   type="button"

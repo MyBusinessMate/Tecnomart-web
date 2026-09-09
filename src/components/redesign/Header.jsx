@@ -250,7 +250,7 @@ export default function Header() {
       { name: 'Certified Repairs & Service', href: '/repairs', desc: 'Doorstep pickup & expert diagnostics' },
       { name: 'EMI Calculator', href: '/emi-calculator', desc: 'Calculate No-Cost & Low-Cost EMIs' },
       { name: 'Compare Devices', href: '/compare', desc: 'Side-by-side specs comparison' },
-      { name: 'Store Location & Contact', href: '/contact', desc: 'Tolichowki / Jubilee Hills store' },
+      { name: 'Store Location & Contact', href: '/contact', desc: '7 Tombs Rd, Tolichowki store' },
     ],
   };
 
@@ -1161,7 +1161,7 @@ export default function Header() {
                   maxLength={6}
                   value={tempPincode}
                   onChange={(e) => setTempPincode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                  placeholder="e.g. 500033"
+                  placeholder="e.g. 500008"
                   className="w-full h-11 px-3.5 bg-neutral-50 border border-neutral-300 rounded-xl outline-none focus:border-amber-500 font-bold text-sm"
                 />
                 <button

@@ -122,7 +122,7 @@ export default function GamingPage() {
       <SEO
         title="Best Custom Gaming PC Builders in Hyderabad | Liquid-Cooled RTX 4090/5090 Rigs"
         description="Looking for the best custom gaming PC builders in Hyderabad? TecnoMart designs high-FPS battle stations with NVIDIA RTX, AMD Ryzen, custom ARGB loops, 3-year warranty, and stress-tested benchmarks."
-        keywords="best custom gaming PC builders in Hyderabad, custom PC Hyderabad, gaming desktop showroom Hyderabad, liquid cooled PC Hyderabad, RTX 4090 PC Hyderabad, esports desktop Hyderabad, PC build Jubilee Hills"
+        keywords="best custom gaming PC builders in Hyderabad, custom PC Hyderabad, gaming desktop showroom Hyderabad, liquid cooled PC Hyderabad, RTX 4090 PC Hyderabad, esports desktop Hyderabad, PC build Tolichowki"
         canonicalUrl="https://tecnomart.in/gaming"
         ogImageAlt="Best Custom Gaming PC Builders in Hyderabad — TecnoMart Liquid Cooled Rigs"
         schema={breadcrumbSchema}

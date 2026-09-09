@@ -8,7 +8,7 @@ import { BlurRevealBox } from './BlurReveal';
 
 export default function ReviewsAndLocation() {
   const openGoogleMaps = () => {
-    const query = encodeURIComponent("Tecno Mart Road No 36 Jubilee Hills Hyderabad Telangana 500033");
+    const query = encodeURIComponent("Tecno Mart Opposite Fortune Toyota Service Center 7 Tombs Road Tolichowki Hyderabad");
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
   };
 
@@ -39,9 +39,9 @@ export default function ReviewsAndLocation() {
                       <span>Tecno Mart</span>
                     </p>
                     <p className="pl-4 text-[11px] sm:text-xs leading-relaxed text-neutral-600 font-semibold">
-                      H.No. 8-2-293/82/A/1287,<br />
-                      Road No. 36, Jubilee Hills,<br />
-                      Hyderabad, Telangana - 500033
+                      7 Tombs Road,<br />
+                      Opposite Fortune Toyota Service,<br />
+                      Tolichowki, Hyderabad, Telangana - 500008
                     </p>
                   </div>
                 </div>
@@ -50,7 +50,7 @@ export default function ReviewsAndLocation() {
                 <div>
                   <button
                     onClick={openGoogleMaps}
-                    aria-label="Get directions to TecnoMart Jubilee Hills store on Google Maps"
+                    aria-label="Get directions to TecnoMart Tolichowki store on Google Maps"
                     className="btn-wipe-yellow inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider active:scale-95 cursor-pointer shadow-xs"
                   >
                     <span className="relative z-10">GET DIRECTIONS</span>

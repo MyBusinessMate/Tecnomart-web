@@ -42,7 +42,7 @@ export default function CheckoutModal() {
     email: '',
     address: '',
     city: 'Hyderabad',
-    pincode: locationPincode || '500033',
+    pincode: locationPincode || '500008',
     notes: '',
   });
 
@@ -573,7 +573,7 @@ export default function CheckoutModal() {
                   <div className="flex justify-between items-start border-b border-neutral-200 pb-3">
                     <div>
                       <span className="font-black text-neutral-950 text-sm block">TECNOMART HYDERABAD</span>
-                      <span>Plot 42, Tolichowki Main Rd, Hyderabad</span>
+                      <span>7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki, Hyderabad</span>
                       <span className="block text-neutral-500">GSTIN: 36ABCDE1234F1Z5</span>
                     </div>
                     <div className="text-right">

@@ -14,17 +14,17 @@ export const ORGANIZATION_SCHEMA = {
   email: 'support@tecnomart.in',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills',
+    streetAddress: '7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
-    postalCode: '500033',
+    postalCode: '500008',
     addressCountry: 'IN',
   },
   sameAs: [
     'https://www.facebook.com/tecnomarthyd',
     'https://www.instagram.com/tecnomart.hyd',
     'https://twitter.com/tecnomart_hyd',
-    'https://www.google.com/maps?cid=tecnomart-jubilee-hills'
+    'https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad'
   ],
 };
 
@@ -46,16 +46,16 @@ export const LOCAL_BUSINESS_SCHEMA = {
   ],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills',
+    streetAddress: '7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
-    postalCode: '500033',
+    postalCode: '500008',
     addressCountry: 'IN',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 17.4319,
-    longitude: 78.4073,
+    latitude: 17.4045,
+    longitude: 78.4110,
   },
   openingHoursSpecification: [
     {
@@ -101,7 +101,7 @@ export function createProductSchema(product, canonicalUrl) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    description: product.tagline || `${product.name} — genuine Indian retail unit available at TecnoMart Jubilee Hills, Hyderabad with official warranty and same-day express delivery.`,
+    description: product.tagline || `${product.name} — genuine Indian retail unit available at TecnoMart Tolichowki, Hyderabad with official warranty and same-day express delivery.`,
     image: imageUrl,
     brand: {
       '@type': 'Brand',
@@ -184,12 +184,12 @@ export default function SEO({
 
     // 3. Meta Description
     const defaultDesc =
-      "Best tech store in Hyderabad for Apple iPhones, MacBooks, gaming laptops, custom PCs, and same-day certified hardware repairs in Jubilee Hills. 100% genuine units with official tax invoice & warranty.";
+      "Best tech store in Hyderabad for Apple iPhones, MacBooks, gaming laptops, custom PCs, and same-day certified hardware repairs in Tolichowki. 100% genuine units with official tax invoice & warranty.";
     setMeta('name', 'description', description || defaultDesc);
 
     // 4. Meta Keywords
     const defaultKeywords =
-      "best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop store in Hyderabad, best gaming PC builders in Hyderabad, best computer repair Jubilee Hills, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad, same day mobile repair Hyderabad, custom liquid cooled PC";
+      "best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop store in Hyderabad, best gaming PC builders in Hyderabad, best computer repair Tolichowki, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad, same day mobile repair Hyderabad, custom liquid cooled PC";
     setMeta('name', 'keywords', keywords || defaultKeywords);
 
     // 5. Canonical URL
@@ -219,9 +219,9 @@ export default function SEO({
 
     // 7. Local Hyderabad Geo-Targeting Tags
     setMeta('name', 'geo.region', 'IN-TG');
-    setMeta('name', 'geo.placename', 'Hyderabad, Jubilee Hills, Telangana, India');
-    setMeta('name', 'geo.position', '17.4319;78.4073');
-    setMeta('name', 'ICBM', '17.4319, 78.4073');
+    setMeta('name', 'geo.placename', 'Tolichowki, Hyderabad, Telangana, India');
+    setMeta('name', 'geo.position', '17.4045;78.4110');
+    setMeta('name', 'ICBM', '17.4045, 78.4110');
     setMeta('name', 'author', 'TecnoMart Technologies Pvt Ltd');
     setMeta('name', 'publisher', 'https://tecnomart.in');
 
@@ -232,7 +232,7 @@ export default function SEO({
     setMeta('property', 'og:url', canonicalHref);
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:image', resolvedOgImage);
-    setMeta('property', 'og:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Jubilee Hills`);
+    setMeta('property', 'og:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Tolichowki`);
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
     setMeta('property', 'og:site_name', 'TecnoMart Hyderabad');
@@ -245,7 +245,7 @@ export default function SEO({
     setMeta('name', 'twitter:title', formattedTitle);
     setMeta('name', 'twitter:description', description || defaultDesc);
     setMeta('name', 'twitter:image', resolvedOgImage);
-    setMeta('name', 'twitter:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Jubilee Hills`);
+    setMeta('name', 'twitter:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Tolichowki`);
 
     // 10. JSON-LD Structured Data Schema
     let scriptTag = document.getElementById('tecnomart-dynamic-jsonld');
