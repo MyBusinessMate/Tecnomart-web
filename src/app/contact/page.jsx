@@ -47,9 +47,11 @@ export default function ContactPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Contact TecnoMart Jubilee Hills, Hyderabad | Store & Service Hub"
-        description="Visit TecnoMart on Road No. 36 Jubilee Hills, Hyderabad. Contact us via WhatsApp or call +91 9010667726 for product inquiries, PC builds, and repair bookings."
+        title="Best Tech Store Location in Hyderabad | TecnoMart Jubilee Hills Address & Hotline"
+        description="Visit Hyderabad's best tech store and service center on Road No. 36, Jubilee Hills. Call +91 9010667726 or WhatsApp for product quotes, custom PC orders, and repair status."
+        keywords="TecnoMart address Jubilee Hills, best tech store location Hyderabad, computer shop near me Hyderabad, mobile store Jubilee Hills, TecnoMart phone number"
         canonicalUrl="https://tecnomart.in/contact"
+        ogImageAlt="TecnoMart Flagship Tech Showroom & Service Hub in Jubilee Hills Hyderabad"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

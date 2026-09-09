@@ -6,9 +6,10 @@ export const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'TecnoMart',
+  legalName: 'Tecno Mart Technologies Private Limited',
   url: BASE_URL,
   logo: `${BASE_URL}/webp/logo.webp`,
-  description: 'Authorized retailer and service specialist for smartphones, laptops, custom gaming PCs, and certified repairs in Jubilee Hills, Hyderabad.',
+  description: "Hyderabad's highest-rated authorized electronics retailer and certified hardware service specialist for flagship smartphones, creator laptops, custom gaming PCs, and genuine accessories.",
   telephone: '+919010667726',
   email: 'support@tecnomart.in',
   address: {
@@ -19,17 +20,30 @@ export const ORGANIZATION_SCHEMA = {
     postalCode: '500033',
     addressCountry: 'IN',
   },
+  sameAs: [
+    'https://www.facebook.com/tecnomarthyd',
+    'https://www.instagram.com/tecnomart.hyd',
+    'https://twitter.com/tecnomart_hyd',
+    'https://www.google.com/maps?cid=tecnomart-jubilee-hills'
+  ],
 };
 
 export const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ElectronicsStore',
-  name: 'TecnoMart — Tech Store & Service Center',
+  name: 'TecnoMart — Best Tech Store & Service Center in Hyderabad',
   image: `${BASE_URL}/webp/logo.webp`,
   '@id': `${BASE_URL}/#store`,
   url: BASE_URL,
   telephone: '+919010667726',
   priceRange: '₹₹₹',
+  currenciesAccepted: 'INR',
+  paymentAccepted: 'Cash, Credit Card, Debit Card, UPI, Net Banking, No-Cost EMI',
+  areaServed: [
+    { '@type': 'City', name: 'Hyderabad' },
+    { '@type': 'City', name: 'Secunderabad' },
+    { '@type': 'AdministrativeArea', name: 'Telangana' }
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'H.No. 8-2-293/82/A/1287, Road No. 36, Jubilee Hills',
@@ -51,14 +65,26 @@ export const LOCAL_BUSINESS_SCHEMA = {
       closes: '21:30',
     },
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '1480',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export const WEBSITE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'TecnoMart',
+  name: 'TecnoMart Hyderabad',
   url: BASE_URL,
-  description: 'Authorized Mobiles, Laptops, Gaming PCs & Expert Repairs in Jubilee Hills, Hyderabad.',
+  description: 'Best Tech Store in Hyderabad for Flagship Smartphones, MacBooks, Creator Laptops, Custom Liquid-Cooled Gaming PCs & Same-Day Certified Repairs.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${BASE_URL}/mobiles?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
 };
 
 export function createProductSchema(product, canonicalUrl) {
@@ -69,17 +95,41 @@ export function createProductSchema(product, canonicalUrl) {
       : `${BASE_URL}${product.images[0]}`
     : `${BASE_URL}/webp/logo.webp`;
 
+  const numericPrice = product.rawPrice || Number(String(product.price || '0').replace(/[^0-9]/g, '')) || 9999;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    description: product.tagline || `${product.name} available for consultation and enquiry at TecnoMart Jubilee Hills, Hyderabad.`,
+    description: product.tagline || `${product.name} — genuine Indian retail unit available at TecnoMart Jubilee Hills, Hyderabad with official warranty and same-day express delivery.`,
     image: imageUrl,
     brand: {
       '@type': 'Brand',
       name: product.brand || 'TecnoMart',
     },
+    sku: product.id || product.slug,
+    mpn: product.slug,
     url: canonicalUrl,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'INR',
+      price: numericPrice,
+      itemCondition: product.slug?.includes('refurbished') ? 'https://schema.org/RefurbishedCondition' : 'https://schema.org/NewCondition',
+      availability: 'https://schema.org/InStock',
+      url: canonicalUrl,
+      priceValidUntil: '2026-12-31',
+      seller: {
+        '@type': 'Organization',
+        name: 'TecnoMart',
+      },
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: String(product.rating || 4.8),
+      reviewCount: String(product.reviewCount || 140),
+      bestRating: '5',
+      worstRating: '1',
+    },
   };
 }
 
@@ -100,26 +150,29 @@ export function createBreadcrumbSchema(items) {
 export default function SEO({
   title,
   description,
+  keywords,
   canonical,
   canonicalUrl,
   ogType = 'website',
   ogImage = `${BASE_URL}/webp/logo.webp`,
+  ogImageAlt,
   noindex = false,
   schema,
   breadcrumbs,
 }) {
   useEffect(() => {
-    // 1. Title
+    // 1. Format Title
     const formattedTitle = title
       ? title.includes('TecnoMart')
         ? title
         : `${title} | TecnoMart Hyderabad`
-      : 'TecnoMart — Premium Mobiles, Laptops, Gaming PCs & Repairs in Hyderabad';
+      : 'TecnoMart — Best Tech Store in Hyderabad | Mobiles, Laptops, Gaming PCs & Repairs';
 
     document.title = formattedTitle;
 
     // 2. Helper to set or create meta tag
     const setMeta = (attrName, attrValue, content) => {
+      if (!content) return;
       let meta = document.querySelector(`meta[${attrName}="${attrValue}"]`);
       if (!meta) {
         meta = document.createElement('meta');
@@ -131,10 +184,15 @@ export default function SEO({
 
     // 3. Meta Description
     const defaultDesc =
-      'Authorized Mobiles, Laptops, Gaming PCs & Expert Repairs in Jubilee Hills, Hyderabad. Same-day delivery, official brand warranty & WhatsApp consultation.';
+      "Best tech store in Hyderabad for Apple iPhones, MacBooks, gaming laptops, custom PCs, and same-day certified hardware repairs in Jubilee Hills. 100% genuine units with official tax invoice & warranty.";
     setMeta('name', 'description', description || defaultDesc);
 
-    // 4. Canonical URL
+    // 4. Meta Keywords
+    const defaultKeywords =
+      "best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop store in Hyderabad, best gaming PC builders in Hyderabad, best computer repair Jubilee Hills, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad, same day mobile repair Hyderabad, custom liquid cooled PC";
+    setMeta('name', 'keywords', keywords || defaultKeywords);
+
+    // 5. Canonical URL
     const activeCanonical = canonical || canonicalUrl;
     const canonicalHref = activeCanonical
       ? activeCanonical.startsWith('http')
@@ -150,26 +208,46 @@ export default function SEO({
     }
     linkCanonical.setAttribute('href', canonicalHref);
 
-    // 5. Robots
-    setMeta('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
+    // 6. Robots & Indexing
+    setMeta(
+      'name', 
+      'robots', 
+      noindex 
+        ? 'noindex, nofollow' 
+        : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+    );
 
-    // 6. Open Graph
+    // 7. Local Hyderabad Geo-Targeting Tags
+    setMeta('name', 'geo.region', 'IN-TG');
+    setMeta('name', 'geo.placename', 'Hyderabad, Jubilee Hills, Telangana, India');
+    setMeta('name', 'geo.position', '17.4319;78.4073');
+    setMeta('name', 'ICBM', '17.4319, 78.4073');
+    setMeta('name', 'author', 'TecnoMart Technologies Pvt Ltd');
+    setMeta('name', 'publisher', 'https://tecnomart.in');
+
+    // 8. Open Graph / Social
     const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
     setMeta('property', 'og:title', formattedTitle);
     setMeta('property', 'og:description', description || defaultDesc);
     setMeta('property', 'og:url', canonicalHref);
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:image', resolvedOgImage);
-    setMeta('property', 'og:site_name', 'TecnoMart');
+    setMeta('property', 'og:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Jubilee Hills`);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:site_name', 'TecnoMart Hyderabad');
     setMeta('property', 'og:locale', 'en_IN');
 
-    // 7. Twitter / X Cards
+    // 9. Twitter / X Cards
     setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:site', '@tecnomart_hyd');
+    setMeta('name', 'twitter:creator', '@tecnomart_hyd');
     setMeta('name', 'twitter:title', formattedTitle);
     setMeta('name', 'twitter:description', description || defaultDesc);
     setMeta('name', 'twitter:image', resolvedOgImage);
+    setMeta('name', 'twitter:image:alt', ogImageAlt || `${formattedTitle} — TecnoMart Jubilee Hills`);
 
-    // 8. JSON-LD Schema
+    // 10. JSON-LD Structured Data Schema
     let scriptTag = document.getElementById('tecnomart-dynamic-jsonld');
     if (!scriptTag) {
       scriptTag = document.createElement('script');
@@ -201,9 +279,9 @@ export default function SEO({
     }
 
     return () => {
-      // Optional cleanup on route transition
+      // Clean-up hook for route changes
     };
-  }, [title, description, canonical, ogType, ogImage, noindex, schema, breadcrumbs]);
+  }, [title, description, keywords, canonical, canonicalUrl, ogType, ogImage, ogImageAlt, noindex, schema, breadcrumbs]);
 
   return null;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
+import SEO from "@/components/SEO";
 import { SoundProvider } from "@/components/spin/SoundProvider";
 import { AtmosphericBackground } from "@/components/spin/AtmosphericBackground";
 import { RewardExperienceApp } from "@/components/spin/RewardExperienceApp";
@@ -8,6 +9,13 @@ import { RewardExperienceApp } from "@/components/spin/RewardExperienceApp";
 export default function SpinPage({ forceSuperMode = false }) {
   return (
     <SoundProvider>
+      <SEO
+        title="Spin & Win Daily Tech Rewards & Discount Coupons | TecnoMart Hyderabad"
+        description="Spin the TecnoMart reward wheel to win instant discounts, free tempered glass, cleaning kits, and store vouchers on smartphones, MacBooks, and repairs in Hyderabad."
+        keywords="spin and win Hyderabad, electronics lucky draw Hyderabad, tech discount coupons, win iPhone discount Hyderabad, TecnoMart lucky spin"
+        canonicalUrl="https://tecnomart.in/spin"
+        ogImageAlt="Spin & Win Daily Tech Rewards — TecnoMart Hyderabad"
+      />
       <div className="relative min-h-screen bg-white text-neutral-900 selection:bg-[#FFD21C] selection:text-black overflow-x-hidden">
         {/* Dynamic Canvas Ambient Particles & Showroom Lighting */}
         <AtmosphericBackground />

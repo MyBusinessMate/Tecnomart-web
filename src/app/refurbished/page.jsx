@@ -138,9 +138,11 @@ export default function RefurbishedPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Certified Refurbished Apple & Tech in Hyderabad | TecnoMart"
-        description="Buy certified refurbished MacBooks, iPhones, and premium laptops in Hyderabad. 40-point diagnostic tested, 100% genuine parts, and 1-year TecnoMart warranty."
+        title="Best Certified Refurbished Laptops & iPhones in Hyderabad | 32-Point Quality Inspected"
+        description="Looking for the best refurbished electronics store in Hyderabad? TecnoMart provides Grade-A+ certified refurbished MacBooks, iPhones, iPads, and Dell laptops with 6-month warranty and 32-point inspection."
+        keywords="best refurbished laptops Hyderabad, best refurbished iPhone Hyderabad, pre owned MacBook Hyderabad, second hand laptops Jubilee Hills, certified used iPhone Hyderabad, refurbished electronics Telangana"
         canonicalUrl="https://tecnomart.in/refurbished"
+        ogImageAlt="Best Certified Refurbished Electronics in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

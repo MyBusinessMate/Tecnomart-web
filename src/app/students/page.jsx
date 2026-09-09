@@ -61,9 +61,11 @@ export default function StudentsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Student Tech Discounts in Hyderabad | TecnoMart"
-        description="Exclusive student discounts on Apple MacBooks, laptops, smartphones, and accessories for university & college students in Hyderabad."
+        title="Best Student Discounts on Laptops & MacBooks in Hyderabad | TecnoMart"
+        description="Get the best student discounts on Apple MacBooks, iPad Pro, and coding laptops in Hyderabad. Show college ID for instant price drops, free accessories, and zero-cost EMI at TecnoMart Jubilee Hills."
+        keywords="best student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, cheap MacBooks students Hyderabad, student tech store Jubilee Hills"
         canonicalUrl="https://tecnomart.in/students"
+        ogImageAlt="Best Student Tech Discounts on Laptops & MacBooks — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

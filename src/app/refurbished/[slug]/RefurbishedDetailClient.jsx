@@ -71,10 +71,13 @@ export default function RefurbishedDetailClient({ slug }) {
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${item.name} Certified Refurbished Price | TecnoMart`}
-        description={item.tagline || `Certified refurbished ${item.name} at TecnoMart Jubilee Hills, Hyderabad. 40-point tested, 100% genuine parts, and 1-year warranty.`}
+        title={`Best Price ${item.name} Certified Refurbished in Hyderabad (${item.price}) | TecnoMart`}
+        description={`Buy Grade-A+ certified refurbished ${item.name} at the best price in Hyderabad (${item.price}). Inspected through 32-point hardware test with 6-month warranty and GST invoice at TecnoMart Jubilee Hills.`}
+        keywords={`best price refurbished ${item.name} Hyderabad, buy used ${item.name} Hyderabad, second hand ${item.name} Jubilee Hills, certified pre owned ${item.brand}`}
         canonicalUrl={canonicalUrl}
+        ogType="product"
         ogImage={item.images?.[0]}
+        ogImageAlt={`${item.name} Certified Refurbished — TecnoMart Hyderabad`}
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

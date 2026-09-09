@@ -33,9 +33,11 @@ export default function CorporatePage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Corporate Tech Procurement & Bulk IT in Hyderabad | TecnoMart"
-        description="B2B IT hardware procurement, volume MacBook discounts, workstations, and GST invoicing for startups and enterprises in Hyderabad."
+        title="Best Corporate IT Hardware Procurement & Bulk Tech Leasing in Hyderabad | TecnoMart"
+        description="Looking for the best B2B IT hardware vendor in Hyderabad? TecnoMart delivers bulk Apple MacBooks, enterprise Dell laptops, custom workstations, GST input tax invoicing, and corporate credit terms."
+        keywords="best corporate IT procurement Hyderabad, B2B tech vendor Hyderabad, bulk laptop purchase Hyderabad, corporate MacBook lease, enterprise hardware Jubilee Hills, IT asset supply Telangana"
         canonicalUrl="https://tecnomart.in/corporate"
+        ogImageAlt="Best Corporate IT Hardware Procurement in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

@@ -90,9 +90,11 @@ export default function EMICalculatorPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="No Cost EMI Calculator for Mobiles & Laptops | TecnoMart"
-        description="Calculate monthly installments and No Cost EMI options on smartphones, MacBooks, and gaming PCs in Hyderabad with leading banks."
+        title="Best No-Cost EMI Calculator for Electronics & Laptops in Hyderabad | TecnoMart"
+        description="Calculate monthly installments with 0% No Cost EMI on iPhones, MacBooks, and gaming PCs in Hyderabad. Compare EMI plans across HDFC, ICICI, SBI, and Bajaj Finserv with TecnoMart Jubilee Hills."
+        keywords="best No Cost EMI electronics Hyderabad, iPhone EMI calculator Hyderabad, MacBook low interest EMI, laptop finance scheme Hyderabad, Bajaj Finserv tech store Jubilee Hills"
         canonicalUrl="https://tecnomart.in/emi-calculator"
+        ogImageAlt="Best No-Cost EMI Calculator for Electronics in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

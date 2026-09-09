@@ -101,9 +101,11 @@ export default function ComparePage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Compare Smartphones & Laptops Side by Side | TecnoMart"
-        description="Compare specs, prices, displays, cameras, and performance of leading smartphones and laptops side-by-side at TecnoMart Hyderabad."
+        title="Best Tech Comparison Tool in Hyderabad | Compare Mobiles, Laptops & Specs Side by Side"
+        description="Compare flagship smartphones, MacBooks, and gaming laptops side-by-side. Benchmark processors, battery life, camera sensors, and Indian prices with TecnoMart Hyderabad's comparison tool."
+        keywords="compare smartphones Hyderabad, compare MacBooks vs Windows, iPhone 16 Pro Max vs S24 Ultra, tech specs comparison, best laptop comparison tool India"
         canonicalUrl="https://tecnomart.in/compare"
+        ogImageAlt="Best Tech Comparison Tool in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

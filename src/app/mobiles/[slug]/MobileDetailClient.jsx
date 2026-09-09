@@ -87,10 +87,13 @@ export default function MobileDetailClient({ slug }) {
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${product.name} Price in Hyderabad | TecnoMart`}
-        description={product.tagline || `Buy 100% genuine ${product.name} at TecnoMart Jubilee Hills, Hyderabad. Sealed GST invoice with official warranty and same-day delivery.`}
+        title={`Best Price ${product.name} in Hyderabad (${product.price}) | TecnoMart`}
+        description={`Buy 100% genuine ${product.name} at the best price in Hyderabad (${product.price}). In stock at TecnoMart Jubilee Hills with sealed GST tax invoice, official manufacturer warranty, and 3-hour doorstep delivery.`}
+        keywords={`best price ${product.name} Hyderabad, buy ${product.name} Hyderabad, ${product.name} online Jubilee Hills, ${product.brand} mobile shop Hyderabad, lowest price ${product.name}`}
         canonicalUrl={canonicalUrl}
+        ogType="product"
         ogImage={product.images?.[0]}
+        ogImageAlt={`${product.name} Best Price in Hyderabad — TecnoMart`}
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#fafafa] text-[#111111] font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

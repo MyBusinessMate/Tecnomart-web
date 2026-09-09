@@ -27,9 +27,11 @@ export default function AboutPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="About TecnoMart | Hyderabad's Trusted Tech Destination"
-        description="Learn about TecnoMart, founded in 2016 in Jubilee Hills, Hyderabad. Authorized retailer for genuine smartphones, custom gaming PCs, and chip-level repairs."
+        title="About TecnoMart — Best Rated Tech Store & Service Center in Hyderabad"
+        description="Learn why TecnoMart is Hyderabad's best-rated electronics store and certified service center in Jubilee Hills. Over 10+ years of trusted hardware expertise, 100% genuine units, and thousands of satisfied customers."
+        keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Jubilee Hills, trusted computer shop Hyderabad, genuine tech retailer Telangana"
         canonicalUrl="https://tecnomart.in/about"
+        ogImageAlt="About TecnoMart — Hyderabad's Best Rated Tech Store"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

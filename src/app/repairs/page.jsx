@@ -95,9 +95,11 @@ export default function RepairsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Mobile & Laptop Repair Center in Hyderabad | TecnoMart"
-        description="Expert screen replacement, battery repair, chip-level diagnostics, and water damage recovery in Jubilee Hills, Hyderabad. Original parts with 90-day warranty."
+        title="Best Mobile & Laptop Repair Service in Hyderabad | Same-Day Screen, Battery & Chip-Level Fix"
+        description="Looking for the best mobile and laptop repair in Hyderabad? TecnoMart Jubilee Hills service center offers same-day screen replacement, battery upgrades, chip-level logic board repairs, and 90-day warranty."
+        keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Jubilee Hills, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
         canonicalUrl="https://tecnomart.in/repairs"
+        ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Jubilee Hills"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

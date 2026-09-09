@@ -87,10 +87,13 @@ export default function LaptopDetailClient({ slug }) {
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${laptop.name} Price in Hyderabad | TecnoMart`}
-        description={laptop.tagline || `Buy genuine ${laptop.name} at TecnoMart Jubilee Hills, Hyderabad. Official Indian warranty, 0% EMI, and express delivery.`}
+        title={`Best Price ${laptop.name} in Hyderabad (${laptop.price}) | TecnoMart`}
+        description={`Buy 100% genuine ${laptop.name} at the best price in Hyderabad (${laptop.price}). Available at TecnoMart Jubilee Hills with official manufacturer warranty, 0% EMI options, and express same-day delivery.`}
+        keywords={`best price ${laptop.name} Hyderabad, buy ${laptop.name} Hyderabad, ${laptop.name} deals Jubilee Hills, ${laptop.brand} laptop store Hyderabad, laptop showroom Jubilee Hills`}
         canonicalUrl={canonicalUrl}
+        ogType="product"
         ogImage={laptop.images?.[0]}
+        ogImageAlt={`${laptop.name} Best Price in Hyderabad — TecnoMart`}
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#fafafa] text-[#111111] font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

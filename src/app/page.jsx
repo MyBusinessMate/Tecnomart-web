@@ -35,8 +35,9 @@ export default function Page() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="TecnoMart | Authorized Mobiles, Laptops, Gaming PCs & Repairs Hyderabad"
-        description="Authorized retailer in Jubilee Hills, Hyderabad. Browse latest Apple iPhones, MacBooks, gaming laptops, and certified repairs with same-day delivery."
+        title="Best Tech Store in Hyderabad | Mobiles, Laptops, Gaming PCs & Same-Day Repairs"
+        description="TecnoMart is Hyderabad's best tech store and authorized showroom in Jubilee Hills. Best prices on Apple iPhones, MacBooks, gaming laptops, custom liquid-cooled PCs, and certified repairs with same-day delivery."
+        keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Jubilee Hills, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
         canonical="/"
         schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA]}
       />

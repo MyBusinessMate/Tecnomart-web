@@ -111,9 +111,11 @@ export default function LaptopsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Laptops & MacBooks in Hyderabad | TecnoMart"
-        description="Explore Apple MacBook, ASUS ROG, Dell, Lenovo, and HP laptops at TecnoMart Hyderabad. Official Indian warranty, 0% EMI, and expert configuration support."
+        title="Best Laptop Store in Hyderabad | Buy MacBooks, Gaming & Creator Laptops"
+        description="Looking for the best laptop store in Hyderabad? TecnoMart Jubilee Hills features Apple MacBook Pro M3, ASUS ROG Zephyrus, Dell XPS, Lenovo Legion, and HP Spectre with 0% No-Cost EMI and same-day delivery."
+        keywords="best laptop store in Hyderabad, best laptop showroom Hyderabad, buy MacBook Pro Hyderabad, gaming laptops Hyderabad, ASUS ROG showroom Hyderabad, Dell XPS Hyderabad, Lenovo Legion Hyderabad, creator laptops Jubilee Hills"
         canonicalUrl="https://tecnomart.in/laptops"
+        ogImageAlt="Best Laptop Store in Hyderabad — TecnoMart Laptops & MacBooks"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

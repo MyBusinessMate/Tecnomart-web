@@ -198,9 +198,11 @@ export default function ExchangePage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Device Exchange & Trade-In Valuation in Hyderabad | TecnoMart"
-        description="Get instant trade-in valuation for your old smartphone, MacBook, or laptop. Upgrade to new tech with doorstep exchange in Hyderabad."
+        title="Best Mobile & Laptop Trade-In Exchange in Hyderabad | Instant Cash & Store Credit"
+        description="Get the best trade-in exchange value for your old smartphone, iPhone, MacBook, or Windows laptop in Hyderabad. Instant valuation, zero deduction on minor scratches, and same-day exchange credit at TecnoMart Jubilee Hills."
+        keywords="best exchange value old phone Hyderabad, trade in laptop Hyderabad, sell old MacBook Hyderabad, mobile exchange offer Jubilee Hills, laptop upgrade scheme Telangana"
         canonicalUrl="https://tecnomart.in/exchange"
+        ogImageAlt="Best Mobile & Laptop Trade-In Exchange in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

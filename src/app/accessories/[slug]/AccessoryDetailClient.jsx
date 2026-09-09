@@ -68,10 +68,13 @@ export default function AccessoryDetailClient({ slug }) {
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${product.name} Price in Hyderabad | TecnoMart`}
-        description={product.tagline || `Buy 100% genuine ${product.name} at TecnoMart Jubilee Hills, Hyderabad. Official Indian warranty and fast delivery.`}
+        title={`Best Price ${product.name} in Hyderabad (${product.price}) | TecnoMart`}
+        description={`Buy genuine ${product.name} at the best price in Hyderabad (${product.price}). In stock with official warranty, GST tax bill, and express doorstep delivery at TecnoMart Jubilee Hills.`}
+        keywords={`best price ${product.name} Hyderabad, buy ${product.name}, genuine ${product.brand} accessories Hyderabad, tech accessories Jubilee Hills`}
         canonicalUrl={canonicalUrl}
+        ogType="product"
         ogImage={product.images?.[0]}
+        ogImageAlt={`${product.name} Best Price in Hyderabad — TecnoMart`}
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

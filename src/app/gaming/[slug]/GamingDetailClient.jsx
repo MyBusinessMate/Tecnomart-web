@@ -79,10 +79,13 @@ export default function GamingDetailClient({ slug }) {
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${rig.name} Gaming PC Price in Hyderabad | TecnoMart`}
-        description={rig.tagline || `Handcrafted, benchmarked ${rig.name} custom gaming PC in Jubilee Hills, Hyderabad. 3-year warranty and same-day delivery.`}
+        title={`Best Custom Gaming PC: ${rig.name} in Hyderabad (${rig.price}) | TecnoMart`}
+        description={`Buy the handcrafted ${rig.name} custom liquid-cooled gaming PC in Hyderabad (${rig.price}). Features stress-tested benchmarks, premium ARGB chassis, 3-year warranty, and same-day express delivery in Jubilee Hills.`}
+        keywords={`best custom gaming PC Hyderabad, ${rig.name} price, liquid cooled gaming rig Hyderabad, RTX gaming PC Jubilee Hills, esports battle station Hyderabad`}
         canonicalUrl={canonicalUrl}
+        ogType="product"
         ogImage={rig.images?.[0]}
+        ogImageAlt={`${rig.name} Custom Gaming PC — TecnoMart Hyderabad`}
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

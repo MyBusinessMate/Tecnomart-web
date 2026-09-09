@@ -98,9 +98,11 @@ export default function SitemapPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="HTML Sitemap | Complete Directory of Products & Services | TecnoMart Hyderabad"
-        description="Comprehensive directory and HTML sitemap of TecnoMart Hyderabad. Browse all flagship smartphones, laptops, custom gaming PCs, refurbished gear, repair services, and tools."
+        title="HTML Sitemap | Best Products, Repairs & Tech Services Directory | TecnoMart Hyderabad"
+        description="Complete HTML sitemap and directory for TecnoMart Hyderabad. Fast direct links to all flagship smartphones, MacBooks, gaming laptops, custom PCs, repair services, and tools."
+        keywords="TecnoMart sitemap, electronics directory Hyderabad, mobile models list Hyderabad, laptop directory Hyderabad, PC builder tools"
         canonicalUrl="https://tecnomart.in/sitemap"
+        ogImageAlt="TecnoMart HTML Sitemap & Directory"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
