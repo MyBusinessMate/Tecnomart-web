@@ -121,7 +121,7 @@ export default function HeroSection({ onOpenRepairModal }) {
                 onClick={scrollToBudget}
                 className="btn-wipe-yellow min-h-[48px] inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold tracking-wide shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 active:scale-98 cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 fill-current relative z-10" />
+                <MessageSquare className="w-4 h-4 stroke-[2.2] relative z-10" />
                 <span className="relative z-10">Tell Us Your Budget</span>
               </button>
 

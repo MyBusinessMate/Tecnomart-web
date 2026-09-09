@@ -260,9 +260,9 @@ export function FeedbackStep({
                 className="w-full mt-2 font-heading font-black tracking-wider uppercase text-sm"
                 rightIcon={
                   isLoading ? (
-                    <Loader2 className="w-4 h-4 animate-spin text-neutral-950" />
+                    <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
-                    <ExternalLink className="w-4 h-4 text-neutral-950 stroke-[2.5]" />
+                    <ExternalLink className="w-4 h-4 stroke-[2.5]" />
                   )
                 }
               >

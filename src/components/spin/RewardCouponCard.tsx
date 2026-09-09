@@ -229,7 +229,7 @@ export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: R
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-neutral-950 stroke-[3]" />
+                  <Check className="w-4 h-4 stroke-[3]" />
                   <span>COPIED</span>
                 </>
               ) : (

@@ -214,7 +214,7 @@ export function ScreenshotVerificationStep({
                       variant="solid"
                       size="md"
                       className="w-full font-space font-bold uppercase tracking-wider text-xs"
-                      leftIcon={<FileCheck className="w-4 h-4 text-black" />}
+                      leftIcon={<FileCheck className="w-4 h-4" />}
                     >
                       VERIFY
                     </CyberButton>
@@ -238,7 +238,7 @@ export function ScreenshotVerificationStep({
                   variant="solid"
                   size="lg"
                   className="w-full font-space font-bold uppercase tracking-wider text-xs sm:text-sm"
-                  leftIcon={<ImageIcon className="w-4 h-4 text-black" />}
+                  leftIcon={<ImageIcon className="w-4 h-4" />}
                 >
                   UPLOAD SCREENSHOT
                 </CyberButton>
@@ -342,7 +342,7 @@ export function ScreenshotVerificationStep({
                 variant="solid"
                 size="lg"
                 className="w-full font-space font-bold uppercase tracking-wider text-xs"
-                leftIcon={<UploadCloud className="w-4 h-4 text-black" />}
+                leftIcon={<UploadCloud className="w-4 h-4" />}
               >
                 UPLOAD AGAIN
               </CyberButton>

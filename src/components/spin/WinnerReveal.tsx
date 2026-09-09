@@ -124,7 +124,7 @@ export function WinnerReveal({ winner, onContinue, onSpinAgain, isSuperMode = fa
           variant="solid"
           size="lg"
           className="w-full shadow-[0_0_20px_rgba(245,184,0,0.4)] font-heading font-black tracking-wider uppercase text-sm"
-          rightIcon={<ArrowRight className="w-4 h-4 text-neutral-950 stroke-[3]" />}
+          rightIcon={<ArrowRight className="w-4 h-4 stroke-[3]" />}
         >
           CLAIM REWARD
         </CyberButton>

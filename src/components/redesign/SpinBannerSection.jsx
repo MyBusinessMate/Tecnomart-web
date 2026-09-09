@@ -37,11 +37,23 @@ export default function SpinBannerSection() {
             <div className="flex items-center pt-2">
               <a
                 href="/spin"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#FFD21C] hover:bg-[#F5B800] text-black font-space font-extrabold text-sm sm:text-base uppercase tracking-wider shadow-[0_0_30px_rgba(255,210,28,0.4)] hover:shadow-[0_0_45px_rgba(255,210,28,0.6)] active:scale-98 transition-all group/btn"
+                className="btn-wipe-yellow inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-space font-extrabold text-sm sm:text-base uppercase tracking-wider shadow-[0_0_30px_rgba(255,210,28,0.4)] hover:shadow-[0_0_45px_rgba(255,210,28,0.6)] active:scale-98 transition-all group/btn cursor-pointer"
               >
-                <Gift className="w-5 h-5 fill-black" />
-                <span>SPIN THE WHEEL NOW</span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 relative z-10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9.5" />
+                  <path d="M12 2.5v19M2.5 12h19M5.29 5.29l13.42 13.42M5.29 18.71l13.42-13.42" />
+                  <circle cx="12" cy="12" r="2.5" />
+                </svg>
+                <span className="relative z-10">SPIN THE WHEEL NOW</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.5] relative z-10 group-hover/btn:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
@@ -129,24 +141,11 @@ export default function SpinBannerSection() {
 
                 {/* Center Spin Action Button */}
                 <div className="absolute z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FFD21C] text-black font-space font-extrabold text-[11px] uppercase tracking-wider flex flex-col items-center justify-center shadow-[0_0_20px_rgba(255,210,28,0.6)] group-hover/wheel:scale-110 transition-transform">
-                  <Sparkles className="w-3.5 h-3.5 fill-black mb-0.5" />
+                  <Sparkles className="w-3.5 h-3.5 stroke-[2.5] mb-0.5" />
                   <span>SPIN</span>
                 </div>
               </div>
-
-              {/* Floating Highlight Chips around the wheel */}
-              <div className="absolute -top-3 -right-2 px-3 py-1 rounded-xl bg-black/90 border border-[#FFD21C]/60 text-[#FFD21C] text-[10px] font-mono font-bold tracking-wider uppercase shadow-lg backdrop-blur-md hidden sm:block">
-                🎧 Wireless Headphones
-              </div>
-
-              <div className="absolute -bottom-3 -left-2 px-3 py-1 rounded-xl bg-black/90 border border-[#FFD21C]/60 text-[#FFD21C] text-[10px] font-mono font-bold tracking-wider uppercase shadow-lg backdrop-blur-md hidden sm:block">
-                🎟 ₹1,000 Off Voucher
-              </div>
             </a>
-
-            <p className="mt-3 text-xs font-mono text-neutral-400 uppercase tracking-widest text-center">
-              Click wheel to claim your spin →
-            </p>
           </div>
         </div>
       </div>

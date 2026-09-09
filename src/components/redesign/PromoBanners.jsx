@@ -71,7 +71,7 @@ export default function PromoBanners({ onOpenRepairModal }) {
                     onClick={onOpenRepairModal}
                     className="btn-wipe-yellow inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold sm:font-black tracking-normal sm:tracking-wider active:scale-95 cursor-pointer shadow-xs sm:shadow-sm"
                   >
-                    <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current relative z-10" />
+                    <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.2] relative z-10" />
                     <span className="relative z-10">BOOK A REPAIR</span>
                   </button>
                 </div>
