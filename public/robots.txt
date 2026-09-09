@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/*
 
 Sitemap: https://tecnomart.in/sitemap.xml

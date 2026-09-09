@@ -26,63 +26,120 @@ export const STORAGE_OPTIONS = ['128GB', '256GB', '512GB', '1TB', '2TB+'];
 // Helper to check if a product matches a given RAM filter
 export function productMatchesRam(product, ram) {
   if (!ram || ram === 'All') return true;
+  const targetRam = ram.toLowerCase().trim();
   const ramNum = parseInt(ram, 10);
-  const searchStr = JSON.stringify(product).toLowerCase();
-  
-  if (ram === '64GB+') {
-    return (
-      searchStr.includes('64gb') ||
-      searchStr.includes('96gb') ||
-      searchStr.includes('128gb ram') ||
-      searchStr.includes('128gb unified')
-    );
+
+  // Check explicit ram property
+  if (product.ram && typeof product.ram === 'string') {
+    const pRam = product.ram.toLowerCase();
+    if (ram === '64GB+' && (pRam.includes('64') || pRam.includes('96') || pRam.includes('128'))) return true;
+    if (pRam.includes(`${ramNum}gb`)) return true;
   }
 
-  // Look for exact ram match in configs, specs, name
-  const regex = new RegExp(`\\b${ramNum}gb\\b`, 'i');
-  return regex.test(searchStr);
+  // Check specs RAM fields
+  const specs = product.specs || {};
+  const ramSpecValue = (specs.RAM || specs['RAM Memory'] || specs.Memory || specs.Processor || specs.Chip || '').toLowerCase();
+  if (ram === '64GB+') {
+    if (ramSpecValue.includes('64gb') || ramSpecValue.includes('96gb') || ramSpecValue.includes('128gb')) return true;
+  } else if (new RegExp(`\\b${ramNum}\\s*gb\\b`, 'i').test(ramSpecValue) || ramSpecValue.includes(`${ramNum}gb unified`)) {
+    return true;
+  }
+
+  // Check configs array
+  if (Array.isArray(product.configs)) {
+    const hasConfig = product.configs.some((c) => {
+      const cName = (c.name || '').toLowerCase();
+      if (ram === '64GB+') {
+        return cName.includes('64gb') || cName.includes('96gb') || cName.includes('128gb');
+      }
+      return new RegExp(`\\b${ramNum}\\s*gb\\b`, 'i').test(cName);
+    });
+    if (hasConfig) return true;
+  }
+
+  // Fallback: search safely within name and tagline
+  const fallbackStr = `${product.name || ''} ${product.tagline || ''}`.toLowerCase();
+  if (ram === '64GB+') {
+    return fallbackStr.includes('64gb') || fallbackStr.includes('96gb') || fallbackStr.includes('128gb');
+  }
+  return new RegExp(`\\b${ramNum}\\s*gb\\s*(ram|unified|memory)?\\b`, 'i').test(fallbackStr);
 }
 
 // Helper to check if a product matches a given Storage filter
 export function productMatchesStorage(product, storage) {
   if (!storage || storage === 'All') return true;
-  const searchStr = JSON.stringify(product).toLowerCase();
+  const targetStorage = storage.toLowerCase().trim();
 
-  if (storage === '2TB+') {
-    return (
-      searchStr.includes('2tb') ||
-      searchStr.includes('4tb') ||
-      searchStr.includes('8tb')
-    );
+  // Check explicit storage property
+  if (product.storage && typeof product.storage === 'string') {
+    const pStore = product.storage.toLowerCase();
+    if (storage === '2TB+' && (pStore.includes('2tb') || pStore.includes('4tb') || pStore.includes('8tb'))) return true;
+    if (pStore.includes(targetStorage)) return true;
   }
 
-  const clean = storage.toLowerCase();
-  // match e.g. "512gb", "1tb", "256gb"
-  return searchStr.includes(clean);
+  // Check storages array (e.g. [{ size: '128GB' }, { size: '256GB' }])
+  if (Array.isArray(product.storages)) {
+    const hasSize = product.storages.some((s) => {
+      const sizeStr = (s.size || '').toLowerCase();
+      if (storage === '2TB+') {
+        return sizeStr.includes('2tb') || sizeStr.includes('4tb') || sizeStr.includes('8tb');
+      }
+      return sizeStr === targetStorage || sizeStr.includes(targetStorage);
+    });
+    if (hasSize) return true;
+  }
+
+  // Check specs Storage fields
+  const specs = product.specs || {};
+  const storageSpecValue = (specs['SSD Storage'] || specs.Storage || specs['RAM & Storage'] || specs.ROM || '').toLowerCase();
+  if (storage === '2TB+') {
+    if (storageSpecValue.includes('2tb') || storageSpecValue.includes('4tb') || storageSpecValue.includes('8tb')) return true;
+  } else if (storageSpecValue.includes(targetStorage)) {
+    return true;
+  }
+
+  // Check configs array
+  if (Array.isArray(product.configs)) {
+    const hasConfig = product.configs.some((c) => {
+      const cName = (c.name || '').toLowerCase();
+      if (storage === '2TB+') {
+        return cName.includes('2tb') || cName.includes('4tb') || cName.includes('8tb');
+      }
+      return cName.includes(targetStorage);
+    });
+    if (hasConfig) return true;
+  }
+
+  // Fallback: search product name or tagline with exact word boundary to prevent 120Hz/12MP collision
+  const fallbackStr = `${product.name || ''} ${product.tagline || ''}`.toLowerCase();
+  if (storage === '2TB+') {
+    return fallbackStr.includes('2tb') || fallbackStr.includes('4tb') || fallbackStr.includes('8tb');
+  }
+  return new RegExp(`\\b${targetStorage}\\b`, 'i').test(fallbackStr);
 }
 
 // Helper to check if a product matches a given Color filter
 export function productMatchesColor(product, colorName) {
   if (!colorName || colorName === 'All') return true;
-  if (!product.colors || !Array.isArray(product.colors)) return false;
+  if (!product.colors || !Array.isArray(product.colors) || product.colors.length === 0) return true; // Don't hide products without color data
   
   const target = colorName.toLowerCase();
   return product.colors.some((c) => {
     const cName = (c.name || '').toLowerCase();
     if (target === 'black' || target === 'dark') {
-      return cName.includes('black') || cName.includes('dark') || cName.includes('midnight') || cName.includes('graphite');
+      return cName.includes('black') || cName.includes('dark') || cName.includes('midnight') || cName.includes('graphite') || cName.includes('obsidian') || cName.includes('eclipse');
     }
     if (target === 'silver' || target === 'white') {
-      return cName.includes('silver') || cName.includes('white') || cName.includes('starlight') || cName.includes('platinum');
+      return cName.includes('silver') || cName.includes('white') || cName.includes('starlight') || cName.includes('platinum') || cName.includes('porcelain');
     }
     if (target === 'titanium' || target === 'gray') {
-      return cName.includes('titanium') || cName.includes('gray') || cName.includes('grey') || cName.includes('space');
+      return cName.includes('titanium') || cName.includes('gray') || cName.includes('grey') || cName.includes('space') || cName.includes('hazel');
     }
     if (target === 'blue') {
-      return cName.includes('blue') || cName.includes('indigo') || cName.includes('pacific');
+      return cName.includes('blue') || cName.includes('indigo') || cName.includes('pacific') || cName.includes('navy');
     }
     if (target === 'gold' || target === 'amber') {
-      return cName.includes('gold') || cName.includes('amber') || cName.includes('desert') || cName.includes('yellow');
+      return cName.includes('gold') || cName.includes('amber') || cName.includes('desert') || cName.includes('yellow') || cName.includes('cream');
     }
     return cName.includes(target);
   });

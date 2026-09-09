@@ -8,6 +8,7 @@ import WishlistDrawer from './components/redesign/WishlistDrawer';
 import WhatsAppWidget from './components/redesign/WhatsAppWidget';
 import BottomDock from './components/redesign/BottomDock';
 import LuckyWheelModal from './components/redesign/LuckyWheelModal';
+import TimedSpinPopup from './components/redesign/TimedSpinPopup';
 
 // Pages
 import Page from './app/page';
@@ -38,6 +39,7 @@ import MobileDetailClient from './app/mobiles/[slug]/MobileDetailClient';
 import AccessoryDetailClient from './app/accessories/[slug]/AccessoryDetailClient';
 import GamingDetailClient from './app/gaming/[slug]/GamingDetailClient';
 import RefurbishedDetailClient from './app/refurbished/[slug]/RefurbishedDetailClient';
+import SitemapPage from './app/sitemap/page';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -119,6 +121,8 @@ export default function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/spin" element={<SpinPage />} />
           <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+
           {/* 404 Page */}
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
@@ -131,6 +135,7 @@ export default function App() {
         <WhatsAppWidget />
         <BottomDock onOpenSpin={() => setIsSpinOpen(true)} />
         <LuckyWheelModal isOpen={isSpinOpen} onClose={() => setIsSpinOpen(false)} />
+        <TimedSpinPopup />
       </ShopProvider>
     </BrowserRouter>
   );

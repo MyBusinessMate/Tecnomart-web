@@ -24,6 +24,8 @@ import Link from 'next/link';
 
 export default function MobilesPage() {
   const { addToCart } = useShop();
+  const sourceMobiles = MOBILES_DATA;
+
   const [selectedBrand, setSelectedBrand] = useState('All');
   const [selectedPriceRange, setSelectedPriceRange] = useState('all');
   const [selectedRam, setSelectedRam] = useState('All');
@@ -32,7 +34,11 @@ export default function MobilesPage() {
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
 
-  const brands = ['Apple', 'Samsung', 'OnePlus', 'Google'];
+  const dynamicBrands = useMemo(() => {
+    const set = new Set(sourceMobiles.map((m) => m.brand).filter(Boolean));
+    return Array.from(set);
+  }, [sourceMobiles]);
+  const brands = dynamicBrands.length > 0 ? dynamicBrands : ['Apple', 'Samsung', 'OnePlus', 'Google'];
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -40,7 +46,7 @@ export default function MobilesPage() {
   ]);
 
   const filteredAndSortedMobiles = useMemo(() => {
-    let list = [...MOBILES_DATA];
+    let list = [...sourceMobiles];
 
     // 1. Filter by Brand
     if (selectedBrand !== 'All') {
@@ -51,7 +57,7 @@ export default function MobilesPage() {
     if (selectedPriceRange !== 'all') {
       const range = PRICE_RANGES.find((r) => r.id === selectedPriceRange);
       if (range) {
-        list = list.filter((m) => m.rawPrice >= range.min && m.rawPrice < range.max);
+        list = list.filter((m) => m.rawPrice >= range.min && (range.max === Infinity ? true : m.rawPrice <= range.max));
       }
     }
 

@@ -24,6 +24,7 @@ import Link from 'next/link';
 
 export default function LaptopsPage() {
   const { addToCart } = useShop();
+  const sourceLaptops = LAPTOPS_DATA;
 
   const [selectedBrand, setSelectedBrand] = useState('All');
   const [selectedPriceRange, setSelectedPriceRange] = useState('all');
@@ -33,7 +34,11 @@ export default function LaptopsPage() {
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
 
-  const brands = ['Apple', 'ASUS', 'Dell', 'Lenovo', 'HP'];
+  const dynamicBrands = useMemo(() => {
+    const set = new Set(sourceLaptops.map((l) => l.brand).filter(Boolean));
+    return Array.from(set);
+  }, [sourceLaptops]);
+  const brands = dynamicBrands.length > 0 ? dynamicBrands : ['Apple', 'ASUS', 'Dell', 'Lenovo', 'HP'];
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -41,7 +46,7 @@ export default function LaptopsPage() {
   ]);
 
   const filteredAndSortedLaptops = useMemo(() => {
-    let list = [...LAPTOPS_DATA];
+    let list = [...sourceLaptops];
 
     // 1. Filter by Brand
     if (selectedBrand !== 'All') {
@@ -52,7 +57,7 @@ export default function LaptopsPage() {
     if (selectedPriceRange !== 'all') {
       const range = PRICE_RANGES.find((r) => r.id === selectedPriceRange);
       if (range) {
-        list = list.filter((l) => l.rawPrice >= range.min && l.rawPrice < range.max);
+        list = list.filter((l) => l.rawPrice >= range.min && (range.max === Infinity ? true : l.rawPrice <= range.max));
       }
     }
 

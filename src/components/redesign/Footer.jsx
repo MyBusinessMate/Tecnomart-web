@@ -685,7 +685,7 @@ export default function Footer() {
                 Terms &amp; Conditions
               </Link>
               <span>|</span>
-              <Link href="/contact" className="hover:text-white transition-colors">
+              <Link href="/sitemap" className="hover:text-white transition-colors">
                 Sitemap
               </Link>
             </div>

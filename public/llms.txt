@@ -39,5 +39,6 @@ Official Website: https://tecnomart.in
 - [About TecnoMart](https://tecnomart.in/about): Company history, certified technician qualifications, customer review ratings, and brand partnerships.
 - [Privacy Policy](https://tecnomart.in/privacy): Customer data privacy standards, cookie policies, and protection practices.
 - [Terms & Conditions](https://tecnomart.in/terms): Warranty guidelines, trade-in criteria, return conditions, and in-store coupon redemption rules.
+- [HTML Sitemap](https://tecnomart.in/sitemap): Human and crawler accessible directory of all departments, products, repair services, and tools.
 - [XML Sitemap](https://tecnomart.in/sitemap.xml): Machine-readable XML index of all public URLs for web crawlers and agents.
 - [Full LLM Knowledge Document](https://tecnomart.in/llms-full.txt): Comprehensive deep-context catalog and hardware specification dump for extended reasoning models.

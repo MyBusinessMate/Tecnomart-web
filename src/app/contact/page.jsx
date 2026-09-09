@@ -11,6 +11,15 @@ import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronRight, Star } f
 import Link from 'next/link';
 
 export default function ContactPage() {
+  const phone = "+91 90106 67726";
+  const whatsapp = "919010667726";
+  const email = "support@tecnomart.in";
+  const address1 = "H.No. 8-2-293/82/A/1287, Road No. 36";
+  const address2 = "Jubilee Hills";
+  const cityState = "Hyderabad, Telangana – 500033";
+  const weekdayHours = "Monday – Sunday: 10:00 AM – 9:30 PM";
+  const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Road+No+36+Jubilee+Hills+Hyderabad";
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -28,12 +37,11 @@ export default function ContactPage() {
     const text = encodeURIComponent(
       `Hello TecnoMart! 👋\n- Name: ${formData.name}\n- Phone: ${formData.phone}\n- Subject: ${formData.subject}\n- Message: ${formData.message}`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=${text}`, '_blank');
   };
 
   const openGoogleMaps = () => {
-    const query = encodeURIComponent("Tecno Mart Road No 36 Jubilee Hills Hyderabad Telangana 500033");
-    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+    window.open(mapsUrl, '_blank');
   };
 
   return (
@@ -98,7 +106,7 @@ export default function ContactPage() {
                       <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-neutral-900 block font-bold mb-0.5">Address</strong>
-                        <span>H.No. B-2-293/82/A/1287, Road No. 36,<br />Jubilee Hills, Hyderabad, Telangana – 500033</span>
+                        <span>{address1}<br />{address2 ? `${address2}, ` : ''}{cityState}</span>
                       </div>
                     </div>
 
@@ -106,7 +114,7 @@ export default function ContactPage() {
                       <Phone className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-neutral-900 block font-bold mb-0.5">Phone &amp; WhatsApp</strong>
-                        <a href="tel:+919010667726" className="hover:text-amber-600 transition-colors font-semibold">+91 90106 67726</a>
+                        <a href={`tel:${phone.replace(/[^0-9+]/g, '')}`} className="hover:text-amber-600 transition-colors font-semibold">{phone}</a>
                       </div>
                     </div>
 
@@ -114,7 +122,7 @@ export default function ContactPage() {
                       <Mail className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-neutral-900 block font-bold mb-0.5">Email</strong>
-                        <a href="mailto:support@tecnomart.in" className="hover:text-amber-600 transition-colors font-semibold">support@tecnomart.in</a>
+                        <a href={`mailto:${email}`} className="hover:text-amber-600 transition-colors font-semibold">{email}</a>
                       </div>
                     </div>
 
@@ -122,7 +130,7 @@ export default function ContactPage() {
                       <Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-neutral-900 block font-bold mb-0.5">Working Hours</strong>
-                        <span>Monday – Sunday: 10:00 AM – 9:30 PM</span>
+                        <span>{weekdayHours}</span>
                       </div>
                     </div>
                   </div>
@@ -138,7 +146,7 @@ export default function ContactPage() {
                     </button>
 
                     <a
-                      href="https://wa.me/919010667726"
+                      href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200/80 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"

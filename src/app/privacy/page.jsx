@@ -81,7 +81,7 @@ export default function PrivacyPolicyPage() {
                   Privacy Policy
                 </h1>
                 <p className="text-xs sm:text-sm text-neutral-500 mt-1.5 font-medium">
-                  Last updated: February 2025 · Tecno Mart Technologies Pvt Ltd
+                  Last updated: 2026 · Tecno Mart Technologies Pvt Ltd
                 </p>
               </div>
             </div>

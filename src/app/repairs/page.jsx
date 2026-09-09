@@ -78,6 +78,7 @@ const REPAIR_SERVICES = [
 
 export default function RepairsPage() {
   const { setIsRepairOpen } = useShop();
+  const repairList = REPAIR_SERVICES;
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -181,7 +182,7 @@ export default function RepairsPage() {
             {/* Repair Services Grid */}
             <h2 className="text-sm font-black uppercase text-neutral-500 tracking-wider mb-5">All Repair Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-              {REPAIR_SERVICES.map((srv, idx) => (
+              {repairList.map((srv, idx) => (
                 <BlurRevealBox key={srv.title} delay={idx * 0.06} yOffset={16}>
                   <div className="group h-full bg-white rounded-2xl border border-neutral-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div className="p-5 sm:p-6 flex flex-col flex-1">

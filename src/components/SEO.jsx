@@ -101,6 +101,7 @@ export default function SEO({
   title,
   description,
   canonical,
+  canonicalUrl,
   ogType = 'website',
   ogImage = `${BASE_URL}/webp/logo.webp`,
   noindex = false,
@@ -134,10 +135,11 @@ export default function SEO({
     setMeta('name', 'description', description || defaultDesc);
 
     // 4. Canonical URL
-    const canonicalHref = canonical
-      ? canonical.startsWith('http')
-        ? canonical
-        : `${BASE_URL}${canonical}`
+    const activeCanonical = canonical || canonicalUrl;
+    const canonicalHref = activeCanonical
+      ? activeCanonical.startsWith('http')
+        ? activeCanonical
+        : `${BASE_URL}${activeCanonical}`
       : BASE_URL;
 
     let linkCanonical = document.querySelector('link[rel="canonical"]');

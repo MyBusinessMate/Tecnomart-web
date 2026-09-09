@@ -107,14 +107,16 @@ const REFURBISHED_ITEMS = [
 
 export default function RefurbishedPage() {
   const { addToCart } = useShop();
+  const sourceItems = REFURBISHED_ITEMS;
+
   const [addedItems, setAddedItems] = useState({});
   const [selectedGrade, setSelectedGrade] = useState('All');
 
   const grades = ['All', 'Grade A+', 'Grade A'];
 
   const filteredItems = selectedGrade === 'All'
-    ? REFURBISHED_ITEMS
-    : REFURBISHED_ITEMS.filter((i) => i.grade === selectedGrade);
+    ? sourceItems
+    : sourceItems.filter((i) => i.grade === selectedGrade);
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },

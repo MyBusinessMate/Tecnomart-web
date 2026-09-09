@@ -97,6 +97,7 @@ const GAMING_RIGS = [
 
 export default function GamingPage() {
   const { addToCart } = useShop();
+  const sourceRigs = GAMING_RIGS;
   const [addedItems, setAddedItems] = useState({});
 
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -185,7 +186,7 @@ export default function GamingPage() {
 
             {/* Gaming Rigs Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-              {GAMING_RIGS.map((rig, idx) => {
+              {sourceRigs.map((rig, idx) => {
                 const isAdded = !!addedItems[rig.id];
                 const emi = `₹${Math.round(rig.rawPrice / 12).toLocaleString('en-IN')}/mo`;
 

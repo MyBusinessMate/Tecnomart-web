@@ -1,151 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Main Pages -->
+  <!-- Core Main Department Pages -->
   <url>
     <loc>https://tecnomart.in/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/accessories</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/gaming</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/refurbished</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/repairs</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/pc-builds</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/build-your-setup</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/deals</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Business & Service Pages -->
+  <!-- Interactive Tools & Rewards -->
   <url>
-    <loc>https://tecnomart.in/about</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://tecnomart.in/contact</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://tecnomart.in/spin</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tecnomart.in/privacy</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://tecnomart.in/terms</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://tecnomart.in/compare</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/emi-calculator</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/exchange</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Programs & Community -->
   <url>
     <loc>https://tecnomart.in/corporate</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/students</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Company, Store & Legal -->
+  <url>
+    <loc>https://tecnomart.in/about</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/contact</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/sitemap</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/privacy</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/terms</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Product Detail Pages: Mobiles -->
   <url>
     <loc>https://tecnomart.in/mobiles/iphone-16-pro-max</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles/samsung-galaxy-s24-ultra</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles/oneplus-12</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles/google-pixel-9-pro</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles/iphone-15</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/mobiles/samsung-galaxy-z-fold-6</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -153,37 +175,37 @@
   <!-- Product Detail Pages: Laptops -->
   <url>
     <loc>https://tecnomart.in/laptops/macbook-pro-16-m3-max</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops/asus-rog-zephyrus-g16-2025</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops/dell-xps-14-oled</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops/lenovo-legion-pro-5i</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops/macbook-air-15-m3</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/laptops/hp-victus-15-gaming</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -191,27 +213,63 @@
   <!-- Product Detail Pages: Gaming PCs -->
   <url>
     <loc>https://tecnomart.in/gaming/beast-v1-ryzen-9-rtx-5090</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/gaming/streamer-pro-i7-rtx4070ti</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Product Detail Pages: Accessories -->
   <url>
-    <loc>https://tecnomart.in/accessories/alienware-32-4k-oled-monitor</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://tecnomart.in/accessories/samsung-odyssey-oled-g9-49-curved</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tecnomart.in/accessories/logitech-g-pro-x-superlight-2</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/apple-airpods-pro-2-usbc</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/sony-wh-1000xm5-wireless-anc-headphones</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/keychron-q1-pro-wireless-mechanical-keyboard</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/lg-ultragear-27-oled-gaming-monitor</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/boat-wave-ultima-smartwatch</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/accessories/anker-737-ganprime-powerbank-140w</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -219,13 +277,37 @@
   <!-- Product Detail Pages: Refurbished -->
   <url>
     <loc>https://tecnomart.in/refurbished/refurbished-macbook-pro-14-m1-pro</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tecnomart.in/refurbished/refurbished-iphone-14-pro-128gb</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://tecnomart.in/refurbished/refurbished-iphone-14-pro-deep-purple</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/refurbished/refurbished-dell-xps-13-plus</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/refurbished/refurbished-lenovo-thinkpad-t14s</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/refurbished/refurbished-apple-ipad-pro-11-m2</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tecnomart.in/refurbished/refurbished-samsung-galaxy-s23-ultra</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
