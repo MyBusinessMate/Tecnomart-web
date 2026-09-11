@@ -41,6 +41,19 @@ import GamingDetailClient from './app/gaming/[slug]/GamingDetailClient';
 import RefurbishedDetailClient from './app/refurbished/[slug]/RefurbishedDetailClient';
 import SitemapPage from './app/sitemap/page';
 
+// Admin Pages (Loaded for Local Testing)
+const AdminLoginPage = React.lazy(() => import('./pages/admin/AdminLoginPage'));
+const AdminDashboardPage = React.lazy(() => import('./pages/admin/AdminDashboardPage'));
+const AdminProductsPage = React.lazy(() => import('./pages/admin/AdminProductsPage'));
+const AdminCategoriesPage = React.lazy(() => import('./pages/admin/AdminCategoriesPage'));
+const AdminRepairsPage = React.lazy(() => import('./pages/admin/AdminRepairsPage'));
+const AdminConfiguratorPage = React.lazy(() => import('./pages/admin/AdminConfiguratorPage'));
+const AdminSpinPage = React.lazy(() => import('./pages/admin/AdminSpinPage'));
+const AdminBlogsPage = React.lazy(() => import('./pages/admin/AdminBlogsPage'));
+const AdminStoreInfoPage = React.lazy(() => import('./pages/admin/AdminStoreInfoPage'));
+const AdminCopyContentPage = React.lazy(() => import('./pages/admin/AdminCopyContentPage'));
+const AdminUsersPage = React.lazy(() => import('./pages/admin/AdminUsersPage'));
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   React.useEffect(() => {
@@ -122,6 +135,19 @@ export default function App() {
           <Route path="/spin" element={<SpinPage />} />
           <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
           <Route path="/sitemap" element={<SitemapPage />} />
+
+          {/* Super Admin Routes (Local Testing) */}
+          <Route path="/myadmin/login" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminLoginPage /></React.Suspense>} />
+          <Route path="/myadmin" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminDashboardPage /></React.Suspense>} />
+          <Route path="/myadmin/products" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminProductsPage /></React.Suspense>} />
+          <Route path="/myadmin/categories" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminCategoriesPage /></React.Suspense>} />
+          <Route path="/myadmin/repairs" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminRepairsPage /></React.Suspense>} />
+          <Route path="/myadmin/configurator" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminConfiguratorPage /></React.Suspense>} />
+          <Route path="/myadmin/spin" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminSpinPage /></React.Suspense>} />
+          <Route path="/myadmin/blogs" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminBlogsPage /></React.Suspense>} />
+          <Route path="/myadmin/store-info" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminStoreInfoPage /></React.Suspense>} />
+          <Route path="/myadmin/copy-content" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminCopyContentPage /></React.Suspense>} />
+          <Route path="/myadmin/users" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminUsersPage /></React.Suspense>} />
 
           {/* 404 Page */}
           <Route path="/404" element={<NotFoundPage />} />
