@@ -102,8 +102,8 @@ function createDefaultDb() {
     ],
     storeInfo: {
       storeName: "TecnoMart Flagship Tech Hub",
-      addressLine1: "Shop #4 & 5, Near Tolichowki Flyover, Main Road",
-      addressLine2: "Jubilee Hills Road No. 36 Express Branch",
+      addressLine1: "7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony",
+      addressLine2: "Toli Chowki",
       city: "Hyderabad",
       state: "Telangana",
       pincode: "500008",
@@ -113,7 +113,7 @@ function createDefaultDb() {
       supportEmail: "support@tecnomart.in",
       workingHoursWeekday: "Monday – Saturday: 10:30 AM – 10:00 PM",
       workingHoursWeekend: "Sunday: 11:00 AM – 9:30 PM",
-      googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Tolichowki+Hyderabad"
+      googleMapsUrl: "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7"
     },
     legalContent: {
       termsOfService: `Welcome to TecnoMart. All brand-new electronic products sold via our platform and physical outlets carry official manufacturer warranty with sealed Indian retail tax invoices. Same-day deliveries within Hyderabad are dispatched within 3 hours upon confirmation. Refurbished devices come backed with 6 to 12 months direct TecnoMart repair and replacement guarantees.`,

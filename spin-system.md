@@ -45,7 +45,7 @@ To maintain authenticity and mutual trust, TecnoMart asks Ananya to share her ge
 
 When she taps **"COPY REVIEW & OPEN GOOGLE"**:
 1. Her review is silently copied to her clipboard.
-2. A new tab opens directly to **TecnoMart's official Google Reviews page** (7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki).
+2. A new tab opens directly to **TecnoMart's official Google Reviews page** (7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad).
 3. All she has to do is paste her review and tap Post on Google!
 
 ### 5. Proof & Instant Verification
@@ -59,7 +59,7 @@ Her official **Techno Mart Pass** materializes:
 - **Unique Claim Credential**: A generated tamper-proof code (e.g., `TM-TJC9-MN8F`) with a one-tap copy button.
 - **Dynamic Scannable QR Code**: Generated on the spot, linking directly to verification.
 - **Countdown Clock**: A live 30-day countdown timer showing the exact remaining time before expiry.
-- **Store Location & Call Buttons**: One-tap directions to 7 Tombs Road, Tolichowki, and direct call support (`+91 90106 67726`).
+- **Store Location & Call Buttons**: One-tap directions to 7 Tombs Rd, Toli Chowki, and direct call support (`+91 90106 67726`).
 - **Print / Save Pass**: A dedicated button allowing her to print or PDF-save her voucher.
 
 ---

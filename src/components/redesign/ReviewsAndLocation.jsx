@@ -8,8 +8,7 @@ import { BlurRevealBox } from './BlurReveal';
 
 export default function ReviewsAndLocation() {
   const openGoogleMaps = () => {
-    const query = encodeURIComponent("Tecno Mart Opposite Fortune Toyota Service Center 7 Tombs Road Tolichowki Hyderabad");
-    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+    window.open('https://maps.app.goo.gl/tT4REWTDpAWdD2NL7', '_blank');
   };
 
   return (
@@ -39,9 +38,9 @@ export default function ReviewsAndLocation() {
                       <span>Tecno Mart</span>
                     </p>
                     <p className="pl-4 text-[11px] sm:text-xs leading-relaxed text-neutral-600 font-semibold">
-                      7 Tombs Road,<br />
-                      Opposite Fortune Toyota Service,<br />
-                      Tolichowki, Hyderabad, Telangana - 500008
+                      7 Tombs Rd, Raghava Colony,<br />
+                      Jhansi Nagar Colony, Hans Nagar Colony,<br />
+                      Toli Chowki, Hyderabad, Telangana 500008
                     </p>
                   </div>
                 </div>

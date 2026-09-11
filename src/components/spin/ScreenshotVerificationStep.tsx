@@ -37,7 +37,7 @@ export function ScreenshotVerificationStep({
 }: ScreenshotVerificationStepProps) {
   const targetGoogleUrl =
     googleReviewUrl ||
-    "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Road+No+36+Jubilee+Hills+Hyderabad";
+    "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7";
 
   const [step, setStep] = useState<VerificationStep>("UPLOAD");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);

@@ -69,7 +69,7 @@ export const SCAN_LINKS: ScanLink[] = [
   {
     id: "google-business",
     name: "Google Business & Reviews",
-    url: "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad",
+    url: "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7",
     icon: "google",
     button: "Find us / Rate us on Google",
     buttonText: "Find us / Rate us on Google",

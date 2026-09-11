@@ -35,7 +35,7 @@ export function FeedbackStep({
 }: FeedbackStepProps) {
   const targetGoogleUrl =
     googleReviewUrl ||
-    "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Road+No+36+Jubilee+Hills+Hyderabad";
+    "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7";
 
   const [name, setName] = useState(
     defaultCustomerName === "Techno Mart Guest" ? "" : defaultCustomerName

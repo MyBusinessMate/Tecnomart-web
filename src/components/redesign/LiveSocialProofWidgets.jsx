@@ -96,7 +96,7 @@ export default function LiveSocialProofWidgets() {
                   </div>
 
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad"
+                    href="https://maps.app.goo.gl/tT4REWTDpAWdD2NL7"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-600 hover:text-amber-600 transition-colors uppercase tracking-wider"

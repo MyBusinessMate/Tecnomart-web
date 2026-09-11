@@ -11,8 +11,8 @@ export default function AdminStoreInfoPage() {
 
   const [formData, setFormData] = useState({
     storeName: currentInfo.storeName || 'TecnoMart Flagship Tech Hub',
-    addressLine1: currentInfo.addressLine1 || 'Shop #4 & 5, Near Tolichowki Flyover, Main Road',
-    addressLine2: currentInfo.addressLine2 || 'Jubilee Hills Road No. 36 Express Branch',
+    addressLine1: currentInfo.addressLine1 || '7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony',
+    addressLine2: currentInfo.addressLine2 || 'Toli Chowki',
     city: currentInfo.city || 'Hyderabad',
     state: currentInfo.state || 'Telangana',
     pincode: currentInfo.pincode || '500008',
@@ -22,7 +22,7 @@ export default function AdminStoreInfoPage() {
     supportEmail: currentInfo.supportEmail || 'support@tecnomart.in',
     workingHoursWeekday: currentInfo.workingHoursWeekday || 'Monday – Saturday: 10:30 AM – 10:00 PM',
     workingHoursWeekend: currentInfo.workingHoursWeekend || 'Sunday: 11:00 AM – 9:30 PM',
-    googleMapsUrl: currentInfo.googleMapsUrl || 'https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Tolichowki+Hyderabad'
+    googleMapsUrl: currentInfo.googleMapsUrl || 'https://maps.app.goo.gl/tT4REWTDpAWdD2NL7'
   });
 
   const handleSave = (e) => {

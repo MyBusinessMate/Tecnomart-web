@@ -314,7 +314,7 @@ export default function SitemapPage() {
                   </p>
                   <div className="mt-3 pt-3 border-t border-neutral-200 text-[11px]">
                     <span className="font-bold text-neutral-900 block">Tolichowki Store</span>
-                    <span className="text-neutral-500">7 Tombs Road, Opposite Fortune Toyota Service, Hyderabad – 500008</span>
+                    <span className="text-neutral-500">7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008</span>
                     <a 
                       href="https://wa.me/919010667726" 
                       target="_blank" 

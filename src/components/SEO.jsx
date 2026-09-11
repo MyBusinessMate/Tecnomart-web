@@ -14,7 +14,7 @@ export const ORGANIZATION_SCHEMA = {
   email: 'support@tecnomart.in',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki',
+    streetAddress: '7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
     postalCode: '500008',
@@ -24,7 +24,7 @@ export const ORGANIZATION_SCHEMA = {
     'https://www.facebook.com/tecnomarthyd',
     'https://www.instagram.com/tecnomart.hyd',
     'https://twitter.com/tecnomart_hyd',
-    'https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad'
+    'https://maps.app.goo.gl/tT4REWTDpAWdD2NL7'
   ],
 };
 
@@ -46,7 +46,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   ],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '7 Tombs Road, Opposite Fortune Toyota Service, Tolichowki',
+    streetAddress: '7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
     postalCode: '500008',

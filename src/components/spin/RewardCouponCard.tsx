@@ -39,8 +39,7 @@ interface RewardCouponProps {
 
 const STORE_PHONE = "+91 90106 67726";
 const STORE_PHONE_TEL = "tel:+919010667726";
-const STORE_MAPS_URL =
-  "https://www.google.com/maps/place/17%C2%B023'55.8%22N+78%C2%B024'40.4%22E/@17.3988333,78.4086473,831m/data=!3m1!1e3!4m4!3m3!8m2!3d17.3988333!4d78.4112222?hl=en&entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D";
+const STORE_MAPS_URL = "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7";
 
 export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: RewardCouponProps) {
   const [copied, setCopied] = useState(false);
