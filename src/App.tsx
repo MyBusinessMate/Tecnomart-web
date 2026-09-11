@@ -31,6 +31,7 @@ import CorporatePage from './app/corporate/page';
 import StudentsPage from './app/students/page';
 import CartPage from './app/cart/page';
 import SpinPage from './app/spin/page';
+import ScanPage from './pages/ScanPage';
 import NotFoundPage from './app/not-found/page';
 
 // Product detail dynamic routing
@@ -92,7 +93,7 @@ function RefurbishedDetailPage() {
   return <RefurbishedDetailClient slug={slug} />;
 }
 
-import { isSpinSubdomain, isProductionDomain } from './lib/domain';
+import { isSpinSubdomain, isScanSubdomain, isProductionDomain } from './lib/domain';
 
 function SpinRedirect({ superMode = false }: { superMode?: boolean }) {
   React.useEffect(() => {
@@ -124,6 +125,21 @@ function SpinRedirect({ superMode = false }: { superMode?: boolean }) {
 export default function App() {
   const [isSpinOpen, setIsSpinOpen] = React.useState(false);
   const onSpinSubdomain = isSpinSubdomain();
+  const onScanSubdomain = isScanSubdomain();
+
+  // Dedicated lightweight Linktree experience when accessed via scan.tecnomart.in
+  if (onScanSubdomain) {
+    return (
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<ScanPage />} />
+          <Route path="/scan" element={<ScanPage />} />
+          <Route path="*" element={<ScanPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 
   // Dedicated lightweight experience when accessed via spin.tecnomart.in
   if (onSpinSubdomain) {
@@ -180,6 +196,7 @@ export default function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/spin" element={<SpinRedirect />} />
           <Route path="/supertechie" element={<SpinRedirect superMode={true} />} />
+          <Route path="/scan" element={<ScanPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
 
           {/* Super Admin Routes (Local Testing) */}

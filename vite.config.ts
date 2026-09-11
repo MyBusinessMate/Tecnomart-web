@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@data': path.resolve(__dirname, './data'),
       'next/link': path.resolve(__dirname, './src/lib/Link.tsx'),
       'next/image': path.resolve(__dirname, './src/lib/Image.tsx'),
       'next/navigation': path.resolve(__dirname, './src/lib/navigation.ts'),

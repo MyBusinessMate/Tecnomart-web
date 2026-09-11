@@ -100,6 +100,17 @@
       ],
       "destination": "https://spin.tecnomart.in/",
       "permanent": true
+    },
+    {
+      "source": "/scan",
+      "has": [
+        {
+          "type": "host",
+          "value": "scan.tecnomart.in"
+        }
+      ],
+      "destination": "https://scan.tecnomart.in/",
+      "permanent": true
     }
   ],
   "rewrites": [

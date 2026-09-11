@@ -6,6 +6,7 @@
 
 export const STORE_DOMAIN = "https://tecnomart.in";
 export const SPIN_DOMAIN = "https://spin.tecnomart.in";
+export const SCAN_DOMAIN = "https://scan.tecnomart.in";
 
 /**
  * Checks if the current window location is running under the spin subdomain
@@ -24,6 +25,33 @@ export function isSpinSubdomain(): boolean {
 
   // Exact match or prefix match for spin subdomain
   if (hostname === "spin.tecnomart.in" || hostname.startsWith("spin.")) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Checks if the current window location is running under the scan subdomain
+ * (e.g. scan.tecnomart.in, scan.tecnoomart.in, scan.localhost, or locally with ?subdomain=scan)
+ */
+export function isScanSubdomain(): boolean {
+  if (typeof window === "undefined") return false;
+
+  const hostname = window.location.hostname.toLowerCase();
+
+  // Explicit subdomain query parameter for easy testing in any dev environment
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.get("subdomain") === "scan") {
+    return true;
+  }
+
+  // Matches scan.tecnomart.in, scan.tecnoomart.in, or any scan.* subdomain
+  if (
+    hostname === "scan.tecnomart.in" ||
+    hostname === "scan.tecnoomart.in" ||
+    hostname.startsWith("scan.")
+  ) {
     return true;
   }
 
@@ -90,3 +118,31 @@ export function getSpinUrl(path: string = "/"): string {
   }
   return cleanPath;
 }
+
+/**
+ * Resolves the URL for the Scan / Quick Links subdomain (scan.tecnomart.in).
+ * In local development, it links to /scan or keeps the subdomain parameter.
+ */
+export function getScanUrl(path: string = "/"): string {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (typeof window === "undefined") {
+    return `${SCAN_DOMAIN}${cleanPath === "/scan" ? "/" : cleanPath}`;
+  }
+
+  if (isProductionDomain()) {
+    const targetPath = cleanPath === "/scan" ? "/" : cleanPath;
+    return `${SCAN_DOMAIN}${targetPath}`;
+  }
+
+  // In local development:
+  if (isScanSubdomain()) {
+    return cleanPath === "/scan" ? "/" : cleanPath;
+  }
+
+  if (cleanPath === "/" || cleanPath === "/scan") {
+    return "/scan";
+  }
+  return cleanPath;
+}
+
