@@ -5,10 +5,20 @@ import Image from 'next/image';
 import { useShop } from '@/context/ShopContext';
 import { Flame, Clock, ShoppingBag, Check, Zap, Star, ShieldCheck } from 'lucide-react';
 import { LAPTOPS_DATA } from '@/data/products';
+import { useAdminStore } from '@/lib/admin/adminStore';
 
 export default function DealOfTheDay() {
   const { addToCart, setIsCartOpen } = useShop();
-  const dealProduct = LAPTOPS_DATA[0]; // MacBook Pro 16" M3 Max
+  const dealOfTheDayId = useAdminStore((s) => s.dealOfTheDayProductId);
+  const allProducts = useAdminStore((s) => s.products) || [];
+
+  const dealProduct = allProducts.find((p) => p.id === dealOfTheDayId) || LAPTOPS_DATA[0];
+
+  const productImage = (dealProduct.images && dealProduct.images[0]) || dealProduct.image || '/webp/landing/apple-macbook-pro-16-space-black-glow.webp';
+
+  const rawCurrent = dealProduct.rawPrice || parseInt((dealProduct.price || '').replace(/[^0-9]/g, ''), 10) || 0;
+  const rawOriginal = parseInt((dealProduct.originalPrice || '').replace(/[^0-9]/g, ''), 10) || 0;
+  const savingsAmount = rawOriginal > rawCurrent ? `Save ₹${(rawOriginal - rawCurrent).toLocaleString('en-IN')} Today` : (dealProduct.discountPercent || 'Special Discount Today');
 
   const [timeLeft, setTimeLeft] = useState({ hours: 7, minutes: 42, seconds: 19 });
 
@@ -77,14 +87,16 @@ export default function DealOfTheDay() {
           <div className="lg:col-span-5 relative group">
             <div className="relative w-full aspect-[4/3] bg-midgrey-900 rounded-2xl p-6 flex items-center justify-center overflow-hidden border border-midgrey-700/60 shadow-inner">
               {/* Folded Corner Ribbon Badge on the right */}
-              <div className="ribbon-wrapper ribbon-wrapper-right">
-                <div className="ribbon-badge-right ribbon-red">
-                  {dealProduct.discountPercent}
+              {dealProduct.discountPercent && (
+                <div className="ribbon-wrapper ribbon-wrapper-right">
+                  <div className="ribbon-badge-right ribbon-red">
+                    {dealProduct.discountPercent}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <img
-                src="/webp/landing/apple-macbook-pro-16-space-black-glow.webp"
+                src={productImage}
                 alt={dealProduct.name}
                 className="w-full h-full object-contain p-4 group-hover:scale-108 transition-transform duration-500"
                 loading="eager"
@@ -96,8 +108,8 @@ export default function DealOfTheDay() {
           <div className="lg:col-span-7 space-y-5">
             <div className="flex items-center gap-2 text-xs font-extrabold text-[#F5B800]">
               <Star className="w-4 h-4 fill-current" />
-              <span>{dealProduct.rating}</span>
-              <span className="text-neutral-400">({dealProduct.reviewCount} verified reviews)</span>
+              <span>{dealProduct.rating || 4.9}</span>
+              <span className="text-neutral-400">({dealProduct.reviewCount || 128} verified reviews)</span>
             </div>
 
             <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
@@ -105,7 +117,7 @@ export default function DealOfTheDay() {
             </h3>
 
             <p className="text-sm sm:text-base text-neutral-300 font-medium leading-relaxed">
-              {dealProduct.tagline}
+              {dealProduct.tagline || 'Brand-sealed unit with complete official manufacturer warranty and doorstep support in Hyderabad.'}
             </p>
 
             {/* Price & Savings */}
@@ -113,11 +125,13 @@ export default function DealOfTheDay() {
               <span className="text-3xl sm:text-5xl font-black text-[#F5B800]">
                 {dealProduct.price}
               </span>
-              <span className="text-base sm:text-xl text-neutral-400 font-extrabold line-through decoration-neutral-500 decoration-2">
-                {dealProduct.originalPrice}
-              </span>
+              {dealProduct.originalPrice && (
+                <span className="text-base sm:text-xl text-neutral-400 font-extrabold line-through decoration-neutral-500 decoration-2">
+                  {dealProduct.originalPrice}
+                </span>
+              )}
               <span className="text-[10px] sm:text-xs font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-700/50 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg uppercase tracking-wider">
-                Save ₹50,000 Today
+                {savingsAmount}
               </span>
             </div>
 
@@ -126,7 +140,7 @@ export default function DealOfTheDay() {
               <div className="flex justify-between text-xs font-black">
                 <span className="text-[#F5B800] flex items-center gap-1.5">
                   <Zap className="w-4 h-4 fill-current text-[#F5B800]" />
-                  84% Claimed (Only 2 units remaining at this price)
+                  84% Claimed (Limited inventory reserved for today)
                 </span>
                 <span className="text-amber-400 font-black uppercase tracking-wider">Limited Stock</span>
               </div>
@@ -156,15 +170,15 @@ export default function DealOfTheDay() {
               </button>
             </div>
 
-            {/* Trust badge - Single line on mobile */}
-            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 text-[11px] sm:text-xs font-bold text-black pt-3 border-t border-neutral-800/80 whitespace-nowrap overflow-x-auto no-scrollbar">
+            {/* Trust badge - Single line on mobile - WHITE TEXT */}
+            <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-4 text-[11px] sm:text-xs font-bold text-white pt-3 border-t border-neutral-800/80 whitespace-nowrap overflow-x-auto no-scrollbar">
               <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
-                <span className="text-black font-bold">Official Apple India Warranty</span>
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" />
+                <span className="text-white font-bold">Official {dealProduct.brand || 'Apple'} India Warranty</span>
               </div>
-              <span className="text-black font-bold flex-shrink-0">•</span>
+              <span className="text-white/60 font-bold flex-shrink-0">•</span>
               <div className="flex-shrink-0">
-                <span className="text-black font-bold">Free Doorstep Delivery in Hyderabad</span>
+                <span className="text-white font-bold">Free Doorstep Delivery in Hyderabad</span>
               </div>
             </div>
 

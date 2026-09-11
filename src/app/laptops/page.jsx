@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/redesign/Header';
 import Footer from '@/components/redesign/Footer';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
@@ -10,8 +11,11 @@ import { BlurRevealBox } from '@/components/redesign/BlurReveal';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { LAPTOPS_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
-import ProductFilters, {
+import HorizontalFilterBar, {
   PRICE_RANGES,
+  RATING_OPTIONS
+} from '@/components/redesign/HorizontalFilterBar';
+import {
   productMatchesRam,
   productMatchesStorage,
   productMatchesColor,
@@ -24,15 +28,37 @@ import Link from 'next/link';
 
 export default function LaptopsPage() {
   const { addToCart } = useShop();
+  const location = useLocation();
   const sourceLaptops = LAPTOPS_DATA;
 
-  const [selectedBrand, setSelectedBrand] = useState('All');
+  // The 7 Confirmed Filters
+  const [selectedChoice, setSelectedChoice] = useState('all'); // 'all' | 'new' | 'refurbished' | 'best' | 'popular'
   const [selectedPriceRange, setSelectedPriceRange] = useState('all');
+  const [selectedBrand, setSelectedBrand] = useState('All');
+  const [selectedRating, setSelectedRating] = useState('all');
   const [selectedRam, setSelectedRam] = useState('All');
   const [selectedStorage, setSelectedStorage] = useState('All');
   const [selectedColor, setSelectedColor] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
+
+  // Reactive URL search parameter parsing for navbar and external links
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const brandParam = params.get('brand');
+    const choiceParam = params.get('choice');
+    const priceParam = params.get('price');
+
+    if (brandParam) {
+      setSelectedBrand(brandParam);
+    }
+    if (choiceParam) {
+      setSelectedChoice(choiceParam.toLowerCase());
+    }
+    if (priceParam) {
+      setSelectedPriceRange(priceParam);
+    }
+  }, [location.search]);
 
   const dynamicBrands = useMemo(() => {
     const set = new Set(sourceLaptops.map((l) => l.brand).filter(Boolean));
@@ -48,9 +74,35 @@ export default function LaptopsPage() {
   const filteredAndSortedLaptops = useMemo(() => {
     let list = [...sourceLaptops];
 
-    // 1. Filter by Brand
-    if (selectedBrand !== 'All') {
-      list = list.filter((l) => l.brand.toLowerCase() === selectedBrand.toLowerCase());
+    // 1. Filter by Choice: refurbished, new, best, popular
+    if (selectedChoice !== 'all') {
+      const choice = selectedChoice.toLowerCase();
+      if (choice === 'refurbished') {
+        list = list.filter((l) =>
+          l.tags?.includes('refurbished') ||
+          l.category?.toLowerCase().includes('refurbished') ||
+          l.name.toLowerCase().includes('refurbished') ||
+          l.badge?.toLowerCase().includes('refurbished')
+        );
+      } else if (choice === 'new') {
+        list = list.filter((l) =>
+          l.tags?.includes('new') ||
+          (l.badge && l.badge.toLowerCase().includes('new')) ||
+          (!l.tags?.includes('refurbished') && !l.name.toLowerCase().includes('refurbished'))
+        );
+      } else if (choice === 'best') {
+        list = list.filter((l) =>
+          l.tags?.includes('best') ||
+          (l.rating && l.rating >= 4.8) ||
+          (l.badge && (l.badge.toLowerCase().includes('top') || l.badge.toLowerCase().includes('flagship') || l.badge.toLowerCase().includes('best')))
+        );
+      } else if (choice === 'popular') {
+        list = list.filter((l) =>
+          l.tags?.includes('popular') ||
+          (l.reviewCount && l.reviewCount >= 100) ||
+          (l.badge && l.badge.toLowerCase().includes('popular'))
+        );
+      }
     }
 
     // 2. Filter by Price
@@ -61,17 +113,30 @@ export default function LaptopsPage() {
       }
     }
 
-    // 3. Filter by RAM
+    // 3. Filter by Brand
+    if (selectedBrand !== 'All') {
+      list = list.filter((l) => l.brand.toLowerCase() === selectedBrand.toLowerCase());
+    }
+
+    // 4. Filter by Ratings
+    if (selectedRating !== 'all') {
+      const minRating = parseFloat(selectedRating);
+      if (!isNaN(minRating)) {
+        list = list.filter((l) => (l.rating || 0) >= minRating);
+      }
+    }
+
+    // 5. Filter by RAM
     if (selectedRam !== 'All') {
       list = list.filter((l) => productMatchesRam(l, selectedRam));
     }
 
-    // 4. Filter by Storage
+    // 6. Filter by Storage
     if (selectedStorage !== 'All') {
       list = list.filter((l) => productMatchesStorage(l, selectedStorage));
     }
 
-    // 5. Filter by Color
+    // 7. Filter by Color
     if (selectedColor !== 'All') {
       list = list.filter((l) => productMatchesColor(l, selectedColor));
     }
@@ -79,14 +144,16 @@ export default function LaptopsPage() {
     // Sorting
     if (sortBy === 'price-low') list.sort((a, b) => a.rawPrice - b.rawPrice);
     else if (sortBy === 'price-high') list.sort((a, b) => b.rawPrice - a.rawPrice);
-    else if (sortBy === 'rating') list.sort((a, b) => b.rating - a.rating);
+    else if (sortBy === 'rating') list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return list;
-  }, [selectedBrand, selectedPriceRange, selectedRam, selectedStorage, selectedColor, sortBy]);
+  }, [sourceLaptops, selectedChoice, selectedPriceRange, selectedBrand, selectedRating, selectedRam, selectedStorage, selectedColor, sortBy]);
 
   const handleClearAllFilters = () => {
+    setSelectedChoice('all');
     setSelectedBrand('All');
     setSelectedPriceRange('all');
+    setSelectedRating('all');
     setSelectedRam('All');
     setSelectedStorage('All');
     setSelectedColor('All');
@@ -123,7 +190,7 @@ export default function LaptopsPage() {
         <Header />
 
         <main className="flex-1 py-6 sm:py-10">
-          <div className="max-w-[1380px] mx-auto px-3.5 sm:px-6 lg:px-8">
+          <div className="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8">
 
             {/* Breadcrumb */}
             <nav className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500 mb-5">
@@ -133,20 +200,20 @@ export default function LaptopsPage() {
             </nav>
 
             {/* Sleek Modern Laptops Header Banner */}
-            <div className="relative rounded-3xl overflow-hidden mb-8 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-xl">
+            <div className="relative rounded-3xl overflow-hidden mb-6 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-xl">
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
               
               <div className="relative z-10 max-w-3xl">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
                   Premium Laptops &amp; MacBooks
                 </h1>
                 
-                <p className="text-xs sm:text-sm text-neutral-400 mt-3 leading-relaxed max-w-2xl font-medium">
+                <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed max-w-2xl font-medium">
                   Authorized laptops with official brand warranty. Free doorstep onsite setup &amp; OS installation in Hyderabad, custom RAM/SSD upgrades on request, and 0% No-Cost EMI options.
                 </p>
 
                 {/* Integrated Trust & Delivery Perks */}
-                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 pt-5 border-t border-neutral-800/80 text-xs font-semibold text-neutral-300">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-5 pt-4 border-t border-neutral-800/80 text-xs font-semibold text-neutral-300">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" />
                     <span>Sealed Box with GST Tax Bill</span>
@@ -165,162 +232,150 @@ export default function LaptopsPage() {
               </div>
             </div>
 
-            {/* Product Filters + Products Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Horizontal (X-Axis) Filter Bar */}
+            <HorizontalFilterBar
+              availableBrands={brands}
+              selectedChoice={selectedChoice}
+              onSelectChoice={setSelectedChoice}
+              selectedPriceRange={selectedPriceRange}
+              onSelectPriceRange={setSelectedPriceRange}
+              selectedBrand={selectedBrand}
+              onSelectBrand={setSelectedBrand}
+              selectedRating={selectedRating}
+              onSelectRating={setSelectedRating}
+              selectedRam={selectedRam}
+              onSelectRam={setSelectedRam}
+              selectedStorage={selectedStorage}
+              onSelectStorage={setSelectedStorage}
+              selectedColor={selectedColor}
+              onSelectColor={setSelectedColor}
+              sortBy={sortBy}
+              onSelectSort={setSortBy}
+              onClearAll={handleClearAllFilters}
+              totalResultsCount={filteredAndSortedLaptops.length}
+            />
 
-              {/* Product Filters (Desktop Sidebar & Mobile Drawer) */}
-              <ProductFilters
-                availableBrands={brands}
-                selectedBrand={selectedBrand}
-                onSelectBrand={setSelectedBrand}
-                selectedPriceRange={selectedPriceRange}
-                onSelectPriceRange={setSelectedPriceRange}
-                selectedRam={selectedRam}
-                onSelectRam={setSelectedRam}
-                selectedStorage={selectedStorage}
-                onSelectStorage={setSelectedStorage}
-                selectedColor={selectedColor}
-                onSelectColor={setSelectedColor}
-                onClearAll={handleClearAllFilters}
-                totalResultsCount={filteredAndSortedLaptops.length}
-              />
-
-              {/* Right Products Grid */}
-              <div className="lg:col-span-9 space-y-5">
-
-                {/* Sort Bar & Count */}
-                <div className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl border border-neutral-200 shadow-sm">
-                  <span className="text-xs font-bold text-neutral-600">
-                    <strong className="text-neutral-950">{filteredAndSortedLaptops.length}</strong> laptops found
-                    {selectedBrand !== 'All' && <span className="text-neutral-500"> by {selectedBrand}</span>}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold text-neutral-500">Sort:</span>
-                    <select
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value)}
-                      className="h-8 px-2.5 text-[11px] font-bold bg-neutral-50 border border-neutral-200 rounded-lg outline-none focus:border-amber-500 text-neutral-900 cursor-pointer"
-                    >
-                      <option value="featured">Featured</option>
-                      <option value="price-low">Price: Low to High</option>
-                      <option value="price-high">Price: High to Low</option>
-                      <option value="rating">Customer Rating</option>
-                    </select>
-                  </div>
+            {/* Empty State */}
+            {filteredAndSortedLaptops.length === 0 ? (
+              <div className="bg-white rounded-3xl p-10 text-center border border-neutral-200 shadow-sm space-y-4 my-6">
+                <div className="w-14 h-14 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                  <SlidersHorizontal className="w-6 h-6" />
                 </div>
+                <h3 className="text-lg font-black text-neutral-900">No Laptops match your selected filters</h3>
+                <p className="text-xs text-neutral-500 max-w-sm mx-auto">
+                  Try adjusting your choice, brand, RAM, storage, or price range filters to find matching laptops.
+                </p>
+                <button
+                  onClick={handleClearAllFilters}
+                  className="px-5 py-2.5 bg-neutral-950 text-amber-400 font-black text-xs uppercase tracking-wider rounded-xl hover:bg-neutral-800 transition-colors cursor-pointer"
+                >
+                  Clear All Filters
+                </button>
+              </div>
+            ) : (
+              /* Full-Width 5-Per-Line Products Grid (5 per row on desktop) */
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4">
+                {filteredAndSortedLaptops.map((laptop, index) => {
+                  const isAdded = !!addedItems[laptop.id];
+                  const primaryImage = laptop.images?.[0] || '/webp/laptops/apple-macbook-pro-16-m3-space-black.webp';
 
-                {/* Empty State */}
-                {filteredAndSortedLaptops.length === 0 ? (
-                  <div className="bg-white rounded-3xl p-10 text-center border border-neutral-200 shadow-sm space-y-4 my-6">
-                    <div className="w-14 h-14 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
-                      <SlidersHorizontal className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-black text-neutral-900">No Laptops match your selected filters</h3>
-                    <p className="text-xs text-neutral-500 max-w-sm mx-auto">
-                      Try adjusting your brand, RAM, storage, or price range filters to find matching laptops.
-                    </p>
-                    <button
-                      onClick={handleClearAllFilters}
-                      className="px-6 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-amber-400 font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
-                    >
-                      Reset All Filters
-                    </button>
-                  </div>
-                ) : (
-                  /* Laptop Cards Grid */
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                  {filteredAndSortedLaptops.map((laptop, idx) => {
-                    const isAdded = !!addedItems[laptop.id];
-                    const emi = laptop.rawPrice > 9999 ? `₹${Math.round(laptop.rawPrice / 12).toLocaleString('en-IN')}/mo` : null;
-
-                    return (
-                      <BlurRevealBox key={laptop.id} delay={idx * 0.04} yOffset={16}>
-                        <Link
-                          href={`/laptops/${laptop.slug}`}
-                          className="group h-full bg-white rounded-2xl border border-neutral-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden block"
-                        >
-                          {/* Image */}
-                          <div className="w-full aspect-[4/3] bg-neutral-50 flex items-center justify-center p-4 group-hover:bg-amber-50/30 transition-colors relative">
-                            <span className={`absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${laptop.badgeColor}`}>
+                  return (
+                    <BlurRevealBox key={laptop.id} delay={Math.min(index * 0.03, 0.3)}>
+                      <div className="group relative bg-white rounded-2xl p-3 sm:p-4 border border-neutral-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full overflow-hidden">
+                        
+                        {/* Corner Ribbon or Badge */}
+                        {laptop.badge && (
+                          <div className="absolute top-2.5 left-2.5 z-10">
+                            <span className={`px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider ${laptop.badgeColor || 'bg-neutral-900 text-white'}`}>
                               {laptop.badge}
                             </span>
-                            <div className="absolute top-3 right-3 flex items-center gap-1 text-[11px] font-bold text-amber-600 bg-white border border-amber-200 px-2 py-0.5 rounded-full shadow-sm">
-                              <Star className="w-3 h-3 fill-current" />
-                              <span>{laptop.rating}</span>
-                            </div>
-                            <img
-                              src={laptop.images[0]}
-                              alt={laptop.name}
-                              className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
-                            />
                           </div>
+                        )}
 
-                          <div className="p-4 flex flex-col flex-1 justify-between">
-                            <div>
-                              <span className="text-[10px] font-black text-neutral-400 uppercase tracking-wider">{laptop.brand} · {laptop.category}</span>
-                              <h3 className="text-sm font-black text-neutral-950 group-hover:text-amber-600 transition-colors leading-snug mt-0.5 line-clamp-2">
+                        <div>
+                          {/* Image */}
+                          <Link href={`/laptops/${laptop.slug || laptop.id}`} className="block relative aspect-square bg-neutral-50 rounded-xl p-2.5 mb-3 overflow-hidden group-hover:bg-amber-50/30 transition-colors">
+                            <img
+                              src={primaryImage}
+                              alt={laptop.name}
+                              className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </Link>
+
+                          {/* Brand & Name */}
+                          <div className="space-y-1">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-600">
+                              {laptop.brand}
+                            </span>
+                            <Link href={`/laptops/${laptop.slug || laptop.id}`} className="block">
+                              <h3 className="text-xs font-bold text-neutral-950 line-clamp-2 group-hover:text-amber-600 transition-colors leading-snug">
                                 {laptop.name}
                               </h3>
-
-                              {/* Specs Highlights */}
-                              <div className="mt-2 space-y-0.5 bg-neutral-50 rounded-xl p-2.5 border border-neutral-100">
-                                {laptop.keyHighlights?.slice(0, 2).map((s, i) => (
-                                  <div key={i} className="flex items-center gap-1.5 text-[11px] font-semibold text-neutral-600 truncate">
-                                    <Cpu className="w-3 h-3 text-amber-500 flex-shrink-0" />
-                                    <span className="truncate">{s}</span>
-                                  </div>
-                                ))}
-                              </div>
-
-                              <div className="flex items-center gap-1 mt-2 text-[11px] font-bold text-emerald-700">
-                                <Truck className="w-3 h-3 flex-shrink-0" />
-                                <span>Free Same-Day Setup · Hyderabad</span>
-                              </div>
-                            </div>
-
-                            <div className="mt-3.5 pt-3 border-t border-neutral-100">
-                              <div className="flex items-baseline gap-2 mb-0.5">
-                                <span className="text-base font-black text-neutral-950">{laptop.price}</span>
-                                <span className="text-xs text-neutral-400 line-through">{laptop.originalPrice}</span>
-                              </div>
-                              {emi && (
-                                <p className="text-[10px] text-neutral-500 font-semibold flex items-center gap-1 mb-2.5">
-                                  <CreditCard className="w-3 h-3 text-amber-500" />
-                                  No Cost EMI from {emi}
-                                </p>
-                              )}
-
-                              <div className="grid grid-cols-2 gap-1.5">
-                                <button
-                                  onClick={(e) => handleAddToCart(laptop, e)}
-                                  className={`min-h-[38px] rounded-lg flex items-center justify-center gap-1 text-[11px] font-bold uppercase tracking-wide transition-all cursor-pointer ${
-                                    isAdded
-                                      ? 'bg-emerald-500 text-white'
-                                      : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200'
-                                  }`}
-                                >
-                                  {isAdded ? <Check className="w-3.5 h-3.5" /> : <ShoppingBag className="w-3.5 h-3.5" />}
-                                  <span>{isAdded ? 'Added' : 'Add Cart'}</span>
-                                </button>
-
-                                <button
-                                  onClick={(e) => handleWhatsAppQuote(laptop, e)}
-                                  className="min-h-[38px] rounded-lg bg-amber-500 hover:bg-amber-600 text-neutral-950 flex items-center justify-center text-[11px] font-black uppercase tracking-wide shadow-sm cursor-pointer"
-                                >
-                                  WhatsApp
-                                </button>
-                              </div>
-                            </div>
+                            </Link>
                           </div>
-                        </Link>
-                      </BlurRevealBox>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
 
-            </div>
+                          {/* Specs summary */}
+                          <div className="mt-2 flex flex-wrap gap-1 text-[10px] text-neutral-600">
+                            {laptop.ram && (
+                              <span className="px-1.5 py-0.5 bg-neutral-100 rounded font-semibold">{laptop.ram}</span>
+                            )}
+                            {laptop.storage && (
+                              <span className="px-1.5 py-0.5 bg-neutral-100 rounded font-semibold">{laptop.storage}</span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Pricing & Cart Action */}
+                        <div className="pt-3 mt-3 border-t border-neutral-100 flex flex-col gap-2">
+                          <div className="flex items-baseline justify-between">
+                            <div>
+                              <span className="text-sm font-black text-neutral-950">{laptop.price}</span>
+                              {laptop.originalPrice && (
+                                <span className="text-[10px] text-neutral-400 line-through ml-1.5 font-bold">
+                                  {laptop.originalPrice}
+                                </span>
+                              )}
+                            </div>
+                            {laptop.rating && (
+                              <div className="flex items-center gap-0.5 text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded">
+                                <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
+                                <span>{laptop.rating}</span>
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-1.5 pt-1">
+                            <button
+                              type="button"
+                              onClick={(e) => handleAddToCart(laptop, e)}
+                              className={`py-2 px-2 rounded-xl text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                                isAdded
+                                  ? 'bg-amber-500 text-neutral-950 shadow-xs'
+                                  : 'bg-neutral-950 hover:bg-neutral-800 text-white'
+                              }`}
+                            >
+                              {isAdded ? <Check className="w-3 h-3 stroke-[3]" /> : <ShoppingBag className="w-3 h-3" />}
+                              <span>{isAdded ? 'Added' : 'Add'}</span>
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={(e) => handleWhatsAppQuote(laptop, e)}
+                              className="py-2 px-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200/80 flex items-center justify-center transition-colors cursor-pointer"
+                            >
+                              <span>Quote</span>
+                            </button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </BlurRevealBox>
+                  );
+                })}
+              </div>
+            )}
+
           </div>
         </main>
 

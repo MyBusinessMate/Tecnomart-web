@@ -1,1346 +1,2942 @@
 export const MOBILES_DATA = [
   {
-    id: "m1",
-    slug: "iphone-16-pro-max",
-    name: "Apple iPhone 16 Pro Max",
-    brand: "Apple",
-    ram: "8GB",
-    storage: "256GB",
-    tagline: "Grade 5 Titanium body. 4K 120fps video recording. All-day heavy battery life.",
-    price: "₹1,44,900",
-    originalPrice: "₹1,49,900",
-    rawPrice: 144900,
-    discountPercent: "3% OFF",
-    emiText: "No-cost EMI from ₹12,075/month on all major credit cards",
-    badge: "TOP PICK",
-    badgeColor: "bg-amber-500 text-neutral-950",
-    rating: 4.9,
-    reviewCount: 384,
-    stockStatus: "In Stock at Tolichowki Store (Ready for pickup or same-day dispatch)",
-    deliveryTime: "Delivered within 3 to 4 hours in Hyderabad",
-    warrantyPeriod: "1 Year Official Apple India Warranty with sealed tax invoice",
-    images: [
+    "id": "m1",
+    "slug": "iphone-16-pro-max",
+    "name": "Apple iPhone 16 Pro Max",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "\u20b91,44,900",
+    "originalPrice": "\u20b91,49,900",
+    "rawPrice": 144900,
+    "discountPercent": "3% OFF",
+    "emiText": "No-cost EMI from \u20b912,075/month",
+    "badge": "TOP PICK",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.9,
+    "reviewCount": 384,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Desert Titanium",
+        "hex": "#C7B39B"
+      },
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E978E"
+      },
+      {
+        "name": "White Titanium",
+        "hex": "#F2F1ED"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#343335"
+      }
+    ],
+    "images": [
       "/webp/mobiles/apple-iphone-16-pro-max-desert-titanium.webp",
-      "/webp/landing/apple-iphone-16-pro-desert-amber-titanium.webp",
+      "/webp/landing/apple-iphone-16-pro-desert-amber-titanium.webp"
     ],
-    colors: [
-      { name: "Desert Titanium", hex: "#C7B39B" },
-      { name: "Natural Titanium", hex: "#9E978E" },
-      { name: "White Titanium", hex: "#F2F1ED" },
-      { name: "Black Titanium", hex: "#343335" },
-    ],
-    storages: [
-      { size: "256GB", price: "₹1,44,900", rawPrice: 144900 },
-      { size: "512GB", price: "₹1,64,900", rawPrice: 164900 },
-      { size: "1TB", price: "₹1,84,900", rawPrice: 184900 },
-    ],
-    keyHighlights: [
-      "A18 Pro chip handles heavy games, 4K rendering and camera controls without breaking a sweat",
-      "48MP main camera with 5x telephoto optical zoom for crisp portraits and long-distance shots",
-      "Big 6.9-inch 120Hz display that stays super bright even under harsh afternoon sun",
-      "Solid Titanium build with scratch-resistant Ceramic Shield front glass",
-      "Massive battery life that comfortably lasts through a full day of calls, navigation, and shooting",
-    ],
-    specs: {
-      "RAM": "8GB Unified Memory",
-      "Display": "6.9-inch Super Retina XDR OLED, 120Hz ProMotion, 2000 nits peak brightness",
+    "tagline": "Grade 5 Titanium body. 4K 120fps video recording. All-day heavy battery life.",
+    "specs": {
+      "Display": "6.9-inch Super Retina XDR OLED, 120Hz ProMotion",
       "Processor": "Apple A18 Pro chip with 6-core GPU",
-      "Main Cameras": "48MP Main + 48MP Ultra-Wide + 12MP 5x Telephoto zoom",
-      "Selfie Camera": "12MP TrueDepth with autofocus",
-      "Battery & Port": "4,685 mAh battery, fast USB-C 3.0 port, MagSafe wireless charging",
-      "Durability": "Titanium frame, IP68 water & dust resistant",
-      "Software": "iOS 18 with Apple Intelligence support",
-    },
-    inTheBox: [
-      "iPhone 16 Pro Max (Brand New Sealed)",
-      "Original 1m Braided USB-C to USB-C Cable",
-      "SIM Ejection Tool & Quick Guide",
-      "GST Tax Invoice & Warranty Card",
-    ],
-    reviews: [
-      {
-        author: "Karthik Reddy",
-        verified: true,
-        rating: 5,
-        date: "3 days ago",
-        title: "Battery life easily lasts 1.5 days",
-        comment: "Picked it up directly from the Tolichowki store. They did the complete data transfer from my old 13 Pro in 15 minutes. 100% genuine Indian unit with proper bill.",
-      },
-      {
-        author: "Sneha Nair",
-        verified: true,
-        rating: 5,
-        date: "1 week ago",
-        title: "Desert Titanium finish looks super clean",
-        comment: "Camera recording at 4K 120fps is crazy smooth for Reels. Got it delivered to my office in Hitec City in under 3 hours.",
-      },
-    ]
+      "RAM": "8GB Unified Memory",
+      "Storage": "256GB",
+      "Main Cameras": "48MP Main + 48MP Ultra-Wide + 12MP 5x Zoom",
+      "Battery & Port": "4,685 mAh, USB-C 3.0",
+      "OS": "iOS 18 with Apple Intelligence"
+    }
   },
   {
-    id: "m2",
-    slug: "samsung-galaxy-s24-ultra",
-    name: "Samsung Galaxy S24 Ultra",
-    brand: "Samsung",
-    ram: "12GB",
-    storage: "256GB",
-    tagline: "Built-in S-Pen. 200MP camera with 100x zoom. Anti-reflective flat screen.",
-    price: "₹1,24,999",
-    originalPrice: "₹1,34,999",
-    rawPrice: 124999,
-    discountPercent: "7% OFF",
-    emiText: "No-cost EMI starting at ₹10,416/month for 12 months",
-    badge: "GALAXY AI",
-    badgeColor: "bg-blue-600 text-white",
-    rating: 4.8,
-    reviewCount: 295,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Doorstep Delivery across Hyderabad",
-    warrantyPeriod: "1 Year Official Samsung India Warranty + 7 Years OS Updates",
-    images: [
-      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp",
-      "/webp/landing/samsung-galaxy-s24-ultra-black-spen.webp",
+    "id": "m2",
+    "slug": "samsung-galaxy-s24-ultra",
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b91,24,999",
+    "originalPrice": "\u20b91,34,999",
+    "rawPrice": 124999,
+    "discountPercent": "7% OFF",
+    "emiText": "No-cost EMI starting at \u20b910,416/month",
+    "badge": "GALAXY AI",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 295,
+    "tags": [
+      "new",
+      "best"
     ],
-    colors: [
-      { name: "Titanium Gray", hex: "#77767B" },
-      { name: "Titanium Black", hex: "#2B2A2F" },
-      { name: "Titanium Violet", hex: "#5C5669" },
-      { name: "Titanium Yellow", hex: "#F3E7C4" },
-    ],
-    storages: [
-      { size: "256GB", price: "₹1,24,999", rawPrice: 124999 },
-      { size: "512GB", price: "₹1,34,999", rawPrice: 134999 },
-      { size: "1TB", price: "₹1,54,999", rawPrice: 154999 },
-    ],
-    keyHighlights: [
-      "200MP main camera with 100x space zoom for crazy detail on far-away subjects",
-      "Anti-glare screen glass that cuts reflections almost completely outdoors",
-      "Built-in S-Pen stylus tucked into the bottom for quick notes and photo clicks",
-      "Snapdragon 8 Gen 3 processor with a huge vapor cooling chamber for long gaming sessions",
-      "Full 7 years of Android OS and security updates promised by Samsung",
-    ],
-    specs: {
-      "RAM": "12GB LPDDR5X RAM",
-      "Display": "6.8-inch Flat QHD+ Dynamic AMOLED 2X, 120Hz LTPO, Gorilla Armor glass",
-      "Processor": "Snapdragon 8 Gen 3 for Galaxy",
-      "Rear Camera": "200MP Main + 50MP 5x Zoom + 10MP 3x Zoom + 12MP Ultra-Wide",
-      "Front Camera": "12MP Dual Pixel AF",
-      "Battery & Charging": "5,000 mAh battery, 45W fast charging, 15W wireless",
-      "Stylus": "Built-in S-Pen with Bluetooth controls",
-      "Updates": "7 Years Android OS & Security Upgrades",
-    },
-    inTheBox: [
-      "Samsung Galaxy S24 Ultra",
-      "Built-in S-Pen",
-      "USB-C to USB-C Cable",
-      "SIM Ejector Pin & Documentation",
-    ],
-    reviews: [
+    "colors": [
       {
-        author: "Venkatesh Babu",
-        verified: true,
-        rating: 5,
-        date: "5 days ago",
-        title: "The anti-glare screen is the real winner",
-        comment: "Zero reflections when using it outdoors in Hyderabad heat. S-Pen is very handy for signing PDF documents on the go.",
+        "name": "Titanium Gray",
+        "hex": "#767571"
+      },
+      {
+        "name": "Titanium Black",
+        "hex": "#2B2B2B"
+      },
+      {
+        "name": "Titanium Violet",
+        "hex": "#47435B"
+      },
+      {
+        "name": "Titanium Yellow",
+        "hex": "#EDE5C8"
       }
-    ]
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp",
+      "/webp/mobiles/img-2.webp"
+    ],
+    "tagline": "Built-in S-Pen. 200MP camera with 100x zoom. Anti-reflective flat screen.",
+    "specs": {
+      "Display": "6.8-inch Dynamic AMOLED 2X, 120Hz Flat Display",
+      "Processor": "Snapdragon 8 Gen 3 for Galaxy",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "200MP Main + 50MP 5x Periscope + 12MP Ultra-Wide",
+      "Battery & Port": "5,000 mAh, 45W Fast Charging",
+      "OS": "Android 14 (One UI 6.1 with Galaxy AI)"
+    }
   },
   {
-    id: "m3",
-    slug: "oneplus-12",
-    name: "OnePlus 12 5G",
-    brand: "OnePlus",
-    ram: "12GB",
-    storage: "256GB",
-    tagline: "100W fast charger in the box. Hasselblad cameras. Smooth 120Hz display.",
-    price: "₹59,999",
-    originalPrice: "₹69,999",
-    rawPrice: 59999,
-    discountPercent: "14% OFF",
-    emiText: "No-cost EMI starting at ₹4,999/month for 12 months",
-    badge: "BEST VALUE",
-    badgeColor: "bg-emerald-500 text-white",
-    rating: 4.8,
-    reviewCount: 218,
-    stockStatus: "In Stock (Ready to Ship)",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Official OnePlus Warranty",
-    images: [
+    "id": "m3",
+    "slug": "oneplus-12",
+    "name": "OnePlus 12 5G",
+    "brand": "OnePlus",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b959,999",
+    "originalPrice": "\u20b969,999",
+    "rawPrice": 59999,
+    "discountPercent": "14% OFF",
+    "emiText": "No-cost EMI from \u20b94,999/month",
+    "badge": "BEST VALUE",
+    "badgeColor": "bg-emerald-500 text-white",
+    "rating": 4.8,
+    "reviewCount": 218,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Flowy Emerald",
+        "hex": "#295A4B"
+      },
+      {
+        "name": "Silky Black",
+        "hex": "#1C1C1E"
+      }
+    ],
+    "images": [
       "/webp/mobiles/oneplus-12-5g-flowy-emerald.webp",
-      "/webp/mobiles/img-3.webp",
+      "/webp/mobiles/img-3.webp"
     ],
-    colors: [
-      { name: "Flowy Emerald", hex: "#295A4B" },
-      { name: "Silky Black", hex: "#1C1C1E" },
-    ],
-    storages: [
-      { size: "256GB", price: "₹59,999", rawPrice: 59999 },
-      { size: "512GB", price: "₹64,999", rawPrice: 64999 },
-    ],
-    keyHighlights: [
-      "100W charger included inside box — charges from 0 to 100% in around 25 minutes",
-      "Snapdragon 8 Gen 3 chip with up to 16GB RAM for buttery smooth multitasking",
-      "50MP Sony LYT-808 sensor + 64MP periscope telephoto tuned by Hasselblad",
-      "Large 5,400 mAh battery that easily pushes past a heavy workday",
-    ],
-    specs: {
-      "RAM": "12GB / 16GB LPDDR5X",
-      "Display": "6.82-inch 2K 120Hz LTPO ProXDR AMOLED, 4500 nits peak brightness",
+    "tagline": "100W fast charger in the box. Hasselblad cameras. Smooth 120Hz display.",
+    "specs": {
+      "Display": "6.82-inch 2K 120Hz LTPO ProXDR AMOLED",
       "Processor": "Qualcomm Snapdragon 8 Gen 3",
-      "Cameras": "50MP Main (Sony LYT-808) + 64MP 3x Periscope + 48MP Ultra-Wide",
-      "Battery": "5,400 mAh with 100W SUPERVOOC wired + 50W wireless",
-      "Cooling": "Dual-layer 9,140 mm² vapor cooling chamber",
-    },
-    inTheBox: [
-      "OnePlus 12",
-      "100W SUPERVOOC Power Adapter",
-      "Signature Red USB-C Cable",
-      "Custom Matte Protective Case",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP Sony LYT-808 + 64MP 3x Periscope + 48MP Ultra-Wide",
+      "Battery & Port": "5,400 mAh, 100W SUPERVOOC",
+      "OS": "OxygenOS 14 (Android 14)"
+    }
+  },
+  {
+    "id": "m4",
+    "slug": "google-pixel-9-pro",
+    "name": "Google Pixel 9 Pro",
+    "brand": "Google",
+    "ram": "16GB",
+    "storage": "128GB",
+    "price": "\u20b999,999",
+    "originalPrice": "\u20b91,09,999",
+    "rawPrice": 99999,
+    "discountPercent": "9% OFF",
+    "emiText": "No-cost EMI from \u20b98,333/month",
+    "badge": "AI POWERED",
+    "badgeColor": "bg-purple-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 164,
+    "tags": [
+      "new",
+      "popular"
     ],
-    reviews: [
+    "colors": [
       {
-        author: "Aditya V.",
-        verified: true,
-        rating: 5,
-        date: "2 weeks ago",
-        title: "Best phone under 70k hands down",
-        comment: "Charges in 25 mins while having tea in the morning. Great camera clarity and super smooth OxygenOS.",
+        "name": "Obsidian",
+        "hex": "#222326"
+      },
+      {
+        "name": "Porcelain",
+        "hex": "#E7E4DF"
+      },
+      {
+        "name": "Hazel",
+        "hex": "#7E837D"
       }
-    ]
-  },
-  {
-    id: "m4",
-    slug: "google-pixel-9-pro",
-    name: "Google Pixel 9 Pro",
-    brand: "Google",
-    ram: "16GB",
-    storage: "128GB",
-    tagline: "Clean stock Android. 5x telephoto camera. Super bright Actua display.",
-    price: "₹99,999",
-    originalPrice: "₹1,09,999",
-    rawPrice: 99999,
-    discountPercent: "9% OFF",
-    emiText: "No-cost EMI starting at ₹8,333/month",
-    badge: "AI POWERED",
-    badgeColor: "bg-purple-600 text-white",
-    rating: 4.7,
-    reviewCount: 164,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Dispatch in Hyderabad",
-    warrantyPeriod: "1 Year Official Google India Warranty",
-    images: [
+    ],
+    "images": [
       "/webp/mobiles/google-pixel-9-pro-obsidian.webp",
-      "/webp/mobiles/img-4.webp",
+      "/webp/mobiles/img-4.webp"
     ],
-    colors: [
-      { name: "Obsidian", hex: "#222326" },
-      { name: "Porcelain", hex: "#E7E4DF" },
-      { name: "Hazel", hex: "#7E837D" },
-      { name: "Rose Quartz", hex: "#E8D3D5" },
-    ],
-    storages: [
-      { size: "128GB", price: "₹99,999", rawPrice: 99999 },
-      { size: "256GB", price: "₹1,09,999", rawPrice: 109999 },
-    ],
-    keyHighlights: [
-      "Clean Google Android with zero bloatware and 7 full years of software updates",
-      "50MP main sensor + 48MP 5x optical telephoto with Best Take and Magic Editor",
-      "Comfortable 6.3-inch compact size that fits naturally in one hand",
-      "Super bright display reaching up to 3,000 nits under direct sun",
-    ],
-    specs: {
-      "RAM": "16GB LPDDR5X",
-      "Display": "6.3-inch Super Actua LTPO OLED, 120Hz, 3000 nits peak",
-      "Processor": "Google Tensor G4 with 16GB RAM",
-      "Cameras": "50MP Main + 48MP 5x Zoom + 48MP Ultra-Wide",
-      "Front Camera": "42MP selfie camera with autofocus",
-      "Updates": "7 Years guaranteed Android OS & security drops",
-    },
-    inTheBox: [
-      "Google Pixel 9 Pro",
-      "1m USB-C to USB-C Cable",
-      "SIM Tool & Documentation",
-    ],
-    reviews: []
+    "tagline": "Clean stock Android. 5x telephoto camera. Super bright Actua display.",
+    "specs": {
+      "Display": "6.3-inch Super Actua LTPO OLED 120Hz",
+      "Processor": "Google Tensor G4 with Titan M2",
+      "RAM": "16GB",
+      "Storage": "128GB",
+      "Main Cameras": "50MP Main + 48MP 5x Telephoto + 48MP Ultra-Wide",
+      "Battery & Port": "4,700 mAh, Fast Charging",
+      "OS": "Android 15 with Gemini AI"
+    }
   },
   {
-    id: "m5",
-    slug: "iphone-15",
-    name: "Apple iPhone 15",
-    brand: "Apple",
-    ram: "6GB",
-    storage: "128GB",
-    tagline: "Dynamic Island alerts. 48MP main camera. Universal USB-C port.",
-    price: "₹59,900",
-    originalPrice: "₹69,900",
-    rawPrice: 59900,
-    discountPercent: "14% OFF",
-    emiText: "No-cost EMI starting at ₹4,991/month for 12 months",
-    badge: "POPULAR",
-    badgeColor: "bg-amber-500 text-neutral-950",
-    rating: 4.8,
-    reviewCount: 420,
-    stockStatus: "In Stock (All Colors Available)",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Official Apple India Warranty",
-    images: [
+    "id": "m5",
+    "slug": "apple-iphone-15",
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "ram": "6GB",
+    "storage": "128GB",
+    "price": "\u20b965,999",
+    "originalPrice": "\u20b969,900",
+    "rawPrice": 65999,
+    "discountPercent": "6% OFF",
+    "emiText": "No-cost EMI from \u20b95,500/month",
+    "badge": "HOT SELLER",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.8,
+    "reviewCount": 420,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#1C1C1E"
+      },
+      {
+        "name": "Blue",
+        "hex": "#D2E5EB"
+      },
+      {
+        "name": "Green",
+        "hex": "#D8E6D9"
+      },
+      {
+        "name": "Pink",
+        "hex": "#FBE2DD"
+      }
+    ],
+    "images": [
       "/webp/mobiles/apple-iphone-15-pink.webp",
-      "/webp/landing/apple-iphone-15-pro-black-titanium.webp",
+      "/webp/mobiles/img-5.webp"
     ],
-    colors: [
-      { name: "Black", hex: "#2E3033" },
-      { name: "Blue", hex: "#D4E1E8" },
-      { name: "Pink", hex: "#E9D2D6" },
-      { name: "Green", hex: "#D6E2D5" },
-    ],
-    storages: [
-      { size: "128GB", price: "₹59,900", rawPrice: 59900 },
-      { size: "256GB", price: "₹69,900", rawPrice: 69900 },
-    ],
-    keyHighlights: [
-      "Dynamic Island keeps live food deliveries, sports scores and music right at top",
-      "48MP main camera takes sharp 24MP photos and gives 2x optical-grade crop zoom",
-      "Matte color-infused glass back with comfortable contoured edges",
-      "Standard USB-C port for charging with any normal cable",
-    ],
-    specs: {
-      "RAM": "6GB LPDDR5",
-      "Display": "6.1-inch Super Retina XDR OLED, 2000 nits outdoor brightness",
+    "tagline": "Dynamic Island. 48MP main camera. USB-C port in sleek color-infused glass.",
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR OLED Display",
       "Processor": "Apple A16 Bionic chip",
-      "Cameras": "48MP Main with 2x zoom crop + 12MP Ultra-Wide",
-      "Port": "USB-C universal charging connector",
-    },
-    inTheBox: ["iPhone 15", "Braided USB-C Cable", "Documentation"],
-    reviews: []
+      "RAM": "6GB",
+      "Storage": "128GB",
+      "Main Cameras": "48MP Main with 2x Telephoto + 12MP Ultra-Wide",
+      "Battery & Port": "3,349 mAh, USB-C",
+      "OS": "iOS 17 upgradable to iOS 18"
+    }
   },
   {
-    id: "m6",
-    slug: "samsung-galaxy-z-fold-6",
-    name: "Samsung Galaxy Z Fold 6",
-    brand: "Samsung",
-    ram: "12GB",
-    storage: "256GB",
-    tagline: "Slim folding design. Huge 7.6-inch inner tablet screen. 3 apps split screen.",
-    price: "₹1,49,999",
-    originalPrice: "₹1,64,999",
-    rawPrice: 149999,
-    discountPercent: "9% OFF",
-    emiText: "No-cost EMI starting at ₹12,499/month",
-    badge: "FOLDABLE",
-    badgeColor: "bg-indigo-600 text-white",
-    rating: 4.9,
-    reviewCount: 88,
-    stockStatus: "In Stock",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "1 Year Samsung India Warranty + 1 Year Screen Protection",
-    images: [
+    "id": "m6",
+    "slug": "samsung-galaxy-z-fold-6",
+    "name": "Samsung Galaxy Z Fold 6",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b91,64,999",
+    "originalPrice": "\u20b91,74,999",
+    "rawPrice": 164999,
+    "discountPercent": "6% OFF",
+    "emiText": "No-cost EMI from \u20b913,750/month",
+    "badge": "FOLDABLE FLAGSHIP",
+    "badgeColor": "bg-indigo-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 98,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "#1F2937"
+      },
+      {
+        "name": "Silver Shadow",
+        "hex": "#D1D5DB"
+      },
+      {
+        "name": "Pink",
+        "hex": "#FBCFE8"
+      }
+    ],
+    "images": [
       "/webp/mobiles/samsung-galaxy-z-fold-6-navy.webp",
-      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp",
+      "/webp/mobiles/img-6.webp"
     ],
-    colors: [
-      { name: "Silver Shadow", hex: "#C2C3C7" },
-      { name: "Navy", hex: "#2A3B4C" },
-      { name: "Pink", hex: "#E9D2D6" },
-    ],
-    storages: [
-      { size: "256GB", price: "₹1,49,999", rawPrice: 149999 },
-      { size: "512GB", price: "₹1,61,999", rawPrice: 161999 },
-    ],
-    keyHighlights: [
-      "Unfolds into a full 7.6-inch tablet for checking spreadsheets, trading, and videos side by side",
-      "Lighter and thinner hinge that feels sturdy in hand",
-      "Armor Aluminum body with water resistance protection",
-    ],
-    specs: {
-      "Inner Screen": "7.6-inch QXGA+ Dynamic AMOLED 2X, 120Hz, S-Pen Ready",
-      "Cover Screen": "6.3-inch HD+ Dynamic AMOLED 2X, 120Hz",
+    "tagline": "Dual screen foldable. Galaxy AI note assistant. Durable Armor Aluminum hinge.",
+    "specs": {
+      "Display": "7.6-inch Dynamic AMOLED 2X 120Hz Main + 6.3-inch Cover",
       "Processor": "Snapdragon 8 Gen 3 for Galaxy",
-      "Cameras": "50MP Main + 10MP 3x Tele + 12MP Ultra-Wide",
-    },
-    inTheBox: ["Galaxy Z Fold 6", "Data Cable", "SIM Ejection Pin"],
-    reviews: []
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP Main + 10MP 3x Telephoto + 12MP Ultra-Wide",
+      "Battery & Port": "4,400 mAh, 25W Fast Charging",
+      "OS": "Android 14 with One UI 6.1.1"
+    }
+  },
+  {
+    "id": "m7",
+    "slug": "apple-iphone-16-pro",
+    "name": "Apple iPhone 16 Pro",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b91,19,900",
+    "originalPrice": "\u20b91,24,900",
+    "rawPrice": 119900,
+    "discountPercent": "4% OFF",
+    "emiText": "No-cost EMI from \u20b99,991/month",
+    "badge": "PRO CAMERA",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.9,
+    "reviewCount": 182,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Desert Titanium",
+        "hex": "#C7B39B"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#343335"
+      },
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E978E"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-16-pro-max-desert-titanium.webp"
+    ],
+    "tagline": "6.3-inch ProMotion display. A18 Pro silicon. 5x optical zoom camera.",
+    "specs": {
+      "Display": "6.3-inch Super Retina XDR OLED, 120Hz ProMotion",
+      "Processor": "Apple A18 Pro chip",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "48MP Fusion + 48MP Ultra-Wide + 12MP 5x Zoom",
+      "Battery & Port": "3,582 mAh, USB-C 3.0",
+      "OS": "iOS 18 with Apple Intelligence"
+    }
+  },
+  {
+    "id": "m8",
+    "slug": "apple-iphone-16",
+    "name": "Apple iPhone 16",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b979,900",
+    "originalPrice": "\u20b982,900",
+    "rawPrice": 79900,
+    "discountPercent": "4% OFF",
+    "emiText": "No-cost EMI from \u20b96,658/month",
+    "badge": "NEW RELEASE",
+    "badgeColor": "bg-emerald-500 text-white",
+    "rating": 4.8,
+    "reviewCount": 210,
+    "tags": [
+      "new",
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Ultramarine",
+        "hex": "#3E54A3"
+      },
+      {
+        "name": "Teal",
+        "hex": "#A2D8D5"
+      },
+      {
+        "name": "Pink",
+        "hex": "#ECA1B5"
+      },
+      {
+        "name": "White",
+        "hex": "#F2F2F2"
+      },
+      {
+        "name": "Black",
+        "hex": "#232323"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-15-pink.webp"
+    ],
+    "tagline": "Camera Control button. A18 chip. Spatial Audio and 48MP Fusion camera.",
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR OLED",
+      "Processor": "Apple A18 chip (3nm)",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "48MP Fusion + 12MP Ultra-Wide",
+      "Battery & Port": "3,561 mAh, USB-C",
+      "OS": "iOS 18 with Apple Intelligence"
+    }
+  },
+  {
+    "id": "m9",
+    "slug": "apple-iphone-16-plus",
+    "name": "Apple iPhone 16 Plus",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b989,900",
+    "originalPrice": "\u20b992,900",
+    "rawPrice": 89900,
+    "discountPercent": "3% OFF",
+    "emiText": "No-cost EMI from \u20b97,491/month",
+    "badge": "BATTERY KING",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 115,
+    "tags": [
+      "new"
+    ],
+    "colors": [
+      {
+        "name": "Ultramarine",
+        "hex": "#3E54A3"
+      },
+      {
+        "name": "Teal",
+        "hex": "#A2D8D5"
+      },
+      {
+        "name": "Black",
+        "hex": "#232323"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-15-pink.webp"
+    ],
+    "tagline": "Huge 6.7-inch screen. Legendary 27-hour battery life. A18 power.",
+    "specs": {
+      "Display": "6.7-inch Super Retina XDR OLED",
+      "Processor": "Apple A18 chip",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "48MP Fusion + 12MP Ultra-Wide",
+      "Battery & Port": "4,674 mAh, USB-C",
+      "OS": "iOS 18"
+    }
+  },
+  {
+    "id": "m10",
+    "slug": "apple-iphone-15-pro-max",
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "\u20b91,29,990",
+    "originalPrice": "\u20b91,49,900",
+    "rawPrice": 129990,
+    "discountPercent": "13% OFF",
+    "emiText": "No-cost EMI from \u20b910,832/month",
+    "badge": "PRO SELLER",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 510,
+    "tags": [
+      "best",
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E978E"
+      },
+      {
+        "name": "Blue Titanium",
+        "hex": "#2E3B4E"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#343335"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-16-pro-max-desert-titanium.webp"
+    ],
+    "tagline": "A17 Pro 3nm gaming chip. Titanium frame. 5x optical telephoto lens.",
+    "specs": {
+      "Display": "6.7-inch Super Retina XDR OLED 120Hz",
+      "Processor": "Apple A17 Pro (3nm)",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Main Cameras": "48MP Main + 12MP 5x Zoom + 12MP Ultra-Wide",
+      "Battery & Port": "4,441 mAh, USB-C 3.0",
+      "OS": "iOS 17 / iOS 18"
+    }
+  },
+  {
+    "id": "m11",
+    "slug": "apple-iphone-14",
+    "name": "Apple iPhone 14",
+    "brand": "Apple",
+    "ram": "6GB",
+    "storage": "128GB",
+    "price": "\u20b954,990",
+    "originalPrice": "\u20b969,900",
+    "rawPrice": 54990,
+    "discountPercent": "21% OFF",
+    "emiText": "No-cost EMI from \u20b94,582/month",
+    "badge": "BUDGET APPLE",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.7,
+    "reviewCount": 380,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Midnight",
+        "hex": "#1E2024"
+      },
+      {
+        "name": "Starlight",
+        "hex": "#F8F7F3"
+      },
+      {
+        "name": "Blue",
+        "hex": "#9EBBD0"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-15-pink.webp"
+    ],
+    "tagline": "Super Retina XDR display. A15 Bionic speed. Photonic engine cameras.",
+    "specs": {
+      "Display": "6.1-inch OLED Super Retina XDR",
+      "Processor": "Apple A15 Bionic",
+      "RAM": "6GB",
+      "Storage": "128GB",
+      "Main Cameras": "12MP Main + 12MP Ultra-Wide",
+      "Battery & Port": "3,279 mAh, Lightning",
+      "OS": "iOS 17 / iOS 18"
+    }
+  },
+  {
+    "id": "m12",
+    "slug": "apple-iphone-13",
+    "name": "Apple iPhone 13",
+    "brand": "Apple",
+    "ram": "4GB",
+    "storage": "128GB",
+    "price": "\u20b947,990",
+    "originalPrice": "\u20b959,900",
+    "rawPrice": 47990,
+    "discountPercent": "20% OFF",
+    "emiText": "EMI from \u20b93,999/month",
+    "badge": "TOP BUDGET",
+    "badgeColor": "bg-emerald-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 640,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Midnight",
+        "hex": "#1E2024"
+      },
+      {
+        "name": "Starlight",
+        "hex": "#F8F7F3"
+      },
+      {
+        "name": "Pink",
+        "hex": "#F9DFDB"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/apple-iphone-15-pink.webp"
+    ],
+    "tagline": "Best value entry into Apple ecosystem. Reliable battery & smooth iOS.",
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR OLED",
+      "Processor": "Apple A15 Bionic",
+      "RAM": "4GB",
+      "Storage": "128GB",
+      "Main Cameras": "12MP Dual Cameras",
+      "Battery & Port": "3,227 mAh",
+      "OS": "iOS 17 / iOS 18"
+    }
+  },
+  {
+    "id": "m13",
+    "slug": "refurbished-iphone-14-pro-max",
+    "name": "Certified Refurbished iPhone 14 Pro Max",
+    "brand": "Apple",
+    "ram": "6GB",
+    "storage": "128GB",
+    "price": "\u20b974,990",
+    "originalPrice": "\u20b91,39,900",
+    "rawPrice": 74990,
+    "discountPercent": "46% OFF",
+    "emiText": "EMI from \u20b96,249/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 142,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Deep Purple",
+        "hex": "#4D4352"
+      },
+      {
+        "name": "Space Black",
+        "hex": "#262626"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-apple-ipad-pro-11-m2.webp"
+    ],
+    "tagline": "Grade A+ like new. 96% battery health. 1-Year direct TecnoMart warranty.",
+    "specs": {
+      "Display": "6.7-inch OLED 120Hz Dynamic Island",
+      "Processor": "A16 Bionic",
+      "RAM": "6GB",
+      "Storage": "128GB",
+      "Main Cameras": "48MP + 12MP + 12MP",
+      "Battery & Port": "4,323 mAh, 95%+ Health",
+      "Warranty": "1-Year TecnoMart Store Warranty"
+    }
+  },
+  {
+    "id": "m14",
+    "slug": "refurbished-iphone-13-pro",
+    "name": "Certified Refurbished iPhone 13 Pro",
+    "brand": "Apple",
+    "ram": "6GB",
+    "storage": "128GB",
+    "price": "\u20b952,990",
+    "originalPrice": "\u20b91,19,900",
+    "rawPrice": 52990,
+    "discountPercent": "56% OFF",
+    "emiText": "EMI from \u20b94,415/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 94,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Sierra Blue",
+        "hex": "#9FB5C4"
+      },
+      {
+        "name": "Graphite",
+        "hex": "#383735"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-apple-ipad-pro-11-m2.webp"
+    ],
+    "tagline": "120Hz ProMotion screen. Triple cameras with macro mode. 6 months warranty.",
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR 120Hz",
+      "Processor": "A15 Bionic",
+      "RAM": "6GB",
+      "Storage": "128GB",
+      "Main Cameras": "12MP Triple Cameras",
+      "Battery & Port": "92%+ Tested Battery",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "m15",
+    "slug": "samsung-galaxy-s24-plus",
+    "name": "Samsung Galaxy S24+ 5G",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b984,999",
+    "originalPrice": "\u20b999,999",
+    "rawPrice": 84999,
+    "discountPercent": "15% OFF",
+    "emiText": "No-cost EMI from \u20b97,083/month",
+    "badge": "QHD+ DISPLAY",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 178,
+    "tags": [
+      "new"
+    ],
+    "colors": [
+      {
+        "name": "Cobalt Violet",
+        "hex": "#4C4661"
+      },
+      {
+        "name": "Onyx Black",
+        "hex": "#2B2B2B"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp"
+    ],
+    "tagline": "Quad HD+ 120Hz flat panel. 4,900 mAh big battery. Galaxy AI onboard.",
+    "specs": {
+      "Display": "6.7-inch QHD+ Dynamic AMOLED 2X 120Hz",
+      "Processor": "Exynos 2400 Deca-Core",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP Main + 10MP 3x + 12MP Ultra-Wide",
+      "Battery & Port": "4,900 mAh, 45W Charging",
+      "OS": "One UI 6.1 (Android 14)"
+    }
+  },
+  {
+    "id": "m16",
+    "slug": "samsung-galaxy-s24",
+    "name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b967,999",
+    "originalPrice": "\u20b979,999",
+    "rawPrice": 67999,
+    "discountPercent": "15% OFF",
+    "emiText": "No-cost EMI from \u20b95,666/month",
+    "badge": "COMPACT FLAGSHIP",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 215,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Amber Yellow",
+        "hex": "#F4E0A5"
+      },
+      {
+        "name": "Marble Gray",
+        "hex": "#D1D3D4"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp"
+    ],
+    "tagline": "One-hand compact flagship. 2,600 nits brightness. 7 years Android updates.",
+    "specs": {
+      "Display": "6.2-inch FHD+ Dynamic AMOLED 2X 120Hz",
+      "Processor": "Exynos 2400 Deca-Core",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "50MP + 10MP + 12MP",
+      "Battery & Port": "4,000 mAh",
+      "OS": "Android 14 (One UI 6.1)"
+    }
+  },
+  {
+    "id": "m17",
+    "slug": "samsung-galaxy-z-flip-6",
+    "name": "Samsung Galaxy Z Flip 6",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b999,999",
+    "originalPrice": "\u20b91,09,999",
+    "rawPrice": 99999,
+    "discountPercent": "9% OFF",
+    "emiText": "No-cost EMI from \u20b98,333/month",
+    "badge": "STYLE ICON",
+    "badgeColor": "bg-purple-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 110,
+    "tags": [
+      "new",
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Mint",
+        "hex": "#C8E6C9"
+      },
+      {
+        "name": "Blue",
+        "hex": "#90CAF9"
+      },
+      {
+        "name": "Silver Shadow",
+        "hex": "#B0BEC5"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-z-fold-6-navy.webp"
+    ],
+    "tagline": "Pocket compact folding phone. 50MP upgraded camera. Vapor cooling chamber.",
+    "specs": {
+      "Display": "6.7-inch FHD+ Dynamic AMOLED 2X 120Hz + 3.4-inch Flex Window",
+      "Processor": "Snapdragon 8 Gen 3 for Galaxy",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP + 12MP Ultra-Wide",
+      "Battery & Port": "4,000 mAh",
+      "OS": "Android 14 with Galaxy AI"
+    }
+  },
+  {
+    "id": "m18",
+    "slug": "samsung-galaxy-s23-ultra",
+    "name": "Samsung Galaxy S23 Ultra",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b989,999",
+    "originalPrice": "\u20b91,24,999",
+    "rawPrice": 89999,
+    "discountPercent": "28% OFF",
+    "emiText": "No-cost EMI from \u20b97,499/month",
+    "badge": "100X SPACE ZOOM",
+    "badgeColor": "bg-emerald-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 490,
+    "tags": [
+      "best",
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Green",
+        "hex": "#3B4A3F"
+      },
+      {
+        "name": "Phantom Black",
+        "hex": "#1E1E1E"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp"
+    ],
+    "tagline": "200MP camera sensor. S-Pen included. Snapdragon 8 Gen 2 gaming chip.",
+    "specs": {
+      "Display": "6.8-inch Edge QHD+ AMOLED 120Hz",
+      "Processor": "Snapdragon 8 Gen 2 for Galaxy",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "200MP + 12MP + 10MP (10x) + 10MP (3x)",
+      "Battery & Port": "5,000 mAh, 45W Fast Charge",
+      "OS": "Android 14 (One UI 6.1)"
+    }
+  },
+  {
+    "id": "m19",
+    "slug": "refurbished-galaxy-s23-ultra",
+    "name": "Certified Refurbished Galaxy S23 Ultra",
+    "brand": "Samsung",
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "\u20b968,999",
+    "originalPrice": "\u20b91,24,999",
+    "rawPrice": 68999,
+    "discountPercent": "45% OFF",
+    "emiText": "EMI from \u20b95,750/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 85,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Green",
+        "hex": "#3B4A3F"
+      },
+      {
+        "name": "Cream",
+        "hex": "#EFE9DE"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-samsung-galaxy-s23-ultra.webp"
+    ],
+    "tagline": "Like new condition with S-Pen. Tested 92%+ battery health. 6 months warranty.",
+    "specs": {
+      "Display": "6.8-inch AMOLED 120Hz QHD+",
+      "Processor": "Snapdragon 8 Gen 2",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Main Cameras": "200MP Quad Cameras",
+      "Battery & Port": "5,000 mAh",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "m20",
+    "slug": "samsung-galaxy-s23-fe",
+    "name": "Samsung Galaxy S23 FE 5G",
+    "brand": "Samsung",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b937,999",
+    "originalPrice": "\u20b959,999",
+    "rawPrice": 37999,
+    "discountPercent": "36% OFF",
+    "emiText": "EMI from \u20b93,166/month",
+    "badge": "MIDRANGE CHAMPION",
+    "badgeColor": "bg-indigo-600 text-white",
+    "rating": 4.6,
+    "reviewCount": 160,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Mint",
+        "hex": "#C5E1A5"
+      },
+      {
+        "name": "Graphite",
+        "hex": "#37474F"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp"
+    ],
+    "tagline": "Flagship nightography cameras. IP68 water resistance. 120Hz AMOLED.",
+    "specs": {
+      "Display": "6.4-inch Dynamic AMOLED 2X 120Hz",
+      "Processor": "Exynos 2200 Octa-Core",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "50MP Main + 12MP Ultra-Wide + 8MP 3x Telephoto",
+      "Battery & Port": "4,500 mAh",
+      "OS": "Android 14 with One UI"
+    }
+  },
+  {
+    "id": "m21",
+    "slug": "samsung-galaxy-a55",
+    "name": "Samsung Galaxy A55 5G",
+    "brand": "Samsung",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b934,999",
+    "originalPrice": "\u20b939,999",
+    "rawPrice": 34999,
+    "discountPercent": "12% OFF",
+    "emiText": "EMI from \u20b92,916/month",
+    "badge": "METAL FRAME",
+    "badgeColor": "bg-teal-600 text-white",
+    "rating": 4.6,
+    "reviewCount": 130,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Awesome Iceblue",
+        "hex": "#CFE8FF"
+      },
+      {
+        "name": "Awesome Navy",
+        "hex": "#27384E"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/samsung-galaxy-s24-ultra-titanium.webp"
+    ],
+    "tagline": "Premium metal frame. Knox Vault hardware security. 5,000 mAh battery.",
+    "specs": {
+      "Display": "6.6-inch Super AMOLED 120Hz Vision Booster",
+      "Processor": "Exynos 1480 (4nm)",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "50MP Main + 12MP Ultra-Wide + 5MP Macro",
+      "Battery & Port": "5,000 mAh",
+      "OS": "Android 14"
+    }
+  },
+  {
+    "id": "m22",
+    "slug": "oneplus-12r",
+    "name": "OnePlus 12R 5G",
+    "brand": "OnePlus",
+    "ram": "16GB",
+    "storage": "256GB",
+    "price": "\u20b942,999",
+    "originalPrice": "\u20b945,999",
+    "rawPrice": 42999,
+    "discountPercent": "6% OFF",
+    "emiText": "No-cost EMI from \u20b93,583/month",
+    "badge": "GAMING PHONE",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 310,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Cool Blue",
+        "hex": "#79A6D2"
+      },
+      {
+        "name": "Iron Gray",
+        "hex": "#4A4D52"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/oneplus-12-5g-flowy-emerald.webp"
+    ],
+    "tagline": "Snapdragon 8 Gen 2 power. Massive 5,500 mAh battery. 100W SUPERVOOC.",
+    "specs": {
+      "Display": "6.78-inch 1.5K 120Hz LTPO4 AMOLED",
+      "Processor": "Snapdragon 8 Gen 2",
+      "RAM": "16GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP Sony IMX890 + 8MP Ultra-Wide",
+      "Battery & Port": "5,500 mAh, 100W Fast Charge",
+      "OS": "OxygenOS 14"
+    }
+  },
+  {
+    "id": "m23",
+    "slug": "oneplus-open",
+    "name": "OnePlus Open Foldable",
+    "brand": "OnePlus",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b91,39,999",
+    "originalPrice": "\u20b91,49,999",
+    "rawPrice": 139999,
+    "discountPercent": "7% OFF",
+    "emiText": "No-cost EMI from \u20b911,666/month",
+    "badge": "NO CREASE",
+    "badgeColor": "bg-red-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 75,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Emerald Dusk",
+        "hex": "#1E4D3C"
+      },
+      {
+        "name": "Voyager Black",
+        "hex": "#212121"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/oneplus-12-5g-flowy-emerald.webp"
+    ],
+    "tagline": "Virtually invisible display crease. Hasselblad telephoto. Lightweight unibody.",
+    "specs": {
+      "Display": "7.82-inch 120Hz 2K Flexi-fluid AMOLED + 6.31-inch Cover",
+      "Processor": "Snapdragon 8 Gen 2",
+      "RAM": "16GB",
+      "Storage": "512GB",
+      "Main Cameras": "48MP + 64MP 3x Periscope + 48MP Ultra-Wide",
+      "Battery & Port": "4,805 mAh, 67W Charging",
+      "OS": "OxygenOS 13.2 Fold"
+    }
+  },
+  {
+    "id": "m24",
+    "slug": "oneplus-nord-4",
+    "name": "OnePlus Nord 4 5G",
+    "brand": "OnePlus",
+    "ram": "8GB",
+    "storage": "128GB",
+    "price": "\u20b929,999",
+    "originalPrice": "\u20b932,999",
+    "rawPrice": 29999,
+    "discountPercent": "9% OFF",
+    "emiText": "EMI from \u20b92,499/month",
+    "badge": "ALL-METAL UNIBODY",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 190,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Oasis Green",
+        "hex": "#8DB48E"
+      },
+      {
+        "name": "Obsidian Midnight",
+        "hex": "#212529"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/oneplus-12-5g-flowy-emerald.webp"
+    ],
+    "tagline": "Slim 5G full metal unibody. 100W SUPERVOOC. Snapdragon 7+ Gen 3.",
+    "specs": {
+      "Display": "6.74-inch 120Hz 1.5K AMOLED",
+      "Processor": "Snapdragon 7+ Gen 3",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Main Cameras": "50MP Sony LYT-600 with OIS",
+      "Battery & Port": "5,500 mAh, 100W Wired",
+      "OS": "OxygenOS 14.1"
+    }
+  },
+  {
+    "id": "m25",
+    "slug": "google-pixel-9-pro-xl",
+    "name": "Google Pixel 9 Pro XL",
+    "brand": "Google",
+    "ram": "16GB",
+    "storage": "256GB",
+    "price": "\u20b91,24,999",
+    "originalPrice": "\u20b91,34,999",
+    "rawPrice": 124999,
+    "discountPercent": "7% OFF",
+    "emiText": "No-cost EMI from \u20b910,416/month",
+    "badge": "FLAGSHIP AI",
+    "badgeColor": "bg-purple-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 112,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Obsidian",
+        "hex": "#222326"
+      },
+      {
+        "name": "Porcelain",
+        "hex": "#E7E4DF"
+      },
+      {
+        "name": "Hazel",
+        "hex": "#7E837D"
+      }
+    ],
+    "images": [
+      "/webp/mobiles/google-pixel-9-pro-obsidian.webp"
+    ],
+    "tagline": "Huge 6.8-inch Super Actua panel. Gemini Live AI. 37W fastest Pixel charging.",
+    "specs": {
+      "Display": "6.8-inch LTPO OLED 120Hz, 3,000 nits brightness",
+      "Processor": "Google Tensor G4 (4nm)",
+      "RAM": "16GB",
+      "Storage": "256GB",
+      "Main Cameras": "50MP Main + 48MP 5x Telephoto + 48MP Ultra-Wide",
+      "Battery & Port": "5,060 mAh, 37W Fast Charge",
+      "OS": "Android 15"
+    }
   }
 ];
 
 export const LAPTOPS_DATA = [
   {
-    id: "l1",
-    slug: "macbook-pro-16-m3-max",
-    name: "Apple MacBook Pro 16\" (M3 Max)",
-    brand: "Apple",
-    category: "Creator",
-    ram: "36GB",
-    storage: "1TB",
-    tagline: "16-core CPU. 40-core GPU. Runs full speed on battery with 22-hour battery life.",
-    price: "₹3,49,900",
-    originalPrice: "₹3,99,900",
-    rawPrice: 349900,
-    discountPercent: "12% OFF",
-    emiText: "Standard EMI from ₹16,950/month with leading credit cards",
-    badge: "WORKSTATION BEAST",
-    badgeColor: "bg-neutral-900 text-white",
-    rating: 5.0,
-    reviewCount: 142,
-    stockStatus: "In Stock at Tolichowki Store (Brand New Sealed)",
-    deliveryTime: "Same-Day Delivery in Hyderabad with Free Onsite Setup",
-    warrantyPeriod: "1 Year Official Apple India Warranty (Extendable via AppleCare+)",
-    images: [
+    "id": "l1",
+    "slug": "apple-macbook-pro-16-m3-max",
+    "name": "Apple MacBook Pro 16\" (M3 Max)",
+    "brand": "Apple",
+    "ram": "36GB",
+    "storage": "1TB",
+    "price": "\u20b93,49,900",
+    "originalPrice": "\u20b93,99,900",
+    "rawPrice": 349900,
+    "discountPercent": "12% OFF",
+    "emiText": "No-cost EMI from \u20b929,158/month",
+    "badge": "FLAGSHIP POWER",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 5.0,
+    "reviewCount": 128,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Space Black",
+        "hex": "#242527"
+      },
+      {
+        "name": "Silver",
+        "hex": "#E3E4E5"
+      }
+    ],
+    "images": [
       "/webp/laptops/apple-macbook-pro-16-m3-space-black.webp",
-      "/webp/landing/apple-macbook-pro-16-space-black-glow.webp",
+      "/webp/landing/apple-macbook-pro-16-space-black-glow.webp"
     ],
-    colors: [
-      { name: "Space Black", hex: "#2E2F33" },
-      { name: "Silver", hex: "#E3E4E5" },
-    ],
-    configs: [
-      { name: "36GB RAM / 1TB SSD", price: "₹3,49,900", rawPrice: 349900 },
-      { name: "48GB RAM / 1TB SSD", price: "₹3,99,900", rawPrice: 399900 },
-      { name: "128GB RAM / 2TB SSD", price: "₹5,29,900", rawPrice: 529900 },
-    ],
-    keyHighlights: [
-      "M3 Max chip with 16-core CPU and 40-core GPU for smooth 8K video timelines and 3D modeling",
-      "Liquid Retina XDR screen with 1600 nits peak HDR brightness and 120Hz ProMotion",
-      "Does not drop performance when unplugged — work anywhere without carrying a heavy brick",
-      "Deep Space Black finish that resists fingerprints and smudge marks",
-      "Full set of ports: 3x Thunderbolt 4, full-size HDMI, SD card reader, and MagSafe 3",
-    ],
-    specs: {
-      "Processor": "Apple M3 Max (16-Core CPU, 40-Core GPU, 16-Core Neural Engine)",
-      "RAM Memory": "36GB Unified Memory (300GB/s bandwidth)",
-      "SSD Storage": "1TB Gen4 SSD (up to 7.4GB/s read speed)",
-      "Display": "16.2-inch Liquid Retina XDR (3456x2234), 120Hz ProMotion",
-      "Battery Life": "Up to 22 hours with 140W fast charger included",
-      "Weight": "2.16 kg Space Black unibody aluminum",
-    },
-    inTheBox: [
-      "16-inch MacBook Pro (Sealed Box)",
-      "140W USB-C Fast Power Adapter",
-      "Braided USB-C to MagSafe 3 Cable (2m)",
-      "Tax Invoice for GST Input Tax Credit",
-    ],
-    reviews: [
-      {
-        author: "Naveen Chawla",
-        verified: true,
-        rating: 5,
-        date: "4 days ago",
-        title: "Exports 8K video timelines silently",
-        comment: "This laptop is on another level for DaVinci Resolve color grading. TecnoMart delivered it same-day to our Tolichowki studio with complete GST bill for ITC claim.",
-      }
-    ]
+    "tagline": "M3 Max with 16-core CPU & 40-core GPU. Liquid Retina XDR screen.",
+    "specs": {
+      "Display": "16.2-inch Liquid Retina XDR, 120Hz ProMotion",
+      "Processor": "Apple M3 Max (16-Core CPU, 40-Core GPU)",
+      "RAM": "36GB Unified Memory",
+      "Storage": "1TB PCIe SSD",
+      "Battery & Port": "100Wh, MagSafe 3, 3x Thunderbolt 4",
+      "OS": "macOS Sonoma"
+    }
   },
   {
-    id: "l2",
-    slug: "asus-rog-zephyrus-g16-2025",
-    name: "ASUS ROG Zephyrus G16 (2025)",
-    brand: "ASUS",
-    category: "Gaming",
-    ram: "32GB",
-    storage: "1TB",
-    tagline: "Thin & light gaming rig. 2.5K 240Hz OLED screen. RTX 4080 graphics.",
-    price: "₹2,69,990",
-    originalPrice: "₹2,99,990",
-    rawPrice: 269990,
-    discountPercent: "10% OFF",
-    emiText: "Standard EMI starting at ₹13,085/month for 24 months",
-    badge: "OLED GAMING",
-    badgeColor: "bg-red-600 text-white",
-    rating: 4.9,
-    reviewCount: 96,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "2 Years Official ASUS Global Warranty + 1 Year Damage Protection",
-    images: [
-      "/webp/laptops/asus-rog-zephyrus-g16-angle.webp",
-      "/webp/laptops/asus-rog-zephyrus-g16-front.webp",
+    "id": "l2",
+    "slug": "asus-rog-zephyrus-g16-2025",
+    "name": "ASUS ROG Zephyrus G16 (2025)",
+    "brand": "ASUS",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b92,19,990",
+    "originalPrice": "\u20b92,49,990",
+    "rawPrice": 219990,
+    "discountPercent": "12% OFF",
+    "emiText": "No-cost EMI from \u20b918,332/month",
+    "badge": "OLED GAMING",
+    "badgeColor": "bg-red-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 94,
+    "tags": [
+      "new",
+      "best"
     ],
-    colors: [
-      { name: "Eclipse Gray", hex: "#3B3D40" },
-      { name: "Platinum White", hex: "#ECECEC" },
-    ],
-    configs: [
-      { name: "Intel Core Ultra 9 / RTX 4080 / 32GB / 1TB", price: "₹2,69,990", rawPrice: 269990 },
-      { name: "Intel Core Ultra 9 / RTX 4090 / 32GB / 2TB", price: "₹3,29,990", rawPrice: 329990 },
-    ],
-    keyHighlights: [
-      "NVIDIA GeForce RTX 4080 GPU runs Cyberpunk, GTA V and Valorant with high FPS and ray tracing",
-      "ROG Nebula 240Hz OLED display with instant 0.2ms pixel response and pure deep blacks",
-      "CNC aluminum chassis that weighs only 1.85 kg — easy to carry around every day",
-      "Tri-fan cooling with liquid metal thermal compound to keep temperatures cool during long sessions",
-    ],
-    specs: {
-      "Processor": "Intel Core Ultra 9 185H (16 Cores, 22 Threads, up to 5.1GHz)",
-      "Graphics": "NVIDIA GeForce RTX 4080 12GB (140W max TGP)",
-      "Display": "16-inch 2.5K OLED, 240Hz / 0.2ms, VESA HDR True Black 500",
-      "Memory & Storage": "32GB LPDDR5X 7467MHz + 1TB NVMe SSD",
-      "Battery": "90Wh battery with 240W fast charger + 100W USB-C support",
-    },
-    inTheBox: [
-      "ASUS ROG Zephyrus G16",
-      "240W Power Adapter",
-      "ROG Gaming Mouse",
-      "Protective Sleeve Case",
-    ],
-    reviews: [
+    "colors": [
       {
-        author: "Vikram Rathore",
-        verified: true,
-        rating: 5,
-        date: "1 week ago",
-        title: "The OLED panel is unreal",
-        comment: "Colors and black levels in gaming look insane compared to standard IPS screens. Very light to carry to client meetings too.",
+        "name": "Eclipse Gray",
+        "hex": "#43464B"
+      },
+      {
+        "name": "Platinum White",
+        "hex": "#E5E7EB"
       }
-    ]
+    ],
+    "images": [
+      "/webp/laptops/asus-rog-zephyrus-g16-display.webp",
+      "/webp/laptops/asus-rog-zephyrus-g16-front.webp"
+    ],
+    "tagline": "Intel Core Ultra 9 + RTX 4080 in ultra-thin 1.85kg CNC aluminum chassis.",
+    "specs": {
+      "Display": "16-inch 2.5K 240Hz ROG Nebula OLED, 0.2ms",
+      "Processor": "Intel Core Ultra 9 185H with Intel AI Boost",
+      "RAM": "32GB LPDDR5X",
+      "Storage": "1TB PCIe 4.0 NVMe SSD",
+      "Graphics": "NVIDIA GeForce RTX 4080 12GB GDDR6",
+      "OS": "Windows 11 Home"
+    }
   },
   {
-    id: "l3",
-    slug: "dell-xps-14-oled",
-    name: "Dell XPS 14 OLED (2025)",
-    brand: "Dell",
-    category: "Ultrabook",
-    ram: "16GB",
-    storage: "512GB",
-    tagline: "Minimalist aluminum body. Seamless glass trackpad. 3.2K touch display.",
-    price: "₹1,84,990",
-    originalPrice: "₹2,14,990",
-    rawPrice: 184990,
-    discountPercent: "14% OFF",
-    emiText: "No-cost EMI starting at ₹15,415/month for 12 months",
-    badge: "PREMIUM ULTRABOOK",
-    badgeColor: "bg-amber-500 text-neutral-950",
-    rating: 4.8,
-    reviewCount: 64,
-    stockStatus: "In Stock",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Dell Onsite ProSupport",
-    images: [
-      "/webp/laptops/dell-xps-14-oled-angle.webp",
+    "id": "l3",
+    "slug": "dell-xps-14-oled",
+    "name": "Dell XPS 14 (9440) OLED",
+    "brand": "Dell",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b91,94,990",
+    "originalPrice": "\u20b92,19,990",
+    "rawPrice": 194990,
+    "discountPercent": "11% OFF",
+    "emiText": "No-cost EMI from \u20b916,249/month",
+    "badge": "MINIMALIST PRO",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.8,
+    "reviewCount": 76,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Platinum Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Graphite",
+        "hex": "#303030"
+      }
+    ],
+    "images": [
       "/webp/laptops/dell-xps-14-oled-front.webp",
+      "/webp/laptops/dell-xps-14-oled-angle.webp"
     ],
-    colors: [
-      { name: "Platinum Silver", hex: "#D6D7D9" },
-      { name: "Graphite", hex: "#3A3B3E" },
-    ],
-    configs: [
-      { name: "Intel Core Ultra 7 / 16GB / 512GB / RTX 4050", price: "₹1,84,990", rawPrice: 184990 },
-      { name: "Intel Core Ultra 7 / 32GB / 1TB / RTX 4050", price: "₹2,14,990", rawPrice: 214990 },
-    ],
-    keyHighlights: [
-      "14.5-inch 3.2K OLED touch display with 120Hz variable refresh rate",
-      "Seamless hidden glass touchpad and zero-lattice backlit keyboard",
-      "Dedicated RTX 4050 graphics for quick video renders and Photoshop work",
-      "Intel Core Ultra 7 processor with built-in AI accelerator",
-    ],
-    specs: {
-      "Processor": "Intel Core Ultra 7 155H (16 Cores, up to 4.8GHz)",
-      "Display": "14.5-inch 3.2K OLED Touch, 120Hz",
+    "tagline": "Zero-lattice keyboard. Invisible haptic glass touchpad. 3.2K InfinityEdge.",
+    "specs": {
+      "Display": "14.5-inch 3.2K (3200x2000) 120Hz OLED Touch",
+      "Processor": "Intel Core Ultra 7 155H (16 Cores)",
+      "RAM": "32GB LPDDR5x",
+      "Storage": "1TB PCIe NVMe SSD",
       "Graphics": "NVIDIA GeForce RTX 4050 6GB GDDR6",
-      "RAM & Storage": "16GB LPDDR5x + 512GB NVMe SSD",
-    },
-    inTheBox: ["Dell XPS 14", "100W USB-C Power Adapter", "USB-C Dongle"],
-    reviews: []
+      "OS": "Windows 11 Pro"
+    }
   },
   {
-    id: "l4",
-    slug: "lenovo-legion-pro-5i",
-    name: "Lenovo Legion Pro 5i (14th Gen)",
-    brand: "Lenovo",
-    category: "Gaming",
-    ram: "16GB",
-    storage: "1TB",
-    tagline: "Intel i7 20-core processor. 140W RTX 4070 graphics. 240Hz display.",
-    price: "₹1,44,990",
-    originalPrice: "₹1,69,990",
-    rawPrice: 144990,
-    discountPercent: "15% OFF",
-    emiText: "Standard EMI starting at ₹7,030/month",
-    badge: "BESTSELLER GAMING",
-    badgeColor: "bg-amber-500 text-neutral-950 font-black",
-    rating: 4.8,
-    reviewCount: 180,
-    stockStatus: "In Stock at Tolichowki",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "2 Years Lenovo Legion Ultimate Support",
-    images: [
-      "/webp/laptops/lenovo-legion-pro-5i-angle.webp",
-      "/webp/laptops/lenovo-legion-pro-5i-front.webp",
+    "id": "l4",
+    "slug": "apple-macbook-air-15-m3",
+    "name": "Apple MacBook Air 15\" (M3)",
+    "brand": "Apple",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b91,44,900",
+    "originalPrice": "\u20b91,54,900",
+    "rawPrice": 144900,
+    "discountPercent": "6% OFF",
+    "emiText": "No-cost EMI from \u20b912,075/month",
+    "badge": "BESTSELLER",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.9,
+    "reviewCount": 312,
+    "tags": [
+      "new",
+      "popular"
     ],
-    colors: [{ name: "Onyx Grey", hex: "#3F4145" }],
-    configs: [
-      { name: "i7-14700HX / RTX 4070 / 16GB / 1TB", price: "₹1,44,990", rawPrice: 144990 },
-      { name: "i9-14900HX / RTX 4070 / 32GB / 1TB", price: "₹1,69,990", rawPrice: 169990 },
+    "colors": [
+      {
+        "name": "Midnight",
+        "hex": "#1E232A"
+      },
+      {
+        "name": "Starlight",
+        "hex": "#F0EAD6"
+      },
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      },
+      {
+        "name": "Silver",
+        "hex": "#E3E4E5"
+      }
     ],
-    keyHighlights: [
-      "Intel Core i7-14700HX with 20 cores pushes high framerates in every modern game",
-      "Full 140W powered RTX 4070 graphics card for maximum GPU clock speeds",
-      "16-inch 2.5K IPS screen with 240Hz refresh rate and G-SYNC support",
-      "Legion ColdFront 5.0 dual-fan cooling keeps thermals low without throttle",
-    ],
-    specs: {
-      "Processor": "Intel Core i7-14700HX (20 Cores, 28 Threads)",
-      "Graphics": "NVIDIA GeForce RTX 4070 8GB (140W TGP)",
-      "Display": "16-inch 2.5K WQXGA IPS, 240Hz, 500 nits",
-      "Memory & Storage": "16GB DDR5 5600MHz + 1TB Gen4 NVMe SSD",
-    },
-    inTheBox: ["Lenovo Legion Pro 5i", "300W AC Adapter", "Power Cord"],
-    reviews: []
-  },
-  {
-    id: "l5",
-    slug: "macbook-air-15-m3",
-    name: "Apple MacBook Air 15\" (M3)",
-    brand: "Apple",
-    category: "Ultrabook",
-    ram: "16GB",
-    storage: "512GB",
-    tagline: "Super thin design. Fanless and totally silent. Up to 18 hours of battery.",
-    price: "₹1,44,900",
-    originalPrice: "₹1,54,900",
-    rawPrice: 144900,
-    discountPercent: "6% OFF",
-    emiText: "No-cost EMI starting at ₹12,075/month",
-    badge: "SLIM & SILENT",
-    badgeColor: "bg-emerald-600 text-white",
-    rating: 4.9,
-    reviewCount: 310,
-    stockStatus: "In Stock (All Finishes)",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "1 Year Official Apple India Warranty",
-    images: [
-      "/webp/laptops/apple-macbook-air-15-m3-angle.webp",
+    "images": [
       "/webp/laptops/apple-macbook-air-15-m3-front.webp",
+      "/webp/laptops/apple-macbook-air-15-m3-angle.webp"
     ],
-    colors: [
-      { name: "Midnight", hex: "#2C3440" },
-      { name: "Starlight", hex: "#EFEADB" },
-      { name: "Space Gray", hex: "#7B7C80" },
-      { name: "Silver", hex: "#E3E4E5" },
-    ],
-    configs: [
-      { name: "16GB Unified Memory / 512GB SSD", price: "₹1,44,900", rawPrice: 144900 },
-      { name: "24GB Unified Memory / 512GB SSD", price: "₹1,64,900", rawPrice: 164900 },
-    ],
-    keyHighlights: [
-      "Apple M3 chip runs fast and stays completely cool with zero fan noise",
-      "Big 15.3-inch Liquid Retina display with 500 nits brightness and True Tone",
-      "Only 11.5 mm thin and weighs under 1.5 kg for carrying to college or office",
-      "18-hour battery life means you can leave your charger at home",
-    ],
-    specs: {
+    "tagline": "Thin 11.5mm unibody. Silent fanless design. 18-hour battery longevity.",
+    "specs": {
+      "Display": "15.3-inch Liquid Retina with True Tone (2880x1864)",
       "Processor": "Apple M3 (8-Core CPU, 10-Core GPU)",
-      "Display": "15.3-inch Liquid Retina display (2880x1864), 500 nits",
-      "Speakers": "Six-speaker sound system with Spatial Audio",
-      "Charger": "MagSafe 3 with 35W Dual USB-C Port compact adapter",
-    },
-    inTheBox: ["MacBook Air 15\"", "35W Dual USB-C Adapter", "MagSafe 3 Cable"],
-    reviews: []
+      "RAM": "16GB Unified Memory",
+      "Storage": "512GB SSD",
+      "Weight": "1.51 kg",
+      "OS": "macOS Sonoma"
+    }
   },
   {
-    id: "l6",
-    slug: "hp-victus-15-gaming",
-    name: "HP Victus 15 Gaming",
-    brand: "HP",
-    category: "Budget",
-    ram: "16GB",
-    storage: "512GB",
-    tagline: "AMD 6-core processor. RTX dedicated graphics. 144Hz IPS display.",
-    price: "₹54,990",
-    originalPrice: "₹69,990",
-    rawPrice: 54990,
-    discountPercent: "21% OFF",
-    emiText: "Standard EMI starting at ₹2,666/month",
-    badge: "BUDGET BEAST",
-    badgeColor: "bg-blue-600 text-white",
-    rating: 4.6,
-    reviewCount: 204,
-    stockStatus: "In Stock",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Official HP India Warranty",
-    images: [
-      "/webp/laptops/hp-victus-15-gaming-front.webp",
-      "/webp/landing/asus-tuf-gaming-laptop-front.webp",
+    "id": "l5",
+    "slug": "lenovo-legion-pro-5i",
+    "name": "Lenovo Legion Pro 5i Gen 9",
+    "brand": "Lenovo",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b91,62,990",
+    "originalPrice": "\u20b91,84,990",
+    "rawPrice": 162990,
+    "discountPercent": "12% OFF",
+    "emiText": "No-cost EMI from \u20b913,582/month",
+    "badge": "ESPORTS RIG",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 145,
+    "tags": [
+      "best",
+      "popular"
     ],
-    colors: [{ name: "Mica Silver", hex: "#4B4D52" }],
-    configs: [
-      { name: "Ryzen 5 7535HS / RTX 2050 / 16GB / 512GB", price: "₹54,990", rawPrice: 54990 },
-      { name: "Ryzen 5 7535HS / RTX 3050 / 16GB / 512GB", price: "₹62,990", rawPrice: 62990 },
+    "colors": [
+      {
+        "name": "Onyx Grey",
+        "hex": "#3A3D40"
+      }
     ],
-    keyHighlights: [
-      "AMD Ryzen 5 7535HS 6-core processor handles everyday coding and gaming",
-      "NVIDIA GeForce RTX 2050 4GB GPU for smooth 1080p gaming",
-      "15.6-inch 144Hz display with thin bezels",
-      "B&O tuned dual speakers for clear audio in videos and games",
+    "images": [
+      "/webp/laptops/lenovo-legion-pro-5i-front.webp",
+      "/webp/laptops/lenovo-legion-pro-5i-angle.webp"
     ],
-    specs: {
-      "Processor": "AMD Ryzen 5 7535HS (6 Cores, 12 Threads)",
-      "Graphics": "NVIDIA GeForce RTX 2050 4GB GDDR6",
-      "Display": "15.6-inch FHD IPS, 144Hz anti-glare",
-      "RAM & Storage": "16GB DDR5 4800MHz + 512GB PCIe NVMe SSD",
-    },
-    inTheBox: ["HP Victus 15", "150W AC Power Adapter", "Quick Start Guide"],
-    reviews: []
-  }
-];
-
-export function getMobileBySlug(slug) {
-  return MOBILES_DATA.find((m) => m.slug === slug || m.id === slug) || MOBILES_DATA[0];
-}
-
-export function getLaptopBySlug(slug) {
-  return LAPTOPS_DATA.find((l) => l.slug === slug || l.id === slug) || LAPTOPS_DATA[0];
-}
-
-export const GAMING_DATA = [
-  {
-    id: "g1",
-    slug: "beast-v1-ryzen-9-rtx-5090",
-    name: "TecnoMart Beast V1 Custom Gaming PC",
-    brand: "TecnoMart Signature",
-    category: "Ultra Gaming Rig",
-    ram: "64GB+",
-    storage: "2TB+",
-    tagline: "Ryzen 9 9950X + RTX 5090 32GB + 64GB DDR5. Built for 4K 240Hz & Ray Tracing.",
-    price: "₹3,89,999",
-    originalPrice: "₹4,20,000",
-    rawPrice: 389999,
-    discountPercent: "7% OFF",
-    emiText: "No-Cost EMI from ₹32,499/month for 12 months",
-    badge: "ULTIMATE MONSTER",
-    badgeColor: "bg-red-600 text-white font-black",
-    rating: 5.0,
-    reviewCount: 42,
-    stockStatus: "Built & Tested in Tolichowki Lab (Ready for same-day delivery)",
-    deliveryTime: "Delivered & Setup by Engineer in Hyderabad within 4 hours",
-    warrantyPeriod: "3 Years Full Onsite Hardware Warranty + Lifetime Tech Support",
-    images: [
-      "/webp/gaming/tecnomart-beast-v1-custom-pc.webp",
-      "/webp/landing/flagship-rog-strix-gaming-pc-gold-amber.webp",
-      "/webp/gaming/geforce-rtx-4090-gpu.webp",
-    ],
-    configs: [
-      { name: "64GB DDR5 / 2TB NVMe / 1000W Gold", price: "₹3,89,999", rawPrice: 389999 },
-      { name: "128GB DDR5 / 4TB NVMe / 1200W Platinum", price: "₹4,49,999", rawPrice: 449999 },
-    ],
-    fpsBenchmarks: [
-      { game: "Cyberpunk 2077 (4K Ray Tracing)", fps: "145 FPS" },
-      { game: "GTA V (4K Ultra)", fps: "240+ FPS" },
-      { game: "Valorant / CS2 (1080p Competitive)", fps: "600+ FPS" },
-      { game: "Call of Duty Warzone (4K Max)", fps: "185 FPS" },
-    ],
-    keyHighlights: [
-      "NVIDIA RTX 5090 GPU with 32GB GDDR7 memory for unmatched 4K gaming and AI rendering",
-      "AMD Ryzen 9 9950X 16-Core / 32-Thread flagship processor with 360mm ARGB Liquid AIO Cooler",
-      "Hand-built in TecnoMart Hyderabad lab with custom dual-chamber Lian Li chassis & custom sleeved cables",
-      "Stress-tested for 24 hours under OCCT and FurMark for 100% thermal stability",
-    ],
-    specs: {
-      "Processor": "AMD Ryzen 9 9950X (16 Cores, 32 Threads, up to 5.7GHz)",
-      "Graphics Card": "NVIDIA GeForce RTX 5090 32GB GDDR7",
-      "RAM Memory": "64GB (2x32GB) DDR5 6000MHz RGB",
-      "Storage": "2TB Gen4 M.2 NVMe SSD (7400MB/s Read)",
-      "Motherboard": "ASUS ROG Strix X670E-F Gaming WiFi",
-      "Power Supply": "1000W 80+ Gold PCIe 5.0 ATX 3.0 Modular PSU",
-      "Cabinet Case": "Lian Li O11 Dynamic EVO (Black/RGB)",
-    },
-    inTheBox: [
-      "Assembled Gaming PC Tower",
-      "Power Cable & Motherboard Accessories",
-      "GPU Anti-Sag Bracket",
-      "Official Tax Invoice & Warranty Card",
-    ],
-    reviews: []
+    "tagline": "Intel i9-14900HX + RTX 4070 140W TGP. Coldfront 5.0 vapor cooling.",
+    "specs": {
+      "Display": "16-inch WQXGA (2560x1600) 240Hz 500nits IPS",
+      "Processor": "Intel Core i9-14900HX (24 Cores, 32 Threads)",
+      "RAM": "32GB (2x16GB) DDR5 5600MHz",
+      "Storage": "1TB PCIe 4.0 NVMe SSD",
+      "Graphics": "NVIDIA GeForce RTX 4070 8GB GDDR6",
+      "OS": "Windows 11 Home"
+    }
   },
   {
-    id: "g2",
-    slug: "streamer-pro-i7-rtx4070ti",
-    name: "TecnoMart Streamer Pro Rig",
-    brand: "TecnoMart Signature",
-    category: "Streaming & Gaming",
-    ram: "32GB",
-    storage: "1TB",
-    tagline: "Intel i7-14700K + RTX 4070 Ti Super 16GB. Crisp 1440p gaming & dual-pc stream encoding.",
-    price: "₹1,89,990",
-    originalPrice: "₹2,10,000",
-    rawPrice: 189990,
-    discountPercent: "9% OFF",
-    emiText: "No-Cost EMI from ₹15,832/month",
-    badge: "STREAMER FAVORITE",
-    badgeColor: "bg-purple-600 text-white font-black",
-    rating: 4.9,
-    reviewCount: 76,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Delivery & Setup in Hyderabad",
-    warrantyPeriod: "3 Years TecnoMart Onsite Warranty",
-    images: [
-      "/webp/gaming/tecnomart-streamer-pro-corsair-pc.webp",
-      "/webp/landing/custom-gaming-pc-corsair-black-amber-rgb.webp",
+    "id": "l6",
+    "slug": "hp-victus-15-gaming",
+    "name": "HP Victus 15 Gaming Laptop",
+    "brand": "HP",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b969,990",
+    "originalPrice": "\u20b982,990",
+    "rawPrice": 69990,
+    "discountPercent": "16% OFF",
+    "emiText": "EMI starting from \u20b95,832/month",
+    "badge": "VALUE HERO",
+    "badgeColor": "bg-emerald-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 188,
+    "tags": [
+      "popular"
     ],
-    fpsBenchmarks: [
-      { game: "Valorant (1080p)", fps: "450+ FPS" },
-      { game: "Cyberpunk 2077 (1440p Ultra)", fps: "110 FPS" },
-      { game: "Apex Legends (1440p)", fps: "220 FPS" },
+    "colors": [
+      {
+        "name": "Mica Silver",
+        "hex": "#48494B"
+      }
     ],
-    keyHighlights: [
-      "Intel i7-14700K 20-Core processor handles high bitrate OBS streaming while gaming",
-      "NVIDIA RTX 4070 Ti Super 16GB GPU with NVENC encoder for crisp zero-lag stream output",
-      "32GB DDR5 RAM + 1TB Gen4 SSD for fast video clip editing",
+    "images": [
+      "/webp/laptops/hp-victus-15-gaming-front.webp"
     ],
-    specs: {
-      "Processor": "Intel Core i7-14700K (20 Cores, 28 Threads)",
-      "Graphics Card": "NVIDIA GeForce RTX 4070 Ti Super 16GB",
-      "RAM Memory": "32GB (2x16GB) DDR5 6000MHz",
-      "Storage": "1TB Gen4 NVMe SSD",
-      "Power Supply": "850W 80+ Gold ATX 3.0",
-    },
-    inTheBox: ["Assembled Gaming PC", "Power Cord", "GPU Support", "Tax Invoice"],
-    reviews: []
+    "tagline": "Intel i5 13th Gen + RTX 3050 6GB. Dual speaker tuned by B&O audio.",
+    "specs": {
+      "Display": "15.6-inch FHD (1920x1080) 144Hz IPS Anti-glare",
+      "Processor": "Intel Core i5-13420H (8 Cores, 12 Threads)",
+      "RAM": "16GB DDR4 3200MHz",
+      "Storage": "512GB PCIe Gen4 NVMe SSD",
+      "Graphics": "NVIDIA GeForce RTX 3050 6GB GDDR6",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": "l7",
+    "slug": "apple-macbook-pro-14-m3-pro",
+    "name": "Apple MacBook Pro 14\" (M3 Pro)",
+    "brand": "Apple",
+    "ram": "18GB",
+    "storage": "512GB",
+    "price": "\u20b91,89,900",
+    "originalPrice": "\u20b91,99,900",
+    "rawPrice": 189900,
+    "discountPercent": "5% OFF",
+    "emiText": "No-cost EMI from \u20b915,825/month",
+    "badge": "PRO CREATOR",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 160,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Space Black",
+        "hex": "#242527"
+      },
+      {
+        "name": "Silver",
+        "hex": "#E3E4E5"
+      }
+    ],
+    "images": [
+      "/webp/laptops/apple-macbook-pro-16-m3-space-black.webp"
+    ],
+    "tagline": "Liquid Retina XDR. 11-core CPU, 14-core GPU. High-bandwidth memory.",
+    "specs": {
+      "Display": "14.2-inch Liquid Retina XDR (3024x1964) 120Hz ProMotion",
+      "Processor": "Apple M3 Pro (11-core CPU, 14-core GPU)",
+      "RAM": "18GB Unified Memory",
+      "Storage": "512GB PCIe SSD",
+      "Battery & Port": "70Wh, MagSafe 3",
+      "OS": "macOS Sonoma"
+    }
+  },
+  {
+    "id": "l8",
+    "slug": "apple-macbook-air-13-m2",
+    "name": "Apple MacBook Air 13\" (M2)",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "\u20b989,900",
+    "originalPrice": "\u20b999,900",
+    "rawPrice": 89900,
+    "discountPercent": "10% OFF",
+    "emiText": "No-cost EMI from \u20b97,491/month",
+    "badge": "MOST POPULAR",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.9,
+    "reviewCount": 890,
+    "tags": [
+      "popular",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Midnight",
+        "hex": "#1E232A"
+      },
+      {
+        "name": "Starlight",
+        "hex": "#F0EAD6"
+      },
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      }
+    ],
+    "images": [
+      "/webp/laptops/apple-macbook-air-15-m3-front.webp"
+    ],
+    "tagline": "MagSafe charging, 1080p FaceTime HD camera, striking thin 1.24kg frame.",
+    "specs": {
+      "Display": "13.6-inch Liquid Retina Display",
+      "Processor": "Apple M2 (8-core CPU, 8-core GPU)",
+      "RAM": "8GB Unified Memory",
+      "Storage": "256GB SSD",
+      "Weight": "1.24 kg",
+      "OS": "macOS Sonoma"
+    }
+  },
+  {
+    "id": "l9",
+    "slug": "refurbished-macbook-pro-14-m1-pro",
+    "name": "Certified Refurbished MacBook Pro 14\" (M1 Pro)",
+    "brand": "Apple",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b992,990",
+    "originalPrice": "\u20b91,94,900",
+    "rawPrice": 92990,
+    "discountPercent": "52% OFF",
+    "emiText": "EMI from \u20b97,749/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 78,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      },
+      {
+        "name": "Silver",
+        "hex": "#E3E4E5"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-apple-macbook-pro-14-m1.webp"
+    ],
+    "tagline": "Grade A+ pristine. 100% battery health verified. 1-Year store warranty.",
+    "specs": {
+      "Display": "14.2-inch Liquid Retina XDR 120Hz",
+      "Processor": "Apple M1 Pro (8-Core CPU, 14-Core GPU)",
+      "RAM": "16GB Unified",
+      "Storage": "512GB SSD",
+      "Condition": "Grade A+ (Mint)",
+      "Warranty": "1-Year TecnoMart Warranty"
+    }
+  },
+  {
+    "id": "l10",
+    "slug": "refurbished-macbook-air-m1",
+    "name": "Certified Refurbished MacBook Air 13\" (M1)",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "\u20b954,990",
+    "originalPrice": "\u20b999,900",
+    "rawPrice": 54990,
+    "discountPercent": "45% OFF",
+    "emiText": "EMI from \u20b94,582/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 240,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Gold",
+        "hex": "#E8D3C3"
+      },
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-apple-macbook-pro-14-m1.webp"
+    ],
+    "tagline": "All-day battery. Silent fanless chassis. 1-Year TecnoMart warranty.",
+    "specs": {
+      "Display": "13.3-inch Retina Display",
+      "Processor": "Apple M1 (8-core CPU, 7-core GPU)",
+      "RAM": "8GB Unified",
+      "Storage": "256GB SSD",
+      "Condition": "Grade A+",
+      "Warranty": "1-Year Warranty"
+    }
+  },
+  {
+    "id": "l11",
+    "slug": "apple-macbook-pro-16-m2-max",
+    "name": "Apple MacBook Pro 16\" (M2 Max)",
+    "brand": "Apple",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b92,69,990",
+    "originalPrice": "\u20b93,09,900",
+    "rawPrice": 269990,
+    "discountPercent": "13% OFF",
+    "emiText": "No-cost EMI from \u20b922,499/month",
+    "badge": "HEAVY WORKSTATION",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 110,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      },
+      {
+        "name": "Silver",
+        "hex": "#E3E4E5"
+      }
+    ],
+    "images": [
+      "/webp/laptops/apple-macbook-pro-16-m3-space-black.webp"
+    ],
+    "tagline": "M2 Max 38-core GPU beast. 96GB max unified memory support. 22h battery.",
+    "specs": {
+      "Display": "16.2-inch Liquid Retina XDR 120Hz",
+      "Processor": "Apple M2 Max (12-Core CPU, 38-Core GPU)",
+      "RAM": "32GB Unified",
+      "Storage": "1TB PCIe SSD",
+      "Battery & Port": "100Wh MagSafe 3",
+      "OS": "macOS Sonoma"
+    }
+  },
+  {
+    "id": "l12",
+    "slug": "refurbished-macbook-pro-13-m2",
+    "name": "Certified Refurbished MacBook Pro 13\" (M2)",
+    "brand": "Apple",
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "\u20b969,990",
+    "originalPrice": "\u20b91,29,900",
+    "rawPrice": 69990,
+    "discountPercent": "46% OFF",
+    "emiText": "EMI from \u20b95,832/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 65,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Space Gray",
+        "hex": "#7D7E80"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-apple-macbook-pro-14-m1.webp"
+    ],
+    "tagline": "Touch Bar model with active cooling fan for sustained heavy exports.",
+    "specs": {
+      "Display": "13.3-inch Retina Display with Touch Bar",
+      "Processor": "Apple M2 (8-Core CPU, 10-Core GPU)",
+      "RAM": "8GB Unified",
+      "Storage": "256GB SSD",
+      "Condition": "Grade A",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "l13",
+    "slug": "asus-zenbook-14-oled",
+    "name": "ASUS Zenbook 14 OLED (2025)",
+    "brand": "ASUS",
+    "ram": "16GB",
+    "storage": "1TB",
+    "price": "\u20b91,04,990",
+    "originalPrice": "\u20b91,19,990",
+    "rawPrice": 104990,
+    "discountPercent": "12% OFF",
+    "emiText": "No-cost EMI from \u20b98,749/month",
+    "badge": "ULTRAPORTABLE",
+    "badgeColor": "bg-indigo-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 82,
+    "tags": [
+      "popular"
+    ],
+    "colors": [
+      {
+        "name": "Ponder Blue",
+        "hex": "#2C3E50"
+      },
+      {
+        "name": "Foggy Silver",
+        "hex": "#D5D8DC"
+      }
+    ],
+    "images": [
+      "/webp/laptops/asus-rog-zephyrus-g16-display.webp"
+    ],
+    "tagline": "Intel Core Ultra 7 155H with Intel Arc graphics in a 1.2kg body.",
+    "specs": {
+      "Display": "14-inch 3K (2880x1800) 120Hz Lumina OLED",
+      "Processor": "Intel Core Ultra 7 155H",
+      "RAM": "16GB LPDDR5X",
+      "Storage": "1TB NVMe Gen4 SSD",
+      "Weight": "1.2 kg",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": "l14",
+    "slug": "asus-tuf-gaming-a15",
+    "name": "ASUS TUF Gaming A15",
+    "brand": "ASUS",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b974,990",
+    "originalPrice": "\u20b989,990",
+    "rawPrice": 74990,
+    "discountPercent": "17% OFF",
+    "emiText": "EMI from \u20b96,249/month",
+    "badge": "BEST BUDGET GAMER",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 350,
+    "tags": [
+      "popular",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Mecha Grey",
+        "hex": "#505459"
+      }
+    ],
+    "images": [
+      "/webp/laptops/asus-rog-zephyrus-g16-front.webp"
+    ],
+    "tagline": "AMD Ryzen 7 7735HS + RTX 4050 6GB. Military-grade MIL-STD-810H durability.",
+    "specs": {
+      "Display": "15.6-inch FHD (1920x1080) 144Hz IPS",
+      "Processor": "AMD Ryzen 7 7735HS (8 Cores, 16 Threads)",
+      "RAM": "16GB DDR5 4800MHz",
+      "Storage": "512GB PCIe 4.0 NVMe SSD",
+      "Graphics": "RTX 4050 6GB (140W TGP)",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": "l15",
+    "slug": "asus-rog-strix-scar-18",
+    "name": "ASUS ROG Strix SCAR 18",
+    "brand": "ASUS",
+    "ram": "64GB",
+    "storage": "2TB",
+    "price": "\u20b93,59,990",
+    "originalPrice": "\u20b93,99,990",
+    "rawPrice": 359990,
+    "discountPercent": "10% OFF",
+    "emiText": "No-cost EMI from \u20b929,999/month",
+    "badge": "DESKTOP REPLACEMENT",
+    "badgeColor": "bg-red-600 text-white",
+    "rating": 5.0,
+    "reviewCount": 42,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Off Black",
+        "hex": "#1C1C1E"
+      }
+    ],
+    "images": [
+      "/webp/laptops/asus-rog-zephyrus-g16-display.webp"
+    ],
+    "tagline": "Intel i9-14900HX + RTX 4090 175W. 18-inch Mini LED 240Hz screen.",
+    "specs": {
+      "Display": "18-inch 2.5K 240Hz ROG Nebula HDR Mini LED",
+      "Processor": "Intel Core i9-14900HX",
+      "RAM": "64GB DDR5 5600MHz",
+      "Storage": "2TB (2x1TB) PCIe 4.0 in RAID 0",
+      "Graphics": "RTX 4090 16GB GDDR6",
+      "OS": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": "l16",
+    "slug": "refurbished-asus-rog-zephyrus-g14",
+    "name": "Certified Refurbished ASUS ROG Zephyrus G14",
+    "brand": "ASUS",
+    "ram": "16GB",
+    "storage": "1TB",
+    "price": "\u20b982,990",
+    "originalPrice": "\u20b91,49,990",
+    "rawPrice": 82990,
+    "discountPercent": "45% OFF",
+    "emiText": "EMI from \u20b96,915/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 54,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Moonlight White",
+        "hex": "#EFEFEF"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-dell-xps-13-plus.webp"
+    ],
+    "tagline": "Ryzen 9 6900HS + Radeon RX 6700S. AniMe Matrix lid display. 6mo warranty.",
+    "specs": {
+      "Display": "14-inch QHD+ 120Hz IPS",
+      "Processor": "AMD Ryzen 9 6900HS",
+      "RAM": "16GB DDR5",
+      "Storage": "1TB NVMe SSD",
+      "Condition": "Grade A+",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "l17",
+    "slug": "dell-xps-16-9640",
+    "name": "Dell XPS 16 (9640)",
+    "brand": "Dell",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b92,69,990",
+    "originalPrice": "\u20b92,99,990",
+    "rawPrice": 269990,
+    "discountPercent": "10% OFF",
+    "emiText": "No-cost EMI from \u20b922,499/month",
+    "badge": "ULTIMATE CREATOR",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 60,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Platinum Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "images": [
+      "/webp/laptops/dell-xps-14-oled-front.webp"
+    ],
+    "tagline": "Core Ultra 9 + RTX 4070. 4K+ OLED InfinityEdge display. Gorilla Glass 3 palmrest.",
+    "specs": {
+      "Display": "16.3-inch 4K+ (3840x2400) OLED Touch 120Hz",
+      "Processor": "Intel Core Ultra 9 185H (16 Cores)",
+      "RAM": "32GB LPDDR5X",
+      "Storage": "1TB PCIe NVMe SSD",
+      "Graphics": "RTX 4070 8GB GDDR6",
+      "OS": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": "l18",
+    "slug": "dell-alienware-m18-r2",
+    "name": "Dell Alienware m18 R2",
+    "brand": "Dell",
+    "ram": "64GB",
+    "storage": "2TB",
+    "price": "\u20b93,44,990",
+    "originalPrice": "\u20b93,84,990",
+    "rawPrice": 344990,
+    "discountPercent": "10% OFF",
+    "emiText": "No-cost EMI from \u20b928,749/month",
+    "badge": "DESKTOP BEAST",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 38,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Dark Metallic Moon",
+        "hex": "#2C2D30"
+      }
+    ],
+    "images": [
+      "/webp/laptops/dell-xps-14-oled-angle.webp"
+    ],
+    "tagline": "Intel Core i9-14900HX + RTX 4090 175W. Cryo-tech vapor cooling & CherryMX keys.",
+    "specs": {
+      "Display": "18-inch QHD+ (2560x1600) 165Hz ComfortView Plus",
+      "Processor": "Intel Core i9-14900HX",
+      "RAM": "64GB DDR5 5600MHz",
+      "Storage": "2TB PCIe NVMe SSD",
+      "Graphics": "RTX 4090 16GB GDDR6",
+      "OS": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": "l19",
+    "slug": "refurbished-dell-xps-13-plus",
+    "name": "Certified Refurbished Dell XPS 13 Plus",
+    "brand": "Dell",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b979,999",
+    "originalPrice": "\u20b91,69,900",
+    "rawPrice": 79999,
+    "discountPercent": "53% OFF",
+    "emiText": "EMI from \u20b96,666/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 52,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Platinum",
+        "hex": "#D8D8D8"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-dell-xps-13-plus.webp"
+    ],
+    "tagline": "3.5K OLED touch panel. Invisible glass touchpad. Core i7 12th Gen.",
+    "specs": {
+      "Display": "13.4-inch 3.5K (3456x2160) OLED Touch",
+      "Processor": "Intel Core i7-1260P",
+      "RAM": "16GB LPDDR5",
+      "Storage": "512GB NVMe SSD",
+      "Condition": "Grade A+ (Mint)",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "l20",
+    "slug": "dell-inspiron-16-plus",
+    "name": "Dell Inspiron 16 Plus (7630)",
+    "brand": "Dell",
+    "ram": "16GB",
+    "storage": "1TB",
+    "price": "\u20b91,12,990",
+    "originalPrice": "\u20b91,29,990",
+    "rawPrice": 112990,
+    "discountPercent": "13% OFF",
+    "emiText": "EMI from \u20b99,415/month",
+    "badge": "WORK & PLAY",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.7,
+    "reviewCount": 85,
+    "tags": [
+      "new"
+    ],
+    "colors": [
+      {
+        "name": "Dark Green",
+        "hex": "#1E2B24"
+      }
+    ],
+    "images": [
+      "/webp/laptops/dell-xps-14-oled-front.webp"
+    ],
+    "tagline": "2.5K 16:10 screen with RTX 4050. Quad speakers with Waves MaxxAudio Pro.",
+    "specs": {
+      "Display": "16-inch 2.5K (2560x1600) 120Hz IPS",
+      "Processor": "Intel Core i7-13700H (14 Cores)",
+      "RAM": "16GB DDR5",
+      "Storage": "1TB NVMe SSD",
+      "Graphics": "RTX 4050 6GB GDDR6",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": "l21",
+    "slug": "lenovo-legion-pro-7i",
+    "name": "Lenovo Legion Pro 7i Gen 9",
+    "brand": "Lenovo",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b92,39,990",
+    "originalPrice": "\u20b92,74,990",
+    "rawPrice": 239990,
+    "discountPercent": "13% OFF",
+    "emiText": "No-cost EMI from \u20b919,999/month",
+    "badge": "RTX 4080 PRO",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 110,
+    "tags": [
+      "best",
+      "new"
+    ],
+    "colors": [
+      {
+        "name": "Eclipse Black",
+        "hex": "#1C1C1E"
+      }
+    ],
+    "images": [
+      "/webp/laptops/lenovo-legion-pro-5i-front.webp"
+    ],
+    "tagline": "Core i9-14900HX + RTX 4080 175W. Legion Coldfront vapor chamber cooling.",
+    "specs": {
+      "Display": "16-inch WQXGA 240Hz 500nits PureSight Gaming",
+      "Processor": "Intel Core i9-14900HX",
+      "RAM": "32GB DDR5 5600MHz",
+      "Storage": "1TB PCIe 4.0 NVMe",
+      "Graphics": "RTX 4080 12GB (175W TGP)",
+      "OS": "Windows 11 Home"
+    }
+  },
+  {
+    "id": "l22",
+    "slug": "lenovo-yoga-slim-7x",
+    "name": "Lenovo Yoga Slim 7x Copilot+ PC",
+    "brand": "Lenovo",
+    "ram": "16GB",
+    "storage": "1TB",
+    "price": "\u20b91,29,990",
+    "originalPrice": "\u20b91,44,990",
+    "rawPrice": 129990,
+    "discountPercent": "10% OFF",
+    "emiText": "No-cost EMI from \u20b910,832/month",
+    "badge": "COPILOT+ AI",
+    "badgeColor": "bg-purple-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 65,
+    "tags": [
+      "popular",
+      "new"
+    ],
+    "colors": [
+      {
+        "name": "Cosmic Blue",
+        "hex": "#25384D"
+      }
+    ],
+    "images": [
+      "/webp/laptops/lenovo-legion-pro-5i-angle.webp"
+    ],
+    "tagline": "Snapdragon X Elite 45 TOPS NPU. 3K 90Hz PureSight OLED. 23h battery life.",
+    "specs": {
+      "Display": "14.5-inch 3K (2944x1840) 90Hz 1000nits OLED Touch",
+      "Processor": "Snapdragon X Elite X1E-78-100 (12 Cores)",
+      "RAM": "16GB LPDDR5X",
+      "Storage": "1TB PCIe Gen4 SSD",
+      "Weight": "1.28 kg",
+      "OS": "Windows 11 with Copilot+ AI"
+    }
+  },
+  {
+    "id": "l23",
+    "slug": "lenovo-thinkpad-x1-carbon-gen12",
+    "name": "Lenovo ThinkPad X1 Carbon Gen 12",
+    "brand": "Lenovo",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b92,19,990",
+    "originalPrice": "\u20b92,49,990",
+    "rawPrice": 219990,
+    "discountPercent": "12% OFF",
+    "emiText": "No-cost EMI from \u20b918,332/month",
+    "badge": "BUSINESS ICON",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 92,
+    "tags": [
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Deep Black",
+        "hex": "#121212"
+      }
+    ],
+    "images": [
+      "/webp/laptops/lenovo-legion-pro-5i-front.webp"
+    ],
+    "tagline": "Carbon fiber lid with magnesium chassis. Intel Core Ultra 7. Red TrackPoint.",
+    "specs": {
+      "Display": "14-inch 2.8K (2880x1800) OLED 120Hz 400 nits",
+      "Processor": "Intel Core Ultra 7 155H",
+      "RAM": "32GB LPDDR5X",
+      "Storage": "1TB NVMe SSD",
+      "Weight": "1.09 kg featherlight",
+      "OS": "Windows 11 Pro"
+    }
+  },
+  {
+    "id": "l24",
+    "slug": "refurbished-lenovo-thinkpad-t14s",
+    "name": "Certified Refurbished ThinkPad T14s Gen 3",
+    "brand": "Lenovo",
+    "ram": "16GB",
+    "storage": "512GB",
+    "price": "\u20b952,999",
+    "originalPrice": "\u20b91,24,990",
+    "rawPrice": 52999,
+    "discountPercent": "58% OFF",
+    "emiText": "EMI from \u20b94,416/month",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 140,
+    "tags": [
+      "refurbished"
+    ],
+    "colors": [
+      {
+        "name": "Thunder Black",
+        "hex": "#1A1A1A"
+      }
+    ],
+    "images": [
+      "/webp/refurbished/refurbished-lenovo-thinkpad-t14s.webp"
+    ],
+    "tagline": "AMD Ryzen 7 PRO 6850U. Legendary spill-resistant keyboard. 6mo warranty.",
+    "specs": {
+      "Display": "14-inch WUXGA (1920x1200) IPS Low Power",
+      "Processor": "AMD Ryzen 7 PRO 6850U (8C/16T)",
+      "RAM": "16GB LPDDR5",
+      "Storage": "512GB NVMe SSD",
+      "Condition": "Grade A+",
+      "Warranty": "6 Months Onsite Warranty"
+    }
+  },
+  {
+    "id": "l25",
+    "slug": "hp-spectre-x360-14",
+    "name": "HP Spectre x360 14 (2025)",
+    "brand": "HP",
+    "ram": "32GB",
+    "storage": "1TB",
+    "price": "\u20b91,64,990",
+    "originalPrice": "\u20b91,84,990",
+    "rawPrice": 164990,
+    "discountPercent": "11% OFF",
+    "emiText": "No-cost EMI from \u20b913,749/month",
+    "badge": "2-IN-1 CONVERTIBLE",
+    "badgeColor": "bg-indigo-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 74,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "colors": [
+      {
+        "name": "Nightfall Black",
+        "hex": "#1B1D21"
+      },
+      {
+        "name": "Slate Blue",
+        "hex": "#303A45"
+      }
+    ],
+    "images": [
+      "/webp/laptops/hp-victus-15-gaming-front.webp"
+    ],
+    "tagline": "360-degree gem-cut hinge. 2.8K 120Hz OLED touch. Stylus pen included.",
+    "specs": {
+      "Display": "14-inch 2.8K (2880x1800) OLED 120Hz Touch",
+      "Processor": "Intel Core Ultra 7 155H",
+      "RAM": "32GB LPDDR5X",
+      "Storage": "1TB PCIe Gen4 NVMe",
+      "Battery & Port": "68Wh, 2x Thunderbolt 4",
+      "OS": "Windows 11 Home"
+    }
   }
 ];
 
 export const ACCESSORIES_DATA = [
   {
-    id: "a1",
-    slug: "samsung-odyssey-oled-g9-49-curved",
-    name: "Samsung Odyssey OLED G9 49\" Curved Gaming Monitor",
-    brand: "Samsung",
-    category: "Monitors",
-    tagline: "49\" Dual QHD 240Hz 0.03ms Curved OLED. Neo Quantum Processor Pro.",
-    price: "₹1,29,999",
-    originalPrice: "₹1,59,999",
-    rawPrice: 129999,
-    discountPercent: "19% OFF",
-    emiText: "No-cost EMI starting at ₹10,833/month",
-    badge: "ULTRAWIDE BEAST",
-    badgeColor: "bg-amber-500 text-neutral-950 font-black",
-    rating: 4.9,
-    reviewCount: 78,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "3 Years Official Samsung India Warranty",
-    images: [
-      "/webp/accessories/samsung-odyssey-oled-g9-49-curved.webp",
-      "/webp/accessories/img-1.webp",
+    "id": "a1",
+    "slug": "apple-airpods-pro-2-usbc",
+    "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+    "brand": "Apple",
+    "price": "\u20b921,990",
+    "originalPrice": "\u20b924,900",
+    "rawPrice": 21990,
+    "discountPercent": "12% OFF",
+    "emiText": "EMI from \u20b91,833/month",
+    "badge": "BESTSELLER",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 512,
+    "tags": [
+      "popular",
+      "best"
     ],
-    keyHighlights: [
-      "49-inch 32:9 Dual QHD (5120x1440) 1800R curved OLED panel",
-      "Blazing fast 240Hz refresh rate and 0.03ms response time",
-      "DisplayHDR True Black 400 for infinite contrast and deep blacks",
-      "Built-in Gaming Hub and smart streaming apps",
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-case-open.webp",
+      "/webp/accessories/apple-airpods-pro-2-buds-usbc.webp"
     ],
-    specs: {
-      "Screen Size": "49 inches Curved 1800R OLED",
-      "Resolution & Refresh": "5120 x 1440 at 240Hz",
-      "Response Time": "0.03ms (GtG)",
-      "Ports": "HDMI 2.1, Micro HDMI 2.1, DisplayPort 1.4, USB Hub",
-    },
-    inTheBox: ["Odyssey OLED G9 Monitor", "Power Cable", "DisplayPort Cable", "HDMI to Micro HDMI Cable"],
-    reviews: []
+    "tagline": "Up to 2x more Active Noise Cancellation. Adaptive Audio. Lossless audio ready.",
+    "specs": {
+      "Audio": "Apple H2 chip, Custom high-excursion driver",
+      "Noise Cancellation": "Pro-level ANC + Transparency",
+      "Battery": "Up to 6 hours listening, 30 hours with case",
+      "Charging": "USB-C, MagSafe & Qi"
+    }
   },
   {
-    id: "a2",
-    slug: "logitech-g-pro-x-superlight-2",
-    name: "Logitech G PRO X SUPERLIGHT 2 Wireless Gaming Mouse",
-    brand: "Logitech G",
-    category: "Peripherals",
-    tagline: "Sub-60g lightweight design. HERO 2 sensor. LIGHTFORCE hybrid switches.",
-    price: "₹13,495",
-    originalPrice: "₹15,995",
-    rawPrice: 13495,
-    discountPercent: "15% OFF",
-    emiText: "Standard EMI from ₹1,124/month",
-    badge: "ESPORTS GOAT",
+    "id": "a2",
+    "slug": "sony-wh-1000xm5",
+    "name": "Sony WH-1000XM5 Wireless Headphones",
+    "brand": "Sony",
+    "price": "\u20b926,990",
+    "originalPrice": "\u20b934,990",
+    "rawPrice": 26990,
+    "discountPercent": "23% OFF",
+    "emiText": "EMI from \u20b92,249/month",
+    "badge": "INDUSTRY LEADING ANC",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 380,
+    "tags": [
+      "popular",
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp"
+    ],
+    "tagline": "Two processors control 8 microphones for unmatched silence and crystal calls.",
+    "specs": {
+      "Drivers": "30mm precision-engineered drivers",
+      "ANC": "Integrated Processor V1 + QN1",
+      "Battery": "30 hours with ANC enabled",
+      "Bluetooth": "LDAC, Multipoint connection"
+    }
+  },
+  {
+    "id": "a3",
+    "slug": "anker-737-power-bank",
+    "name": "Anker 737 GaNPrime Power Bank (24,000mAh, 140W)",
+    "brand": "Anker",
+    "price": "\u20b911,999",
+    "originalPrice": "\u20b914,999",
+    "rawPrice": 11999,
+    "discountPercent": "20% OFF",
+    "emiText": "EMI from \u20b91,000/month",
+    "badge": "FAST CHARGE BEAST",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 160,
+    "tags": [
+      "best",
+      "new"
+    ],
+    "images": [
+      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp"
+    ],
+    "tagline": "Ultra-powerful 140W two-way fast charging with smart digital color display.",
+    "specs": {
+      "Capacity": "24,000 mAh airline approved",
+      "Output": "140W Max Power Delivery 3.1",
+      "Ports": "2x USB-C + 1x USB-A",
+      "Display": "Smart digital display shows real-time wattage"
+    }
+  },
+  {
+    "id": "a4",
+    "slug": "keychron-q1-pro",
+    "name": "Keychron Q1 Pro Wireless Custom Mechanical Keyboard",
+    "brand": "Keychron",
+    "price": "\u20b916,499",
+    "originalPrice": "\u20b918,999",
+    "rawPrice": 16499,
+    "discountPercent": "13% OFF",
+    "emiText": "EMI from \u20b91,375/month",
+    "badge": "CUSTOM KEYBOARD",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.9,
+    "reviewCount": 94,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp"
+    ],
+    "tagline": "Full CNC aluminum body, double-gasket design, QMK/VIA programmable.",
+    "specs": {
+      "Switches": "K Pro Mechanical Red / Brown (Hot-swappable)",
+      "Connectivity": "Bluetooth 5.1 + Type-C Wired",
+      "Compatibility": "macOS and Windows switchable",
+      "Body": "Full CNC machined 6063 aluminum"
+    }
+  },
+  {
+    "id": "a5",
+    "slug": "logitech-g-pro-x-superlight-2",
+    "name": "Logitech G PRO X SUPERLIGHT 2 Gaming Mouse",
+    "brand": "Logitech",
+    "price": "\u20b913,995",
+    "originalPrice": "\u20b915,995",
+    "rawPrice": 13995,
+    "discountPercent": "13% OFF",
+    "emiText": "EMI from \u20b91,166/month",
+    "badge": "ESPORTS CHAMPION",
+    "badgeColor": "bg-red-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 210,
+    "tags": [
+      "popular",
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/logitech-g-pro-x-superlight-2-wireless-mouse.webp"
+    ],
+    "tagline": "Lightweight 60g design, HERO 2 sensor with 32,000 DPI and LIGHTFORCE hybrid switches.",
+    "specs": {
+      "Sensor": "HERO 2 (32,000 DPI, 500+ IPS)",
+      "Polling Rate": "4000Hz wireless polling",
+      "Weight": "60 grams ultra-lightweight",
+      "Battery": "Up to 95 hours constant motion"
+    }
+  },
+  {
+    "id": "a6",
+    "slug": "apple-20w-usbc-power-adapter",
+    "name": "Apple 20W USB-C Power Adapter (Original)",
+    "brand": "Apple",
+    "price": "\u20b91,699",
+    "originalPrice": "\u20b91,900",
+    "rawPrice": 1699,
+    "discountPercent": "11% OFF",
+    "badge": "GENUINE ACCESSORY",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 1240,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-case-open.webp"
+    ],
+    "tagline": "Fast, efficient charging at home or on the go. 100% Genuine with sealed bill.",
+    "specs": {
+      "Power": "20W Output",
+      "Port": "USB Type-C",
+      "Compatibility": "iPhone, iPad, Apple Watch"
+    }
+  },
+  {
+    "id": "a7",
+    "slug": "apple-magsafe-charger-15w",
+    "name": "Apple MagSafe Wireless Charger (15W)",
+    "brand": "Apple",
+    "price": "\u20b93,999",
+    "originalPrice": "\u20b94,500",
+    "rawPrice": 3999,
+    "discountPercent": "11% OFF",
+    "badge": "WIRELESS FAST",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.8,
+    "reviewCount": 380,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-case-open.webp"
+    ],
+    "tagline": "Perfect magnetic alignment for fast wireless charging up to 15W.",
+    "specs": {
+      "Power": "15W Magnetic Fast Charge",
+      "Cable": "Integrated 1m braided cable",
+      "Compatibility": "iPhone 12 to 16 Pro Max"
+    }
+  },
+  {
+    "id": "a8",
+    "slug": "boat-wave-ultima",
+    "name": "boAt Wave Ultima Bluetooth Smartwatch",
+    "brand": "boAt",
+    "price": "\u20b91,499",
+    "originalPrice": "\u20b93,990",
+    "rawPrice": 1499,
+    "discountPercent": "62% OFF",
+    "badge": "BUDGET FAVORITE",
+    "badgeColor": "bg-amber-500 text-neutral-950",
+    "rating": 4.6,
+    "reviewCount": 580,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp"
+    ],
+    "tagline": "1.83\" HD display, Bluetooth calling with clear mic, IP68 water resistance.",
+    "specs": {
+      "Display": "1.83-inch HD Curved Screen",
+      "Calling": "Bluetooth Calling with dial pad",
+      "Battery": "Up to 7 days standby",
+      "Health": "Heart Rate & SpO2 tracking"
+    }
+  },
+  {
+    "id": "a9",
+    "slug": "samsung-45w-travel-adapter",
+    "name": "Samsung 45W Power Adapter with Cable",
+    "brand": "Samsung",
+    "price": "\u20b92,999",
+    "originalPrice": "\u20b93,999",
+    "rawPrice": 2999,
+    "discountPercent": "25% OFF",
+    "badge": "SUPER FAST",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 290,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp"
+    ],
+    "tagline": "Super Fast Charging 2.0 for Galaxy S24 Ultra & Galaxy Tab series.",
+    "specs": {
+      "Output": "45W Power Delivery 3.0 PPS",
+      "Includes": "5A USB-C to USB-C Cable (1.8m)"
+    }
+  },
+  {
+    "id": "a10",
+    "slug": "apple-magic-keyboard-touch-id",
+    "name": "Apple Magic Keyboard with Touch ID & Numeric Keypad",
+    "brand": "Apple",
+    "price": "\u20b916,500",
+    "originalPrice": "\u20b917,500",
+    "rawPrice": 16500,
+    "discountPercent": "6% OFF",
+    "badge": "TOUCH ID",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 115,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp"
+    ],
+    "tagline": "Wireless rechargeable keyboard with fast, easy authentication for Mac.",
+    "specs": {
+      "Features": "Touch ID sensor, Numeric Keypad",
+      "Battery": "Internal rechargeable battery lasts 1+ month"
+    }
+  },
+  {
+    "id": "a11",
+    "slug": "refurbished-apple-airpods-max",
+    "name": "Certified Refurbished Apple AirPods Max (Space Gray)",
+    "brand": "Apple",
+    "price": "\u20b936,990",
+    "originalPrice": "\u20b959,900",
+    "rawPrice": 36990,
+    "discountPercent": "38% OFF",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 64,
+    "tags": [
+      "refurbished"
+    ],
+    "images": [
+      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp"
+    ],
+    "tagline": "Grade A+ like new. Spatial Audio with dynamic head tracking. 6mo warranty.",
+    "specs": {
+      "Drivers": "Apple-designed dynamic driver",
+      "Body": "Anodized aluminum cups with knit mesh canopy",
+      "Condition": "Grade A+ Mint",
+      "Warranty": "6 Months TecnoMart Warranty"
+    }
+  },
+  {
+    "id": "a12",
+    "slug": "bose-quietcomfort-ultra",
+    "name": "Bose QuietComfort Ultra Wireless Headphones",
+    "brand": "Bose",
+    "price": "\u20b932,900",
+    "originalPrice": "\u20b935,900",
+    "rawPrice": 32900,
+    "discountPercent": "8% OFF",
+    "badge": "IMMERSIVE AUDIO",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.9,
+    "reviewCount": 140,
+    "tags": [
+      "best",
+      "new"
+    ],
+    "images": [
+      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp"
+    ],
+    "tagline": "World-class noise cancellation with Bose Immersive spatial sound.",
+    "specs": {
+      "ANC": "CustomTune technology adjusts sound to your ears",
+      "Battery": "Up to 24 hours playback"
+    }
+  },
+  {
+    "id": "a13",
+    "slug": "sandisk-1tb-extreme-portable-ssd",
+    "name": "SanDisk 1TB Extreme Portable SSD (1050MB/s)",
+    "brand": "SanDisk",
+    "price": "\u20b99,499",
+    "originalPrice": "\u20b914,999",
+    "rawPrice": 9499,
+    "discountPercent": "37% OFF",
+    "badge": "RUGGED STORAGE",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 460,
+    "tags": [
+      "popular",
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp"
+    ],
+    "tagline": "NVMe solid-state speeds up to 1050MB/s with IP65 water & dust resistance.",
+    "specs": {
+      "Speed": "Up to 1050MB/s read, 1000MB/s write",
+      "Durability": "IP65 rating, 3m drop protection"
+    }
+  },
+  {
+    "id": "a14",
+    "slug": "satechi-usb-c-multiport-hub",
+    "name": "Satechi USB-C Multiport Pro Hub 8K",
+    "brand": "Satechi",
+    "price": "\u20b97,999",
+    "originalPrice": "\u20b99,499",
+    "rawPrice": 7999,
+    "discountPercent": "16% OFF",
+    "badge": "PRO DOCK",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.8,
+    "reviewCount": 95,
+    "tags": [
+      "new"
+    ],
+    "images": [
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp"
+    ],
+    "tagline": "Premium aluminum hub featuring 8K HDMI, Gigabit Ethernet, SD card & 100W PD.",
+    "specs": {
+      "Ports": "HDMI 8K@30Hz, USB-A 3.2, USB-C 100W PD, Gigabit LAN, Micro/SD reader"
+    }
+  },
+  {
+    "id": "a15",
+    "slug": "nomad-titanium-apple-watch-band",
+    "name": "Nomad Titanium Band for Apple Watch Ultra (49mm)",
+    "brand": "Nomad",
+    "price": "\u20b918,999",
+    "originalPrice": "\u20b921,999",
+    "rawPrice": 18999,
+    "discountPercent": "14% OFF",
+    "badge": "GRADE 2 TITANIUM",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 48,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp"
+    ],
+    "tagline": "Engineered from Grade 2 Titanium with custom magnetic clasp closure.",
+    "specs": {
+      "Material": "Grade 2 Titanium with DLC scratch-resistant coating",
+      "Compatibility": "Apple Watch Ultra & 45mm"
+    }
+  },
+  {
+    "id": "a16",
+    "slug": "spigen-rugged-armor-iphone-16",
+    "name": "Spigen Rugged Armor MagFit for iPhone 16 Pro Max",
+    "brand": "Spigen",
+    "price": "\u20b91,899",
+    "originalPrice": "\u20b92,499",
+    "rawPrice": 1899,
+    "discountPercent": "24% OFF",
+    "badge": "MIL-GRADE DROP",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.8,
+    "reviewCount": 730,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-buds-usbc.webp"
+    ],
+    "tagline": "Matte carbon fiber accents with Air Cushion Technology for military drop protection.",
+    "specs": {
+      "Feature": "Built-in magnetic ring for MagSafe",
+      "Protection": "Air Cushion Technology corners"
+    }
+  },
+  {
+    "id": "a17",
+    "slug": "ugreen-nexode-100w-gan-charger",
+    "name": "Ugreen Nexode 100W 4-Port GaN Desktop Charger",
+    "brand": "Ugreen",
+    "price": "\u20b95,499",
+    "originalPrice": "\u20b96,999",
+    "rawPrice": 5499,
+    "discountPercent": "21% OFF",
+    "badge": "DESKTOP GAN",
+    "badgeColor": "bg-emerald-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 210,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp"
+    ],
+    "tagline": "Fast-charge MacBook Pro, iPhone, and accessories simultaneously from one wall outlet.",
+    "specs": {
+      "Ports": "3x USB-C + 1x USB-A",
+      "Output": "100W Max total output with intelligent power allocation"
+    }
+  },
+  {
+    "id": "a18",
+    "slug": "shure-sm7b-dynamic-microphone",
+    "name": "Shure SM7B Cardioid Dynamic Vocal Microphone",
+    "brand": "Shure",
+    "price": "\u20b934,990",
+    "originalPrice": "\u20b939,500",
+    "rawPrice": 34990,
+    "discountPercent": "11% OFF",
+    "badge": "STUDIO GOLD",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 5.0,
+    "reviewCount": 185,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp"
+    ],
+    "tagline": "The legendary studio standard broadcast microphone for podcasting and vocal tracking.",
+    "specs": {
+      "Type": "Dynamic (moving coil)",
+      "Polar Pattern": "Cardioid",
+      "Shielding": "Electromagnetic hum rejection"
+    }
+  },
+  {
+    "id": "a19",
+    "slug": "elgato-stream-deck-mk2",
+    "name": "Elgato Stream Deck MK.2 (15 LCD Keys)",
+    "brand": "Elgato",
+    "price": "\u20b914,999",
+    "originalPrice": "\u20b916,999",
+    "rawPrice": 14999,
+    "discountPercent": "12% OFF",
+    "badge": "CREATOR TOOL",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 160,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp"
+    ],
+    "tagline": "15 customizable LCD keys to trigger studio actions, OBS scenes, and app shortcuts.",
+    "specs": {
+      "Keys": "15 customizable LCD keys with haptic response",
+      "Interface": "USB 2.0 with detachable stand"
+    }
+  },
+  {
+    "id": "a20",
+    "slug": "apple-pencil-pro",
+    "name": "Apple Pencil Pro",
+    "brand": "Apple",
+    "price": "\u20b911,900",
+    "originalPrice": "\u20b912,900",
+    "rawPrice": 11900,
+    "discountPercent": "8% OFF",
+    "badge": "SQUEEZE SENSOR",
+    "badgeColor": "bg-neutral-900 text-white",
+    "rating": 4.9,
+    "reviewCount": 142,
+    "tags": [
+      "new",
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp"
+    ],
+    "tagline": "Barrel roll gyroscope, haptic feedback engine, and squeeze sensor for iPad Pro/Air.",
+    "specs": {
+      "Features": "Squeeze gesture, Barrel roll, Haptic feedback, Find My support"
+    }
+  },
+  {
+    "id": "a21",
+    "slug": "refurbished-apple-watch-ultra-2",
+    "name": "Certified Refurbished Apple Watch Ultra 2 (49mm)",
+    "brand": "Apple",
+    "price": "\u20b959,990",
+    "originalPrice": "\u20b989,900",
+    "rawPrice": 59990,
+    "discountPercent": "33% OFF",
+    "badge": "CERTIFIED REFURBISHED",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 55,
+    "tags": [
+      "refurbished"
+    ],
+    "images": [
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp"
+    ],
+    "tagline": "Grade A+ titanium aerospace body. S9 chip with Double Tap gesture. 6mo warranty.",
+    "specs": {
+      "Case": "49mm Titanium, 3,000 nits display",
+      "Battery": "36-72 hours, 98% battery health",
+      "Warranty": "6 Months Warranty"
+    }
+  },
+  {
+    "id": "a22",
+    "slug": "sony-wf-1000xm5-earbuds",
+    "name": "Sony WF-1000XM5 True Wireless ANC Earbuds",
+    "brand": "Sony",
+    "price": "\u20b921,990",
+    "originalPrice": "\u20b929,990",
+    "rawPrice": 21990,
+    "discountPercent": "27% OFF",
+    "badge": "HI-RES WIRELESS",
+    "badgeColor": "bg-blue-600 text-white",
+    "rating": 4.8,
+    "reviewCount": 215,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-buds-usbc.webp"
+    ],
+    "tagline": "Dynamic Driver X with Dual processor noise canceling and LDAC streaming.",
+    "specs": {
+      "ANC": "Integrated Processor V2 + HD QN2e",
+      "Battery": "8h earbuds + 16h case with ANC"
+    }
+  },
+  {
+    "id": "a23",
+    "slug": "steelseries-apex-pro-tkl",
+    "name": "SteelSeries Apex Pro TKL Wireless (Gen 3)",
+    "brand": "SteelSeries",
+    "price": "\u20b924,990",
+    "originalPrice": "\u20b928,990",
+    "rawPrice": 24990,
+    "discountPercent": "14% OFF",
+    "badge": "RAPID TRIGGER",
+    "badgeColor": "bg-red-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 88,
+    "tags": [
+      "best",
+      "new"
+    ],
+    "images": [
+      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp"
+    ],
+    "tagline": "OmniPoint 3.0 adjustable HyperMagnetic switches with 40 levels of actuation.",
+    "specs": {
+      "Switches": "OmniPoint 3.0 Adjustable (0.1mm to 4.0mm)",
+      "Connectivity": "2.4GHz Quantum 2.0 + Bluetooth 5.0"
+    }
+  },
+  {
+    "id": "a24",
+    "slug": "marshall-stanmore-3-speaker",
+    "name": "Marshall Stanmore III Bluetooth Home Speaker",
+    "brand": "Marshall",
+    "price": "\u20b937,999",
+    "originalPrice": "\u20b941,999",
+    "rawPrice": 37999,
+    "discountPercent": "10% OFF",
+    "badge": "ICONIC SOUND",
+    "badgeColor": "bg-amber-600 text-white",
+    "rating": 4.9,
+    "reviewCount": 130,
+    "tags": [
+      "popular"
+    ],
+    "images": [
+      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp"
+    ],
+    "tagline": "Room-shaking Marshall signature sound with outward-angled tweeters.",
+    "specs": {
+      "Amplifiers": "One 50 Watt Class D amp for woofer, two 15 Watt amps for tweeters",
+      "Inputs": "Bluetooth 5.2, 3.5mm AUX, RCA"
+    }
+  },
+  {
+    "id": "a25",
+    "slug": "belkin-boostcharge-pro-3in1",
+    "name": "Belkin BoostCharge Pro 3-in-1 MagSafe Wireless Stand",
+    "brand": "Belkin",
+    "price": "\u20b912,999",
+    "originalPrice": "\u20b914,999",
+    "rawPrice": 12999,
+    "discountPercent": "13% OFF",
+    "badge": "OFFICIAL MAGSAFE",
+    "badgeColor": "bg-neutral-800 text-white",
+    "rating": 4.8,
+    "reviewCount": 175,
+    "tags": [
+      "best"
+    ],
+    "images": [
+      "/webp/accessories/apple-airpods-pro-2-case-open.webp"
+    ],
+    "tagline": "Charges iPhone at 15W, Apple Watch fast charging, and AirPods at the same time.",
+    "specs": {
+      "Output": "15W MagSafe + 5W Apple Watch + 5W AirPods Qi pad"
+    }
+  }
+];
+
+export const GAMING_DATA = [
+  {
+    id: "g1",
+    slug: "rtx-4090-liquid-cooled-beast",
+    name: "Apex Liquid-Cooled RTX 4090 Super Rig",
+    price: "₹3,89,999",
+    rawPrice: 389999,
+    badge: "CUSTOM FLAGSHIP",
+    badgeColor: "bg-red-600 text-white font-black",
+    rating: 5.0,
+    specs: { "CPU": "AMD Ryzen 9 9950X", "GPU": "GeForce RTX 4090 24GB", "RAM": "64GB DDR5 6000MHz", "Storage": "2TB NVMe PCIe 4.0 SSD" },
+    images: ["/webp/gaming/img-1.webp"]
+  },
+  {
+    id: "g2",
+    slug: "rtx-4080-super-competitive-esports",
+    name: "Valkyrie RTX 4080 Super Tournament Rig",
+    price: "₹2,29,999",
+    rawPrice: 229999,
+    badge: "ESPORTS TOURNAMENT",
     badgeColor: "bg-blue-600 text-white font-black",
     rating: 4.9,
-    reviewCount: 180,
-    stockStatus: "In Stock",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "2 Years Logitech Official Warranty",
-    images: [
-      "/webp/accessories/logitech-g-pro-x-superlight-2-wireless-mouse.webp",
-      "/webp/accessories/img-2.webp",
-    ],
-    keyHighlights: [
-      "Weighs only 60 grams — ideal for quick flick shots in Valorant and CS2",
-      "HERO 2 sensor supports up to 32,000 DPI and 500+ IPS tracking speed",
-      "USB-C charging with up to 95 hours of continuous battery life",
-      "LIGHTFORCE optical-mechanical hybrid switches for zero debounce delay",
-    ],
-    specs: {
-      "Weight": "60 grams",
-      "Sensor": "HERO 2 (32,000 DPI)",
-      "Polling Rate": "Up to 4000Hz (0.25 ms)",
-      "Battery Life": "95 hours continuous motion",
-    },
-    inTheBox: ["G PRO X Superlight 2", "LIGHTSPEED Wireless Receiver", "USB-C Cable", "PTFE Foot"],
-    reviews: []
+    specs: { "CPU": "Intel Core i7-14700K", "GPU": "GeForce RTX 4080 Super 16GB", "RAM": "32GB DDR5 6000MHz", "Storage": "1TB NVMe PCIe 4.0 SSD" },
+    images: ["/webp/gaming/img-2.webp"]
   },
   {
-    id: "a3",
-    slug: "apple-airpods-pro-2-usbc",
-    name: "Apple AirPods Pro (2nd Generation, USB-C)",
-    brand: "Apple",
-    category: "Audio",
-    tagline: "Up to 2x more Active Noise Cancellation. Adaptive Audio. MagSafe USB-C Case.",
-    price: "₹21,990",
-    originalPrice: "₹24,900",
-    rawPrice: 21990,
-    discountPercent: "12% OFF",
-    emiText: "No-cost EMI starting at ₹3,665/month for 6 months",
-    badge: "TOP AUDIO",
-    badgeColor: "bg-neutral-900 text-white font-black",
-    rating: 4.9,
-    reviewCount: 340,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Official Apple India Warranty",
-    images: [
-      "/webp/accessories/apple-airpods-pro-2-case-open.webp",
-      "/webp/accessories/apple-airpods-pro-2-buds-usbc.webp",
-    ],
-    keyHighlights: [
-      "Apple H2 headphone chip brings intelligent noise cancellation and 3D sound",
-      "Adaptive Audio dynamically blends Transparency and Active Noise Cancellation",
-      "Dust, sweat, and water resistant (IP54) for earphones and charging case",
-      "Up to 6 hours listening time with ANC on, up to 30 hours total with case",
-    ],
-    specs: {
-      "Chip": "Apple H2 headphone chip, U1 chip in MagSafe Charging Case",
-      "Audio Tech": "Custom high-excursion Apple driver, personalized spatial audio",
-      "Connectivity": "Bluetooth 5.3",
-      "Charging": "USB-C, MagSafe, Apple Watch charger, Qi certified",
-    },
-    inTheBox: ["AirPods Pro", "MagSafe Charging Case (USB-C)", "Silicone ear tips (4 sizes)", "Braided USB-C Cable"],
-    reviews: []
-  },
-  {
-    id: "a4",
-    slug: "sony-wh-1000xm5-wireless-anc-headphones",
-    name: "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
-    brand: "Sony",
-    category: "Audio",
-    tagline: "Industry-leading noise cancellation with 8 microphones & Auto NC Optimizer. 30h battery.",
-    price: "₹26,990",
-    originalPrice: "₹34,990",
-    rawPrice: 26990,
-    discountPercent: "23% OFF",
-    emiText: "No-cost EMI starting at ₹4,498/month",
-    badge: "ANC KING",
-    badgeColor: "bg-amber-500 text-neutral-950 font-black",
-    rating: 4.8,
-    reviewCount: 215,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "1 Year Official Sony India Warranty",
-    images: [
-      "/webp/accessories/sony-wh-1000xm5-wireless-anc-headphones.webp",
-      "/webp/accessories/img-4.webp",
-    ],
-    keyHighlights: [
-      "Two processors control 8 microphones for unprecedented noise cancellation",
-      "Magnificent sound engineered to perfection with the new 30mm driver unit",
-      "Crystal clear hands-free calling with 4 beamforming microphones",
-      "Ultra-comfortable lightweight design with soft fit leather",
-    ],
-    specs: {
-      "Battery Life": "Up to 30 hours with ANC on (3min charge gives 3h playback)",
-      "Bluetooth": "v5.2, LDAC, AAC, SBC",
-      "Microphones": "8 microphones with AI noise reduction",
-      "Weight": "Approx. 250g",
-    },
-    inTheBox: ["WH-1000XM5 Headphones", "Collapsible Carrying Case", "Headphone Cable (1.2m)", "USB-C Cable"],
-    reviews: []
-  },
-  {
-    id: "a5",
-    slug: "keychron-q1-pro-wireless-mechanical-keyboard",
-    name: "Keychron Q1 Pro Wireless Custom Mechanical Keyboard",
-    brand: "Keychron",
-    category: "Peripherals",
-    tagline: "Full CNC aluminum body. Double-gasket mount. QMK/VIA programmable.",
-    price: "₹17,999",
-    originalPrice: "₹21,999",
-    rawPrice: 17999,
-    discountPercent: "18% OFF",
-    emiText: "Standard EMI from ₹1,500/month",
-    badge: "ENTHUSIAST TIER",
-    badgeColor: "bg-purple-600 text-white font-black",
-    rating: 4.9,
-    reviewCount: 92,
-    stockStatus: "In Stock",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "1 Year Official Keychron Warranty",
-    images: [
-      "/webp/accessories/keychron-q1-pro-mechanical-keyboard.webp",
-      "/webp/accessories/img-5.webp",
-    ],
-    keyHighlights: [
-      "Full CNC machined 6063 aluminum body with anodized and sandblasted finish",
-      "Double-gasket design reduces acoustic resonance and enhances typing softness",
-      "Broadcom Bluetooth 5.1 connects up to 3 devices seamlessly with Mac & Windows layout",
-      "Hot-swappable PCB supports both 3-pin and 5-pin MX mechanical switches",
-    ],
-    specs: {
-      "Layout": "75% Exploded Layout (81 Keys)",
-      "Connectivity": "Bluetooth 5.1 & Type-C wired (1000Hz polling rate in wired mode)",
-      "Keycaps": "KSA double-shot PBT keycaps",
-      "Plate": "PC (Polycarbonate) plate",
-    },
-    inTheBox: ["Keychron Q1 Pro Keyboard", "Type-C Cable with Type-A adapter", "Switch & Keycap Puller", "Screwdriver"],
-    reviews: []
-  },
-  {
-    id: "a6",
-    slug: "lg-ultragear-27-oled-gaming-monitor",
-    name: "LG UltraGear 27\" QHD 240Hz OLED Gaming Monitor (27GR95QE)",
-    brand: "LG",
-    category: "Monitors",
-    tagline: "0.03ms GtG response time. 240Hz QHD OLED. NVIDIA G-SYNC Compatible.",
-    price: "₹72,999",
-    originalPrice: "₹89,999",
-    rawPrice: 72999,
-    discountPercent: "19% OFF",
-    emiText: "No-cost EMI starting at ₹6,083/month",
-    badge: "240HZ OLED",
-    badgeColor: "bg-red-600 text-white font-black",
-    rating: 4.8,
-    reviewCount: 64,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "3 Years LG India Onsite Warranty",
-    images: [
-      "/webp/accessories/lg-ultragear-27-oled-gaming-monitor.webp",
-      "/webp/accessories/img-6.webp",
-    ],
-    keyHighlights: [
-      "27-inch QHD (2560x1440) OLED panel with anti-glare low reflection coating",
-      "World-class 240Hz refresh rate and 0.03ms response time for competitive gaming",
-      "1,500,000:1 contrast ratio with DCI-P3 98.5% color gamut",
-      "Supports HDMI 2.1, DisplayPort 1.4, and remote control for quick mode switching",
-    ],
-    specs: {
-      "Display": "27-inch QHD OLED (2560 x 1440)",
-      "Refresh & Response": "240Hz / 0.03ms GtG",
-      "Adaptive Sync": "NVIDIA G-SYNC Compatible, AMD FreeSync Premium Pro",
-      "HDR": "HDR10 with 1.5M:1 contrast",
-    },
-    inTheBox: ["LG UltraGear 27\" OLED Monitor", "UltraGear Remote Control", "HDMI 2.1 Cable", "DisplayPort Cable", "Power Adapter"],
-    reviews: []
-  },
-  {
-    id: "a7",
-    slug: "boat-wave-ultima-smartwatch",
-    name: "boAt Wave Ultima Bluetooth Calling Smartwatch",
-    brand: "boAt",
-    category: "Wearables",
-    tagline: "1.83\" HD Edge-to-Edge display. Bluetooth calling with crisp speaker. 100+ Sports Modes.",
-    price: "₹1,999",
-    originalPrice: "₹4,999",
-    rawPrice: 1999,
-    discountPercent: "60% OFF",
-    emiText: "Standard EMI available",
-    badge: "BESTSELLER",
-    badgeColor: "bg-amber-500 text-neutral-950 font-black",
-    rating: 4.6,
-    reviewCount: 420,
-    stockStatus: "In Stock (All Colors)",
-    deliveryTime: "Same-Day Delivery in Hyderabad",
-    warrantyPeriod: "1 Year Official boAt Warranty",
-    images: [
-      "/webp/accessories/boat-wave-ultima-smartwatch-angle.webp",
-      "/webp/accessories/boat-wave-ultima-smartwatch-front.webp",
-      "/webp/accessories/boat-wave-ultima-smartwatch-features.webp",
-    ],
-    keyHighlights: [
-      "Vibrant 1.83-inch HD curve display with 500 nits brightness",
-      "Bluetooth calling feature with built-in dial pad and contact storage",
-      "Complete health suite: 24/7 heart rate monitor, SpO2 tracker, and sleep monitor",
-      "IP68 dust and water resistance with up to 7 days battery standby",
-    ],
-    specs: {
-      "Display": "1.83-inch HD 2.5D Curved Glass",
-      "Connectivity": "Bluetooth 5.2",
-      "Sensors": "Heart Rate, SpO2, Accelerometer",
-      "Battery": "300 mAh (up to 7 days normal use, 3 days calling)",
-    },
-    inTheBox: ["boAt Wave Ultima Smartwatch", "Magnetic Charging Cable", "User Manual", "Warranty Card"],
-    reviews: []
-  },
-  {
-    id: "a8",
-    slug: "anker-737-ganprime-powerbank-140w",
-    name: "Anker 737 GaNPrime 140W Power Bank (PowerCore 24K)",
-    brand: "Anker",
-    category: "Power & Charging",
-    tagline: "24,000mAh capacity. 140W fast bi-directional charging. Smart digital display.",
-    price: "₹11,999",
-    originalPrice: "₹14,999",
-    rawPrice: 11999,
-    discountPercent: "20% OFF",
-    emiText: "Standard EMI from ₹1,000/month",
-    badge: "140W FAST POWER",
+    id: "g3",
+    slug: "rtx-4070-ti-super-stealth",
+    name: "Stealth Blackout RTX 4070 Ti Super",
+    price: "₹1,69,999",
+    rawPrice: 169999,
+    badge: "1440P BEAST",
     badgeColor: "bg-emerald-600 text-white font-black",
-    rating: 4.9,
-    reviewCount: 156,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "2 Years Official Anker Warranty",
-    images: [
-      "/webp/accessories/anker-737-ganprime-powerbank-140w.webp",
-      "/webp/accessories/img-11.webp",
-    ],
-    keyHighlights: [
-      "Ultra-powerful 140W two-way charging can charge a 16\" MacBook Pro to 50% in 40 minutes",
-      "Huge 24,000 mAh capacity charges iPhone 15 up to 5 times or laptop up to 1.3 times",
-      "Smart digital display shows real-time output/input wattage and estimated recharge time",
-      "Equipped with GaNPrime power system and ActiveShield 2.0 temperature monitoring",
-    ],
-    specs: {
-      "Capacity": "24,000 mAh (86.4Wh)",
-      "Output Ports": "2x USB-C (140W Max each) + 1x USB-A (18W Max)",
-      "Total Max Output": "140W concurrent",
-      "Weight": "630 grams",
-    },
-    inTheBox: ["Anker 737 Power Bank (PowerCore 24K)", "140W USB-C to USB-C Cable (0.6m)", "Travel Pouch", "User Manual"],
-    reviews: []
+    rating: 4.8,
+    specs: { "CPU": "AMD Ryzen 7 7800X3D", "GPU": "RTX 4070 Ti Super 16GB", "RAM": "32GB DDR5", "Storage": "1TB Gen4 SSD" },
+    images: ["/webp/gaming/img-3.webp"]
   }
 ];
 
 export const REFURBISHED_DATA = [
   {
-    id: "r1",
+    id: "rf-1",
     slug: "refurbished-macbook-pro-14-m1-pro",
     name: "Certified Refurbished MacBook Pro 14\" (M1 Pro)",
-    brand: "Apple Certified Grade A+",
+    brand: "Apple",
     category: "Refurbished Laptops",
-    tagline: "16GB RAM / 512GB SSD. Like-New Condition with 50-Point Quality Inspection Certificate.",
-    price: "₹94,999",
+    grade: "Grade A+",
+    price: "₹92,990",
+    rawPrice: 92990,
     originalPrice: "₹1,94,900",
-    rawPrice: 94999,
-    discountPercent: "51% OFF",
-    emiText: "No-cost EMI starting at ₹7,916/month",
-    badge: "SAVE ₹1,00,000",
-    badgeColor: "bg-emerald-600 text-white font-black",
-    rating: 4.8,
-    reviewCount: 89,
-    stockStatus: "2 Units Left at Tolichowki Store",
-    deliveryTime: "Same-Day Doorstep Delivery in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Direct Replacement Warranty + 7 Days Trial",
-    images: [
-      "/webp/refurbished/refurbished-apple-macbook-pro-14-m1-pro.webp",
-      "/webp/refurbished/img-1.webp",
-    ],
-    keyHighlights: [
-      "Grade A+ condition — zero scratches on body or screen, tested 100% functional",
-      "M1 Pro chip delivers 10-core CPU performance for heavy coding and video editing",
-      "Battery health guaranteed at 92%+ with full Apple MagSafe fast charger included",
-      "Includes GST invoice for tax credit and 6 months store warranty",
-    ],
-    specs: {
-      "Processor": "Apple M1 Pro (8-Core CPU, 14-Core GPU)",
-      "RAM Memory": "16GB Unified Memory",
-      "Storage": "512GB High-Speed SSD",
-      "Display": "14.2-inch Liquid Retina XDR 120Hz ProMotion",
-      "Condition": "Grade A+ (Mint condition with 50-Point QA Cert)",
-    },
-    inTheBox: [
-      "Certified Refurbished MacBook Pro 14\"",
-      "Original Apple 67W USB-C Power Adapter",
-      "Braided MagSafe Cable",
-      "TecnoMart 6-Month Warranty Card & Tax Bill",
-    ],
-    reviews: []
+    rating: 4.9,
+    images: ["/webp/refurbished/refurbished-apple-macbook-pro-14-m1.webp"],
+    specs: { "RAM & Storage": "16GB Unified + 512GB SSD", "Processor": "M1 Pro", "Condition": "Grade A+ (Mint)" }
   },
   {
-    id: "r2",
-    slug: "refurbished-iphone-14-pro-deep-purple",
-    name: "Certified Refurbished iPhone 14 Pro 128GB (Deep Purple)",
-    brand: "Apple Certified Grade A+",
+    id: "rf-2",
+    slug: "refurbished-iphone-14-pro-max",
+    name: "Certified Refurbished iPhone 14 Pro Max 128GB",
+    brand: "Apple",
     category: "Refurbished Mobiles",
-    tagline: "Dynamic Island. 48MP camera. 100% Genuine original parts in Mint condition.",
-    price: "₹64,999",
-    originalPrice: "₹1,29,900",
-    rawPrice: 64999,
-    discountPercent: "50% OFF",
-    emiText: "Standard EMI from ₹5,416/month",
-    badge: "MINT CONDITION",
-    badgeColor: "bg-amber-500 text-neutral-950 font-black",
+    grade: "Grade A+",
+    price: "₹74,990",
+    rawPrice: 74990,
+    originalPrice: "₹1,39,900",
     rating: 4.8,
-    reviewCount: 112,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Warranty",
-    images: [
-      "/webp/refurbished/refurbished-apple-iphone-14-pro-deep-purple.webp",
-      "/webp/refurbished/img-2.webp",
-    ],
-    keyHighlights: [
-      "100% original display and chassis — zero aftermarket replacements",
-      "Battery health guaranteed 90%+",
-      "Dynamic Island display with 120Hz ProMotion",
-      "48MP main camera with Photonic Engine for crisp low-light shots",
-    ],
-    specs: {
-      "Display": "6.1-inch Super Retina XDR 120Hz ProMotion",
-      "Processor": "Apple A16 Bionic chip",
-      "Storage": "128GB NVMe",
-      "Battery Health": "90%+ Guaranteed with original capacity",
-    },
-    inTheBox: ["Refurbished iPhone 14 Pro", "Lightning to USB-C Cable", "Warranty Invoice & QA Certificate"],
-    reviews: []
+    images: ["/webp/refurbished/refurbished-apple-ipad-pro-11-m2.webp"],
+    specs: { "RAM & Storage": "6GB RAM + 128GB Storage", "Processor": "A16 Bionic", "Condition": "Grade A+" }
   },
   {
-    id: "r3",
+    id: "rf-3",
     slug: "refurbished-dell-xps-13-plus",
-    name: "Certified Refurbished Dell XPS 13 Plus (OLED Touch)",
-    brand: "Dell Certified",
+    name: "Certified Refurbished Dell XPS 13 Plus",
+    brand: "Dell",
     category: "Refurbished Laptops",
-    tagline: "Zero-lattice keyboard. Invisible glass haptic trackpad. 3.5K OLED touchscreen.",
+    grade: "Grade A+",
     price: "₹79,999",
-    originalPrice: "₹1,69,990",
     rawPrice: 79999,
-    discountPercent: "53% OFF",
-    emiText: "No-cost EMI starting at ₹6,666/month",
-    badge: "PREMIUM ULTRABOOK",
-    badgeColor: "bg-blue-600 text-white font-black",
+    originalPrice: "₹1,69,900",
     rating: 4.7,
-    reviewCount: 52,
-    stockStatus: "3 Units Left",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Warranty",
-    images: [
-      "/webp/refurbished/refurbished-dell-xps-13-plus.webp",
-      "/webp/refurbished/img-3.webp",
-    ],
-    keyHighlights: [
-      "Futuristic minimalist design with capacitive touch function row",
-      "3.5K (3456x2160) OLED touch panel with 100% DCI-P3 color gamut",
-      "Intel 12th Gen Core i7-1260P processor with 16GB LPDDR5 RAM",
-      "100% battery tested and QA verified with original Dell 60W Type-C charger",
-    ],
-    specs: {
-      "Processor": "Intel Core i7-1260P (12 Cores, up to 4.7GHz)",
-      "RAM & Storage": "16GB LPDDR5 + 512GB PCIe 4.0 NVMe SSD",
-      "Display": "13.4-inch 3.5K OLED Touch (3456x2160)",
-      "Condition": "Grade A+ (Mint condition)",
-    },
-    inTheBox: ["Dell XPS 13 Plus", "Dell 60W Type-C Power Adapter", "USB-C to USB-A Adapter", "QA Certificate"],
-    reviews: []
-  },
-  {
-    id: "r4",
-    slug: "refurbished-lenovo-thinkpad-t14s",
-    name: "Certified Refurbished Lenovo ThinkPad T14s Gen 3",
-    brand: "Lenovo Enterprise",
-    category: "Refurbished Laptops",
-    tagline: "Legendary ThinkPad keyboard durability. AMD Ryzen 7 PRO. All-day battery.",
-    price: "₹52,999",
-    originalPrice: "₹1,24,990",
-    rawPrice: 52999,
-    discountPercent: "58% OFF",
-    emiText: "Standard EMI from ₹4,416/month",
-    badge: "BUSINESS CLASS",
-    badgeColor: "bg-neutral-900 text-white font-black",
-    rating: 4.9,
-    reviewCount: 140,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Onsite Warranty",
-    images: [
-      "/webp/refurbished/refurbished-lenovo-thinkpad-t14s.webp",
-      "/webp/refurbished/img-4.webp",
-    ],
-    keyHighlights: [
-      "Military-grade MIL-STD 810H certified chassis with spill-resistant keyboard",
-      "AMD Ryzen 7 PRO 6850U with Radeon 680M graphics for exceptional efficiency",
-      "14-inch 16:10 FHD+ anti-glare display ideal for long coding and business hours",
-      "Enterprise security with fingerprint reader and webcam privacy shutter",
-    ],
-    specs: {
-      "Processor": "AMD Ryzen 7 PRO 6850U (8 Cores, 16 Threads)",
-      "RAM & Storage": "16GB LPDDR5 + 512GB NVMe SSD",
-      "Display": "14-inch WUXGA (1920x1200) IPS 400 nits low power",
-      "Weight": "1.22 kg lightweight magnesium unibody",
-    },
-    inTheBox: ["ThinkPad T14s Laptop", "Lenovo 65W USB-C Fast Charger", "GST Invoice & Warranty Card"],
-    reviews: []
-  },
-  {
-    id: "r5",
-    slug: "refurbished-apple-ipad-pro-11-m2",
-    name: "Certified Refurbished Apple iPad Pro 11\" (M2 Chip)",
-    brand: "Apple Certified Grade A+",
-    category: "Refurbished Tablets",
-    tagline: "Apple M2 power. 120Hz ProMotion Liquid Retina display. Apple Pencil hover support.",
-    price: "₹56,999",
-    originalPrice: "₹81,900",
-    rawPrice: 56999,
-    discountPercent: "30% OFF",
-    emiText: "No-cost EMI starting at ₹4,750/month",
-    badge: "CREATOR FAVORITE",
-    badgeColor: "bg-purple-600 text-white font-black",
-    rating: 4.9,
-    reviewCount: 65,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Direct Warranty",
-    images: [
-      "/webp/refurbished/refurbished-apple-ipad-pro-11-m2.webp",
-      "/webp/refurbished/img-5.webp",
-    ],
-    keyHighlights: [
-      "Apple M2 chip delivers desktop-class performance for 4K video editing and 3D illustration",
-      "11-inch Liquid Retina display with 120Hz ProMotion, True Tone, and P3 wide color",
-      "Supports Apple Pencil (2nd gen) with precision hover preview",
-      "12MP Wide and 10MP Ultra-Wide back cameras with LiDAR scanner",
-    ],
-    specs: {
-      "Chip": "Apple M2 (8-Core CPU, 10-Core GPU, 16-Core Neural Engine)",
-      "Display": "11-inch Liquid Retina LED-backlit (2388x1668) at 264 ppi, 120Hz",
-      "Storage": "128GB high-speed flash storage",
-      "Battery": "Guaranteed 92%+ health with 20W Apple charger included",
-    },
-    inTheBox: ["Certified Refurbished iPad Pro 11\"", "Original 20W USB-C Adapter", "Braided USB-C Cable", "Warranty Card"],
-    reviews: []
-  },
-  {
-    id: "r6",
-    slug: "refurbished-samsung-galaxy-s23-ultra",
-    name: "Certified Refurbished Samsung Galaxy S23 Ultra 5G (Green)",
-    brand: "Samsung Certified",
-    category: "Refurbished Mobiles",
-    tagline: "200MP camera with 100x Space Zoom. Built-in S-Pen. Snapdragon 8 Gen 2 for Galaxy.",
-    price: "₹68,999",
-    originalPrice: "₹1,24,999",
-    rawPrice: 68999,
-    discountPercent: "45% OFF",
-    emiText: "Standard EMI from ₹5,750/month",
-    badge: "FLAGSHIP CAMERA",
-    badgeColor: "bg-emerald-600 text-white font-black",
-    rating: 4.8,
-    reviewCount: 160,
-    stockStatus: "In Stock at Tolichowki Store",
-    deliveryTime: "Same-Day in Hyderabad",
-    warrantyPeriod: "6 Months TecnoMart Warranty",
-    images: [
-      "/webp/refurbished/refurbished-samsung-galaxy-s23-ultra.webp",
-      "/webp/refurbished/img-6.webp",
-    ],
-    keyHighlights: [
-      "Original 200MP ultra-clear camera sensor with 10x periscope optical zoom",
-      "Dynamic AMOLED 2X 6.8\" 120Hz screen with Gorilla Glass Victus 2",
-      "Built-in Bluetooth S-Pen for sketching, notes, and camera remote control",
-      "Large 5,000 mAh battery with 91%+ tested battery health",
-    ],
-    specs: {
-      "Display": "6.8-inch Edge QHD+ Dynamic AMOLED 2X, 120Hz",
-      "Processor": "Snapdragon 8 Gen 2 Mobile Platform for Galaxy",
-      "RAM & Storage": "12GB RAM + 256GB Storage",
-      "Cameras": "200MP Main + 12MP Ultra-Wide + 10MP 10x Periscope + 10MP 3x Telephoto",
-    },
-    inTheBox: ["Refurbished Galaxy S23 Ultra", "Built-in S-Pen", "USB-C Cable", "Warranty Certificate"],
-    reviews: []
+    images: ["/webp/refurbished/refurbished-dell-xps-13-plus.webp"],
+    specs: { "RAM & Storage": "16GB RAM + 512GB SSD", "Processor": "Intel Core i7-1260P", "Condition": "Grade A+" }
   }
 ];
+
+export function getLaptopBySlug(slug) {
+  return LAPTOPS_DATA.find((l) => l.slug === slug || l.id === slug) || LAPTOPS_DATA[0];
+}
+
+export function getMobileBySlug(slug) {
+  return MOBILES_DATA.find((m) => m.slug === slug || m.id === slug) || MOBILES_DATA[0];
+}
 
 export function getGamingBySlug(slug) {
   return GAMING_DATA.find((g) => g.slug === slug || g.id === slug) || GAMING_DATA[0];
@@ -1361,4 +2957,3 @@ export const ALL_PRODUCTS = [
   ...ACCESSORIES_DATA.map((p) => ({ ...p, type: 'accessories' })),
   ...REFURBISHED_DATA.map((p) => ({ ...p, type: 'refurbished' })),
 ];
-

@@ -24,32 +24,22 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
   };
 
   const getProductHref = (prod) => {
-    if (prod.id === 'p1') return '/accessories';
-    if (prod.id === 'p2') return '/accessories';
-    if (prod.id === 'p3') return '/laptops/asus-rog-zephyrus-g16-2025';
-    if (prod.id === 'p4') return '/laptops/asus-rog-zephyrus-g16-2025';
-    if (prod.id === 'p5') return '/mobiles/iphone-15';
+    if (prod.category === 'accessories') return '/accessories';
+    if (prod.category === 'laptops') return '/laptops';
+    if (prod.category === 'gaming') return '/gaming';
+    if (prod.category === 'mobiles') return '/mobiles';
     return '/mobiles';
   };
 
-  // Exact order from screenshot: iPhone 15, Asus TUF F15, Zotac RTX 4060, Sony XM5, boAt Wave Ultima
-  const orderedProducts = [
-    POPULAR_PRODUCTS.find(p => p.id === 'p5') || POPULAR_PRODUCTS[4],
-    POPULAR_PRODUCTS.find(p => p.id === 'p4') || POPULAR_PRODUCTS[3],
-    POPULAR_PRODUCTS.find(p => p.id === 'p3') || POPULAR_PRODUCTS[2],
-    POPULAR_PRODUCTS.find(p => p.id === 'p2') || POPULAR_PRODUCTS[1],
-    POPULAR_PRODUCTS.find(p => p.id === 'p1') || POPULAR_PRODUCTS[0],
-  ];
-
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
     }
   };
 
@@ -86,17 +76,17 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
           <button
             onClick={scrollLeft}
             aria-label="Scroll popular picks left"
-            className="hidden sm:flex flex-shrink-0 w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
+            className="flex flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Scrollable Product Grid */}
+          {/* Scrollable Product Carousel with all 10 items */}
           <div
             ref={scrollRef}
-            className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible no-scrollbar"
+            className="flex-1 flex items-stretch gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth py-1"
           >
-            {orderedProducts.map((prod, idx) => {
+            {POPULAR_PRODUCTS.map((prod, idx) => {
               const href = getProductHref(prod);
               const isAdded = !!addedItems[prod.id];
 
@@ -106,8 +96,8 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group relative bg-white rounded-2xl p-3 sm:p-4 border border-neutral-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-w-[150px] overflow-hidden"
+                  transition={{ duration: 0.4, delay: (idx % 5) * 0.05 }}
+                  className="group relative bg-white rounded-2xl p-3 sm:p-4 border border-neutral-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between flex-shrink-0 w-[calc(50%-6px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(20%-13px)] min-w-[170px] sm:min-w-[210px] overflow-hidden"
                 >
                   {/* Folded Corner Ribbon Badge matching reference image */}
                   {prod.badge && (
@@ -175,7 +165,7 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
           <button
             onClick={scrollRight}
             aria-label="Scroll popular picks right"
-            className="hidden sm:flex flex-shrink-0 w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
+            className="flex flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-neutral-200 bg-white hover:bg-amber-500 hover:border-amber-500 hover:text-neutral-950 items-center justify-center text-neutral-700 shadow-sm transition-all active:scale-95 cursor-pointer z-10"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
