@@ -239,10 +239,16 @@ export default function ScanPage() {
             </p>
 
             {/* Location Pill */}
-            <div className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FFF9E6] border border-[#FDE68A]/70 text-xs font-semibold text-neutral-900 shadow-2xs">
+            <a
+              href={SCAN_PROFILE.mapsUrl || "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7"}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={SCAN_PROFILE.address || "Open Google Maps"}
+              className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FFF9E6] border border-[#FDE68A]/70 text-xs font-semibold text-neutral-900 shadow-2xs hover:bg-[#FFF3CD] hover:border-[#F5B800] transition-colors cursor-pointer"
+            >
               <MapPin className="w-3.5 h-3.5 fill-black text-black" />
               <span>{SCAN_PROFILE.location}</span>
-            </div>
+            </a>
           </header>
 
           {/* 7 Pill Action Cards */}

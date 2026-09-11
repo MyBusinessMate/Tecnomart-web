@@ -19,16 +19,20 @@ export interface ScanProfile {
   name: string;
   tagline: string;
   location: string;
+  address: string;
   verified: boolean;
   logoUrl: string;
+  mapsUrl: string;
 }
 
 export const SCAN_PROFILE: ScanProfile = {
   name: "TECNOMART",
   tagline: "Hyderabad's Authorized Tech Retailer & Certified Service Hub",
   location: "Tolichowki, Hyderabad",
+  address: "7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008",
   verified: true,
   logoUrl: "/webp/logo.webp",
+  mapsUrl: "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7",
 };
 
 // WhatsApp support pre-filled greeting message
