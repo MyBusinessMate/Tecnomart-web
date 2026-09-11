@@ -71,8 +71,4 @@ browser/
 lighthouse-report.json
 
 # Admin Panel and Internal Contracts (excluded per user instruction)
-.admin/
 TEST-REPORT.md
-src/components/admin/
-src/lib/admin/
-src/pages/admin/
