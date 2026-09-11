@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { TecnoMartLogo } from './Icons';
 import { useShop } from '@/context/ShopContext';
-import { ALL_PRODUCTS } from '@/data/products';
 import {
   Search,
   ShoppingBag,
@@ -28,7 +27,8 @@ import {
   PhoneCall,
   BadgePercent,
   CircleHelp,
-  FileText
+  FileText,
+  Heart
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -187,11 +187,21 @@ export default function Header() {
     };
   }, [accountDropdownOpen]);
 
+  const [searchProducts, setSearchProducts] = useState([]);
+
+  useEffect(() => {
+    if (searchQuery.trim() && searchProducts.length === 0) {
+      import('@/data/products').then((m) => {
+        setSearchProducts(m.ALL_PRODUCTS || []);
+      });
+    }
+  }, [searchQuery, searchProducts.length]);
+
   // Filter search query
   const searchResults = useMemo(() => {
-    if (!searchQuery.trim()) return [];
+    if (!searchQuery.trim() || searchProducts.length === 0) return [];
     const q = searchQuery.toLowerCase();
-    return ALL_PRODUCTS.filter((p) => {
+    return searchProducts.filter((p) => {
       const matchesCategory =
         searchCategory === 'All' ||
         (searchCategory === 'Mobiles' && p.type === 'mobiles') ||
@@ -206,7 +216,7 @@ export default function Header() {
 
       return matchesCategory && matchesQuery;
     }).slice(0, 6);
-  }, [searchQuery, searchCategory]);
+  }, [searchQuery, searchCategory, searchProducts]);
 
   const handlePincodeSubmit = (e) => {
     e.preventDefault();
@@ -342,232 +352,125 @@ export default function Header() {
     <>
     <header
       role="banner"
-      className={`sticky top-0 z-50 select-none shadow-md font-sans bg-[#0a0a0a] ${
-        isNavRevealed ? 'translate-y-0' : 'max-lg:translate-y-0 lg:-translate-y-full lg:pointer-events-none'
-      } lg:transition-transform lg:duration-300 lg:ease-in-out`}
+      className="sticky top-0 z-50 select-none shadow-lg font-sans w-full bg-[#0f141d]"
     >
-      
       {/* =========================================================================
-          1. DESKTOP NAVIGATION BAR (>= 1024px)
-          Order: Hamburger (☰) → TecnoMart Logo → Laptops → Mobiles → Accessories → Support (with PC Builder) → Search → Account → Cart
+          TOP NAVIGATION BAR
+          Left: Logo + Slogan | Deliver to Location
+          Center: Search bar ("All Categories" dropdown + Input + Yellow Search Button)
+          Right: "Hello, Sign In / Account & Orders" | "Wishlist" | "0 CART"
           ========================================================================= */}
-      <div className="hidden lg:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 items-center justify-between gap-4 xl:gap-6">
+      <div className="max-w-[1460px] mx-auto px-3 sm:px-4 lg:px-6 h-[64px] sm:h-[70px] flex items-center justify-between gap-3 lg:gap-5">
         
-        {/* Left Section: Hamburger + Brand Logo */}
-        <div className="flex items-center gap-3 xl:gap-4 flex-shrink-0">
-          {/* Hamburger Menu Icon (☰) to open All Categories Drawer */}
-          <button
-            ref={hamburgerBtnRef}
-            onClick={() => setDrawerOpen(true)}
-            aria-label="Open All Categories Menu"
-            aria-expanded={drawerOpen}
-            className="p-2 text-white hover:text-amber-400 hover:bg-white/10 rounded-xl transition-all cursor-pointer flex items-center justify-center"
-            title="All Categories"
-          >
-            <Menu className="w-6 h-6 stroke-[2.2]" />
-          </button>
-
-          {/* TecnoMart Logo & Branding */}
-          <Link href="/" className="inline-block">
-            <TecnoMartLogo textClass="text-white font-black" subtitleClass="text-neutral-200 font-semibold" />
+        {/* Left Section: Logo + Deliver To Location */}
+        <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+          {/* TecnoMart Brand Logo */}
+          <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+            {/* Bright Yellow 'T' Logo matching image */}
+            <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 36 36" fill="none" className="w-full h-full">
+                <path d="M3 7h30l-4.5 7H22v16h-8V14H7.5L3 7z" fill="#FFD21C" />
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-black text-lg sm:text-[21px] tracking-tight text-white leading-none uppercase">
+                TECNOMART
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.14em] text-[#F5B800] uppercase mt-1 leading-none">
+                YOUR TRUSTED TECH PARTNER
+              </span>
+            </div>
           </Link>
+
+          {/* Deliver To Location Widget */}
+          <button
+            type="button"
+            onClick={() => setPincodeModalOpen(true)}
+            className="hidden md:flex items-center gap-2 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-left transition-all"
+            title="Change Delivery Pincode"
+          >
+            <div className="w-7 h-7 rounded-full flex items-center justify-center text-[#F5B800]">
+              <MapPin className="w-5 h-5 stroke-[2.2]" />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-[11px] text-neutral-400 font-medium">Deliver to</span>
+              <span className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
+                Hyderabad {locationPincode || '500033'}
+              </span>
+            </div>
+          </button>
         </div>
 
-        {/* Primary Desktop Nav Links (Laptops, Mobiles, Accessories, Support with PC Builder) */}
-        <nav aria-label="Main Navigation" className="flex items-center gap-4 xl:gap-6 text-sm font-semibold text-white">
-          
-          {/* Laptops Dropdown */}
-          <div
-            className="relative py-2"
-            onMouseEnter={() => setActiveNavDropdown('laptops')}
-            onMouseLeave={() => setActiveNavDropdown(null)}
+        {/* Center Section: Search Bar with "All Categories" dropdown */}
+        <div className="flex-1 max-w-2xl relative">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (searchQuery.trim()) {
+                window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+              }
+            }}
+            className="flex items-center rounded-md bg-white overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-[#F59E0B]"
           >
-            <Link
-              href="/laptops"
-              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
-            >
-              <span>Laptops</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
-            </Link>
-
-            {activeNavDropdown === 'laptops' && (
-              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
-                {navDropdownData.laptops.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block px-3 py-2 text-xs font-semibold rounded-xl transition-all ${
-                      item.isAll
-                        ? 'text-amber-600 hover:bg-amber-50 font-bold border-t border-neutral-100 mt-1 pt-2'
-                        : 'text-neutral-700 hover:text-amber-600 hover:bg-neutral-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Mobiles Dropdown */}
-          <div
-            className="relative py-2"
-            onMouseEnter={() => setActiveNavDropdown('mobiles')}
-            onMouseLeave={() => setActiveNavDropdown(null)}
-          >
-            <Link
-              href="/mobiles"
-              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
-            >
-              <span>Mobiles</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
-            </Link>
-
-            {activeNavDropdown === 'mobiles' && (
-              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
-                {navDropdownData.mobiles.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block px-3 py-2 text-xs font-semibold rounded-xl transition-all ${
-                      item.isAll
-                        ? 'text-amber-600 hover:bg-amber-50 font-bold border-t border-neutral-100 mt-1 pt-2'
-                        : 'text-neutral-700 hover:text-amber-600 hover:bg-neutral-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Accessories Dropdown */}
-          <div
-            className="relative py-2"
-            onMouseEnter={() => setActiveNavDropdown('accessories')}
-            onMouseLeave={() => setActiveNavDropdown(null)}
-          >
-            <Link
-              href="/accessories"
-              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium"
-            >
-              <span>Accessories</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
-            </Link>
-
-            {activeNavDropdown === 'accessories' && (
-              <div className="absolute left-0 top-full mt-1 w-60 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
-                {navDropdownData.accessories.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block px-3 py-2 text-xs font-semibold rounded-xl transition-all ${
-                      item.isAll
-                        ? 'text-amber-600 hover:bg-amber-50 font-bold border-t border-neutral-100 mt-1 pt-2'
-                        : 'text-neutral-700 hover:text-amber-600 hover:bg-neutral-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Support Dropdown (Contains PC Builder per Req 13) */}
-          <div
-            className="relative py-2"
-            onMouseEnter={() => setActiveNavDropdown('support')}
-            onMouseLeave={() => setActiveNavDropdown(null)}
-          >
+            {/* Category Dropdown Pill */}
             <button
               type="button"
-              aria-haspopup="true"
-              aria-expanded={activeNavDropdown === 'support'}
-              aria-controls="support-dropdown-menu"
-              className="flex items-center gap-1 hover:text-amber-400 transition-colors py-1 cursor-pointer font-medium text-white"
+              onClick={() => setDrawerOpen(true)}
+              className="bg-[#f3f4f6] hover:bg-[#e5e7eb] text-neutral-800 text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-2.5 flex items-center gap-1.5 border-r border-neutral-300 shrink-0 transition-colors cursor-pointer"
             >
-              <span>Support</span>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
+              <span className="whitespace-nowrap">{searchCategory === 'All' ? 'All Categories' : searchCategory}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-neutral-600" />
             </button>
 
-            {activeNavDropdown === 'support' && (
-              <div id="support-dropdown-menu" aria-label="Support & tools menu" className="absolute left-0 top-full mt-1 w-72 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2.5 z-50 space-y-1">
-                {/* Highlighted PC Builder Item */}
-                <Link
-                  href="/pc-builds"
-                  className="flex items-start gap-2.5 px-3 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 rounded-xl transition-all border border-amber-400/30 group"
-                >
-                  <Cpu className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs font-black text-neutral-950 group-hover:text-amber-600">
-                      PC Builder
-                    </p>
-                    <p className="text-[10px] text-neutral-600">
-                      Custom PC Configurator &amp; Live Estimator
-                    </p>
-                  </div>
-                </Link>
-
-                {navDropdownData.support.slice(1).map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-700 hover:text-amber-600 hover:bg-neutral-50 rounded-xl transition-all"
-                  >
-                    <p className="font-bold text-neutral-900">{item.name}</p>
-                    {item.desc && <p className="text-[10px] text-neutral-400 font-normal">{item.desc}</p>}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-        </nav>
-
-        {/* Center-Right Search Bar */}
-        <div className="flex-1 max-w-sm xl:max-w-md relative">
-          <div className="relative flex items-center">
-            <div className="absolute left-4 pointer-events-none text-neutral-500">
-              <Search className="w-4 h-4 stroke-[2]" />
-            </div>
-            <label htmlFor="search-desktop" className="sr-only">
-              Search TecnoMart
-            </label>
+            {/* Input field */}
             <input
-              id="search-desktop"
-              type="search"
-              placeholder="Search for MacBooks, iPhones, laptops..."
+              type="text"
+              placeholder="Search TecnoMart for MacBooks, iPhones, R..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setSearchOpen(true)}
-              className="w-full h-11 pl-11 pr-4 bg-white/95 focus:bg-white text-xs sm:text-sm text-neutral-900 placeholder-neutral-500 rounded-full border border-white/20 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30 outline-none transition-all font-medium shadow-inner"
+              onFocus={() => {
+                setSearchOpen(true);
+                if (searchProducts.length === 0) {
+                  import('@/data/products').then((m) => setSearchProducts(m.ALL_PRODUCTS || []));
+                }
+              }}
+              className="w-full h-10 px-3 text-xs sm:text-sm text-neutral-900 bg-white placeholder-neutral-500 outline-none"
             />
-          </div>
+
+            {/* Orange-Yellow Search Button */}
+            <button
+              type="submit"
+              aria-label="Search"
+              className="bg-[#F59E0B] hover:bg-[#D97706] text-neutral-950 px-4 h-10 flex items-center justify-center transition-colors shrink-0 cursor-pointer"
+            >
+              <Search className="w-5 h-5 stroke-[2.5]" />
+            </button>
+          </form>
 
           {/* Instant Search Results Dropdown */}
-          {searchQuery.trim() && (
-            <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-neutral-200/80 overflow-hidden z-50 p-2 text-neutral-900">
+          {searchQuery.trim() && searchOpen && (
+            <div className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-2xl border border-neutral-200 overflow-hidden z-50 p-2 text-neutral-900">
               <div className="px-3 py-1.5 text-[10px] font-black uppercase text-neutral-400 border-b border-neutral-100 flex justify-between">
                 <span>Matching Products</span>
                 <span>{searchResults.length} Found</span>
               </div>
-
               {searchResults.length === 0 ? (
                 <div className="p-4 text-center text-xs text-neutral-500">
                   No matching products found for "{searchQuery}"
                 </div>
               ) : (
                 <div className="divide-y divide-neutral-100 max-h-80 overflow-y-auto">
-                  {searchResults.map((item) => (
+                  {searchResults.slice(0, 8).map((item) => (
                     <Link
                       key={item.id}
                       href={item.type === 'mobiles' ? `/mobiles/${item.slug || item.id}` : (item.type === 'laptops' ? `/laptops/${item.slug || item.id}` : `/products/${item.id}`)}
-                      onClick={() => setSearchQuery('')}
-                      className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl transition-colors group cursor-pointer"
+                      onClick={() => {
+                        setSearchQuery('');
+                        setSearchOpen(false);
+                      }}
+                      className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-lg transition-colors group cursor-pointer"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center p-1 flex-shrink-0">
+                      <div className="w-10 h-10 rounded bg-neutral-100 flex items-center justify-center p-1 shrink-0">
                         <img src={item.images?.[0] || item.image} alt={item.name} className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -578,7 +481,7 @@ export default function Header() {
                           {item.tagline || item.brand}
                         </p>
                       </div>
-                      <span className="text-xs font-black text-neutral-900 flex-shrink-0">
+                      <span className="text-xs font-black text-neutral-900 shrink-0">
                         ₹{(item.rawPrice || item.priceINR)?.toLocaleString('en-IN') || item.price}
                       </span>
                     </Link>
@@ -589,75 +492,63 @@ export default function Header() {
           )}
         </div>
 
-        {/* Right Section: Account Dropdown & Cart */}
-        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+        {/* Right Section: Account | Wishlist | Cart */}
+        <div className="flex items-center gap-3 sm:gap-5 shrink-0">
           
-          {/* USER ACCOUNT DROPDOWN */}
-          <div className="relative" data-account-menu>
+          {/* Account & Orders */}
+          <div className="relative">
             <button
-              ref={accountBtnRef}
+              type="button"
               onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-              className="flex items-center gap-1.5 text-white hover:text-amber-300 transition-colors p-1.5 rounded-xl hover:bg-white/10 cursor-pointer"
-              aria-label="User Account"
-              aria-haspopup="true"
-              aria-expanded={accountDropdownOpen}
-              aria-controls="desktop-account-menu"
+              className="hidden sm:flex flex-col text-left px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer transition-all"
             >
-              <User className="w-5 h-5 text-white" />
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-300" />
+              <span className="text-[11px] text-neutral-400 font-medium leading-tight">Hello, Sign In</span>
+              <span className="text-xs sm:text-sm font-bold text-white flex items-center gap-1 leading-tight">
+                Account &amp; Orders
+                <ChevronDown className="w-3 h-3 text-neutral-400" />
+              </span>
             </button>
 
+            {/* Account dropdown */}
             {accountDropdownOpen && (
-              <div id="desktop-account-menu" aria-label="User Account Menu" className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-2xl border border-neutral-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-neutral-900">
                 <div className="px-3 py-2 border-b border-neutral-100 mb-1">
                   <p className="text-xs font-bold text-neutral-900">My Account</p>
-                  <p className="text-[11px] text-neutral-600 truncate">user@tecnomart.in</p>
+                  <p className="text-[11px] text-neutral-500 truncate">user@tecnomart.in</p>
                 </div>
-
                 <div className="space-y-0.5 text-xs font-medium text-neutral-700">
                   <Link
                     href="/profile"
                     onClick={() => setAccountDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-neutral-50"
                   >
-                    <span>Edit Profile</span>
+                    Your Profile &amp; Settings
                   </Link>
-
                   <button
                     type="button"
                     onClick={() => {
                       setAccountDropdownOpen(false);
                       setIsWishlistOpen(true);
                     }}
-                    className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors text-left cursor-pointer"
+                    className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-neutral-50 text-left cursor-pointer"
                   >
-                    <span>Wishlist</span>
+                    <span>Your Wishlist</span>
                     {wishlist.length > 0 && (
                       <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                         {wishlist.length}
                       </span>
                     )}
                   </button>
-
-                  <Link
-                    href="/orders"
-                    onClick={() => setAccountDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors"
-                  >
-                    <span>My Orders</span>
-                  </Link>
-
                   <button
                     type="button"
                     onClick={() => {
                       setAccountDropdownOpen(false);
                       setPincodeModalOpen(true);
                     }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-neutral-50 hover:text-neutral-950 transition-colors text-left cursor-pointer"
+                    className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-neutral-50 text-left cursor-pointer"
                   >
-                    <span>Saved Addresses ({locationPincode})</span>
+                    <span>Delivery Location ({locationPincode})</span>
                   </button>
-
                   <div className="pt-1 mt-1 border-t border-neutral-100">
                     <button
                       type="button"
@@ -666,177 +557,91 @@ export default function Header() {
                         setSignInAlert(true);
                         setTimeout(() => setSignInAlert(false), 3000);
                       }}
-                      className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-red-600 hover:bg-red-50 transition-colors text-left cursor-pointer"
+                      className="w-full px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 text-left font-semibold cursor-pointer"
                     >
-                      <span>Sign In / Sign Out</span>
+                      Sign In / Sign Out
                     </button>
                   </div>
                 </div>
-
-                {signInAlert && (
-                  <p role="status" className="text-[10px] text-emerald-600 text-center py-1 font-semibold">
-                    Auth session updated!
-                  </p>
-                )}
               </div>
             )}
           </div>
 
-          {/* CART BUTTON WITH BADGE */}
-          <Link
-            href="/cart"
-            className="flex items-center gap-2 text-white group cursor-pointer"
-            aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
+          {/* Wishlist */}
+          <button
+            type="button"
+            onClick={() => setIsWishlistOpen(true)}
+            className="flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all"
+            title="View Wishlist"
           >
-            <div className="relative w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
-              <ShoppingBag className="w-5 h-5 text-white" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-400 text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
-                  {cartCount}
-                </span>
-              )}
+            <Heart className="w-5 h-5 text-white stroke-[2]" />
+            <span className="hidden md:inline text-xs sm:text-sm font-bold text-white">Wishlist</span>
+          </button>
+
+          {/* Cart */}
+          <button
+            type="button"
+            onClick={() => setIsCartOpen(true)}
+            className="flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all"
+            title="Shopping Cart"
+          >
+            <div className="relative flex items-center justify-center">
+              <ShoppingBag className="w-6 h-6 text-[#FFD21C] stroke-[2]" />
+              <span className="absolute -top-1 -right-1 bg-[#FFD21C] text-neutral-950 font-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
+                {cartCount}
+              </span>
             </div>
-            <span className="hidden xl:inline text-sm font-semibold text-white group-hover:text-amber-300 transition-colors">
-              Cart
+            <span className="text-xs sm:text-sm font-black tracking-wider text-white uppercase">
+              CART
             </span>
-          </Link>
+          </button>
 
         </div>
       </div>
 
       {/* =========================================================================
-          2. MOBILE NAVIGATION HEADER (< 1024px)
-          Exact Layout from Req 14 & Reference Image:
-          - Left: Hamburger Menu (☰) + Account Icon
-          - Center: TecnoMart Logo & Branding (Visually centered, no account/cart flanking it)
-          - Right: Cart Icon
+          SUB-NAVIGATION BAR (Bottom Tier)
+          Left: Hamburger + "ALL CATEGORIES" (Clicks to open Sidebar!)
+          Center: Mobiles | Laptops | Gaming PCs | Accessories | PC Builder | Refurbished | Trade-In | EMI Calc | Repairs | Corporate | Students
+          Right: Sparkles + "HYDERABAD EXPRESS 4-HOUR DELIVERY ACTIVE"
           ========================================================================= */}
-      <div className="lg:hidden relative flex items-center justify-between h-11 sm:h-12 px-3 sm:px-4">
-        
-        {/* Left Side: Hamburger Menu + Account */}
-        <div className="flex items-center gap-1 z-10 min-w-[60px]">
-          {/* Hamburger Menu button */}
+      <div className="bg-[#131922] border-t border-[#232f3e] h-10 sm:h-11">
+        <div className="max-w-[1460px] mx-auto px-3 sm:px-4 lg:px-6 h-full flex items-center justify-between gap-4 overflow-x-auto scrollbar-none">
+          
+          {/* Left: ALL CATEGORIES (Sidebar Trigger) */}
           <button
+            ref={hamburgerBtnRef}
+            type="button"
             onClick={() => setDrawerOpen(true)}
-            aria-label="Open menu"
-            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
+            className="flex items-center gap-1.5 text-white hover:text-amber-400 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 transition-all shrink-0 cursor-pointer group"
           >
-            <Menu className="w-5 h-5 stroke-[2.2]" />
+            <Menu className="w-4 h-4 stroke-[2.5] text-white group-hover:text-amber-400" />
+            <span className="font-black text-xs sm:text-sm uppercase tracking-wider text-white group-hover:text-amber-400 whitespace-nowrap">
+              ALL CATEGORIES
+            </span>
           </button>
 
-          {/* Account button */}
-          <button
-            onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
-            aria-label="User Account"
-            aria-haspopup="dialog"
-            aria-expanded={accountDropdownOpen}
-            aria-controls="mobile-account-popover"
-            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-400 active:scale-95 cursor-pointer rounded-lg"
-          >
-            <User className="w-4.5 h-4.5" />
-          </button>
-        </div>
+          {/* Center: Navigation Links */}
+          <nav aria-label="Quick Categories" className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-semibold text-white whitespace-nowrap overflow-x-auto scrollbar-none">
+            <Link href="/mobiles" className="hover:text-amber-400 transition-colors">Mobiles</Link>
+            <Link href="/laptops" className="hover:text-amber-400 transition-colors">Laptops</Link>
+            <Link href="/gaming" className="hover:text-amber-400 transition-colors">Gaming PCs</Link>
+            <Link href="/accessories" className="hover:text-amber-400 transition-colors">Accessories</Link>
+            <Link href="/pc-builds" className="hover:text-amber-400 transition-colors">PC Builder</Link>
+            <Link href="/refurbished" className="hover:text-amber-400 transition-colors">Refurbished</Link>
+            <Link href="/exchange" className="hover:text-amber-400 transition-colors">Trade-In</Link>
+            <Link href="/emi-calculator" className="hover:text-amber-400 transition-colors">EMI Calc</Link>
+            <Link href="/repairs" className="hover:text-amber-400 transition-colors">Repairs</Link>
+            <Link href="/corporate" className="hover:text-amber-400 transition-colors">Corporate</Link>
+            <Link href="/students" className="hover:text-amber-400 transition-colors">Students</Link>
+          </nav>
 
-        {/* Center: TecnoMart Branding strictly centered */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-auto">
-          <Link href="/" className="flex flex-col items-center justify-center">
-            <TecnoMartLogo className="w-6.5 h-6.5 sm:w-7.5 sm:h-7.5" textClass="text-white font-black text-xs sm:text-sm" subtitleClass="text-neutral-200 font-semibold text-[6.5px] sm:text-[7.5px]" />
-          </Link>
-        </div>
-
-        {/* Right Side: Cart with item badge */}
-        <div className="flex items-center justify-end z-10 min-w-[60px]">
-          <Link
-            href="/cart"
-            className="w-10 h-10 flex items-center justify-center text-white hover:text-amber-300 active:scale-95 relative cursor-pointer"
-            aria-label={`Cart, ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
-          >
-            <ShoppingBag className="w-5 h-5" />
-            {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-amber-400 text-neutral-950 font-black text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center shadow-xs">
-                {cartCount}
-              </span>
-            )}
-          </Link>
-        </div>
-      </div>
-
-      {/* Mobile Account Popover when clicked on mobile */}
-      {accountDropdownOpen && (
-        <div
-          id="mobile-account-popover"
-          role="dialog"
-          aria-label="User Account Settings"
-          className="lg:hidden bg-white text-neutral-900 border-t border-neutral-200 px-4 py-3 shadow-lg animate-in slide-in-from-top-2 duration-200"
-        >
-          <div className="flex items-center justify-between pb-2 border-b border-neutral-100">
-            <div>
-              <p className="text-xs font-bold text-neutral-900">Signed In Account</p>
-              <p className="text-[11px] text-neutral-500">user@tecnomart.in</p>
-            </div>
-            <button
-              onClick={() => setAccountDropdownOpen(false)}
-              aria-label="Close account menu"
-              className="text-neutral-400 hover:text-neutral-900 p-1 cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
+          {/* Right: Express Delivery Banner */}
+          <div className="hidden lg:flex items-center gap-1.5 shrink-0 text-[#FFD21C] font-black text-xs tracking-wide">
+            <Sparkles className="w-4 h-4 text-[#FFD21C] shrink-0" />
+            <span className="whitespace-nowrap">HYDERABAD EXPRESS 4–HOUR DELIVERY ACTIVE</span>
           </div>
-          <div className="grid grid-cols-2 gap-2 pt-2 text-xs font-bold">
-            <Link
-              href="/orders"
-              onClick={() => setAccountDropdownOpen(false)}
-              className="p-2 bg-neutral-50 rounded-lg text-neutral-800 hover:bg-neutral-100"
-            >
-              My Orders
-            </Link>
-            <button
-              onClick={() => {
-                setAccountDropdownOpen(false);
-                setIsWishlistOpen(true);
-              }}
-              className="p-2 bg-neutral-50 rounded-lg text-neutral-800 hover:bg-neutral-100 text-left"
-            >
-              Wishlist ({wishlist.length})
-            </button>
-            <button
-              onClick={() => {
-                setAccountDropdownOpen(false);
-                setPincodeModalOpen(true);
-              }}
-              className="p-2 bg-neutral-50 rounded-lg text-neutral-800 hover:bg-neutral-100 text-left"
-            >
-              Pin ({locationPincode})
-            </button>
-            <button
-              onClick={() => {
-                setAccountDropdownOpen(false);
-                setSignInAlert(true);
-                setTimeout(() => setSignInAlert(false), 3000);
-              }}
-              className="p-2 bg-red-50 text-red-600 rounded-lg text-left"
-            >
-              Sign Out
-            </button>
-          </div>
-        </div>
-      )}
 
-      {/* Mobile Search Bar below mobile header */}
-      <div className="lg:hidden px-3 py-1.5 bg-[#141414]">
-        <div className="relative flex items-center">
-          <div className="absolute left-3 pointer-events-none text-neutral-400">
-            <Search className="w-3.5 h-3.5 stroke-[2]" />
-          </div>
-          <label htmlFor="search-mobile" className="sr-only">Search TecnoMart</label>
-          <input
-            id="search-mobile"
-            type="search"
-            placeholder="Search for MacBooks, iPhones, laptops..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-8 pl-8.5 pr-3 bg-white/95 focus:bg-white text-[11px] sm:text-xs text-neutral-900 rounded-full border border-white/20 outline-none focus:border-amber-400 font-medium"
-          />
         </div>
       </div>
     </header>

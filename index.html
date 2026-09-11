@@ -50,10 +50,12 @@
     <link rel="apple-touch-icon" href="/webp/apple-touch-icon.webp" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Fonts (Preloaded & Non-Render-Blocking) -->
+    <!-- Preload Hero LCP Image for instant first paint -->
+    <link rel="preload" as="image" href="/webp/bento-grid-images/pc.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Fonts (Non-Render-Blocking Asynchronous Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Caveat:wght@600;700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Caveat:wght@600;700&display=swap" media="print" onload="this.media='all'" />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Caveat:wght@600;700&display=swap" />
@@ -127,7 +129,28 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#FFD21C] focus:text-black focus:font-bold focus:rounded-lg focus:shadow-lg focus:outline-none">
       Skip to main content
     </a>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height:100vh;background:#ffffff;display:flex;flex-direction:column;font-family:system-ui,-apple-system,sans-serif;">
+        <div style="height:48px;background:#0d0d0d;display:flex;align-items:center;justify-content:space-between;padding:0 16px;">
+          <div style="font-weight:900;color:#ffffff;font-size:16px;letter-spacing:-0.5px;">TECNOMART</div>
+        </div>
+        <div style="max-width:1380px;margin:0 auto;padding:16px;width:100%;box-sizing:border-box;">
+          <div style="text-align:left;margin-top:8px;">
+            <div style="font-size:32px;font-weight:900;line-height:1.06;text-transform:uppercase;color:#0a0a0a;">
+              <div>YOUR TECH.</div>
+              <div>YOUR BUDGET.</div>
+              <div style="color:#F5B800;">YOUR RIGHT PC.</div>
+            </div>
+            <div style="font-size:14px;color:#525252;margin-top:12px;">
+              Mobiles, Laptops, Gaming PCs &amp; Expert Repairs – All under one roof with official warranty.
+            </div>
+          </div>
+          <div style="margin-top:20px;display:flex;align-items:center;justify-content:center;height:280px;">
+            <img src="/webp/bento-grid-images/pc.webp" alt="TecnoMart Flagship Setup" width="550" height="480" fetchpriority="high" style="max-height:100%;max-width:100%;width:auto;object-fit:contain;" />
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

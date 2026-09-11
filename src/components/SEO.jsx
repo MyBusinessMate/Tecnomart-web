@@ -148,17 +148,17 @@ export function createBreadcrumbSchema(items) {
 }
 
 export default function SEO({
-  title,
-  description,
-  keywords,
-  canonical,
-  canonicalUrl,
+  title = '',
+  description = '',
+  keywords = '',
+  canonical = '',
+  canonicalUrl = '',
   ogType = 'website',
   ogImage = `${BASE_URL}/webp/logo.webp`,
-  ogImageAlt,
+  ogImageAlt = '',
   noindex = false,
-  schema,
-  breadcrumbs,
+  schema = null,
+  breadcrumbs = null,
 }) {
   useEffect(() => {
     // 1. Format Title

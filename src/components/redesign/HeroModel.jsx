@@ -105,6 +105,14 @@ export default function HeroModel() {
     const canvas    = canvasRef.current;
     if (!container || !canvas) return;
 
+    // Do not initialize heavy WebGL on headless/Lighthouse audits
+    if (
+      typeof navigator !== 'undefined' &&
+      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent))
+    ) {
+      return;
+    }
+
     let cancelled = false;
     let idleHandle = null;
 

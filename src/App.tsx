@@ -1,46 +1,50 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { ShopProvider } from './context/ShopContext';
-import CartDrawer from './components/redesign/CartDrawer';
-import CheckoutModal from './components/redesign/CheckoutModal';
-import RepairModal from './components/redesign/RepairModal';
-import WishlistDrawer from './components/redesign/WishlistDrawer';
-import WhatsAppWidget from './components/redesign/WhatsAppWidget';
-import BottomDock from './components/redesign/BottomDock';
-import LuckyWheelModal from './components/redesign/LuckyWheelModal';
-import TimedSpinPopup from './components/redesign/TimedSpinPopup';
+import { ShopProvider, useShop } from './context/ShopContext';
 
-// Pages
+// Global Overlays & Modals - Lazy load to eliminate unused JS on initial render
+const CartDrawer = React.lazy(() => import('./components/redesign/CartDrawer'));
+const CheckoutModal = React.lazy(() => import('./components/redesign/CheckoutModal'));
+const RepairModal = React.lazy(() => import('./components/redesign/RepairModal'));
+const WishlistDrawer = React.lazy(() => import('./components/redesign/WishlistDrawer'));
+const LuckyWheelModal = React.lazy(() => import('./components/redesign/LuckyWheelModal'));
+const WhatsAppWidget = React.lazy(() => import('./components/redesign/WhatsAppWidget'));
+const BottomDock = React.lazy(() => import('./components/redesign/BottomDock'));
+const TimedSpinPopup = React.lazy(() => import('./components/redesign/TimedSpinPopup'));
+
+// Pages - Eagerly load primary storefront home
 import Page from './app/page';
-import LaptopsPage from './app/laptops/page';
-import MobilesPage from './app/mobiles/page';
-import AccessoriesPage from './app/accessories/page';
-import GamingPage from './app/gaming/page';
-import RepairsPage from './app/repairs/page';
-import RefurbishedPage from './app/refurbished/page';
-import PcBuildsPage from './app/pc-builds/page';
-import DealsPage from './app/deals/page';
-import AboutPage from './app/about/page';
-import ContactPage from './app/contact/page';
-import PrivacyPage from './app/privacy/page';
-import TermsPage from './app/terms/page';
-import ComparePage from './app/compare/page';
-import EmiCalculatorPage from './app/emi-calculator/page';
-import ExchangePage from './app/exchange/page';
-import CorporatePage from './app/corporate/page';
-import StudentsPage from './app/students/page';
-import CartPage from './app/cart/page';
-import SpinPage from './app/spin/page';
-import ScanPage from './pages/ScanPage';
-import NotFoundPage from './app/not-found/page';
+
+// Code-split secondary storefront routes for ultra-fast initial load & 90+ Lighthouse score
+const LaptopsPage = React.lazy(() => import('./app/laptops/page'));
+const MobilesPage = React.lazy(() => import('./app/mobiles/page'));
+const AccessoriesPage = React.lazy(() => import('./app/accessories/page'));
+const GamingPage = React.lazy(() => import('./app/gaming/page'));
+const RepairsPage = React.lazy(() => import('./app/repairs/page'));
+const RefurbishedPage = React.lazy(() => import('./app/refurbished/page'));
+const PcBuildsPage = React.lazy(() => import('./app/pc-builds/page'));
+const DealsPage = React.lazy(() => import('./app/deals/page'));
+const AboutPage = React.lazy(() => import('./app/about/page'));
+const ContactPage = React.lazy(() => import('./app/contact/page'));
+const PrivacyPage = React.lazy(() => import('./app/privacy/page'));
+const TermsPage = React.lazy(() => import('./app/terms/page'));
+const ComparePage = React.lazy(() => import('./app/compare/page'));
+const EmiCalculatorPage = React.lazy(() => import('./app/emi-calculator/page'));
+const ExchangePage = React.lazy(() => import('./app/exchange/page'));
+const CorporatePage = React.lazy(() => import('./app/corporate/page'));
+const StudentsPage = React.lazy(() => import('./app/students/page'));
+const CartPage = React.lazy(() => import('./app/cart/page'));
+const SpinPage = React.lazy(() => import('./app/spin/page'));
+const ScanPage = React.lazy(() => import('./pages/ScanPage'));
+const NotFoundPage = React.lazy(() => import('./app/not-found/page'));
 
 // Product detail dynamic routing
-import LaptopDetailClient from './app/laptops/[slug]/LaptopDetailClient';
-import MobileDetailClient from './app/mobiles/[slug]/MobileDetailClient';
-import AccessoryDetailClient from './app/accessories/[slug]/AccessoryDetailClient';
-import GamingDetailClient from './app/gaming/[slug]/GamingDetailClient';
-import RefurbishedDetailClient from './app/refurbished/[slug]/RefurbishedDetailClient';
-import SitemapPage from './app/sitemap/page';
+const LaptopDetailClient = React.lazy(() => import('./app/laptops/[slug]/LaptopDetailClient'));
+const MobileDetailClient = React.lazy(() => import('./app/mobiles/[slug]/MobileDetailClient'));
+const AccessoryDetailClient = React.lazy(() => import('./app/accessories/[slug]/AccessoryDetailClient'));
+const GamingDetailClient = React.lazy(() => import('./app/gaming/[slug]/GamingDetailClient'));
+const RefurbishedDetailClient = React.lazy(() => import('./app/refurbished/[slug]/RefurbishedDetailClient'));
+const SitemapPage = React.lazy(() => import('./app/sitemap/page'));
 
 // Admin Pages (Loaded for Local Testing)
 const AdminLoginPage = React.lazy(() => import('./pages/admin/AdminLoginPage'));
@@ -122,8 +126,31 @@ function SpinRedirect({ superMode = false }: { superMode?: boolean }) {
   );
 }
 
-export default function App() {
+function GlobalOverlays() {
+  const { isCheckoutOpen, isWishlistOpen, isCartOpen, isRepairOpen } = useShop();
   const [isSpinOpen, setIsSpinOpen] = React.useState(false);
+  const location = useLocation();
+
+  // Keep /scan and /myadmin completely free of storefront popups, docks and cart drawers
+  if (location.pathname === '/scan' || location.pathname.startsWith('/myadmin')) {
+    return null;
+  }
+
+  return (
+    <React.Suspense fallback={null}>
+      {isCartOpen && <CartDrawer />}
+      {isCheckoutOpen && <CheckoutModal />}
+      {isRepairOpen && <RepairModal />}
+      {isWishlistOpen && <WishlistDrawer />}
+      <WhatsAppWidget />
+      <BottomDock onOpenSpin={() => setIsSpinOpen(true)} />
+      {isSpinOpen && <LuckyWheelModal isOpen={isSpinOpen} onClose={() => setIsSpinOpen(false)} />}
+      <TimedSpinPopup />
+    </React.Suspense>
+  );
+}
+
+export default function App() {
   const onSpinSubdomain = isSpinSubdomain();
   const onScanSubdomain = isScanSubdomain();
 
@@ -132,11 +159,13 @@ export default function App() {
     return (
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<ScanPage />} />
-          <Route path="/scan" element={<ScanPage />} />
-          <Route path="*" element={<ScanPage />} />
-        </Routes>
+        <React.Suspense fallback={<div className="min-h-screen bg-white" />}>
+          <Routes>
+            <Route path="/" element={<ScanPage />} />
+            <Route path="/scan" element={<ScanPage />} />
+            <Route path="*" element={<ScanPage />} />
+          </Routes>
+        </React.Suspense>
       </BrowserRouter>
     );
   }
@@ -146,12 +175,14 @@ export default function App() {
     return (
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<SpinPage />} />
-          <Route path="/spin" element={<SpinPage />} />
-          <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
-          <Route path="*" element={<SpinPage />} />
-        </Routes>
+        <React.Suspense fallback={<div className="min-h-screen bg-white" />}>
+          <Routes>
+            <Route path="/" element={<SpinPage />} />
+            <Route path="/spin" element={<SpinPage />} />
+            <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
+            <Route path="*" element={<SpinPage />} />
+          </Routes>
+        </React.Suspense>
       </BrowserRouter>
     );
   }
@@ -161,70 +192,68 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <ShopProvider>
-        <Routes>
-          <Route path="/" element={<Page />} />
-          
-          {/* Category catalog and product pages */}
-          <Route path="/laptops" element={<LaptopsPage />} />
-          <Route path="/laptops/:slug" element={<LaptopDetailPage />} />
+        {/* Main Content Router */}
+        <React.Suspense fallback={null}>
+          <Routes>
+            {/* Primary Storefront Landing Page */}
+            <Route path="/" element={<Page />} />
+            
+            {/* Category Storefront Routes */}
+            <Route path="/laptops" element={<LaptopsPage />} />
+            <Route path="/laptops/:slug" element={<LaptopDetailPage />} />
 
-          <Route path="/mobiles" element={<MobilesPage />} />
-          <Route path="/mobiles/:slug" element={<MobileDetailPage />} />
+            <Route path="/mobiles" element={<MobilesPage />} />
+            <Route path="/mobiles/:slug" element={<MobileDetailPage />} />
 
-          <Route path="/accessories" element={<AccessoriesPage />} />
-          <Route path="/accessories/:slug" element={<AccessoryDetailPage />} />
+            <Route path="/accessories" element={<AccessoriesPage />} />
+            <Route path="/accessories/:slug" element={<AccessoryDetailPage />} />
 
-          <Route path="/gaming" element={<GamingPage />} />
-          <Route path="/gaming/:slug" element={<GamingDetailPage />} />
+            <Route path="/gaming" element={<GamingPage />} />
+            <Route path="/gaming/:slug" element={<GamingDetailPage />} />
 
-          <Route path="/refurbished" element={<RefurbishedPage />} />
-          <Route path="/refurbished/:slug" element={<RefurbishedDetailPage />} />
+            <Route path="/refurbished" element={<RefurbishedPage />} />
+            <Route path="/refurbished/:slug" element={<RefurbishedDetailPage />} />
 
-          <Route path="/repairs" element={<RepairsPage />} />
-          <Route path="/pc-builds" element={<PcBuildsPage />} />
-          <Route path="/build-your-setup" element={<PcBuildsPage />} />
-          <Route path="/deals" element={<DealsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/compare" element={<ComparePage />} />
-          <Route path="/emi-calculator" element={<EmiCalculatorPage />} />
-          <Route path="/exchange" element={<ExchangePage />} />
-          <Route path="/corporate" element={<CorporatePage />} />
-          <Route path="/students" element={<StudentsPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/spin" element={<SpinRedirect />} />
-          <Route path="/supertechie" element={<SpinRedirect superMode={true} />} />
-          <Route path="/scan" element={<ScanPage />} />
-          <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="/repairs" element={<RepairsPage />} />
+            <Route path="/pc-builds" element={<PcBuildsPage />} />
+            <Route path="/build-your-setup" element={<PcBuildsPage />} />
+            <Route path="/deals" element={<DealsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/emi-calculator" element={<EmiCalculatorPage />} />
+            <Route path="/exchange" element={<ExchangePage />} />
+            <Route path="/corporate" element={<CorporatePage />} />
+            <Route path="/students" element={<StudentsPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/spin" element={<SpinRedirect />} />
+            <Route path="/supertechie" element={<SpinRedirect superMode={true} />} />
+            <Route path="/scan" element={<ScanPage />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
 
-          {/* Super Admin Routes (Local Testing) */}
-          <Route path="/myadmin/login" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminLoginPage /></React.Suspense>} />
-          <Route path="/myadmin" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminDashboardPage /></React.Suspense>} />
-          <Route path="/myadmin/products" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminProductsPage /></React.Suspense>} />
-          <Route path="/myadmin/categories" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminCategoriesPage /></React.Suspense>} />
-          <Route path="/myadmin/repairs" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminRepairsPage /></React.Suspense>} />
-          <Route path="/myadmin/configurator" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminConfiguratorPage /></React.Suspense>} />
-          <Route path="/myadmin/spin" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminSpinPage /></React.Suspense>} />
-          <Route path="/myadmin/blogs" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminBlogsPage /></React.Suspense>} />
-          <Route path="/myadmin/store-info" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminStoreInfoPage /></React.Suspense>} />
-          <Route path="/myadmin/copy-content" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminCopyContentPage /></React.Suspense>} />
-          <Route path="/myadmin/users" element={<React.Suspense fallback={<div className="p-8 font-mono text-sm text-neutral-500">Loading Admin...</div>}><AdminUsersPage /></React.Suspense>} />
+            {/* Super Admin Routes (Local Testing) */}
+            <Route path="/myadmin/login" element={<AdminLoginPage />} />
+            <Route path="/myadmin" element={<AdminDashboardPage />} />
+            <Route path="/myadmin/products" element={<AdminProductsPage />} />
+            <Route path="/myadmin/categories" element={<AdminCategoriesPage />} />
+            <Route path="/myadmin/repairs" element={<AdminRepairsPage />} />
+            <Route path="/myadmin/configurator" element={<AdminConfiguratorPage />} />
+            <Route path="/myadmin/spin" element={<AdminSpinPage />} />
+            <Route path="/myadmin/blogs" element={<AdminBlogsPage />} />
+            <Route path="/myadmin/store-info" element={<AdminStoreInfoPage />} />
+            <Route path="/myadmin/copy-content" element={<AdminCopyContentPage />} />
+            <Route path="/myadmin/users" element={<AdminUsersPage />} />
 
-          {/* 404 Page */}
-          <Route path="/404" element={<NotFoundPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            {/* 404 Page */}
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </React.Suspense>
 
-        {/* Global Overlays & Widgets */}
-        <CheckoutModal />
-        <RepairModal />
-        <WishlistDrawer />
-        <WhatsAppWidget />
-        <BottomDock onOpenSpin={() => setIsSpinOpen(true)} />
-        <LuckyWheelModal isOpen={isSpinOpen} onClose={() => setIsSpinOpen(false)} />
-        <TimedSpinPopup />
+        {/* Global Overlays & Widgets (Guarded & Lazy-loaded) */}
+        <GlobalOverlays />
       </ShopProvider>
     </BrowserRouter>
   );

@@ -6,7 +6,7 @@ node_modules/
 # Testing & Coverage
 coverage/
 
-# Next.js Build & Output
+# Next.js & Vite Build & Output
 .next/
 out/
 build/
@@ -52,23 +52,37 @@ next-env.d.ts
 .vercel/
 .turbo/
 
-# AI Agent, Temp Files, Scratches & Browser Artifacts
+# Admin Panel & Contracts (excluded per user instruction)
+.admin/
+
+# AI Agents, Tool Data & Browser Artifacts
+.agents/
+.claude/
+.cursor/
+.gemini/
+.antigravity/
+.chrome-clean/
+.playwright-mcp/
+.tempmediaStorage/
 AGENTS.md
 CLAUDE.md
 issues.md
+AUDIT_REPORT.md
+DESIGN_AUDIT_REPORT.md
+TEST-REPORT.md
 docs/
 scratch/
 tmp/
 temp/
-.tempmediaStorage/
-.playwright-mcp/
 browser/
 
-# Raw staging assets & ChatGPT Generated Images
+# Lighthouse Audits & HTML/JSON Reports
+web-report*
+*.report.html
+*.report.json
+lighthouse-report.json
+
+# Raw staging assets & Generated Images
 /images/
 *ChatGPT*
 *[Cc]hat[Gg]pt*
-lighthouse-report.json
-
-# Admin Panel and Internal Contracts (excluded per user instruction)
-TEST-REPORT.md

@@ -4,15 +4,35 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useShop } from '@/context/ShopContext';
 import { Flame, Clock, ShoppingBag, Check, Zap, Star, ShieldCheck } from 'lucide-react';
-import { LAPTOPS_DATA } from '@/data/products';
-import { useAdminStore } from '@/lib/admin/adminStore';
+const DEFAULT_DEAL_PRODUCT = {
+  id: 'macbook-pro-16-m3-max',
+  name: 'Apple MacBook Pro 16" M3 Max (36GB / 1TB)',
+  price: '₹3,09,900',
+  originalPrice: '₹3,49,900',
+  discountPercent: '11% OFF',
+  rating: 4.9,
+  reviewCount: 128,
+  image: '/webp/landing/apple-macbook-pro-16-space-black-glow.webp',
+  badge: 'DEAL OF THE DAY',
+  specs: ['M3 Max 14-Core CPU', '30-Core GPU', '36GB Unified Memory', 'Liquid Retina XDR']
+};
 
 export default function DealOfTheDay() {
   const { addToCart, setIsCartOpen } = useShop();
-  const dealOfTheDayId = useAdminStore((s) => s.dealOfTheDayProductId);
-  const allProducts = useAdminStore((s) => s.products) || [];
+  const [dealProduct, setDealProduct] = useState(DEFAULT_DEAL_PRODUCT);
 
-  const dealProduct = allProducts.find((p) => p.id === dealOfTheDayId) || LAPTOPS_DATA[0];
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('tecnomart_admin_store');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed.dealOfTheDayProductId && parsed.products) {
+          const match = parsed.products.find((p) => p.id === parsed.dealOfTheDayProductId);
+          if (match) setDealProduct(match);
+        }
+      }
+    } catch (_e) {}
+  }, []);
 
   const productImage = (dealProduct.images && dealProduct.images[0]) || dealProduct.image || '/webp/landing/apple-macbook-pro-16-space-black-glow.webp';
 
@@ -98,8 +118,11 @@ export default function DealOfTheDay() {
               <img
                 src={productImage}
                 alt={dealProduct.name}
+                width={500}
+                height={500}
                 className="w-full h-full object-contain p-4 group-hover:scale-108 transition-transform duration-500"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

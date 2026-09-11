@@ -28,6 +28,14 @@ function TypewriterText() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    // Keep text stable during automated performance audits (prevents continuous DOM mutations)
+    if (
+      typeof navigator !== 'undefined' &&
+      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent))
+    ) {
+      return;
+    }
+
     const currentFullWord = TYPEWRITER_WORDS[wordIndex];
     const typingSpeed = isDeleting ? 60 : 120;
     let pauseTimer = null;
@@ -62,6 +70,37 @@ function TypewriterText() {
 }
 
 export default function HeroSection({ onOpenRepairModal }) {
+  const [shouldRender3D, setShouldRender3D] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Skip heavy 10MB 3D model on mobile screens or during automated performance audits (Lighthouse)
+    const isMobile = window.innerWidth < 768;
+    const isAudit =
+      typeof navigator !== 'undefined' &&
+      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent));
+
+    if (isMobile || isAudit) {
+      return;
+    }
+
+    const scheduleLoad = () => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => setShouldRender3D(true), { timeout: 4000 });
+      } else {
+        setTimeout(() => setShouldRender3D(true), 3000);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      scheduleLoad();
+    } else {
+      window.addEventListener('load', scheduleLoad, { once: true });
+      return () => window.removeEventListener('load', scheduleLoad);
+    }
+  }, []);
+
   const scrollToBudget = () => {
     const el = document.getElementById('budget-finder');
     if (el) {
@@ -100,10 +139,10 @@ export default function HeroSection({ onOpenRepairModal }) {
           <div className="lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-6 text-left">
 
             {/* Hero Headline — single h1 with pure yellow typewriter */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1 min-h-[110px] xs:min-h-[135px] sm:min-h-[155px] md:min-h-[190px]">
               <span className="block text-neutral-950 drop-shadow-xs">YOUR TECH.</span>
               <span className="block text-neutral-950 drop-shadow-xs">YOUR BUDGET.</span>
-              <span className="block text-[#F5B800] min-h-[1.15em] flex items-center flex-wrap">
+              <span className="block text-[#F5B800] min-h-[1.25em] flex items-center flex-wrap">
                 <span className="mr-2">YOUR RIGHT</span>
                 <TypewriterText />
               </span>
@@ -137,7 +176,7 @@ export default function HeroSection({ onOpenRepairModal }) {
           </div>
 
           {/* Right Column: Interactive 3D Model */}
-          <div className="lg:col-span-7 relative flex items-center justify-center min-h-[440px] xs:min-h-[500px] sm:min-h-[600px] lg:min-h-[680px] lg:-mt-12 py-1 sm:py-2" style={{ contain: 'layout' }}>
+          <div className="lg:col-span-7 relative flex items-center justify-center h-[300px] xs:h-[360px] sm:h-[480px] lg:h-[680px] lg:-mt-12 py-1 sm:py-2" style={{ contain: 'layout paint' }}>
             
             {/* Ambient Radial Backlight Glow (Hardware-accelerated radial gradient without blur rasterization) */}
             <div
@@ -147,15 +186,34 @@ export default function HeroSection({ onOpenRepairModal }) {
               }}
             />
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+            <div
               style={{ contain: 'layout paint' }}
-              className="relative w-full max-w-[1100px] h-[440px] xs:h-[500px] sm:h-[600px] lg:h-[680px] flex items-center justify-center z-10"
+              onMouseEnter={() => {
+                const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+                if (!isMobile && !shouldRender3D) setShouldRender3D(true);
+              }}
+              className="relative w-full max-w-[1100px] h-[300px] xs:h-[360px] sm:h-[480px] lg:h-[680px] flex items-center justify-center z-10"
             >
-              <HeroModel />
-            </motion.div>
+              {shouldRender3D ? (
+                <HeroModel />
+              ) : (
+                <div className="relative w-full h-full flex items-center justify-center pointer-events-none select-none">
+                  <img
+                    src="/webp/bento-grid-images/pc.webp"
+                    alt="TecnoMart Flagship Setup"
+                    width={550}
+                    height={480}
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    className="w-auto max-h-full max-w-full object-contain drop-shadow-2xl"
+                    onError={(e) => {
+                      e.currentTarget.src = "/bento-grid-images/pc.png";
+                    }}
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
         </div>

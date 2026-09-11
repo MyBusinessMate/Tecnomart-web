@@ -12,7 +12,6 @@ export interface ScanLink {
   icon: "whatsapp" | "instagram" | "facebook" | "google" | "mail" | "globe" | "gift" | "phone" | string;
   button: string; // The button label (e.g., "Chat on WhatsApp", "Follow", "Rate Us")
   buttonText?: string; // Fallback alias
-  badge?: string;
   primary?: boolean;
 }
 
@@ -47,9 +46,8 @@ export const SCAN_LINKS: ScanLink[] = [
     name: "WhatsApp Support",
     url: `https://wa.me/919010667726?text=${WHATSAPP_SUPPORT_MESSAGE}`,
     icon: "whatsapp",
-    button: "Chat on WhatsApp",
-    buttonText: "Chat on WhatsApp",
-    badge: "Instant Reply",
+    button: "Chat with us on WhatsApp",
+    buttonText: "Chat with us on WhatsApp",
     primary: true,
   },
   {
@@ -57,51 +55,47 @@ export const SCAN_LINKS: ScanLink[] = [
     name: "Instagram",
     url: "https://www.instagram.com/tecnomart.hyd",
     icon: "instagram",
-    button: "Follow on Instagram",
-    buttonText: "Follow on Instagram",
-    badge: "@tecnomart.hyd",
+    button: "Follow for updates & offers",
+    buttonText: "Follow for updates & offers",
   },
   {
     id: "facebook",
     name: "Facebook",
     url: "https://www.facebook.com/tecnomarthyd",
     icon: "facebook",
-    button: "Connect on Facebook",
-    buttonText: "Connect on Facebook",
+    button: "Connect with us",
+    buttonText: "Connect with us",
   },
   {
     id: "google-business",
     name: "Google Business & Reviews",
     url: "https://www.google.com/maps/search/?api=1&query=Tecno+Mart+Opposite+Fortune+Toyota+Service+Center+7+Tombs+Road+Tolichowki+Hyderabad",
     icon: "google",
-    button: "Find Us / Rate on Google",
-    buttonText: "Find Us / Rate on Google",
-    badge: "4.9 ★ Rating",
+    button: "Find us / Rate us on Google",
+    buttonText: "Find us / Rate us on Google",
   },
   {
     id: "email",
     name: "Customer Support Email",
     url: "mailto:support@tecnomart.in?subject=Customer%20Inquiry%20via%20QR%20Scan",
     icon: "mail",
-    button: "Email Support Team",
-    buttonText: "Email Support Team",
-    badge: "support@tecnomart.in",
+    button: "Reach our support team",
+    buttonText: "Reach our support team",
   },
   {
     id: "website",
     name: "Official Store Website",
     url: "https://tecnomart.in",
     icon: "globe",
-    button: "Browse Store Catalog",
-    buttonText: "Browse Store Catalog",
+    button: "Browse our store catalog",
+    buttonText: "Browse our store catalog",
   },
   {
     id: "spin",
     name: "Spin & Win Daily Rewards",
     url: "https://spin.tecnomart.in",
     icon: "gift",
-    button: "Spin The Reward Wheel",
-    buttonText: "Spin The Reward Wheel",
-    badge: "Guaranteed Prize",
+    button: "Spin the reward wheel",
+    buttonText: "Spin the reward wheel",
   },
 ];

@@ -6,14 +6,14 @@ import HeroSection from '@/components/redesign/HeroSection';
 import TrustStrip from '@/components/redesign/TrustStrip';
 import DealOfTheDay from '@/components/redesign/DealOfTheDay';
 import CategoryGrid from '@/components/redesign/CategoryGrid';
-import BudgetFinder from '@/components/redesign/BudgetFinder';
-import WhyChooseUs from '@/components/redesign/WhyChooseUs';
-import GamingBanner from '@/components/redesign/GamingBanner';
-import SpinBannerSection from '@/components/redesign/SpinBannerSection';
-import PopularPicks from '@/components/redesign/PopularPicks';
-import PromoBanners from '@/components/redesign/PromoBanners';
-import ReviewsAndLocation from '@/components/redesign/ReviewsAndLocation';
-import Footer from '@/components/redesign/Footer';
+const BudgetFinder = React.lazy(() => import('@/components/redesign/BudgetFinder'));
+const WhyChooseUs = React.lazy(() => import('@/components/redesign/WhyChooseUs'));
+const GamingBanner = React.lazy(() => import('@/components/redesign/GamingBanner'));
+const SpinBannerSection = React.lazy(() => import('@/components/redesign/SpinBannerSection'));
+const PopularPicks = React.lazy(() => import('@/components/redesign/PopularPicks'));
+const PromoBanners = React.lazy(() => import('@/components/redesign/PromoBanners'));
+const ReviewsAndLocation = React.lazy(() => import('@/components/redesign/ReviewsAndLocation'));
+const Footer = React.lazy(() => import('@/components/redesign/Footer'));
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
@@ -59,52 +59,63 @@ export default function Page() {
           <TrustStrip />
 
           {/* 4. Deal of the Day Flash Sale */}
-          <DealOfTheDay />
+          <div className="section-contain">
+            <DealOfTheDay />
+          </div>
 
           {/* 5. Category Grid ("WHAT DO YOU NEED?") */}
-          <CategoryGrid />
-
-          {/* 6. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
           <div className="section-contain">
-            <BudgetFinder />
+            <CategoryGrid />
           </div>
 
-          {/* 7. Why Choose Us (6 Features) */}
-          <div className="section-contain">
-            <WhyChooseUs />
-          </div>
+          {/* Below-the-fold content code-split with Suspense boundary */}
+          <React.Suspense fallback={<div className="min-h-[200px]" />}>
+            {/* 6. Budget Banner ("BUDGET BATAO. BEST OPTION PAO.") */}
+            <div className="section-contain">
+              <BudgetFinder />
+            </div>
 
-          {/* 8. Gaming PC Banner ("BUILT FOR VICTORY.") */}
-          <div className="section-contain">
-            <GamingBanner />
-          </div>
+            {/* 7. Why Choose Us (6 Features) */}
+            <div className="section-contain">
+              <WhyChooseUs />
+            </div>
 
-          {/* 8b. Spin & Win Reward Machine Banner ("GET A LUCKY CHANCE TO WIN") */}
-          <div className="section-contain">
-            <SpinBannerSection />
-          </div>
+            {/* 8. Gaming PC Banner ("BUILT FOR VICTORY.") */}
+            <div className="section-contain">
+              <GamingBanner />
+            </div>
 
-          {/* 9. Popular Picks Carousel */}
-          <div className="section-contain">
-            <PopularPicks
-              onAddToCart={handleAddToCart}
-              addedItems={addedItems}
-            />
-          </div>
+            {/* 8b. Spin & Win Reward Machine Banner ("GET A LUCKY CHANCE TO WIN") */}
+            <div className="section-contain">
+              <SpinBannerSection />
+            </div>
 
-          {/* 10. Highlight Cards (Expert Repairs & Smarter Prices) */}
-          <div className="section-contain">
-            <PromoBanners />
-          </div>
+            {/* 9. Popular Picks Carousel */}
+            <div className="section-contain">
+              <PopularPicks
+                onAddToCart={handleAddToCart}
+                addedItems={addedItems}
+              />
+            </div>
 
-          {/* 11. Visit Our Store & Google Reviews */}
-          <div className="section-contain">
-            <ReviewsAndLocation />
-          </div>
+            {/* 10. Highlight Cards (Expert Repairs & Smarter Prices) */}
+            <div className="section-contain">
+              <PromoBanners />
+            </div>
+
+            {/* 11. Visit Our Store & Google Reviews */}
+            <div className="section-contain">
+              <ReviewsAndLocation />
+            </div>
+          </React.Suspense>
         </main>
 
         {/* 12. Footer with Stay Updated Card & Socials */}
-        <Footer />
+        <React.Suspense fallback={null}>
+          <div className="section-contain">
+            <Footer />
+          </div>
+        </React.Suspense>
 
         {/* Mobile Bottom Thumb Navigation */}
         <MobileBottomBar

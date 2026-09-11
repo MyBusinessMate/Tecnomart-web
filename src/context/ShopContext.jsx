@@ -1,7 +1,6 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
-import { ALL_PRODUCTS } from '@/data/products';
 import { ArrowRight, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WhatsAppConfirmModal from '@/components/redesign/WhatsAppConfirmModal';

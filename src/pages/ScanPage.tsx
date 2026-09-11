@@ -9,80 +9,104 @@ import {
   Mail,
   Globe,
   Gift,
-  Phone,
-  ExternalLink,
-  ChevronRight,
+  ArrowRight,
   MapPin,
-  CheckCircle2,
 } from 'lucide-react';
 
-function BrandIcon({ icon }: { icon: string }) {
+function BrandIconBadge({ icon }: { icon: string }) {
   switch (icon) {
     case 'whatsapp':
       return (
-        <svg
-          className="w-5 h-5 fill-current text-[#25D366]"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.214 8.214 0 0 1-5.83 2.41c-1.47 0-2.91-.39-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24zm4.5 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.07-.39-2.04-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z" />
-        </svg>
+        <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+          <svg
+            className="w-6 h-6 fill-white text-white"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.214 8.214 0 0 1-5.83 2.41c-1.47 0-2.91-.39-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.23-8.24zm4.5 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.07-.39-2.04-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z" />
+          </svg>
+        </div>
       );
     case 'instagram':
       return (
-        <svg
-          className="w-5 h-5 fill-current text-[#E4405F]"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-        </svg>
+        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#833AB4] flex items-center justify-center shrink-0 shadow-xs">
+          <svg
+            className="w-6 h-6 text-white stroke-white fill-none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+        </div>
       );
     case 'facebook':
       return (
-        <svg
-          className="w-5 h-5 fill-current text-[#1877F2]"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-        </svg>
+        <div className="w-12 h-12 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 shadow-xs">
+          <svg
+            className="w-6 h-6 fill-white"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg>
+        </div>
       );
     case 'google':
       return (
-        <svg
-          className="w-5 h-5"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            fill="#4285F4"
-            d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"
-          />
-          <path
-            fill="#34A853"
-            d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"
-          />
-          <path
-            fill="#FBBC05"
-            d="M5.28 14.27a7.22 7.22 0 0 1 0-4.54V6.58H1.25a11.98 11.98 0 0 0 0 10.84l4.03-3.15z"
-          />
-          <path
-            fill="#EA4335"
-            d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
-          />
-        </svg>
+        <div className="w-12 h-12 rounded-full bg-white border border-neutral-200/80 shadow-xs flex items-center justify-center shrink-0">
+          <svg
+            className="w-6 h-6"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="#4285F4"
+              d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"
+            />
+            <path
+              fill="#34A853"
+              d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"
+            />
+            <path
+              fill="#FBBC05"
+              d="M5.28 14.27a7.22 7.22 0 0 1 0-4.54V6.58H1.25a11.98 11.98 0 0 0 0 10.84l4.03-3.15z"
+            />
+            <path
+              fill="#EA4335"
+              d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+            />
+          </svg>
+        </div>
       );
     case 'mail':
-      return <Mail className="w-5 h-5 text-amber-400" />;
+      return (
+        <div className="w-12 h-12 rounded-full bg-[#F59E0B] flex items-center justify-center shrink-0 shadow-xs">
+          <Mail className="w-6 h-6 text-white stroke-[2.2]" />
+        </div>
+      );
     case 'globe':
-      return <Globe className="w-5 h-5 text-blue-400" />;
+      return (
+        <div className="w-12 h-12 rounded-full bg-[#0284C7] flex items-center justify-center shrink-0 shadow-xs">
+          <Globe className="w-6 h-6 text-white stroke-[2.2]" />
+        </div>
+      );
     case 'gift':
-      return <Gift className="w-5 h-5 text-purple-400" />;
-    case 'phone':
-      return <Phone className="w-5 h-5 text-emerald-400" />;
+      return (
+        <div className="w-12 h-12 rounded-full bg-[#8B5CF6] flex items-center justify-center shrink-0 shadow-xs">
+          <Gift className="w-6 h-6 text-white stroke-[2.2]" />
+        </div>
+      );
     default:
-      return <ExternalLink className="w-5 h-5 text-neutral-400" />;
+      return (
+        <div className="w-12 h-12 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-xs">
+          <Globe className="w-6 h-6 text-white stroke-[2.2]" />
+        </div>
+      );
   }
 }
 
@@ -92,145 +116,202 @@ export default function ScanPage() {
       <SEO
         title={`${SCAN_PROFILE.name} | Official Connect & Store Links`}
         description={`Connect with ${SCAN_PROFILE.name} on WhatsApp, Instagram, Facebook, Google Maps & Support. Hyderabad's authorized tech retailer.`}
+        keywords="TecnoMart, TecnoMart Hyderabad, Quick Links, WhatsApp Support, Tolichowki"
+        canonical="https://scan.tecnomart.in"
         canonicalUrl="https://scan.tecnomart.in"
+        ogImageAlt={`${SCAN_PROFILE.name} Official Links`}
       />
 
-      <main className="min-h-screen w-full bg-[#09090b] text-white flex flex-col items-center justify-between px-4 py-12 selection:bg-[#F5B800] selection:text-black antialiased relative overflow-x-hidden">
-        {/* Subtle atmospheric ambient glow */}
+      <main className="min-h-screen w-full bg-white text-neutral-900 relative overflow-hidden flex flex-col justify-between items-center py-8 px-4 sm:py-10 antialiased selection:bg-[#FFD21C] selection:text-neutral-950">
+        
+        {/* ========================================================= */}
+        {/* BACKGROUND GRAPHIC ORBS, CURVED LINES & DOT MATRICES     */}
+        {/* ========================================================= */}
+
+        {/* 1. Top-Left Delicate Concentric Wireframe Arcs */}
+        <svg
+          className="absolute -top-36 -left-36 w-[560px] h-[560px] pointer-events-none select-none z-0"
+          viewBox="0 0 500 500"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="150" cy="150" r="320" stroke="#F59E0B" strokeWidth="1" strokeOpacity="0.3" />
+          <circle cx="150" cy="150" r="260" stroke="#F59E0B" strokeWidth="1" strokeOpacity="0.22" />
+          <circle cx="150" cy="150" r="190" stroke="#F59E0B" strokeWidth="1" strokeOpacity="0.16" />
+        </svg>
+
+        {/* 2. Top-Left Subtle Glowing Crescent Arc */}
         <div
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#F5B800]/10 rounded-full blur-3xl"
+          className="absolute top-16 -left-28 w-64 h-64 sm:w-80 sm:h-80 rounded-full border-[2px] border-amber-300/40 pointer-events-none select-none z-0"
           aria-hidden="true"
         />
 
-        <div className="w-full max-w-md mx-auto flex flex-col items-center relative z-10">
-          {/* Header Profile Section */}
-          <header className="flex flex-col items-center text-center mb-8 w-full">
-            {/* Logo */}
-            <div className="relative mb-4 group">
-              <div className="w-24 h-24 rounded-3xl p-1 bg-gradient-to-tr from-[#F5B800] via-amber-400 to-amber-200/40 shadow-2xl shadow-amber-500/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-full rounded-[22px] bg-black p-3 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={SCAN_PROFILE.logoUrl}
-                    alt={SCAN_PROFILE.name}
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      // Fallback if webp fails
-                      e.currentTarget.src = '/logo.png';
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+        {/* 3. Top-Right Dot Grid (3 columns x 5 rows) */}
+        <div
+          className="absolute top-28 right-8 sm:right-16 grid grid-cols-3 gap-3.5 pointer-events-none select-none z-0 opacity-40 hidden sm:grid"
+          aria-hidden="true"
+        >
+          {[...Array(15)].map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+          ))}
+        </div>
 
-            {/* Brand Name & Verified Badge */}
-            <div className="flex items-center justify-center gap-1.5">
-              <h1 className="text-2xl font-extrabold tracking-wider font-mono uppercase text-white">
-                {SCAN_PROFILE.name}
-              </h1>
-              {SCAN_PROFILE.verified && (
-                <CheckCircle2
-                  className="w-5 h-5 text-[#F5B800] fill-[#F5B800]/20"
-                  aria-label="Verified Store"
-                />
-              )}
-            </div>
+        {/* 4. Mid-Left Dot Grid (5 columns x 4 rows) */}
+        <div
+          className="absolute top-[52%] left-6 sm:left-14 grid grid-cols-5 gap-3.5 pointer-events-none select-none z-0 opacity-40 hidden sm:grid"
+          aria-hidden="true"
+        >
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+          ))}
+        </div>
 
-            {/* Tagline */}
-            {SCAN_PROFILE.tagline && (
-              <p className="text-xs text-neutral-400 mt-2 max-w-xs leading-relaxed">
-                {SCAN_PROFILE.tagline}
-              </p>
-            )}
-
-            {/* Location */}
-            {SCAN_PROFILE.location && (
-              <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-neutral-300">
-                <MapPin className="w-3 h-3 text-[#F5B800]" />
-                <span>{SCAN_PROFILE.location}</span>
-              </div>
-            )}
-          </header>
-
-          {/* Links Stack (Linktree Style) */}
-          <section
-            aria-label="Quick Links"
-            className="w-full space-y-3"
-          >
-            {SCAN_LINKS.map((link: ScanLink) => {
-              const isPrimary = Boolean(link.primary);
-              const label = link.button || link.buttonText || link.name;
-
-              return (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target={link.url.startsWith('http') ? '_blank' : undefined}
-                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`group relative w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-200 ${
-                    isPrimary
-                      ? 'bg-[#25D366]/15 hover:bg-[#25D366]/25 border-2 border-[#25D366]/60 hover:border-[#25D366] text-white shadow-lg shadow-[#25D366]/10 hover:scale-[1.01]'
-                      : 'bg-neutral-900/90 hover:bg-neutral-800/90 border border-neutral-800/90 hover:border-[#F5B800]/50 text-neutral-200 shadow-md shadow-black/40 hover:scale-[1.01]'
-                  }`}
-                >
-                  {/* Left: Icon & Text */}
-                  <div className="flex items-center gap-3.5 min-w-0 pr-2">
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110 ${
-                        isPrimary
-                          ? 'bg-[#25D366]/20 text-[#25D366]'
-                          : 'bg-white/5 text-neutral-300'
-                      }`}
-                    >
-                      <BrandIcon icon={link.icon} />
-                    </div>
-
-                    <div className="text-left truncate">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-bold text-white tracking-tight truncate">
-                          {link.name}
-                        </span>
-                        {link.badge && (
-                          <span
-                            className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded-full font-semibold shrink-0 ${
-                              isPrimary
-                                ? 'bg-[#25D366] text-black'
-                                : 'bg-[#F5B800]/20 text-[#F5B800] border border-[#F5B800]/30'
-                            }`}
-                          >
-                            {link.badge}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-neutral-400 font-normal truncate mt-0.5">
-                        {label}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right: Action Arrow */}
-                  <div className="shrink-0 pl-1 text-neutral-500 group-hover:text-white transition-colors">
-                    <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </a>
-              );
-            })}
-          </section>
-
-          {/* Quick Support Callout */}
-          <div className="mt-8 w-full p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
-            <p className="text-xs text-neutral-400">
-              Need immediate store assistance in Hyderabad?
-            </p>
-            <p className="text-xs font-mono text-[#F5B800] font-semibold mt-1">
-              Call / WhatsApp: +91 90106 67726
-            </p>
+        {/* 5. Right-Side Vibrant Yellow Crescent + Ambient Orbit */}
+        <div
+          className="absolute -right-32 sm:-right-40 top-[38%] pointer-events-none select-none z-0 hidden sm:block"
+          aria-hidden="true"
+        >
+          {/* Main Bright Yellow Crescent Orb */}
+          <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-br from-[#FFD21C] to-[#F59E0B] shadow-[0_0_80px_rgba(251,191,36,0.35)] relative">
+            {/* Overlapping translucent ring */}
+            <div className="absolute -inset-10 rounded-full border border-amber-400/40" />
           </div>
         </div>
 
-        {/* Minimal Footer */}
-        <footer className="mt-12 text-center text-xs text-neutral-500 font-mono relative z-10">
-          <p>© {new Date().getFullYear()} TECNOMART. ALL RIGHTS RESERVED.</p>
+        {/* 6. Bottom-Left Warm Ambient Glow */}
+        <div
+          className="absolute -bottom-28 -left-28 w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#FFD21C] to-[#F59E0B] opacity-80 blur-xs pointer-events-none select-none z-0"
+          aria-hidden="true"
+        />
+
+        {/* 7. Bottom-Right Concentric Thin Wire Arc */}
+        <div
+          className="absolute -bottom-24 -right-24 w-80 h-80 sm:w-96 sm:h-96 rounded-full border-[1.5px] border-amber-300/40 pointer-events-none select-none z-0"
+          aria-hidden="true"
+        />
+
+        {/* ========================================================= */}
+        {/* TOP MICRO-HEADER LABELS (Desktop and Tablet)              */}
+        {/* ========================================================= */}
+        <div className="w-full max-w-[1200px] mx-auto flex items-start justify-between relative z-10 px-2 sm:px-8 mb-6">
+          {/* Top-Left: TECH / PEOPLE / TRUST */}
+          <div className="text-left select-none pointer-events-none">
+            <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-neutral-500 font-semibold leading-relaxed">
+              <div>TECH</div>
+              <div>PEOPLE</div>
+              <div>TRUST</div>
+            </div>
+          </div>
+
+          {/* Top-Right: SALES • SERVICE • SUPPORT — */}
+          <div className="text-right select-none pointer-events-none flex items-center gap-2.5">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-neutral-500 font-semibold">
+              SALES &nbsp;•&nbsp; SERVICE &nbsp;•&nbsp; SUPPORT
+            </span>
+            <span className="w-7 sm:w-8 h-[2px] bg-[#F5B800] rounded-full inline-block" />
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* MAIN PROFILE & 7 LINK PILL CARDS                          */}
+        {/* ========================================================= */}
+        <div className="w-full max-w-[480px] mx-auto flex flex-col items-center relative z-10 my-auto">
+          
+          {/* Profile Header */}
+          <header className="flex flex-col items-center text-center mb-7 w-full">
+            {/* Black Squircle with stylized yellow 'T' */}
+            <div className="w-24 h-24 sm:w-28 sm:h-28 bg-black rounded-[26px] sm:rounded-[28px] flex items-center justify-center shadow-xl shadow-neutral-900/10 mb-4 p-5 transition-transform hover:scale-105 duration-200">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+                <svg viewBox="0 0 36 36" fill="none" className="w-full h-full">
+                  <path d="M3 7h30l-4.5 7H22v16h-8V14H7.5L3 7z" fill="#FFD21C" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Brand Title */}
+            <h1 className="text-2xl sm:text-[32px] font-black tracking-wide uppercase text-neutral-950 font-sans leading-none">
+              {SCAN_PROFILE.name}
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-xs sm:text-[13px] text-neutral-600 font-medium mt-2 text-center max-w-xs sm:max-w-md mx-auto leading-relaxed">
+              {SCAN_PROFILE.tagline}
+            </p>
+
+            {/* Location Pill */}
+            <div className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FFF9E6] border border-[#FDE68A]/70 text-xs font-semibold text-neutral-900 shadow-2xs">
+              <MapPin className="w-3.5 h-3.5 fill-black text-black" />
+              <span>{SCAN_PROFILE.location}</span>
+            </div>
+          </header>
+
+          {/* 7 Pill Action Cards */}
+          <section
+            aria-label="Quick Links"
+            className="w-full space-y-3.5"
+          >
+            {SCAN_LINKS.map((link: ScanLink) => (
+              <a
+                key={link.id}
+                href={link.url}
+                target={link.url.startsWith('http') ? '_blank' : undefined}
+                rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="group w-full bg-white rounded-full border border-neutral-100/90 shadow-[0_4px_20px_rgba(0,0,0,0.035)] hover:shadow-lg hover:border-neutral-200 hover:scale-[1.012] active:scale-[0.99] transition-all duration-200 p-2.5 sm:p-3 flex items-center justify-between cursor-pointer"
+              >
+                {/* Left: Round Color Icon + Label */}
+                <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1 pl-0.5">
+                  <BrandIconBadge icon={link.icon} />
+                  <span className="text-[15px] sm:text-base font-bold text-neutral-900 tracking-tight truncate text-left">
+                    {link.name}
+                  </span>
+                </div>
+
+                {/* Right: Circular Action Arrow Button */}
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F3F4F6] group-hover:bg-neutral-200/90 flex items-center justify-center text-neutral-700 shrink-0 transition-colors mr-1">
+                  <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.2] text-neutral-700 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </a>
+            ))}
+          </section>
+
+          {/* Divider: TECH FOR A BRIGHTER TOMORROW */}
+          <div className="w-full flex items-center justify-center gap-3.5 my-7 select-none">
+            <div className="h-[1px] bg-neutral-300 flex-1" />
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.22em] text-neutral-500 uppercase font-semibold whitespace-nowrap">
+              TECH FOR A BRIGHTER TOMORROW
+            </span>
+            <div className="h-[1px] bg-neutral-300 flex-1" />
+          </div>
+
+        </div>
+
+        {/* ========================================================= */}
+        {/* BOTTOM MICRO-TYPOGRAPHY FOOTER (3 COLUMNS)               */}
+        {/* ========================================================= */}
+        <footer className="w-full max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center sm:items-end justify-between px-2 sm:px-8 pt-4 pb-2 relative z-10 text-neutral-500 gap-4 sm:gap-0">
+          {/* Bottom-Left */}
+          <div className="text-[10px] font-mono uppercase tracking-[0.22em] leading-relaxed text-left select-none pointer-events-none hidden sm:block">
+            <div>SAME</div>
+            <div>CITY</div>
+            <div>BIGGER</div>
+            <div>POSSIBILITIES</div>
+          </div>
+
+          {/* Center Copyright */}
+          <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-center select-none">
+            © 2026 TECNOMART. ALL RIGHTS RESERVED.
+          </div>
+
+          {/* Bottom-Right */}
+          <div className="text-[10px] font-mono uppercase tracking-[0.22em] leading-relaxed text-right flex flex-col items-end select-none pointer-events-none hidden sm:flex">
+            <div className="w-7 h-[2px] bg-[#F5B800] rounded-full mb-2" />
+            <div>DEVICES</div>
+            <div>SERVICES</div>
+            <div>SOLUTIONS</div>
+            <div>ALL HERE</div>
+          </div>
         </footer>
+
       </main>
     </>
   );
