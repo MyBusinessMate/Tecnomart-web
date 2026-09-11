@@ -41,7 +41,7 @@ TecnoMart is an authorized multi-brand retail electronics store and certified se
 - Payment Options: UPI (Google Pay, PhonePe, Paytm), All Major Credit/Debit Cards, NetBanking, and Instant Paperless No-Cost EMI through Bajaj Finserv, HDFC, and ICICI.
 
 ## Interactive Customer Reward Program (Spin & Win)
-- Machine URL: https://tecnomart.in/spin
+- Machine URL: https://spin.tecnomart.in
 - Eligibility: 1 lucky spin per device / customer
 - Guaranteed Prizes: Wireless neckbands, Bluetooth headphones, tempered glass passes, ₹250 to ₹2,000 in-store discount coupons.
 - Digital Pass: 2.5D cryptographic pass with dynamic QR code valid for 30 days at checkout.

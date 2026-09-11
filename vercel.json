@@ -45,6 +45,63 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/spin",
+      "has": [
+        {
+          "type": "host",
+          "value": "tecnomart.in"
+        }
+      ],
+      "destination": "https://spin.tecnomart.in",
+      "permanent": true
+    },
+    {
+      "source": "/spin",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.tecnomart.in"
+        }
+      ],
+      "destination": "https://spin.tecnomart.in",
+      "permanent": true
+    },
+    {
+      "source": "/supertechie",
+      "has": [
+        {
+          "type": "host",
+          "value": "tecnomart.in"
+        }
+      ],
+      "destination": "https://spin.tecnomart.in/supertechie",
+      "permanent": true
+    },
+    {
+      "source": "/supertechie",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.tecnomart.in"
+        }
+      ],
+      "destination": "https://spin.tecnomart.in/supertechie",
+      "permanent": true
+    },
+    {
+      "source": "/spin",
+      "has": [
+        {
+          "type": "host",
+          "value": "spin.tecnomart.in"
+        }
+      ],
+      "destination": "https://spin.tecnomart.in/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

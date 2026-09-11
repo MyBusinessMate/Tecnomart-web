@@ -68,7 +68,7 @@ export default function SitemapPage() {
         { name: "Instant Trade-In & Exchange Calculator", url: "/exchange", badge: "Best Value Guarantee" },
         { name: "Bank EMI & Monthly Finance Calculator", url: "/emi-calculator", badge: "0% Interest Options" },
         { name: "Side-by-Side Product Comparison Engine", url: "/compare", badge: "Spec vs Spec" },
-        { name: "Spin & Win Daily Reward Machine", url: "/spin", badge: "Guaranteed Perks" },
+        { name: "Spin & Win Daily Reward Machine", url: "https://spin.tecnomart.in", badge: "Guaranteed Perks" },
       ]
     },
     {

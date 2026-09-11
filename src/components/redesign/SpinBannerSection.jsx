@@ -3,8 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { Sparkles, Trophy, Gift, ArrowRight, ShieldCheck, Zap } from "lucide-react";
+import { getSpinUrl } from "@/lib/domain";
 
 export default function SpinBannerSection() {
+  const spinUrl = getSpinUrl();
+
   return (
     <section className="relative w-full overflow-hidden my-8 sm:my-12">
       {/* Outer Card Container */}
@@ -14,17 +17,31 @@ export default function SpinBannerSection() {
         <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#FFD21C]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,210,28,0.06),transparent_60%)] pointer-events-none" />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Copy & Actions */}
-          <div className="lg:col-span-7 space-y-5 text-left">
-            {/* Main Punchy Heading */}
-            <div className="space-y-1">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-space tracking-tight text-white uppercase leading-[1.1]">
-                GET A LUCKY CHANCE TO WIN{" "}
-                <span className="text-[#FFD21C] drop-shadow-[0_0_25px_rgba(255,210,28,0.35)] block sm:inline">
-                  GADGETS, HEADPHONES &amp; MEGA DISCOUNTS!
-                </span>
+        {/* Diagonal Gold Accent Stripe */}
+        <div className="absolute top-0 right-0 w-96 h-1 bg-gradient-to-l from-[#FFD21C] via-[#F5B800] to-transparent opacity-80" />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Column: Offer Headline & Mechanics */}
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+            {/* Live Status Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFD21C]/15 border border-[#FFD21C]/30 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD21C] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD21C]" />
+              </span>
+              <span className="text-xs font-mono font-bold tracking-wider text-[#FFD21C] uppercase">
+                GUARANTEED REWARD • NO EMPTY SPINS
+              </span>
+            </div>
+
+            {/* Main Punchy Typography */}
+            <div className="space-y-2">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1] font-heading">
+                SPIN & WIN <span className="text-[#FFD21C]">DAILY TECH</span> PRIZES
               </h2>
+              <p className="text-xs sm:text-sm font-mono text-[#FFD21C] tracking-wide uppercase font-semibold">
+                Instant 2.5D Digital Reward Pass • In-Store Tolichowki Redemption
+              </p>
             </div>
 
             <p className="text-sm sm:text-base font-sans text-neutral-300 leading-relaxed max-w-xl">
@@ -36,7 +53,7 @@ export default function SpinBannerSection() {
             {/* Action CTA */}
             <div className="flex items-center pt-2">
               <a
-                href="/spin"
+                href={spinUrl}
                 className="btn-wipe-yellow inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-space font-extrabold text-sm sm:text-base uppercase tracking-wider shadow-[0_0_30px_rgba(255,210,28,0.4)] hover:shadow-[0_0_45px_rgba(255,210,28,0.6)] active:scale-98 transition-all group/btn cursor-pointer"
               >
                 <svg
@@ -50,7 +67,7 @@ export default function SpinBannerSection() {
                 >
                   <circle cx="12" cy="12" r="9.5" />
                   <path d="M12 2.5v19M2.5 12h19M5.29 5.29l13.42 13.42M5.29 18.71l13.42-13.42" />
-                  <circle cx="12" cy="12" r="2.5" />
+                  <circle cx="12" cy="2.5" />
                 </svg>
                 <span className="relative z-10">SPIN THE WHEEL NOW</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5] relative z-10 group-hover/btn:translate-x-1 transition-transform" />
@@ -62,7 +79,7 @@ export default function SpinBannerSection() {
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
             {/* Spinning Visual Machine Teaser Container */}
             <a
-              href="/spin"
+              href={spinUrl}
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center group/wheel cursor-pointer"
               title="Click to Open Spin & Win Machine"
             >

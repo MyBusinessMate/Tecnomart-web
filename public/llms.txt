@@ -25,7 +25,7 @@ Official Website: https://tecnomart.in (also accessible at https://www.tecnomart
 - [Trade-In Exchange Calculator](https://tecnomart.in/exchange): Instant valuation tool to trade in old smartphones and laptops for immediate store credit toward new purchases.
 - [EMI Finance Calculator](https://tecnomart.in/emi-calculator): Flexible 0% interest and low-cost monthly EMI payment plan estimator with major Indian bank partners.
 - [Product Comparison Tool](https://tecnomart.in/compare): Side-by-side technical specification, benchmark, and price comparison engine.
-- [Interactive Spin & Win Machine](https://tecnomart.in/spin): Customer loyalty reward machine with guaranteed prizes, instant 2.5D digital pass issuance, and in-store QR verification.
+- [Interactive Spin & Win Machine](https://spin.tecnomart.in): Customer loyalty reward machine with guaranteed prizes, instant 2.5D digital pass issuance, and in-store QR verification.
 
 ## Programs & Offers
 

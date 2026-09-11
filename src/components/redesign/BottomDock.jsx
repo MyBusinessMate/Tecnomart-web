@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Wrench } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
+import { getSpinUrl, isSpinSubdomain } from '@/lib/domain';
 
 // 1. Spin sparkle icon matching screenshot
 function SpinSparkleIcon({ className = "w-5 h-5" }) {
@@ -58,6 +59,10 @@ export default function BottomDock({ onOpenSpin }) {
   const { setIsRepairOpen, confirmWhatsApp } = useShop();
   const [activeTab, setActiveTab] = useState('repair'); // Default active on repair as shown in user reference
 
+  if (isSpinSubdomain()) {
+    return null;
+  }
+
   if (typeof window !== 'undefined' && (window.location.pathname.startsWith('/spin') || window.location.pathname.startsWith('/supertechie'))) {
     return null;
   }
@@ -82,7 +87,7 @@ export default function BottomDock({ onOpenSpin }) {
 
   const handleSpin = () => {
     setActiveTab('spin');
-    window.location.href = '/spin';
+    window.location.href = getSpinUrl();
   };
 
   return (

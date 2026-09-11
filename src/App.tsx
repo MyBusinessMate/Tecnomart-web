@@ -79,9 +79,55 @@ function RefurbishedDetailPage() {
   return <RefurbishedDetailClient slug={slug} />;
 }
 
+import { isSpinSubdomain, isProductionDomain } from './lib/domain';
+
+function SpinRedirect({ superMode = false }: { superMode?: boolean }) {
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const target = superMode ? 'https://spin.tecnomart.in/supertechie' : 'https://spin.tecnomart.in';
+      if (isProductionDomain()) {
+        window.location.replace(target);
+      }
+    }
+  }, [superMode]);
+
+  // In local development when not on production domain, render SpinPage directly
+  if (!isProductionDomain()) {
+    return <SpinPage forceSuperMode={superMode} />;
+  }
+
+  return (
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-10 h-10 rounded-2xl border-2 border-[#F5B800] border-t-transparent animate-spin" />
+        <p className="text-sm font-mono text-neutral-800 font-bold tracking-wide">
+          REDIRECTING TO SPIN.TECNOMART.IN...
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [isSpinOpen, setIsSpinOpen] = React.useState(false);
+  const onSpinSubdomain = isSpinSubdomain();
 
+  // Dedicated lightweight experience when accessed via spin.tecnomart.in
+  if (onSpinSubdomain) {
+    return (
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<SpinPage />} />
+          <Route path="/spin" element={<SpinPage />} />
+          <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
+          <Route path="*" element={<SpinPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
+
+  // Standard E-commerce Storefront on tecnomart.in
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -119,8 +165,8 @@ export default function App() {
           <Route path="/corporate" element={<CorporatePage />} />
           <Route path="/students" element={<StudentsPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/spin" element={<SpinPage />} />
-          <Route path="/supertechie" element={<SpinPage forceSuperMode={true} />} />
+          <Route path="/spin" element={<SpinRedirect />} />
+          <Route path="/supertechie" element={<SpinRedirect superMode={true} />} />
           <Route path="/sitemap" element={<SitemapPage />} />
 
           {/* 404 Page */}

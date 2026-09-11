@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, ArrowRight } from 'lucide-react';
+import { getSpinUrl, isSpinSubdomain } from '@/lib/domain';
 
 export default function TimedSpinPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,11 @@ export default function TimedSpinPopup() {
   const location = useLocation();
 
   useEffect(() => {
-    // Do not show if already dismissed in this session or if already on the spin or admin pages
+    // Do not show on spin subdomain or if already dismissed or on spin/admin routes
+    if (isSpinSubdomain()) {
+      return;
+    }
+
     const hasDismissed = sessionStorage.getItem('tecnomart_spin_popup_dismissed');
     const isSpinRoute = location.pathname.startsWith('/spin') || location.pathname.startsWith('/supertechie');
     const isAdminRoute = location.pathname.startsWith('/myadmin');
@@ -30,6 +35,10 @@ export default function TimedSpinPopup() {
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  if (isSpinSubdomain()) {
+    return null;
+  }
+
   const handleClose = () => {
     sessionStorage.setItem('tecnomart_spin_popup_dismissed', 'true');
     setIsOpen(false);
@@ -38,7 +47,12 @@ export default function TimedSpinPopup() {
   const handleGoToSpin = () => {
     sessionStorage.setItem('tecnomart_spin_popup_dismissed', 'true');
     setIsOpen(false);
-    navigate('/spin');
+    const spinUrl = getSpinUrl();
+    if (spinUrl.startsWith('http')) {
+      window.location.href = spinUrl;
+    } else {
+      navigate(spinUrl);
+    }
   };
 
   return (
