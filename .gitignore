@@ -88,3 +88,6 @@ lighthouse-report.json
 *[Cc]hat[Gg]pt*
 
 .vercel
+
+__pycache__/
+*.pyc

@@ -15,25 +15,25 @@ export default function AmazonQuadGrid() {
       items: [
         {
           name: "iPhone 16 Pro Max",
-          price: "₹1,44,900",
+          price: "₹99,999",
           img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=500&q=80",
           href: "/mobiles/iphone-16-pro-max",
         },
         {
           name: "Galaxy S24 Ultra",
-          price: "₹1,29,999",
+          price: "₹71,999",
           img: "/webp/bento-grid-images/samsungs24.webp",
           href: "/mobiles/samsung-galaxy-s24-ultra",
         },
         {
           name: "OnePlus 12 5G",
-          price: "₹64,999",
+          price: "₹45,999",
           img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=80",
           href: "/mobiles/oneplus-12",
         },
         {
           name: "iPhone 15 128GB",
-          price: "₹69,900",
+          price: "₹59,900",
           img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=500&q=80",
           href: "/mobiles/iphone-15",
         },
@@ -53,19 +53,19 @@ export default function AmazonQuadGrid() {
         },
         {
           name: "ROG Zephyrus G16",
-          price: "₹2,69,990",
+          price: "₹2,19,990",
           img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=500&q=80",
           href: "/laptops/asus-rog-zephyrus-g16-2025",
         },
         {
           name: "Dell XPS 14 OLED",
-          price: "₹1,84,990",
+          price: "₹2,05,990",
           img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80",
           href: "/laptops/dell-xps-14-oled",
         },
         {
           name: "Lenovo Legion Pro",
-          price: "₹1,44,990",
+          price: "₹1,62,990",
           img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=80",
           href: "/laptops/lenovo-legion-pro-5i",
         },
@@ -91,7 +91,7 @@ export default function AmazonQuadGrid() {
         },
         {
           name: "Alienware 4K OLED",
-          price: "₹95,999",
+          price: "₹1,14,999",
           img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=80",
           href: "/accessories/alienware-32-4k-oled-monitor",
         },
@@ -111,13 +111,13 @@ export default function AmazonQuadGrid() {
       items: [
         {
           name: "Refurb MacBook 14",
-          price: "₹94,999",
+          price: "₹92,990",
           img: "/webp/bento-grid-images/mackbook.webp",
           href: "/refurbished/refurbished-macbook-pro-14-m1-pro",
         },
         {
           name: "Refurb iPhone 14 Pro",
-          price: "₹64,999",
+          price: "₹74,990",
           img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=500&q=80",
           href: "/refurbished/refurbished-iphone-14-pro-128gb",
         },
