@@ -240,7 +240,7 @@ export default function ScanPage() {
 
             {/* Location Pill */}
             <a
-              href={SCAN_PROFILE.mapsUrl || "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7"}
+              href={SCAN_PROFILE.mapsUrl || "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac"}
               target="_blank"
               rel="noopener noreferrer"
               title={SCAN_PROFILE.address || "Open Google Maps"}

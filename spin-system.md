@@ -45,7 +45,7 @@ To maintain authenticity and mutual trust, TecnoMart asks Ananya to share her ge
 
 When she taps **"COPY REVIEW & OPEN GOOGLE"**:
 1. Her review is silently copied to her clipboard.
-2. A new tab opens directly to **TecnoMart's official Google Reviews page** (7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad).
+2. A new tab opens directly to **TecnoMart's official Google Reviews page** (7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad).
 3. All she has to do is paste her review and tap Post on Google!
 
 ### 5. Proof & Instant Verification

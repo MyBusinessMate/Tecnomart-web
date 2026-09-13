@@ -29,10 +29,10 @@ export const SCAN_PROFILE: ScanProfile = {
   name: "TECNOMART",
   tagline: "Hyderabad's Authorized Tech Retailer & Certified Service Hub",
   location: "Tolichowki, Hyderabad",
-  address: "7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008",
+  address: "7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008",
   verified: true,
   logoUrl: "/webp/logo.webp",
-  mapsUrl: "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7",
+  mapsUrl: "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac",
 };
 
 // WhatsApp support pre-filled greeting message
@@ -73,7 +73,7 @@ export const SCAN_LINKS: ScanLink[] = [
   {
     id: "google-business",
     name: "Google Business & Reviews",
-    url: "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7",
+    url: "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac",
     icon: "google",
     button: "Find us / Rate us on Google",
     buttonText: "Find us / Rate us on Google",

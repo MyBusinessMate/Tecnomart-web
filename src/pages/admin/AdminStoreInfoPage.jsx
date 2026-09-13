@@ -11,7 +11,7 @@ export default function AdminStoreInfoPage() {
 
   const [formData, setFormData] = useState({
     storeName: currentInfo.storeName || 'TecnoMart Flagship Tech Hub',
-    addressLine1: currentInfo.addressLine1 || '7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony',
+    addressLine1: currentInfo.addressLine1 || '7 Tombs Rd, Raghava Colony, Neeraj Colony',
     addressLine2: currentInfo.addressLine2 || 'Toli Chowki',
     city: currentInfo.city || 'Hyderabad',
     state: currentInfo.state || 'Telangana',
@@ -22,7 +22,7 @@ export default function AdminStoreInfoPage() {
     supportEmail: currentInfo.supportEmail || 'support@tecnomart.in',
     workingHoursWeekday: currentInfo.workingHoursWeekday || 'Monday – Saturday: 10:30 AM – 10:00 PM',
     workingHoursWeekend: currentInfo.workingHoursWeekend || 'Sunday: 11:00 AM – 9:30 PM',
-    googleMapsUrl: currentInfo.googleMapsUrl || 'https://maps.app.goo.gl/tT4REWTDpAWdD2NL7'
+    googleMapsUrl: currentInfo.googleMapsUrl || 'https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac'
   });
 
   const handleSave = (e) => {

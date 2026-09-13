@@ -14,13 +14,15 @@ import {
 import { CyberButton } from "./CyberButton";
 import { GlassInput } from "./GlassInput";
 import { validateIndianPhone } from "./validation";
-import { saveFeedback } from "./rewardService";
+import { saveFeedback, checkMobileRedeemed, restoreSessionFromCoupon } from "./rewardService";
+import { SpinCouponRecord } from "@/lib/supabase";
 
 interface FeedbackStepProps {
   sessionId: string;
   defaultCustomerName?: string;
   googleReviewUrl?: string;
   onReviewSubmitted: (name: string, phone: string, reviewText: string) => void;
+  onRestoreExistingPass?: (coupon: SpinCouponRecord) => void;
   isSuperMode?: boolean;
 }
 
@@ -31,11 +33,12 @@ export function FeedbackStep({
   defaultCustomerName = "",
   googleReviewUrl,
   onReviewSubmitted,
+  onRestoreExistingPass,
   isSuperMode = false,
 }: FeedbackStepProps) {
   const targetGoogleUrl =
     googleReviewUrl ||
-    "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7";
+    "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac";
 
   const [name, setName] = useState(
     defaultCustomerName === "Techno Mart Guest" ? "" : defaultCustomerName
@@ -45,6 +48,7 @@ export function FeedbackStep({
   const [errors, setErrors] = useState<{ name?: string; phone?: string; feedback?: string }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [existingRedeemedCoupon, setExistingRedeemedCoupon] = useState<SpinCouponRecord | null>(null);
 
   const [stepState, setStepState] = useState<StepState>("FORM");
 
@@ -87,7 +91,25 @@ export function FeedbackStep({
     }
 
     setErrors({});
+    setExistingRedeemedCoupon(null);
     setIsLoading(true);
+
+    // Cross-Device Duplicate Verification via Supabase
+    if (!isSuperMode) {
+      try {
+        const checkResult = await checkMobileRedeemed(phoneValidation.formatted);
+        if (checkResult.alreadyRedeemed && checkResult.coupon) {
+          setIsLoading(false);
+          setExistingRedeemedCoupon(checkResult.coupon);
+          setServerError(
+            `This mobile number (+91 ${phoneValidation.formatted}) has already claimed a reward prize (${checkResult.coupon.prize_name}, Credential: ${checkResult.coupon.coupon_code}). Each visitor is strictly limited to 1 lucky spin.`
+          );
+          return;
+        }
+      } catch (err) {
+        console.warn("Mobile duplicate check warning:", err);
+      }
+    }
 
     // 1. Copy exact review text to clipboard
     try {
@@ -96,7 +118,7 @@ export function FeedbackStep({
       }
     } catch {}
 
-    // 2. Save Name, Phone, and Review into current session
+    // 2. Save Name, Phone, and Review into current session & Supabase
     saveFeedback(sessionId, name.trim(), phoneValidation.formatted, feedback.trim());
     setIsLoading(false);
 
@@ -147,10 +169,43 @@ export function FeedbackStep({
               onSubmit={handleCopyReviewAndOpenGoogle}
               className="w-full p-4 sm:p-6 rounded-3xl bg-white border border-neutral-200 space-y-4 sm:space-y-5 shadow-[0_10px_35px_rgba(0,0,0,0.06)] text-left relative"
             >
-              {serverError && (
-                <div className="p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans leading-relaxed">
-                  {serverError}
+              {existingRedeemedCoupon ? (
+                <div className="p-4 rounded-2xl bg-amber-50 border-2 border-[#F5B800] text-neutral-900 text-xs font-sans space-y-3 shadow-md">
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-[#F5B800] text-neutral-950 flex items-center justify-center font-black shrink-0 text-sm">
+                      !
+                    </div>
+                    <div>
+                      <div className="font-heading font-black uppercase text-sm text-neutral-950">
+                        NUMBER ALREADY REDEEMED / SPUN
+                      </div>
+                      <p className="text-neutral-700 text-xs mt-1 leading-relaxed">
+                        This mobile number (+91 {existingRedeemedCoupon.customer_phone}) previously claimed: <strong className="text-neutral-950">{existingRedeemedCoupon.prize_name}</strong> (Code: <span className="font-mono font-bold text-amber-900">{existingRedeemedCoupon.coupon_code}</span>).
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      restoreSessionFromCoupon(existingRedeemedCoupon);
+                      if (onRestoreExistingPass) {
+                        onRestoreExistingPass(existingRedeemedCoupon);
+                      } else {
+                        onReviewSubmitted(existingRedeemedCoupon.customer_name, existingRedeemedCoupon.customer_phone, existingRedeemedCoupon.review_text || "");
+                      }
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-[#111111] hover:bg-black text-amber-300 font-heading font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  >
+                    <span>VIEW MY DIGITAL PASS ({existingRedeemedCoupon.coupon_code}) →</span>
+                  </button>
                 </div>
+              ) : (
+                serverError && (
+                  <div className="p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans leading-relaxed">
+                    {serverError}
+                  </div>
+                )
               )}
 
               {/* Full Name */}

@@ -8,7 +8,7 @@ import { BlurRevealBox } from './BlurReveal';
 
 export default function ReviewsAndLocation() {
   const openGoogleMaps = () => {
-    window.open('https://maps.app.goo.gl/tT4REWTDpAWdD2NL7', '_blank');
+    window.open('https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac', '_blank');
   };
 
   return (
@@ -39,8 +39,8 @@ export default function ReviewsAndLocation() {
                     </p>
                     <p className="pl-4 text-[11px] sm:text-xs leading-relaxed text-neutral-600 font-semibold">
                       7 Tombs Rd, Raghava Colony,<br />
-                      Jhansi Nagar Colony, Hans Nagar Colony,<br />
-                      Toli Chowki, Hyderabad, Telangana 500008
+                      Neeraj Colony, Toli Chowki,<br />
+                      Hyderabad, Telangana 500008
                     </p>
                   </div>
                 </div>

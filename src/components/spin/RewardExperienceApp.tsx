@@ -96,6 +96,29 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
     setCurrentState("SCREENSHOT_VERIFY");
   };
 
+  // Callback when a previously spinned coupon is restored from Supabase
+  const handleRestoreExistingPass = (coupon: any) => {
+    setWinnerData({
+      prizeId: coupon.prizeId || coupon.prize_id,
+      prizeName: coupon.prizeName || coupon.prize_name,
+      prizeImage: coupon.prizeImage || coupon.prize_image,
+      prizeType: coupon.prizeType || coupon.prize_type || "voucher",
+      description: coupon.description || "In-store voucher for TecnoMart Tolichowki",
+      value: Number(coupon.value || coupon.prize_value) || 0,
+      couponCode: coupon.couponCode || coupon.coupon_code,
+      issuedAt: coupon.issuedAt || coupon.issued_at,
+      expiresAt: coupon.expiresAt || coupon.expires_at,
+      customerName: coupon.customerName || coupon.customer_name || customerName,
+      customerPhone: coupon.customerPhone || coupon.customer_phone || customerPhone,
+      screenshotUrl: coupon.screenshotUrl || coupon.screenshot_url,
+      reviewText: coupon.reviewText || coupon.review_text,
+      status: coupon.status,
+    });
+    setCustomerName(coupon.customerName || coupon.customer_name || customerName);
+    setCustomerPhone(coupon.customerPhone || coupon.customer_phone || customerPhone);
+    setCurrentState("COUPON");
+  };
+
   // Callback when screenshot verification succeeds
   const handleScreenshotVerificationSuccess = (couponData: RewardWinner) => {
     setWinnerData((prev) => ({
@@ -255,6 +278,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
                 sessionId={sessionId}
                 defaultCustomerName={customerName}
                 onReviewSubmitted={handleReviewSubmitted}
+                onRestoreExistingPass={handleRestoreExistingPass}
                 isSuperMode={isSuperTestMode}
               />
             </motion.div>

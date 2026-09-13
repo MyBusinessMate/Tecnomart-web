@@ -30,6 +30,21 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
   const rotationRef = useRef(0);
   const lastTickSegmentRef = useRef(-1);
 
+  const wheelContainerRef = useRef<HTMLDivElement>(null);
+  const [contentRadius, setContentRadius] = useState(165);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (wheelContainerRef.current) {
+        const width = wheelContainerRef.current.offsetWidth;
+        setContentRadius(Math.round(width * 0.335));
+      }
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   useEffect(() => {
     rotationRef.current = rotationAngle;
   }, [rotationAngle]);
@@ -168,11 +183,15 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
       {/* PROPER LAYERED INTERACTIVE WHEEL STAGE */}
       {/* ============================================================ */}
       <div
-        className="relative flex items-center justify-center mx-auto"
+        ref={wheelContainerRef}
+        className="relative flex items-center justify-center mx-auto transform-gpu"
         style={{
           width: "min(90vw, 68vh, 540px)",
           height: "min(90vw, 68vh, 540px)",
           aspectRatio: "1 / 1",
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
         }}
       >
         {/* ============================================================ */}
@@ -221,6 +240,8 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
             transform: `rotate(${rotationAngle}deg)`,
             transformOrigin: "center center",
             willChange: "transform",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
         >
           {/* Wheel Base SVG (8 Alternating Segments + Glowing Gold Outer Ring + Light Bulbs) */}
@@ -315,26 +336,26 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
         </div>
 
         {/* ============================================================ */}
-        {/* LAYER 3: INDEPENDENT PRIZE CONTENT (Counter-Rotated / Always Upright) */}
+        {/* LAYER 3: INDEPENDENT PRIZE CONTENT (Counter-Rotated / Always Upright / Pure GPU transforms) */}
         {/* ============================================================ */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-20">
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-hidden rounded-full">
           {prizes.map((p, i) => {
             const segmentBaseAngle = i * ARC_DEG;
             const currentAngle = segmentBaseAngle + rotationAngle;
-
-            const xPercent = 50 + CONTENT_RADIUS_PERCENT * Math.sin(toRad(currentAngle));
-            const yPercent = 50 - CONTENT_RADIUS_PERCENT * Math.cos(toRad(currentAngle));
 
             return (
               <div
                 key={p.id}
                 className="absolute flex flex-col items-center justify-center text-center select-none"
                 style={{
-                  left: `${xPercent}%`,
-                  top: `${yPercent}%`,
-                  transform: `translate(-50%, -50%)`,
+                  left: "50%",
+                  top: "50%",
+                  transform: `translate3d(-50%, -50%, 0) rotate(${currentAngle}deg) translateY(-${contentRadius}px) rotate(${-currentAngle}deg)`,
                   width: "23%",
                   height: "23%",
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
                 }}
               >
                 {/* Prize Title Text */}
@@ -351,7 +372,7 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
                     alt={p.name}
                     width={64}
                     height={64}
-                    className="w-full h-full object-contain select-none"
+                    className="w-full h-full object-contain select-none pointer-events-none"
                     loading="eager"
                   />
                 </div>
@@ -363,60 +384,65 @@ export function LuckyWheelCanvas({ sessionId, isSuperMode = false, onWinnerCalcu
         {/* ============================================================ */}
         {/* LAYER 4: STATIC INTERACTIVE CENTER SPIN BUTTON (100% WIN) */}
         {/* ============================================================ */}
-        <button
-          type="button"
-          onClick={handleCenterSpinClick}
-          disabled={isSpinning || (!isSuperMode && hasSpun)}
-          aria-label="Spin the prize wheel"
-          title="Click to Spin"
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[24%] h-[24%] rounded-full flex flex-col items-center justify-center transition-all duration-200 outline-none select-none group cursor-pointer ${
-            isSpinning || (!isSuperMode && hasSpun)
-              ? "cursor-not-allowed opacity-95 scale-95"
-              : "hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(245,184,0,0.6)]"
-          }`}
-          style={{
-            background: "radial-gradient(circle at 35% 35%, #FFE9A6 0%, #F5B800 55%, #B88118 100%)",
-            border: "3px solid #050505",
-            boxShadow: "0 0 20px rgba(245,184,0,0.6), inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -3px 6px rgba(0,0,0,0.4)",
-          }}
-        >
-          {/* Deep Obsidian Inner Hub with Gold Text */}
-          <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-b from-[#1E1E1E] via-[#0A0A0A] to-[#000000] border-2 border-[#F5B800]/90 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
-            {/* Glossy Top Sheen */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.12] to-transparent pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[24%] h-[24%] pointer-events-auto flex items-center justify-center">
+          <button
+            type="button"
+            onClick={handleCenterSpinClick}
+            disabled={isSpinning || (!isSuperMode && hasSpun)}
+            aria-label="Spin the prize wheel"
+            title="Click to Spin"
+            className={`w-full h-full rounded-full flex flex-col items-center justify-center transition-transform duration-150 ease-out outline-none select-none group ${
+              isSpinning || (!isSuperMode && hasSpun)
+                ? "cursor-not-allowed opacity-95 scale-100"
+                : "hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(245,184,0,0.6)] cursor-pointer"
+            }`}
+            style={{
+              background: "radial-gradient(circle at 35% 35%, #FFE9A6 0%, #F5B800 55%, #B88118 100%)",
+              border: "3px solid #050505",
+              boxShadow: "0 0 20px rgba(245,184,0,0.6), inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -3px 6px rgba(0,0,0,0.4)",
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+            }}
+          >
+            {/* Deep Obsidian Inner Hub with Gold Text */}
+            <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-b from-[#1E1E1E] via-[#0A0A0A] to-[#000000] border-2 border-[#F5B800]/90 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
+              {/* Glossy Top Sheen */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.12] to-transparent pointer-events-none" />
 
-            {isSpinning ? (
-              <Loader2 className="w-7 h-7 text-[#F5B800] animate-spin" />
-            ) : !isSuperMode && hasSpun ? (
-              <>
-                <span className="text-sm sm:text-base font-heading font-black tracking-tight text-white/90 uppercase leading-none">
-                  CLAIMED
-                </span>
-                <span className="text-[8px] sm:text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase mt-0.5 leading-none">
-                  1 SPIN USED
-                </span>
-              </>
-            ) : isSuperMode && hasSpun ? (
-              <>
-                <span className="text-xs sm:text-sm font-heading font-black tracking-tight text-white uppercase group-hover:text-[#F5B800] transition-colors leading-none drop-shadow-[0_0_10px_rgba(245,184,0,0.7)]">
-                  SPIN AGAIN
-                </span>
-                <span className="text-[8px] sm:text-[9px] font-mono font-medium tracking-wider text-[#F5B800] uppercase mt-0.5 leading-none">
-                  UNLIMITED
-                </span>
-              </>
-            ) : (
-              <>
-                <span className="text-lg sm:text-xl font-heading font-black tracking-tight text-white uppercase group-hover:text-[#F5B800] transition-colors leading-none drop-shadow-[0_0_10px_rgba(245,184,0,0.7)]">
-                  SPIN
-                </span>
-                <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-[#F5B800] uppercase mt-0.5 leading-none">
-                  {isSuperMode ? "UNLIMITED" : "100% WIN"}
-                </span>
-              </>
-            )}
-          </div>
-        </button>
+              {isSpinning ? (
+                <Loader2 className="w-7 h-7 text-[#F5B800] animate-spin" />
+              ) : !isSuperMode && hasSpun ? (
+                <>
+                  <span className="text-sm sm:text-base font-heading font-black tracking-tight text-white/90 uppercase leading-none">
+                    CLAIMED
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase mt-0.5 leading-none">
+                    1 SPIN USED
+                  </span>
+                </>
+              ) : isSuperMode && hasSpun ? (
+                <>
+                  <span className="text-xs sm:text-sm font-heading font-black tracking-tight text-white uppercase group-hover:text-[#F5B800] transition-colors leading-none drop-shadow-[0_0_10px_rgba(245,184,0,0.7)]">
+                    SPIN AGAIN
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] font-mono font-medium tracking-wider text-[#F5B800] uppercase mt-0.5 leading-none">
+                    UNLIMITED
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="text-lg sm:text-xl font-heading font-black tracking-tight text-white uppercase group-hover:text-[#F5B800] transition-colors leading-none drop-shadow-[0_0_10px_rgba(245,184,0,0.7)]">
+                    SPIN
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-[#F5B800] uppercase mt-0.5 leading-none">
+                    {isSuperMode ? "UNLIMITED" : "100% WIN"}
+                  </span>
+                </>
+              )}
+            </div>
+          </button>
+        </div>
       </div>
 
       {spinError && (

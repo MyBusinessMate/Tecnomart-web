@@ -96,7 +96,7 @@ export default function LiveSocialProofWidgets() {
                   </div>
 
                   <a
-                    href="https://maps.app.goo.gl/tT4REWTDpAWdD2NL7"
+                    href="https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-600 hover:text-amber-600 transition-colors uppercase tracking-wider"

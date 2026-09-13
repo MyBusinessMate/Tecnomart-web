@@ -37,7 +37,7 @@ export function ScreenshotVerificationStep({
 }: ScreenshotVerificationStepProps) {
   const targetGoogleUrl =
     googleReviewUrl ||
-    "https://maps.app.goo.gl/tT4REWTDpAWdD2NL7";
+    "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac";
 
   const [step, setStep] = useState<VerificationStep>("UPLOAD");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -83,28 +83,26 @@ export function ScreenshotVerificationStep({
   };
 
   // Submit screenshot for verification
-  const handleSubmitScreenshot = () => {
+  const handleSubmitScreenshot = async () => {
     if (!base64Image) return;
 
     setStep("VERIFYING");
 
-    setTimeout(() => {
-      try {
-        const result = verifyScreenshotAndUnlock(sessionId, isSuperMode);
-        if (result.verified && result.coupon) {
-          setStep("VERIFIED");
-          setTimeout(() => {
-            onVerificationSuccess(result.coupon);
-          }, 1100);
-        } else {
-          setFailureReason("Please upload a screenshot showing your posted review.");
-          setStep("FAILED");
-        }
-      } catch (err) {
+    try {
+      const result = await verifyScreenshotAndUnlock(sessionId, isSuperMode, base64Image);
+      if (result.verified && result.coupon) {
+        setStep("VERIFIED");
+        setTimeout(() => {
+          onVerificationSuccess(result.coupon);
+        }, 1100);
+      } else {
         setFailureReason("Please upload a screenshot showing your posted review.");
         setStep("FAILED");
       }
-    }, 900);
+    } catch {
+      setFailureReason("Please upload a screenshot showing your posted review.");
+      setStep("FAILED");
+    }
   };
 
   const handleUploadAgain = () => {
@@ -121,19 +119,17 @@ export function ScreenshotVerificationStep({
     setStep("UPLOAD");
   };
 
-  const handleAdminBypass = () => {
+  const handleAdminBypass = async () => {
     setStep("VERIFYING");
-    setTimeout(() => {
-      try {
-        const result = verifyScreenshotAndUnlock(sessionId, isSuperMode);
-        setStep("VERIFIED");
-        setTimeout(() => {
-          onVerificationSuccess(result.coupon);
-        }, 800);
-      } catch {
-        setStep("VERIFIED");
-      }
-    }, 500);
+    try {
+      const result = await verifyScreenshotAndUnlock(sessionId, isSuperMode);
+      setStep("VERIFIED");
+      setTimeout(() => {
+        onVerificationSuccess(result.coupon);
+      }, 800);
+    } catch {
+      setStep("VERIFIED");
+    }
   };
 
   return (

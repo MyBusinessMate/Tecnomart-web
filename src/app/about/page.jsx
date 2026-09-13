@@ -104,7 +104,7 @@ export default function AboutPage() {
                   TecnoMart began with a simple observation in 2016: finding authentic tech products, fair pricing, and trustworthy repair engineers under one roof was nearly impossible in the local retail market. Customers were forced to choose between overpriced showroom markups and unreliable grey-market repairs.
                 </p>
                 <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
-                  We established our flagship store at 7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008, with an uncompromising commitment: <strong className="text-neutral-900">100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
+                  We established our flagship store at 7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008, with an uncompromising commitment: <strong className="text-neutral-900">100% genuine parts, transparent diagnostics with upfront pricing, and personalized advice tailored to every customer's budget.</strong>
                 </p>
                 <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   Today, over 45,000 students, developers, creative professionals, and esports gamers trust TecnoMart for their hardware upgrades and critical repairs.
@@ -122,7 +122,7 @@ export default function AboutPage() {
                     <div>
                       <span className="text-xs font-black text-amber-400 uppercase tracking-wider block mb-1">Our Flagship Store</span>
                       <span className="text-xs font-semibold text-white">
-                        7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008
+                        7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008
                       </span>
                     </div>
                   </div>

@@ -573,7 +573,7 @@ export default function CheckoutModal() {
                   <div className="flex justify-between items-start border-b border-neutral-200 pb-3">
                     <div>
                       <span className="font-black text-neutral-950 text-sm block">TECNOMART HYDERABAD</span>
-                      <span>7 Tombs Rd, Raghava Colony, Jhansi Nagar Colony, Hans Nagar Colony, Toli Chowki, Hyderabad, Telangana 500008</span>
+                      <span>7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008</span>
                       <span className="block text-neutral-500">GSTIN: 36ABCDE1234F1Z5</span>
                     </div>
                     <div className="text-right">
