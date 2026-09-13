@@ -65,7 +65,7 @@ export const SCAN_LINKS: ScanLink[] = [
   {
     id: "facebook",
     name: "Facebook",
-    url: "https://www.facebook.com/tecnomarthyd",
+    url: "https://www.facebook.com/share/1Hhx6x3meS/?mibextid=wwXIfr",
     icon: "facebook",
     button: "Connect with us",
     buttonText: "Connect with us",

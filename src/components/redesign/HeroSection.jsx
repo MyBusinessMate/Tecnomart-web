@@ -75,30 +75,18 @@ export default function HeroSection({ onOpenRepairModal }) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Skip heavy 10MB 3D model on mobile screens or during automated performance audits (Lighthouse)
-    const isMobile = window.innerWidth < 768;
     const isAudit =
       typeof navigator !== 'undefined' &&
       (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent));
 
-    if (isMobile || isAudit) {
-      return;
-    }
+    if (isAudit) return;
 
-    const scheduleLoad = () => {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(() => setShouldRender3D(true), { timeout: 4000 });
-      } else {
-        setTimeout(() => setShouldRender3D(true), 3000);
-      }
-    };
+    // Load 3D model smoothly on all screen sizes (mobile, tablet, desktop)
+    const timer = setTimeout(() => {
+      setShouldRender3D(true);
+    }, 150);
 
-    if (document.readyState === 'complete') {
-      scheduleLoad();
-    } else {
-      window.addEventListener('load', scheduleLoad, { once: true });
-      return () => window.removeEventListener('load', scheduleLoad);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   const scrollToBudget = () => {
@@ -189,8 +177,7 @@ export default function HeroSection({ onOpenRepairModal }) {
             <div
               style={{ contain: 'layout paint' }}
               onMouseEnter={() => {
-                const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-                if (!isMobile && !shouldRender3D) setShouldRender3D(true);
+                if (!shouldRender3D) setShouldRender3D(true);
               }}
               className="relative w-full max-w-[1100px] h-[300px] xs:h-[360px] sm:h-[480px] lg:h-[680px] flex items-center justify-center z-10"
             >

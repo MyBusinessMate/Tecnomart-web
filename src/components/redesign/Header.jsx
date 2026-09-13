@@ -373,10 +373,10 @@ export default function Header() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-black text-lg sm:text-[21px] tracking-tight text-white leading-none uppercase">
+              <span className="font-black text-base sm:text-lg lg:text-[21px] tracking-tight text-white leading-none uppercase whitespace-nowrap">
                 TECNOMART
               </span>
-              <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.14em] text-[#F5B800] uppercase mt-1 leading-none">
+              <span className="hidden sm:block text-[8px] sm:text-[9px] font-bold tracking-[0.14em] text-[#F5B800] uppercase mt-1 leading-none whitespace-nowrap">
                 YOUR TRUSTED TECH PARTNER
               </span>
             </div>
@@ -412,11 +412,11 @@ export default function Header() {
             }}
             className="flex items-center rounded-md bg-white overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-[#F59E0B]"
           >
-            {/* Category Dropdown Pill */}
+            {/* Category Dropdown Pill (hidden on mobile to fit search bar perfectly) */}
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="bg-[#f3f4f6] hover:bg-[#e5e7eb] text-neutral-800 text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-2.5 flex items-center gap-1.5 border-r border-neutral-300 shrink-0 transition-colors cursor-pointer"
+              className="hidden md:flex bg-[#f3f4f6] hover:bg-[#e5e7eb] text-neutral-800 text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-2.5 items-center gap-1.5 border-r border-neutral-300 shrink-0 transition-colors cursor-pointer"
             >
               <span className="whitespace-nowrap">{searchCategory === 'All' ? 'All Categories' : searchCategory}</span>
               <ChevronDown className="w-3.5 h-3.5 text-neutral-600" />
@@ -425,7 +425,7 @@ export default function Header() {
             {/* Input field */}
             <input
               type="text"
-              placeholder="Search TecnoMart for MacBooks, iPhones, R..."
+              placeholder="Search MacBooks, iPhones, PCs..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => {
@@ -434,16 +434,16 @@ export default function Header() {
                   import('@/data/products').then((m) => setSearchProducts(m.ALL_PRODUCTS || []));
                 }
               }}
-              className="w-full h-10 px-3 text-xs sm:text-sm text-neutral-900 bg-white placeholder-neutral-500 outline-none"
+              className="w-full min-w-0 h-9 sm:h-10 px-2.5 sm:px-3 text-xs sm:text-sm text-neutral-900 bg-white placeholder-neutral-400 outline-none"
             />
 
             {/* Orange-Yellow Search Button */}
             <button
               type="submit"
               aria-label="Search"
-              className="bg-[#F59E0B] hover:bg-[#D97706] text-neutral-950 px-4 h-10 flex items-center justify-center transition-colors shrink-0 cursor-pointer"
+              className="bg-[#F59E0B] hover:bg-[#D97706] text-neutral-950 px-3 sm:px-4 h-9 sm:h-10 flex items-center justify-center transition-colors shrink-0 cursor-pointer"
             >
-              <Search className="w-5 h-5 stroke-[2.5]" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
             </button>
           </form>
 
@@ -571,7 +571,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsWishlistOpen(true)}
-            className="flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all"
+            className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all shrink-0"
             title="View Wishlist"
           >
             <Heart className="w-5 h-5 text-white stroke-[2]" />
@@ -582,7 +582,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsCartOpen(true)}
-            className="flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all"
+            className="flex items-center gap-1.5 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 cursor-pointer text-white transition-all shrink-0"
             title="Shopping Cart"
           >
             <div className="relative flex items-center justify-center">
@@ -591,7 +591,7 @@ export default function Header() {
                 {cartCount}
               </span>
             </div>
-            <span className="text-xs sm:text-sm font-black tracking-wider text-white uppercase">
+            <span className="hidden sm:inline text-xs sm:text-sm font-black tracking-wider text-white uppercase">
               CART
             </span>
           </button>
@@ -605,15 +605,18 @@ export default function Header() {
           Center: Mobiles | Laptops | Gaming PCs | Accessories | PC Builder | Refurbished | Trade-In | EMI Calc | Repairs | Corporate | Students
           Right: Sparkles + "HYDERABAD EXPRESS 4-HOUR DELIVERY ACTIVE"
           ========================================================================= */}
-      <div className="bg-[#131922] border-t border-[#232f3e] h-10 sm:h-11">
-        <div className="max-w-[1460px] mx-auto px-3 sm:px-4 lg:px-6 h-full flex items-center justify-between gap-4 overflow-x-auto scrollbar-none">
+      <div className="bg-[#131922] border-t border-[#232f3e] h-10 sm:h-11 overflow-hidden">
+        <div 
+          className="max-w-[1460px] mx-auto px-3 sm:px-4 lg:px-6 h-full flex items-center justify-between gap-3 sm:gap-4 overflow-x-auto scrollbar-none"
+          style={{ touchAction: 'pan-x', overscrollBehaviorX: 'contain' }}
+        >
           
           {/* Left: ALL CATEGORIES (Sidebar Trigger) */}
           <button
             ref={hamburgerBtnRef}
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="flex items-center gap-1.5 text-white hover:text-amber-400 px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 transition-all shrink-0 cursor-pointer group"
+            className="flex items-center gap-1.5 text-white hover:text-amber-400 px-1.5 sm:px-2 py-1 rounded hover:outline hover:outline-1 hover:outline-white/40 transition-all shrink-0 cursor-pointer group"
           >
             <Menu className="w-4 h-4 stroke-[2.5] text-white group-hover:text-amber-400" />
             <span className="font-black text-xs sm:text-sm uppercase tracking-wider text-white group-hover:text-amber-400 whitespace-nowrap">
@@ -622,7 +625,11 @@ export default function Header() {
           </button>
 
           {/* Center: Navigation Links */}
-          <nav aria-label="Quick Categories" className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-semibold text-white whitespace-nowrap overflow-x-auto scrollbar-none">
+          <nav 
+            aria-label="Quick Categories" 
+            className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-semibold text-white whitespace-nowrap overflow-x-auto scrollbar-none"
+            style={{ touchAction: 'pan-x', overscrollBehaviorX: 'contain' }}
+          >
             <Link href="/mobiles" className="hover:text-amber-400 transition-colors">Mobiles</Link>
             <Link href="/laptops" className="hover:text-amber-400 transition-colors">Laptops</Link>
             <Link href="/gaming" className="hover:text-amber-400 transition-colors">Gaming PCs</Link>

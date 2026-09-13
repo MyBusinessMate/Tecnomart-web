@@ -10,6 +10,9 @@ import {
   User,
   Phone,
   Check,
+  Gift,
+  Sparkles,
+  X,
 } from "lucide-react";
 import { CyberButton } from "./CyberButton";
 import { GlassInput } from "./GlassInput";
@@ -49,31 +52,29 @@ export function FeedbackStep({
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [existingRedeemedCoupon, setExistingRedeemedCoupon] = useState<SpinCouponRecord | null>(null);
+  const [showAlreadyClaimedModal, setShowAlreadyClaimedModal] = useState(false);
+  const [showPrizeDetails, setShowPrizeDetails] = useState(false);
 
   const [stepState, setStepState] = useState<StepState>("FORM");
 
   const charCount = feedback.trim().length;
   const isMinMet = charCount >= 30;
   const isMaxExceeded = charCount > 500;
-  const isFormValid =
-    name.trim().length >= 2 && phone.trim().length >= 10 && isMinMet && !isMaxExceeded;
+  const isFormValid = name.trim().length > 0 && phone.trim().length === 10 && isMinMet && !isMaxExceeded;
 
   const handleCopyReviewAndOpenGoogle = async (e: React.FormEvent) => {
     e.preventDefault();
     setServerError(null);
 
+    // Strict Validation
     const newErrors: { name?: string; phone?: string; feedback?: string } = {};
 
     if (!name.trim()) {
       newErrors.name = "Full name is required.";
-    } else if (name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters.";
     }
 
     const phoneValidation = validateIndianPhone(phone);
-    if (!phone.trim()) {
-      newErrors.phone = "Mobile number is required.";
-    } else if (!phoneValidation.isValid) {
+    if (!phoneValidation.isValid) {
       newErrors.phone = phoneValidation.error || "Enter a valid 10-digit mobile number (+91).";
     }
 
@@ -101,9 +102,8 @@ export function FeedbackStep({
         if (checkResult.alreadyRedeemed && checkResult.coupon) {
           setIsLoading(false);
           setExistingRedeemedCoupon(checkResult.coupon);
-          setServerError(
-            `This mobile number (+91 ${phoneValidation.formatted}) has already claimed a reward prize (${checkResult.coupon.prize_name}, Credential: ${checkResult.coupon.coupon_code}). Each visitor is strictly limited to 1 lucky spin.`
-          );
+          setShowPrizeDetails(false);
+          setShowAlreadyClaimedModal(true);
           return;
         }
       } catch (err) {
@@ -169,43 +169,10 @@ export function FeedbackStep({
               onSubmit={handleCopyReviewAndOpenGoogle}
               className="w-full p-4 sm:p-6 rounded-3xl bg-white border border-neutral-200 space-y-4 sm:space-y-5 shadow-[0_10px_35px_rgba(0,0,0,0.06)] text-left relative"
             >
-              {existingRedeemedCoupon ? (
-                <div className="p-4 rounded-2xl bg-amber-50 border-2 border-[#F5B800] text-neutral-900 text-xs font-sans space-y-3 shadow-md">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-[#F5B800] text-neutral-950 flex items-center justify-center font-black shrink-0 text-sm">
-                      !
-                    </div>
-                    <div>
-                      <div className="font-heading font-black uppercase text-sm text-neutral-950">
-                        NUMBER ALREADY REDEEMED / SPUN
-                      </div>
-                      <p className="text-neutral-700 text-xs mt-1 leading-relaxed">
-                        This mobile number (+91 {existingRedeemedCoupon.customer_phone}) previously claimed: <strong className="text-neutral-950">{existingRedeemedCoupon.prize_name}</strong> (Code: <span className="font-mono font-bold text-amber-900">{existingRedeemedCoupon.coupon_code}</span>).
-                      </p>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      restoreSessionFromCoupon(existingRedeemedCoupon);
-                      if (onRestoreExistingPass) {
-                        onRestoreExistingPass(existingRedeemedCoupon);
-                      } else {
-                        onReviewSubmitted(existingRedeemedCoupon.customer_name, existingRedeemedCoupon.customer_phone, existingRedeemedCoupon.review_text || "");
-                      }
-                    }}
-                    className="w-full py-2.5 px-4 rounded-xl bg-[#111111] hover:bg-black text-amber-300 font-heading font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-                  >
-                    <span>VIEW MY DIGITAL PASS ({existingRedeemedCoupon.coupon_code}) →</span>
-                  </button>
+              {serverError && (
+                <div className="p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans leading-relaxed">
+                  {serverError}
                 </div>
-              ) : (
-                serverError && (
-                  <div className="p-3 rounded-2xl bg-red-50 border border-red-300 text-red-700 text-xs font-sans leading-relaxed">
-                    {serverError}
-                  </div>
-                )
               )}
 
               {/* Full Name */}
@@ -355,6 +322,122 @@ export function FeedbackStep({
                 REDIRECTING TO SCREENSHOT VERIFICATION
               </p>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Polite Already Claimed Popup Modal */}
+      <AnimatePresence>
+        {showAlreadyClaimedModal && existingRedeemedCoupon && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
+            onClick={() => setShowAlreadyClaimedModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 12 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 12 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-sm bg-white rounded-3xl p-6 border border-neutral-200 shadow-2xl text-center relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setShowAlreadyClaimedModal(false)}
+                className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-neutral-100 text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Icon Badge */}
+              <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-[#F5B800]/40 text-amber-700 flex items-center justify-center mx-auto mb-3.5 shadow-xs">
+                <Gift className="w-6 h-6 text-[#F5B800]" />
+              </div>
+
+              <h3 className="text-base sm:text-lg font-heading font-black text-neutral-950 uppercase tracking-tight leading-snug">
+                This mobile number has already claimed the prize
+              </h3>
+
+              <p className="text-xs font-sans text-neutral-600 mt-2 leading-relaxed">
+                We found an existing spin reward associated with{" "}
+                <span className="font-bold text-neutral-900">+91 {existingRedeemedCoupon.customer_phone}</span>.
+              </p>
+
+              {!showPrizeDetails ? (
+                <div className="mt-5 space-y-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setShowPrizeDetails(true)}
+                    className="w-full py-3 px-4 rounded-xl bg-[#F5B800] hover:bg-[#e5ac00] text-neutral-950 font-heading font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.98] cursor-pointer"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span>View My Prize</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAlreadyClaimedModal(false);
+                      setPhone("");
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-sans text-xs font-medium transition-colors cursor-pointer"
+                  >
+                    Use a different mobile number
+                  </button>
+                </div>
+              ) : (
+                <div className="mt-4 space-y-3">
+                  <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200 text-left space-y-2">
+                    <div className="flex items-center justify-between text-[11px] text-neutral-500 font-mono uppercase">
+                      <span>Reward Won</span>
+                      <span className="font-bold text-emerald-700">₹{existingRedeemedCoupon.discount_amount} OFF</span>
+                    </div>
+                    <div className="font-heading font-black text-neutral-950 text-sm">
+                      {existingRedeemedCoupon.prize_name}
+                    </div>
+                    <div className="pt-2 border-t border-amber-200/60 flex items-center justify-between">
+                      <span className="text-[11px] text-neutral-600 font-sans">Coupon Code:</span>
+                      <span className="font-mono font-bold text-xs bg-white px-2 py-0.5 rounded-md border border-amber-300 text-neutral-900 tracking-wider">
+                        {existingRedeemedCoupon.coupon_code}
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAlreadyClaimedModal(false);
+                      restoreSessionFromCoupon(existingRedeemedCoupon);
+                      if (onRestoreExistingPass) {
+                        onRestoreExistingPass(existingRedeemedCoupon);
+                      } else {
+                        onReviewSubmitted(
+                          existingRedeemedCoupon.customer_name,
+                          existingRedeemedCoupon.customer_phone,
+                          existingRedeemedCoupon.review_text || ""
+                        );
+                      }
+                    }}
+                    className="w-full py-3 px-4 rounded-xl bg-neutral-950 hover:bg-black text-[#F5B800] font-heading font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md active:scale-[0.98] cursor-pointer"
+                  >
+                    <span>Open Digital Pass →</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAlreadyClaimedModal(false);
+                      setPhone("");
+                    }}
+                    className="w-full py-1.5 text-neutral-500 hover:text-neutral-800 text-xs font-sans transition-colors cursor-pointer"
+                  >
+                    Enter different number
+                  </button>
+                </div>
+              )}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
