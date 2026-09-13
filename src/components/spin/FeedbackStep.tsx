@@ -392,7 +392,9 @@ export function FeedbackStep({
                   <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200 text-left space-y-2">
                     <div className="flex items-center justify-between text-[11px] text-neutral-500 font-mono uppercase">
                       <span>Reward Won</span>
-                      <span className="font-bold text-emerald-700">₹{existingRedeemedCoupon.discount_amount} OFF</span>
+                      <span className="font-bold text-emerald-700">
+                        {existingRedeemedCoupon.prize_value > 0 ? `₹${existingRedeemedCoupon.prize_value} OFF` : "Exclusive Reward"}
+                      </span>
                     </div>
                     <div className="font-heading font-black text-neutral-950 text-sm">
                       {existingRedeemedCoupon.prize_name}
