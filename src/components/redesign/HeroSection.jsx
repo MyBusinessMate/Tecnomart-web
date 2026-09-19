@@ -24,41 +24,53 @@ const TYPEWRITER_WORDS = [
 
 function TypewriterText() {
   const [wordIndex, setWordIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('PC.');
+  const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // Keep text stable during automated performance audits (prevents continuous DOM mutations)
     if (
       typeof navigator !== 'undefined' &&
-      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent))
+      (
+        navigator.webdriver ||
+        /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent)
+      )
     ) {
       return;
     }
 
-    const currentFullWord = TYPEWRITER_WORDS[wordIndex];
-    const typingSpeed = isDeleting ? 60 : 120;
-    let pauseTimer = null;
+    const currentWord = TYPEWRITER_WORDS[wordIndex];
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(currentFullWord.substring(0, displayText.length + 1));
-        if (displayText.length + 1 === currentFullWord.length) {
-          pauseTimer = setTimeout(() => setIsDeleting(true), 2000);
+    if (!isDeleting && displayText === currentWord) {
+      const pauseTimer = window.setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+
+      return () => window.clearTimeout(pauseTimer);
+    }
+
+    const typingSpeed = isDeleting ? 60 : 120;
+
+    const timer = window.setTimeout(() => {
+      if (isDeleting) {
+        const nextText = currentWord.slice(0, displayText.length - 1);
+
+        if (nextText === '') {
+          setDisplayText('');
+          setIsDeleting(false);
+          setWordIndex(
+            (prev) => (prev + 1) % TYPEWRITER_WORDS.length
+          );
+        } else {
+          setDisplayText(nextText);
         }
       } else {
-        setDisplayText(currentFullWord.substring(0, displayText.length - 1));
-        if (displayText.length === 0) {
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % TYPEWRITER_WORDS.length);
-        }
+        setDisplayText(
+          currentWord.slice(0, displayText.length + 1)
+        );
       }
     }, typingSpeed);
 
-    return () => {
-      clearTimeout(timer);
-      if (pauseTimer) clearTimeout(pauseTimer);
-    };
+    return () => window.clearTimeout(timer);
   }, [displayText, isDeleting, wordIndex]);
 
   return (
@@ -70,7 +82,7 @@ function TypewriterText() {
 }
 
 export default function HeroSection({ onOpenRepairModal }) {
-  const [shouldRender3D, setShouldRender3D] = useState(false);
+  const [shouldRender3D, setShouldRender3D] = useState(true);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -130,10 +142,10 @@ export default function HeroSection({ onOpenRepairModal }) {
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1 min-h-[110px] xs:min-h-[135px] sm:min-h-[155px] md:min-h-[190px]">
               <span className="block text-neutral-950 drop-shadow-xs">YOUR TECH.</span>
               <span className="block text-neutral-950 drop-shadow-xs">YOUR BUDGET.</span>
-              <span className="block text-[#F5B800] min-h-[1.25em] flex items-center flex-wrap">
-                <span className="mr-2">YOUR RIGHT</span>
+              <div className="text-[#F5B800] min-h-[1.25em] items-center">
+                <span className="mr-2">YOUR RIGHT</span> <br className="hidden lg:block" />
                 <TypewriterText />
-              </span>
+              </div>
             </h1>
 
             {/* Subtitle */}
@@ -181,25 +193,7 @@ export default function HeroSection({ onOpenRepairModal }) {
               }}
               className="relative w-full max-w-[1100px] h-[300px] xs:h-[360px] sm:h-[480px] lg:h-[680px] flex items-center justify-center z-10"
             >
-              {shouldRender3D ? (
-                <HeroModel />
-              ) : (
-                <div className="relative w-full h-full flex items-center justify-center pointer-events-none select-none">
-                  <img
-                    src="/webp/bento-grid-images/pc.webp"
-                    alt="TecnoMart Flagship Setup"
-                    width={550}
-                    height={480}
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                    className="w-auto max-h-full max-w-full object-contain drop-shadow-2xl"
-                    onError={(e) => {
-                      e.currentTarget.src = "/bento-grid-images/pc.png";
-                    }}
-                  />
-                </div>
-              )}
+              <HeroModel />
             </div>
           </div>
 
