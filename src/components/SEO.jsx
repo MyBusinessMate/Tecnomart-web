@@ -5,6 +5,7 @@ const BASE_URL = 'https://tecnomart.in';
 export const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${BASE_URL}/#organization`,
   name: 'TecnoMart',
   legalName: 'Tecno Mart Technologies Private Limited',
   url: BASE_URL,
@@ -65,18 +66,18 @@ export const LOCAL_BUSINESS_SCHEMA = {
       closes: '21:30',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '1480',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  sameAs: [
+    'https://www.facebook.com/tecnomarthyd',
+    'https://www.instagram.com/tecnomart.hyd',
+    'https://twitter.com/tecnomart_hyd',
+    'https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac'
+  ]
 };
 
 export const WEBSITE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${BASE_URL}/#website`,
   name: 'TecnoMart Hyderabad',
   url: BASE_URL,
   description: 'Best Tech Store in Hyderabad for Flagship Smartphones, MacBooks, Creator Laptops, Custom Liquid-Cooled Gaming PCs & Same-Day Certified Repairs.',
@@ -96,6 +97,8 @@ export function createProductSchema(product, canonicalUrl) {
     : `${BASE_URL}/webp/logo.webp`;
 
   const numericPrice = product.rawPrice || Number(String(product.price || '0').replace(/[^0-9]/g, '')) || 9999;
+  const activeRating = Number(product.rating) || 4.8;
+  const activeReviewCount = Number(product.reviewCount) || 120;
 
   return {
     '@context': 'https://schema.org',
@@ -117,16 +120,52 @@ export function createProductSchema(product, canonicalUrl) {
       itemCondition: product.slug?.includes('refurbished') ? 'https://schema.org/RefurbishedCondition' : 'https://schema.org/NewCondition',
       availability: 'https://schema.org/InStock',
       url: canonicalUrl,
-      priceValidUntil: '2026-12-31',
+      priceValidUntil: '2027-12-31',
       seller: {
         '@type': 'Organization',
         name: 'TecnoMart',
       },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'IN',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 7,
+        returnMethod: 'https://schema.org/ReturnInStore',
+        returnFees: 'https://schema.org/FreeReturn',
+      },
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: 'INR',
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'IN',
+          addressRegion: ['TG', 'AP'],
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 0,
+            maxValue: 1,
+            unitCode: 'd',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 3,
+            unitCode: 'd',
+          },
+        },
+      },
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: String(product.rating || 4.8),
-      reviewCount: String(product.reviewCount || 140),
+      ratingValue: String(activeRating),
+      reviewCount: String(activeReviewCount),
       bestRating: '5',
       worstRating: '1',
     },
@@ -147,6 +186,172 @@ export function createBreadcrumbSchema(items) {
   };
 }
 
+export function createFAQSchema(faqs) {
+  if (!faqs || !faqs.length) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function createItemListSchema(items, categoryName, categoryUrl) {
+  if (!items || !items.length) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${categoryName} at TecnoMart Hyderabad`,
+    url: categoryUrl ? (categoryUrl.startsWith('http') ? categoryUrl : `${BASE_URL}${categoryUrl}`) : BASE_URL,
+    itemListElement: items.slice(0, 30).map((item, idx) => {
+      let resolvedUrl = `${BASE_URL}/mobiles/${item.slug || ''}`;
+      if (item.url) {
+        resolvedUrl = item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url.startsWith('/') ? '' : '/'}${item.url}`;
+      } else if (item.category && typeof item.category === 'string') {
+        const cat = item.category.toLowerCase();
+        if (cat.includes('laptop')) resolvedUrl = `${BASE_URL}/laptops/${item.slug}`;
+        else if (cat.includes('gaming')) resolvedUrl = `${BASE_URL}/gaming/${item.slug}`;
+        else if (cat.includes('accessor')) resolvedUrl = `${BASE_URL}/accessories/${item.slug}`;
+        else if (cat.includes('refurbish')) resolvedUrl = `${BASE_URL}/refurbished/${item.slug}`;
+        else resolvedUrl = `${BASE_URL}/mobiles/${item.slug}`;
+      } else if (item.type) {
+        resolvedUrl = `${BASE_URL}/${item.type}/${item.slug}`;
+      }
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: item.name,
+        url: resolvedUrl,
+      };
+    }),
+  };
+}
+
+export function createServiceSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Electronics & Computer Hardware Repair Service',
+    provider: {
+      '@type': 'ElectronicsStore',
+      name: 'TecnoMart',
+      url: BASE_URL,
+      telephone: '+919010667726',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki',
+        addressLocality: 'Hyderabad',
+        addressRegion: 'Telangana',
+        postalCode: '500008',
+        addressCountry: 'IN',
+      },
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Hyderabad' },
+      { '@type': 'City', name: 'Secunderabad' },
+      { '@type': 'AdministrativeArea', name: 'Telangana' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Certified Hardware Repair Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Smartphone OLED Screen & Glass Replacement',
+            description: 'Same-day genuine display replacement with official warranty in Tolichowki.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'INR',
+            price: '1499',
+            minPrice: '1499',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Laptop & MacBook Motherboard Chip-Level Repair',
+            description: 'BGA reballing, power IC replacement, and liquid damage recovery.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'INR',
+            price: '1999',
+            minPrice: '1999',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'High-Capacity Battery Replacement',
+            description: 'Certified battery installation with 6-month health warranty.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'INR',
+            price: '999',
+            minPrice: '999',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Gaming PC Assembly & Deep Cleaning',
+            description: 'Cable management, stress testing, and thermal paste replacement.',
+          },
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'INR',
+            price: '1499',
+            minPrice: '1499',
+          },
+        },
+      ],
+    },
+  };
+}
+
+export function createArticleSchema(article) {
+  if (!article) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description: article.excerpt || article.summary,
+    image: article.coverImage?.startsWith('http') ? article.coverImage : `${BASE_URL}${article.coverImage || '/webp/logo.webp'}`,
+    datePublished: article.publishedAt || '2026-09-14',
+    dateModified: article.updatedAt || article.publishedAt || '2026-09-18',
+    author: {
+      '@type': 'Organization',
+      name: 'TecnoMart Hardware Specialists',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'TecnoMart',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/webp/logo.webp`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/blogs/${article.slug}`,
+    },
+  };
+}
+
 export default function SEO({
   title = '',
   description = '',
@@ -157,6 +362,7 @@ export default function SEO({
   ogImage = `${BASE_URL}/webp/logo.webp`,
   ogImageAlt = '',
   noindex = false,
+  robots = '',
   schema = null,
   breadcrumbs = null,
 }) {
@@ -208,11 +414,12 @@ export default function SEO({
     }
     linkCanonical.setAttribute('href', canonicalHref);
 
-    // 6. Robots & Indexing
+    // 6. Robots & Indexing (Strict Fail-Safe)
+    const isExcluded = Boolean(noindex) || (typeof robots === 'string' && robots.toLowerCase().includes('noindex'));
     setMeta(
       'name', 
       'robots', 
-      noindex 
+      isExcluded 
         ? 'noindex, nofollow' 
         : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
     );
@@ -281,7 +488,7 @@ export default function SEO({
     return () => {
       // Clean-up hook for route changes
     };
-  }, [title, description, keywords, canonical, canonicalUrl, ogType, ogImage, ogImageAlt, noindex, schema, breadcrumbs]);
+  }, [title, description, keywords, canonical, canonicalUrl, ogType, ogImage, ogImageAlt, noindex, robots, schema, breadcrumbs]);
 
   return null;
 }

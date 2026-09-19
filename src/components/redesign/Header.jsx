@@ -407,7 +407,15 @@ export default function Header() {
             onSubmit={(e) => {
               e.preventDefault();
               if (searchQuery.trim()) {
-                window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+                const targetPath =
+                  searchCategory === 'Laptops'
+                    ? '/laptops'
+                    : searchCategory === 'Gaming'
+                    ? '/gaming'
+                    : searchCategory === 'Accessories'
+                    ? '/accessories'
+                    : '/mobiles';
+                window.location.href = `${targetPath}?q=${encodeURIComponent(searchQuery.trim())}`;
               }
             }}
             className="flex items-center rounded-md bg-white overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-[#F59E0B]"
@@ -460,10 +468,17 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="divide-y divide-neutral-100 max-h-80 overflow-y-auto">
-                  {searchResults.slice(0, 8).map((item) => (
+                  {searchResults.slice(0, 8).map((item) => {
+                    let targetHref = `/mobiles/${item.slug || item.id}`;
+                    if (item.type === 'laptops') targetHref = `/laptops/${item.slug || item.id}`;
+                    else if (item.type === 'accessories') targetHref = `/accessories/${item.slug || item.id}`;
+                    else if (item.type === 'gaming') targetHref = `/gaming/${item.slug || item.id}`;
+                    else if (item.type === 'refurbished') targetHref = `/refurbished/${item.slug || item.id}`;
+
+                    return (
                     <Link
                       key={item.id}
-                      href={item.type === 'mobiles' ? `/mobiles/${item.slug || item.id}` : (item.type === 'laptops' ? `/laptops/${item.slug || item.id}` : `/products/${item.id}`)}
+                      href={targetHref}
                       onClick={() => {
                         setSearchQuery('');
                         setSearchOpen(false);
@@ -485,7 +500,8 @@ export default function Header() {
                         ₹{(item.rawPrice || item.priceINR)?.toLocaleString('en-IN') || item.price}
                       </span>
                     </Link>
-                  ))}
+                  );
+                })}
                 </div>
               )}
             </div>

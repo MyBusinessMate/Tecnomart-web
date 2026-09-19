@@ -1,6 +1,64 @@
+# TecnoMart Robots Configuration
+# https://tecnomart.in
+
 User-agent: *
 Allow: /
 Disallow: /myadmin
+Disallow: /myadmin/
 Disallow: /myadmin/*
+Disallow: /cart
 
+# Specialized AI Search & Answer Discovery Engines (AEO & GEO)
+User-agent: GPTBot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: Applebot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+User-agent: CCBot
+Allow: /
+Disallow: /myadmin
+Disallow: /myadmin/
+Disallow: /myadmin/*
+Disallow: /cart
+
+# Canonical Sitemap Declaration
 Sitemap: https://tecnomart.in/sitemap.xml
+
+# LLM & Machine-Readable Summary: https://tecnomart.in/llms.txt

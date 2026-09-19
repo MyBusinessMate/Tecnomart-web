@@ -8,7 +8,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createItemListSchema } from '@/components/SEO';
 import { LAPTOPS_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 import HorizontalFilterBar, {
@@ -41,6 +41,7 @@ export default function LaptopsPage() {
   const [selectedColor, setSelectedColor] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Reactive URL search parameter parsing for navbar and external links
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function LaptopsPage() {
     const brandParam = params.get('brand');
     const choiceParam = params.get('choice');
     const priceParam = params.get('price');
+    const qParam = params.get('q');
 
     if (brandParam) {
       setSelectedBrand(brandParam);
@@ -57,6 +59,9 @@ export default function LaptopsPage() {
     }
     if (priceParam) {
       setSelectedPriceRange(priceParam);
+    }
+    if (qParam) {
+      setSearchQuery(qParam);
     }
   }, [location.search]);
 
@@ -73,6 +78,16 @@ export default function LaptopsPage() {
 
   const filteredAndSortedLaptops = useMemo(() => {
     let list = [...sourceLaptops];
+ 
+    // 0. Filter by Search Query
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter((l) =>
+        l.name?.toLowerCase().includes(q) ||
+        l.brand?.toLowerCase().includes(q) ||
+        l.tagline?.toLowerCase().includes(q)
+      );
+    }
 
     // 1. Filter by Choice: refurbished, new, best, popular
     if (selectedChoice !== 'all') {
@@ -147,7 +162,7 @@ export default function LaptopsPage() {
     else if (sortBy === 'rating') list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return list;
-  }, [sourceLaptops, selectedChoice, selectedPriceRange, selectedBrand, selectedRating, selectedRam, selectedStorage, selectedColor, sortBy]);
+  }, [sourceLaptops, selectedChoice, selectedPriceRange, selectedBrand, selectedRating, selectedRam, selectedStorage, selectedColor, sortBy, searchQuery]);
 
   const handleClearAllFilters = () => {
     setSelectedChoice('all');
@@ -175,6 +190,15 @@ export default function LaptopsPage() {
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
+  const itemListSchema = createItemListSchema(sourceLaptops.slice(0, 15), 'Laptops & MacBooks', '/laptops');
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(itemListSchema ? [itemListSchema] : []),
+    ],
+  };
+
   return (
     <SmoothScrollProvider>
       <SEO
@@ -183,7 +207,7 @@ export default function LaptopsPage() {
         keywords="best laptop store in Hyderabad, best laptop showroom Hyderabad, buy MacBook Pro Hyderabad, gaming laptops Hyderabad, ASUS ROG showroom Hyderabad, Dell XPS Hyderabad, Lenovo Legion Hyderabad, creator laptops Tolichowki"
         canonicalUrl="https://tecnomart.in/laptops"
         ogImageAlt="Best Laptop Store in Hyderabad — TecnoMart Laptops & MacBooks"
-        schema={breadcrumbSchema}
+        schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />

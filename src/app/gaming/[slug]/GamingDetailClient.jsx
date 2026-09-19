@@ -28,12 +28,22 @@ import {
   Cpu,
   Zap,
 } from 'lucide-react';
+import NotFoundPage from '@/app/not-found/page';
 
 export default function GamingDetailClient({ slug }) {
   const rig = getGamingBySlug(slug);
+
+  if (!rig) {
+    return <NotFoundPage />;
+  }
+
+  return <GamingDetailContent rig={rig} />;
+}
+
+function GamingDetailContent({ rig }) {
   const { addToCart, locationPincode, isRepairOpen, setIsRepairOpen } = useShop();
 
-  const [selectedImage, setSelectedImage] = useState(rig.images[0] || rig.images);
+  const [selectedImage, setSelectedImage] = useState(rig.images?.[0] || rig.image || '/webp/landing/img-1.webp');
   const [selectedConfig, setSelectedConfig] = useState(rig.configs?.[0] || { name: 'Standard', price: rig.price, rawPrice: rig.rawPrice });
   const [pincode, setPincode] = useState(locationPincode || '');
   const [pincodeChecked, setPincodeChecked] = useState(false);

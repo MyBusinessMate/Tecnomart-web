@@ -28,7 +28,7 @@ export default function TimedSpinPopup() {
     // Do not pop up during automated performance testing (Lighthouse, Puppeteer)
     if (
       typeof navigator !== 'undefined' &&
-      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent))
+      (navigator.webdriver || /Chrome-Lighthouse|HeadlessChrome/i.test(navigator.userAgent))
     ) {
       return;
     }

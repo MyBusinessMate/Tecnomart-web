@@ -27,9 +27,19 @@ import {
   ArrowUpRight,
   Award,
 } from 'lucide-react';
+import NotFoundPage from '@/app/not-found/page';
 
 export default function LaptopDetailClient({ slug }) {
-  const laptop = getLaptopBySlug(slug) || LAPTOPS_DATA[0];
+  const laptop = getLaptopBySlug(slug);
+
+  if (!laptop) {
+    return <NotFoundPage />;
+  }
+
+  return <LaptopDetailContent laptop={laptop} />;
+}
+
+function LaptopDetailContent({ laptop }) {
   const { addToCart, locationPincode, isRepairOpen, setIsRepairOpen } = useShop();
 
   const [currentImg, setCurrentImg] = useState(0);

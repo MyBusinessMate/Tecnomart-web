@@ -7,7 +7,8 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
+import FAQSection, { FAQS } from '@/components/redesign/FAQSection';
 import { ShieldCheck, Award, HeartHandshake, Sparkles, ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 
@@ -23,6 +24,14 @@ export default function AboutPage() {
     { name: 'Home', url: '/' },
     { name: 'About Us', url: '/about' },
   ]);
+  const faqSchema = createFAQSchema(FAQS);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(faqSchema ? [faqSchema] : []),
+    ],
+  };
 
   return (
     <SmoothScrollProvider>
@@ -32,7 +41,7 @@ export default function AboutPage() {
         keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Tolichowki, trusted computer shop Hyderabad, genuine tech retailer Telangana"
         canonicalUrl="https://tecnomart.in/about"
         ogImageAlt="About TecnoMart — Hyderabad's Best Rated Tech Store"
-        schema={breadcrumbSchema}
+        schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />
@@ -165,6 +174,11 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* TecnoMart FAQs */}
+            <div className="mt-12">
+              <FAQSection />
             </div>
 
           </div>

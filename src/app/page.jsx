@@ -14,10 +14,11 @@ const PopularPicks = React.lazy(() => import('@/components/redesign/PopularPicks
 const PromoBanners = React.lazy(() => import('@/components/redesign/PromoBanners'));
 const ReviewsAndLocation = React.lazy(() => import('@/components/redesign/ReviewsAndLocation'));
 const Footer = React.lazy(() => import('@/components/redesign/Footer'));
+import FAQSection, { FAQS } from '@/components/redesign/FAQSection';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
-import SEO, { ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA } from '@/components/SEO';
+import SEO, { ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA, createFAQSchema } from '@/components/SEO';
 import { useShop } from '@/context/ShopContext';
 
 export default function Page() {
@@ -32,6 +33,8 @@ export default function Page() {
     }));
   };
 
+  const faqSchema = createFAQSchema(FAQS);
+
   return (
     <SmoothScrollProvider>
       <SEO
@@ -39,7 +42,7 @@ export default function Page() {
         description="TecnoMart is Hyderabad's best tech store and authorized showroom in Tolichowki. Best prices on Apple iPhones, MacBooks, gaming laptops, custom liquid-cooled PCs, and certified repairs with same-day delivery."
         keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Tolichowki, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
         canonical="/"
-        schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA]}
+        schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA, ...(faqSchema ? [faqSchema] : [])]}
       />
       <div className="min-h-screen flex flex-col bg-white text-neutral-900 font-sans selection:bg-[#FFD21C] selection:text-neutral-950">
         
@@ -106,6 +109,11 @@ export default function Page() {
             {/* 11. Visit Our Store & Google Reviews */}
             <div className="section-contain">
               <ReviewsAndLocation />
+            </div>
+
+            {/* 11b. Frequently Asked Questions (AEO & Rich Snippets) */}
+            <div className="section-contain">
+              <FAQSection />
             </div>
           </React.Suspense>
         </main>

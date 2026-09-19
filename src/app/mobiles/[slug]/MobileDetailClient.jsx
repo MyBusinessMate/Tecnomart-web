@@ -27,9 +27,19 @@ import {
   ArrowUpRight,
   Award,
 } from 'lucide-react';
+import NotFoundPage from '@/app/not-found/page';
 
 export default function MobileDetailClient({ slug }) {
-  const product = getMobileBySlug(slug) || MOBILES_DATA[0];
+  const product = getMobileBySlug(slug);
+
+  if (!product) {
+    return <NotFoundPage />;
+  }
+
+  return <MobileDetailContent product={product} />;
+}
+
+function MobileDetailContent({ product }) {
   const { addToCart, locationPincode, isRepairOpen, setIsRepairOpen } = useShop();
 
   const [currentImg, setCurrentImg] = useState(0);

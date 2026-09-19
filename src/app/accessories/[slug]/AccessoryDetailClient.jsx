@@ -20,12 +20,22 @@ import {
   MapPin,
   CreditCard,
 } from 'lucide-react';
+import NotFoundPage from '@/app/not-found/page';
 
 export default function AccessoryDetailClient({ slug }) {
   const product = getAccessoryBySlug(slug);
+
+  if (!product) {
+    return <NotFoundPage />;
+  }
+
+  return <AccessoryDetailContent product={product} />;
+}
+
+function AccessoryDetailContent({ product }) {
   const { addToCart, locationPincode, isRepairOpen, setIsRepairOpen } = useShop();
 
-  const [selectedImage, setSelectedImage] = useState(product.images[0] || product.images);
+  const [selectedImage, setSelectedImage] = useState(product.images?.[0] || product.image || '/webp/landing/img-1.webp');
   const [pincode, setPincode] = useState(locationPincode || '');
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);

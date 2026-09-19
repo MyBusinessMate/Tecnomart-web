@@ -58,6 +58,9 @@ export default function DealOfTheDay() {
     return () => clearInterval(timer);
   }, []);
 
+  const dealCategory = dealProduct.category || (dealProduct.slug?.includes('macbook') || dealProduct.slug?.includes('laptop') ? 'laptops' : 'mobiles');
+  const dealHref = `/${dealCategory}/${dealProduct.slug || dealProduct.id}`;
+
   return (
     <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-midgrey-900 text-white relative overflow-hidden">
       {/* Background glow effects */}
@@ -103,10 +106,18 @@ export default function DealOfTheDay() {
         {/* Featured Deal Card */}
         <div className="bg-midgrey-800/90 border border-midgrey-700/60 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-2xl">
           
-          {/* Left Column: Image with Right Corner Ribbon */}
-          <div className="lg:col-span-5 relative group">
-            <div className="relative w-full aspect-[4/3] bg-midgrey-900 rounded-2xl p-6 flex items-center justify-center overflow-hidden border border-midgrey-700/60 shadow-inner">
-              {/* Folded Corner Ribbon Badge on the right */}
+          {/* Left Column: Product Showcase with Floating Badges */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <Link href={dealHref} className="block w-full max-w-[420px] aspect-square rounded-3xl bg-neutral-900/60 p-6 sm:p-8 flex items-center justify-center relative overflow-hidden border border-midgrey-700/80 shadow-2xl group cursor-pointer">
+              {/* Product Badge */}
+              <div className="absolute top-4 left-4 z-20">
+                <span className="inline-flex items-center gap-1.5 bg-amber-500 text-neutral-950 font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg">
+                  <Flame className="w-4 h-4 fill-current" />
+                  {dealProduct.badge || 'FLASH DEAL'}
+                </span>
+              </div>
+
+              {/* Red Ribbon Top Right */}
               {dealProduct.discountPercent && (
                 <div className="ribbon-wrapper ribbon-wrapper-right">
                   <div className="ribbon-badge-right ribbon-red">
@@ -115,7 +126,7 @@ export default function DealOfTheDay() {
                 </div>
               )}
 
-              <img
+              <Image
                 src={productImage}
                 alt={dealProduct.name}
                 width={500}
@@ -124,7 +135,7 @@ export default function DealOfTheDay() {
                 loading="lazy"
                 decoding="async"
               />
-            </div>
+            </Link>
           </div>
 
           {/* Right Column: Product Info & Buy */}
@@ -135,9 +146,12 @@ export default function DealOfTheDay() {
               <span className="text-neutral-400">({dealProduct.reviewCount || 128} verified reviews)</span>
             </div>
 
-            <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
-              {dealProduct.name}
-            </h3>
+            <Link href={dealHref} className="group block">
+              <h3 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight group-hover:text-[#F5B800] transition-colors flex items-center gap-2">
+                <span>{dealProduct.name}</span>
+                <ArrowUpRight className="w-5 h-5 sm:w-7 sm:h-7 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0" />
+              </h3>
+            </Link>
 
             <p className="text-sm sm:text-base text-neutral-300 font-medium leading-relaxed">
               {dealProduct.tagline || 'Brand-sealed unit with complete official manufacturer warranty and doorstep support in Hyderabad.'}

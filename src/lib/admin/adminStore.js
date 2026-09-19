@@ -111,8 +111,8 @@ function createDefaultDb() {
       phoneSecondary: "+91 80080 12345",
       whatsappNumber: "919010667726",
       supportEmail: "support@tecnomart.in",
-      workingHoursWeekday: "Monday – Saturday: 10:30 AM – 10:00 PM",
-      workingHoursWeekend: "Sunday: 11:00 AM – 9:30 PM",
+      workingHoursWeekday: "Monday – Sunday: 10:00 AM – 09:30 PM",
+      workingHoursWeekend: "Monday – Sunday: 10:00 AM – 09:30 PM",
       googleMapsUrl: "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac"
     },
     legalContent: {

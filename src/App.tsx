@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
 import { ShopProvider, useShop } from './context/ShopContext';
 
 // Global Overlays & Modals - Lazy load to eliminate unused JS on initial render
@@ -37,13 +37,15 @@ const CartPage = React.lazy(() => import('./app/cart/page'));
 const SpinPage = React.lazy(() => import('./app/spin/page'));
 const ScanPage = React.lazy(() => import('./pages/ScanPage'));
 const NotFoundPage = React.lazy(() => import('./app/not-found/page'));
+const BlogsPage = React.lazy(() => import('./app/blogs/page'));
 
-// Product detail dynamic routing
+// Product & Blog detail dynamic routing
 const LaptopDetailClient = React.lazy(() => import('./app/laptops/[slug]/LaptopDetailClient'));
 const MobileDetailClient = React.lazy(() => import('./app/mobiles/[slug]/MobileDetailClient'));
 const AccessoryDetailClient = React.lazy(() => import('./app/accessories/[slug]/AccessoryDetailClient'));
 const GamingDetailClient = React.lazy(() => import('./app/gaming/[slug]/GamingDetailClient'));
 const RefurbishedDetailClient = React.lazy(() => import('./app/refurbished/[slug]/RefurbishedDetailClient'));
+const BlogDetailClient = React.lazy(() => import('./app/blogs/[slug]/BlogDetailClient'));
 const SitemapPage = React.lazy(() => import('./app/sitemap/page'));
 
 // Admin Pages (Loaded for Local Testing)
@@ -68,33 +70,33 @@ function ScrollToTop() {
 }
 
 function LaptopDetailPage() {
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean).pop() || '';
+  const { slug = '' } = useParams();
   return <LaptopDetailClient slug={slug} />;
 }
 
 function MobileDetailPage() {
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean).pop() || '';
+  const { slug = '' } = useParams();
   return <MobileDetailClient slug={slug} />;
 }
 
 function AccessoryDetailPage() {
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean).pop() || '';
+  const { slug = '' } = useParams();
   return <AccessoryDetailClient slug={slug} />;
 }
 
 function GamingDetailPage() {
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean).pop() || '';
+  const { slug = '' } = useParams();
   return <GamingDetailClient slug={slug} />;
 }
 
 function RefurbishedDetailPage() {
-  const path = window.location.pathname;
-  const slug = path.split('/').filter(Boolean).pop() || '';
+  const { slug = '' } = useParams();
   return <RefurbishedDetailClient slug={slug} />;
+}
+
+function BlogDetailPage() {
+  const { slug = '' } = useParams();
+  return <BlogDetailClient slug={slug} />;
 }
 
 import { isSpinSubdomain, isScanSubdomain, isProductionDomain } from './lib/domain';
@@ -216,8 +218,10 @@ export default function App() {
 
             <Route path="/repairs" element={<RepairsPage />} />
             <Route path="/pc-builds" element={<PcBuildsPage />} />
-            <Route path="/build-your-setup" element={<PcBuildsPage />} />
+            <Route path="/build-your-setup" element={<Navigate to="/pc-builds" replace />} />
             <Route path="/deals" element={<DealsPage />} />
+            <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/blogs/:slug" element={<BlogDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

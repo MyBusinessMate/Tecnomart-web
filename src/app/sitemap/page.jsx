@@ -64,7 +64,6 @@ export default function SitemapPage() {
       links: [
         { name: "Certified Repair & Diagnostic Services", url: "/repairs", badge: "Same-Day Service" },
         { name: "Custom PC Configurator & Wattage Builder", url: "/pc-builds", badge: "Interactive Rig Builder" },
-        { name: "Build Your Setup", url: "/build-your-setup", badge: "Workspace Customizer" },
         { name: "Instant Trade-In & Exchange Calculator", url: "/exchange", badge: "Best Value Guarantee" },
         { name: "Bank EMI & Monthly Finance Calculator", url: "/emi-calculator", badge: "0% Interest Options" },
         { name: "Side-by-Side Product Comparison Engine", url: "/compare", badge: "Spec vs Spec" },
@@ -86,10 +85,10 @@ export default function SitemapPage() {
       description: "Flagship showroom location in Tolichowki, customer support hotline, comprehensive privacy policies, and service warranty terms.",
       links: [
         { name: "About TecnoMart Hyderabad", url: "/about", badge: "Our Story" },
+        { name: "Tech Insights & Buyer Guides", url: "/blogs", badge: "Expert Articles" },
         { name: "Contact & Tolichowki Store Directions", url: "/contact", badge: "Open Daily 10 AM - 9:30 PM" },
         { name: "Privacy Policy & Device Data Protection", url: "/privacy", badge: "Data Secrecy" },
         { name: "Terms & Conditions & Warranty Policy", url: "/terms", badge: "Customer Terms" },
-        { name: "Shopping Cart & Direct Ordering", url: "/cart", badge: "Checkout" },
         { name: "Machine-Readable XML Sitemap", url: "/sitemap.xml", badge: "Search Engine Index" },
       ]
     }

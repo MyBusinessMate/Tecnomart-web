@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "prerender": "node scripts/prerender-seo.js",
+    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-seo.js",
     "preview": "vite preview"
   },
   "dependencies": {

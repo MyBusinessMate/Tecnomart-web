@@ -7,7 +7,8 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createServiceSchema, createFAQSchema } from '@/components/SEO';
+import FAQSection, { FAQS } from '@/components/redesign/FAQSection';
 import { Wrench, ShieldCheck, Clock, CheckCircle2, ChevronRight, Star } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/redesign/Icons';
 import { useShop } from '@/context/ShopContext';
@@ -92,6 +93,18 @@ export default function RepairsPage() {
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
+  const serviceSchema = createServiceSchema();
+  const repairFaqs = FAQS.filter((f) => f.category === 'Repairs' || f.category === 'General' || f.category === 'Delivery');
+  const faqSchema = createFAQSchema(repairFaqs);
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(serviceSchema ? [serviceSchema] : []),
+      ...(faqSchema ? [faqSchema] : []),
+    ],
+  };
+
   return (
     <SmoothScrollProvider>
       <SEO
@@ -100,7 +113,7 @@ export default function RepairsPage() {
         keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Tolichowki, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
         canonicalUrl="https://tecnomart.in/repairs"
         ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Tolichowki"
-        schema={breadcrumbSchema}
+        schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />
@@ -257,6 +270,11 @@ export default function RepairsPage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Repair FAQs */}
+            <div className="mt-12">
+              <FAQSection />
             </div>
 
           </div>

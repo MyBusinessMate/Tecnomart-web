@@ -79,7 +79,8 @@ export default function Footer() {
     { label: 'Corporate Sales', href: '/corporate' },
     { label: 'Terms & Conditions', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Blog', href: '/deals' },
+    { label: 'Blog & Tech Insights', href: '/blogs' },
+    { label: 'HTML Sitemap', href: '/sitemap' },
     { label: 'Store Locator', href: '/contact' },
   ];
 
@@ -147,7 +148,7 @@ export default function Footer() {
                 {/* Social Buttons */}
                 <div className="flex items-center gap-3 pt-2">
                   <a
-                    href="https://instagram.com/tecnomart_hyd"
+                    href="https://www.instagram.com/tecnomart.hyd"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Instagram"
@@ -156,7 +157,7 @@ export default function Footer() {
                     <InstagramIcon className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/tecnomarthyd"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Facebook"
@@ -165,7 +166,7 @@ export default function Footer() {
                     <FacebookIcon className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href="https://www.youtube.com/@tecnomart-hyd"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="YouTube"
@@ -348,7 +349,7 @@ export default function Footer() {
         <div className="w-full bg-[#000000] text-neutral-400 border-t border-neutral-900/90 py-5">
           <div className="max-w-[1480px] mx-auto px-6 lg:px-8 flex items-center justify-between text-xs">
             <p className="text-neutral-400 font-medium whitespace-nowrap">
-              © 2025 Tecno Mart. All Rights Reserved.
+              © 2026 TecnoMart Technologies Pvt Ltd. All Rights Reserved.
             </p>
 
             {/* Straight level horizontal divider connecting copyright to payments */}
@@ -659,7 +660,7 @@ export default function Footer() {
           {/* Row 1: Copyright, Vertical Bar, Secure Payments & Cards */}
           <div className="flex items-center justify-between text-xs">
             <div className="text-[11px] text-neutral-400 font-medium leading-tight">
-              <p>© 2025 Tecno Mart.</p>
+              <p>© 2026 TecnoMart.</p>
               <p>All Rights Reserved.</p>
             </div>
 

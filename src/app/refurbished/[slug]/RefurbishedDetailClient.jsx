@@ -23,12 +23,22 @@ import {
   CreditCard,
   Award,
 } from 'lucide-react';
+import NotFoundPage from '@/app/not-found/page';
 
 export default function RefurbishedDetailClient({ slug }) {
   const item = getRefurbishedBySlug(slug);
+
+  if (!item) {
+    return <NotFoundPage />;
+  }
+
+  return <RefurbishedDetailContent item={item} />;
+}
+
+function RefurbishedDetailContent({ item }) {
   const { addToCart, locationPincode, isRepairOpen, setIsRepairOpen } = useShop();
 
-  const [selectedImage, setSelectedImage] = useState(item.images[0] || item.images);
+  const [selectedImage, setSelectedImage] = useState(item.images?.[0] || item.image || '/webp/landing/img-1.webp');
   const [pincode, setPincode] = useState(locationPincode || '');
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);

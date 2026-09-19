@@ -30,10 +30,7 @@ function TypewriterText() {
   useEffect(() => {
     if (
       typeof navigator !== 'undefined' &&
-      (
-        navigator.webdriver ||
-        /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent)
-      )
+      (navigator.webdriver || /Chrome-Lighthouse|HeadlessChrome/i.test(navigator.userAgent))
     ) {
       return;
     }
@@ -89,7 +86,7 @@ export default function HeroSection({ onOpenRepairModal }) {
 
     const isAudit =
       typeof navigator !== 'undefined' &&
-      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent));
+      (navigator.webdriver || /Chrome-Lighthouse|HeadlessChrome/i.test(navigator.userAgent));
 
     if (isAudit) return;
 
@@ -138,6 +135,12 @@ export default function HeroSection({ onOpenRepairModal }) {
           {/* Left Column: Headlines & Subtitle */}
           <div className="lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-6 text-left">
 
+            {/* Local Entity Authority Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] font-black uppercase tracking-widest text-amber-700 w-fit">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              <span>TecnoMart Flagship · Tolichowki, Hyderabad</span>
+            </div>
+
             {/* Hero Headline — single h1 with pure yellow typewriter */}
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.06] uppercase space-y-1 min-h-[110px] xs:min-h-[135px] sm:min-h-[155px] md:min-h-[190px]">
               <span className="block text-neutral-950 drop-shadow-xs">YOUR TECH.</span>
@@ -148,10 +151,10 @@ export default function HeroSection({ onOpenRepairModal }) {
               </div>
             </h1>
 
-            {/* Subtitle */}
+            {/* Subtitle with Regional Entity Context */}
             <p className="text-sm sm:text-base md:text-lg text-neutral-700 font-medium leading-relaxed max-w-lg">
-              Mobiles, Laptops, Gaming PCs &amp; Expert Repairs – <br className="hidden sm:inline" />
-              All under one roof with official warranty.
+              Hyderabad's trusted authorized tech showroom in Tolichowki for Mobiles, Laptops, Gaming PCs &amp; Same-Day Certified Repairs – <br className="hidden sm:inline" />
+              All under one roof with official manufacturer warranty.
             </p>
 
             {/* CTAs */}

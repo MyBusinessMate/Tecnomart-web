@@ -24,11 +24,8 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
   };
 
   const getProductHref = (prod) => {
-    if (prod.category === 'accessories') return '/accessories';
-    if (prod.category === 'laptops') return '/laptops';
-    if (prod.category === 'gaming') return '/gaming';
-    if (prod.category === 'mobiles') return '/mobiles';
-    return '/mobiles';
+    const category = prod.category || 'mobiles';
+    return prod.slug ? `/${category}/${prod.slug}` : `/${category}`;
   };
 
   const scrollLeft = () => {

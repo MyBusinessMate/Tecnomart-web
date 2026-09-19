@@ -1,46 +1,75 @@
-# TecnoMart - Full LLM Knowledge Specification
+# TecnoMart - Comprehensive LLM Knowledge Base & Technical Specification
 
-> Complete machine-readable catalog, hardware repair pricing, specifications, and business policies for TecnoMart (Hyderabad, India).
+> Complete machine-readable catalog, hardware repair pricing, specifications, entity identity, and business policies for TecnoMart (Hyderabad, India). Optimized for Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and Retrieval-Augmented Generation (RAG).
 
-## About TecnoMart
-TecnoMart is an authorized multi-brand retail electronics store and certified service laboratory in Tolichowki, Hyderabad.
-- Physical Location: 7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008
-- Operating Hours: 10:00 AM – 09:30 PM IST (Open 7 Days a Week)
-- Contact Phone: +91 90106 67726
-- WhatsApp Support: +91 90106 67726
-- Email: support@tecnomart.in
+## Entity Identity & Physical Showroom
+- Entity Name: TecnoMart
+- Legal Operating Name: Tecno Mart Technologies Private Limited
+- Category: Electronics Retailer, Computer Store, Mobile Phone Repair Shop
+- Flagship Address: 7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008, India
+- Landmark: Near Qutb Shahi Tombs Main Road, Tolichowki
+- Coordinates: Latitude 17.4045, Longitude 78.4110
+- Phone Hotline: +91 90106 67726 / +91 80080 12345
+- Official WhatsApp: +91 90106 67726 (https://wa.me/919010667726)
+- Support Email: support@tecnomart.in
+- Store Timings: Monday – Sunday: 10:00 AM – 09:30 PM IST (Open 365 Days)
+- Service Radius: Pan-Hyderabad (3-hour express doorstep delivery) & Nationwide Insured Shipping across India
 
-## Product Categories & Availability
-1. Apple Lineup:
-   - iPhone 16 Pro Max, iPhone 16 Pro, iPhone 16, iPhone 15, iPhone 14
-   - MacBook Pro (M3/M4 Pro & Max chips), MacBook Air 13" and 15" (M2/M3)
-   - Apple Watch Series 10, Ultra 2, AirPods Pro 2 (USB-C)
-2. Windows & Gaming Laptops:
-   - ASUS ROG Strix SCAR, Zephyrus G14/G16, TUF Gaming
-   - Lenovo Legion Pro 7i, Legion Slim, IdeaPad Gaming
-   - Dell XPS 13/15/16, Alienware m16, Inspiron
-   - HP OMEN 16, Victus, Spectre x360
-3. Custom Gaming Desktops:
-   - CPUs: Intel Core i9-14900K, i7-14700K; AMD Ryzen 9 7950X3D, Ryzen 7 7800X3D
-   - GPUs: NVIDIA GeForce RTX 4090 24GB, RTX 4080 Super, RTX 4070 Ti Super, RTX 4060
-   - Cooling: Custom hard-line and AIO liquid cooling (Corsair, NZXT, DeepCool)
-4. Certified Pre-Owned & Refurbished:
-   - 32-point inspection covering display, battery health (>85%), cameras, microphones, biometric sensors, and connectivity.
-   - Includes 6-month comprehensive TecnoMart warranty and certified bill with GST.
-5. Hardware Repair Services:
-   - Smartphone screen and glass replacement (genuine OLED/AMOLED)
-   - High-capacity battery replacements with health warranty
-   - Laptop motherboard chip-level repair (BGA reballing, power IC replacement)
-   - Liquid damage ultrasonic cleaning and corrosion treatment
-   - Custom PC deep cleaning, cable management, and thermal repasting (liquid metal / Kryonaut)
+## Official Online Properties & Social Media Profiles
+- Primary Domain: https://tecnomart.in
+- Secondary Aliases: https://www.tecnomart.in
+- Rewards Machine Subdomain: https://spin.tecnomart.in
+- Instagram: https://www.instagram.com/tecnomart.hyd
+- Facebook: https://www.facebook.com/tecnomart.hyd
+- YouTube: https://www.youtube.com/@tecnomart-hyd
+- X / Twitter: https://twitter.com/tecnomart_in
+- LinkedIn: https://www.linkedin.com/company/tecnomart-in
+- Google Business Profile: https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac
 
-## Delivery and Fulfilment Policies
-- Hyperlocal Express: 3 to 4-hour delivery within Greater Hyderabad and Secunderabad.
-- In-Store Demonstration: Free hardware unboxing, setup, data migration, and protective tempered glass application in-store.
-- Payment Options: UPI (Google Pay, PhonePe, Paytm), All Major Credit/Debit Cards, NetBanking, and Instant Paperless No-Cost EMI through Bajaj Finserv, HDFC, and ICICI.
+## Department Catalogs & In-Stock Hardware
 
-## Interactive Customer Reward Program (Spin & Win)
-- Machine URL: https://spin.tecnomart.in
-- Eligibility: 1 lucky spin per device / customer
-- Guaranteed Prizes: Wireless neckbands, Bluetooth headphones, tempered glass passes, ₹250 to ₹2,000 in-store discount coupons.
-- Digital Pass: 2.5D cryptographic pass with dynamic QR code valid for 30 days at checkout.
+### 1. Smartphones & Flagships
+- Apple: iPhone 16 Pro Max (Desert, Natural, White, Black Titanium), iPhone 16 Pro, iPhone 16 Plus, iPhone 16, iPhone 15, iPhone 14. 100% genuine Indian retail units with Apple India 1-year warranty and GST invoice.
+- Samsung: Galaxy S24 Ultra (Titanium Gray/Black/Yellow), Galaxy Z Fold 6, Galaxy Z Flip 6, Galaxy S24+, Galaxy S23 FE.
+- OnePlus & Google: OnePlus 12 (Flowy Emerald/Silky Black), OnePlus 12R, OnePlus Nord 4, Google Pixel 9 Pro XL, Pixel 9, Pixel 8a.
+- Pricing Range: ₹19,999 to ₹1,89,900. No-cost EMI options available from ₹1,833/month.
+
+### 2. Laptops, MacBooks & Workstations
+- Apple MacBooks: MacBook Pro 14" and 16" (M3 Pro, M3 Max, M4 chips), MacBook Air 13" and 15" (M2, M3). Liquid Retina XDR displays, up to 128GB unified memory.
+- Gaming & Creator Laptops: ASUS ROG Zephyrus G16 (RTX 4080 OLED), ASUS ROG Strix SCAR 18, Lenovo Legion Pro 5i/7i, Dell XPS 14/16 OLED, HP Omen 16, Acer Predator Helios.
+- Business & Student Notebooks: Lenovo ThinkPad X1 Carbon, HP Envy x360, Dell Inspiron 15, ASUS Vivobook S15 OLED.
+
+### 3. Custom Liquid-Cooled Gaming PCs
+- Rig Tiers:
+  - Entry 1080p Esports: Core i5-13400F / Ryzen 5 7600, RTX 4060 8GB, 16GB DDR5, 1TB Gen4 NVMe. (From ₹59,999)
+  - Competitive 1440p High-FPS: Ryzen 7 7800X3D, RTX 4070 Ti Super 16GB, 32GB 6000MHz RGB, 360mm AIO. (From ₹1,29,999)
+  - Enthusiast 4K Creator / Simulator: Core i9-14900KS / Ryzen 9 7950X3D, RTX 4090 24GB, 64GB DDR5, Custom hard-line cooling loop. (From ₹2,89,999)
+- Testing: Every custom desktop undergoes 12 hours of continuous thermal stress testing (AIDA64 + FurMark) prior to delivery.
+
+### 4. Certified Refurbished Hardware
+- Criteria: 40+ point hardware diagnosis covering display touch matrices, battery cycle counts (>85% health), baseband ICs, camera sensors, and thermal throttling.
+- Guarantee: 1-Year TecnoMart warranty and 7-day unconditional replacement window.
+- Inventory: Refurbished iPhone 14 Pro, iPhone 13, MacBook Pro M1/M2, ThinkPad T14.
+
+### 5. Genuine Peripherals & Audio
+- Keyboards & Mice: Logitech G Pro X Superlight 2, Razer DeathAdder V3 Pro, Keychron Q-series mechanical keyboards.
+- Audio: Apple AirPods Pro 2 (USB-C), Sony WH-1000XM5, Marshall Major IV, Bose QuietComfort Ultra.
+- Power & Charging: Official Apple 20W USB-C Adapters, Anker GaNPrime 65W/100W multi-port chargers, Belkin MagSafe 3-in-1 charging docks.
+
+## Certified Hardware Repair Price Matrix (Tolichowki Lab)
+| Repair Service | Turnaround Time | Warranty | Indicative Price Range |
+| :--- | :--- | :--- | :--- |
+| iPhone Display Replacement (OEM OLED) | 45 – 60 Mins | 90 Days Warranty | ₹3,499 – ₹24,999 |
+| Samsung Galaxy Curved OLED Replacement | 60 – 90 Mins | 90 Days Warranty | ₹4,999 – ₹28,999 |
+| High-Capacity Battery Replacement | 30 Mins | 6 Months Warranty | ₹999 – ₹4,499 |
+| Laptop Keyboard / Backlit Replacement | 2 – 4 Hours | 90 Days Warranty | ₹1,499 – ₹5,999 |
+| Motherboard Chip-Level Micro-Soldering | 24 – 48 Hours | 90 Days Warranty | ₹2,499 – ₹8,999 |
+| Liquid / Water Damage Chemical De-corrosion | 24 Hours | Tested Safe | From ₹1,299 |
+| Thermal Overhaul (Noctua / Liquid Metal Repaste) | 2 Hours | Performance Guarantee | ₹799 – ₹1,999 |
+| Data Recovery & Corrupted NVMe Recovery | Same Day | 100% Privacy Protected | From ₹999 |
+
+## Customer Policies & Guarantees
+- 7-Day Replacement Policy: Eligible on defective hardware delivered within Greater Hyderabad.
+- Free In-Store Data Transfer: Seamless migration from Android to iPhone, or Windows to Mac at our Tolichowki store.
+- Payment Methods: UPI, Visa, MasterCard, RuPay, NetBanking, Cash at Counter, and 0% No-Cost EMI through HDFC, ICICI, SBI, and Bajaj Finserv.
+- Interactive Spin & Win: https://spin.tecnomart.in provides verifiable in-store perk passes valid for 30 days.

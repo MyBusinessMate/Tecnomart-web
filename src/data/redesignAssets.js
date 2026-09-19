@@ -170,6 +170,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p1",
     name: "boAt Wave Ultima",
+    slug: "boat-wave-ultima-smartwatch",
     subtitle: "Smartwatch & Fitness",
     price: "₹1,499",
     rawPrice: 1499,
@@ -181,6 +182,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p2",
     name: "Sony WH-1000XM5",
+    slug: "sony-wh-1000xm5-wireless-anc-headphones",
     subtitle: "ANC Wireless Headphones",
     price: "₹24,990",
     rawPrice: 24990,
@@ -192,6 +194,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p3",
     name: "Zotac Gaming RTX 4060",
+    slug: "streamer-pro-i7-rtx4070ti",
     subtitle: "8GB Dedicated GPU",
     price: "₹32,999",
     rawPrice: 32999,
@@ -203,6 +206,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p4",
     name: "Asus TUF F15",
+    slug: "hp-victus-15-gaming",
     subtitle: "Core i7 / RTX 4060",
     price: "₹79,990",
     rawPrice: 79990,
@@ -214,6 +218,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p5",
     name: "iPhone 15 (128GB)",
+    slug: "iphone-15",
     subtitle: "Black / Dynamic Island",
     price: "₹69,900",
     rawPrice: 69900,
@@ -225,6 +230,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p6",
     name: "MacBook Air 15\" M3",
+    slug: "macbook-air-15-m3",
     subtitle: "16GB RAM / 512GB SSD",
     price: "₹1,44,900",
     rawPrice: 144900,
@@ -236,6 +242,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p7",
     name: "Samsung Galaxy S24 Ultra",
+    slug: "samsung-galaxy-s24-ultra",
     subtitle: "Titanium Black / 256GB",
     price: "₹1,29,999",
     rawPrice: 129999,
@@ -247,6 +254,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p8",
     name: "ASUS ROG Zephyrus G16",
+    slug: "asus-rog-zephyrus-g16-2025",
     subtitle: "OLED 240Hz / RTX 4080",
     price: "₹2,19,990",
     rawPrice: 219990,
@@ -258,6 +266,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p9",
     name: "Apple AirPods Max (USB-C)",
+    slug: "apple-airpods-pro-2-usbc",
     subtitle: "Midnight / Spatial Audio",
     price: "₹59,900",
     rawPrice: 59900,
@@ -269,6 +278,7 @@ export const POPULAR_PRODUCTS = [
   {
     id: "p10",
     name: "Keychron Q1 Pro Wireless",
+    slug: "keychron-q1-pro-wireless-mechanical-keyboard",
     subtitle: "Full Aluminum Mechanical",
     price: "₹18,999",
     rawPrice: 18999,
@@ -278,3 +288,4 @@ export const POPULAR_PRODUCTS = [
     category: "accessories",
   },
 ];
+

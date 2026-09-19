@@ -8,7 +8,7 @@ import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
 import MobileBottomBar from '@/components/redesign/MobileBottomBar';
 import { BlurRevealBox } from '@/components/redesign/BlurReveal';
-import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createItemListSchema } from '@/components/SEO';
 import { MOBILES_DATA } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 import HorizontalFilterBar, {
@@ -41,6 +41,7 @@ export default function MobilesPage() {
   const [selectedColor, setSelectedColor] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [addedItems, setAddedItems] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Reactive URL search parameter parsing for navbar and external links
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function MobilesPage() {
     const brandParam = params.get('brand');
     const choiceParam = params.get('choice');
     const priceParam = params.get('price');
+    const qParam = params.get('q');
 
     if (brandParam) {
       setSelectedBrand(brandParam);
@@ -57,6 +59,9 @@ export default function MobilesPage() {
     }
     if (priceParam) {
       setSelectedPriceRange(priceParam);
+    }
+    if (qParam) {
+      setSearchQuery(qParam);
     }
   }, [location.search]);
 
@@ -73,6 +78,16 @@ export default function MobilesPage() {
 
   const filteredAndSortedMobiles = useMemo(() => {
     let list = [...sourceMobiles];
+
+    // 0. Filter by Search Query
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter((m) =>
+        m.name?.toLowerCase().includes(q) ||
+        m.brand?.toLowerCase().includes(q) ||
+        m.tagline?.toLowerCase().includes(q)
+      );
+    }
 
     // 1. Filter by Choice: refurbished, new, best, popular
     if (selectedChoice !== 'all') {
@@ -147,7 +162,7 @@ export default function MobilesPage() {
     else if (sortBy === 'rating') list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return list;
-  }, [sourceMobiles, selectedChoice, selectedPriceRange, selectedBrand, selectedRating, selectedRam, selectedStorage, selectedColor, sortBy]);
+  }, [sourceMobiles, selectedChoice, selectedPriceRange, selectedBrand, selectedRating, selectedRam, selectedStorage, selectedColor, sortBy, searchQuery]);
 
   const handleClearAllFilters = () => {
     setSelectedChoice('all');
@@ -175,6 +190,15 @@ export default function MobilesPage() {
     window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
   };
 
+  const itemListSchema = createItemListSchema(sourceMobiles.slice(0, 15), 'Smartphones', '/mobiles');
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+      ...(itemListSchema ? [itemListSchema] : []),
+    ],
+  };
+
   return (
     <SmoothScrollProvider>
       <SEO
@@ -183,7 +207,7 @@ export default function MobilesPage() {
         keywords="best mobile shop in Hyderabad, best mobile showroom Hyderabad, mobile shop in Tolichowki, buy iPhone in Hyderabad, buy Samsung in Hyderabad, OnePlus store Hyderabad, Google Pixel Hyderabad"
         canonicalUrl="https://tecnomart.in/mobiles"
         ogImageAlt="Best Mobile Shop in Hyderabad — TecnoMart Smartphones"
-        schema={breadcrumbSchema}
+        schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
         <ScrollProgress />

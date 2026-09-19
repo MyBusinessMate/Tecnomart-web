@@ -108,7 +108,7 @@ export default function HeroModel() {
     // Do not initialize heavy WebGL on headless/Lighthouse audits
     if (
       typeof navigator !== 'undefined' &&
-      (navigator.webdriver || /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent))
+      (navigator.webdriver || /Chrome-Lighthouse|HeadlessChrome/i.test(navigator.userAgent))
     ) {
       return;
     }
