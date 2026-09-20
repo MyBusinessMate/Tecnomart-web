@@ -21,7 +21,7 @@ export default defineConfig({
     host: '0.0.0.0',
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
     cssMinify: true,
     minify: 'esbuild',
     target: 'esnext',

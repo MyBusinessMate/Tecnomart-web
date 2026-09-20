@@ -29,7 +29,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 // Postprocessing is imported dynamically so a bundler failure only disables
 // bloom — it never crashes the model render.
 
-const MODEL_PATH = '/models/3d-model-optimized-v3.glb';
+const MODEL_PATH = '/models/current-3d-model.glb';
 
 // ─── §1  Loader factory ───────────────────────────────────────────────────────
 // Isolated so DRACOLoader can be dropped in later without touching init():
