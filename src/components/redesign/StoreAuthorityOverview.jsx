@@ -9,12 +9,12 @@ export default function StoreAuthorityOverview() {
     <section className="py-12 sm:py-16 bg-neutral-50/70 border-t border-neutral-100 text-neutral-900">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* 
+        ========================================================================
+        SECTION 1: TOP AUTHORITY OVERVIEW & 3 CORE PILLARS (COMMENTED OUT)
+        Uncomment this block anytime to restore this section.
+        ========================================================================
         <div className="max-w-3xl mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-black uppercase tracking-widest text-amber-700 mb-3">
-            <span className="w-2 h-2 rounded-full bg-amber-500" />
-            <span>Tolichowki, Hyderabad Flagship</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-neutral-950">
             About TecnoMart — Hyderabad's Authorized Tech Retailer & Service Center
           </h2>
@@ -23,10 +23,8 @@ export default function StoreAuthorityOverview() {
           </p>
         </div>
 
-        {/* 3 Core Topical Authority Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
           
-          {/* Pillar 1: Genuine Hardware & Retail */}
           <div className="bg-white rounded-2xl p-6 sm:p-7 border border-neutral-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
@@ -46,7 +44,6 @@ export default function StoreAuthorityOverview() {
             </div>
           </div>
 
-          {/* Pillar 2: Same-Day Certified Repairs */}
           <div className="bg-white rounded-2xl p-6 sm:p-7 border border-neutral-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4">
@@ -66,7 +63,6 @@ export default function StoreAuthorityOverview() {
             </div>
           </div>
 
-          {/* Pillar 3: Custom PCs & Refurbished Units */}
           <div className="bg-white rounded-2xl p-6 sm:p-7 border border-neutral-200/80 shadow-xs flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4">
@@ -87,8 +83,13 @@ export default function StoreAuthorityOverview() {
           </div>
 
         </div>
+        */}
 
-        {/* Structured Buying & Store Facts Table (GEO & Entity Grounding) */}
+        {/* 
+        ========================================================================
+        SECTION 2: TECNOMART STORE & PURCHASE SPECIFICATIONS TABLE (COMMENTED OUT)
+        Uncomment this block anytime to restore this section.
+        ========================================================================
         <div className="bg-white rounded-2xl border border-neutral-200 p-6 sm:p-8">
           <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-neutral-950 mb-4">
             TecnoMart Store & Purchase Specifications
@@ -137,6 +138,7 @@ export default function StoreAuthorityOverview() {
             </table>
           </div>
         </div>
+        */}
 
       </div>
     </section>

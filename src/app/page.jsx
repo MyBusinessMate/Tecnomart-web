@@ -120,10 +120,12 @@ export default function Page() {
               <ReviewsAndLocation />
             </div>
 
-            {/* 11b. Store Topical Authority, Entity Data & Hyderabad Service Guarantees */}
+            {/* 11b. Store Topical Authority, Entity Data & Hyderabad Service Guarantees (COMMENTED OUT)
+                Uncomment below to easily restore this section anytime:
             <div className="section-contain">
               <StoreAuthorityOverview />
             </div>
+            */}
 
             {/* 11c. Frequently Asked Questions (AEO & Rich Snippets) */}
             <div className="section-contain">
