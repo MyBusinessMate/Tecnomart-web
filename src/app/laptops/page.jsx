@@ -187,7 +187,7 @@ export default function LaptopsPage() {
     const text = encodeURIComponent(
       `Hi TecnoMart! 💻 I am interested in ${product.name} priced at ${product.price}. Please share availability, offers, and warranty details.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const itemListSchema = createItemListSchema(sourceLaptops.slice(0, 15), 'Laptops & MacBooks', '/laptops');

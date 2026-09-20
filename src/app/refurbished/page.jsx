@@ -103,7 +103,7 @@ export default function RefurbishedPage() {
     const text = encodeURIComponent(
       `Hi TecnoMart! 🔄 I am interested in Certified Refurbished ${product.name} priced at ${product.price}. Please confirm warranty status and battery health.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const breadcrumbSchema = createBreadcrumbSchema([

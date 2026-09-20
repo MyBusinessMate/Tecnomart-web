@@ -70,7 +70,7 @@ export default function BottomDock({ onOpenSpin }) {
   const handleWhatsApp = () => {
     setActiveTab('contact');
     const text = encodeURIComponent("Hi TecnoMart! 👋 I would like to enquire about products, repairs, or offers.");
-    const url = `https://wa.me/919010667726?text=${text}`;
+    const url = `https://wa.me/919866388870?text=${text}`;
     if (confirmWhatsApp) {
       confirmWhatsApp(url);
     } else {

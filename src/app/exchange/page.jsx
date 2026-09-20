@@ -182,7 +182,7 @@ export default function ExchangePage() {
     const msg = encodeURIComponent(
       `Hi TecnoMart! I want to get an exact trade-in quote.\n- Category: ${catTitle}\n- Device: ${brand} ${model}\n- Storage: ${storage}\n- Condition: ${result.condition.label}\n- Estimated Valuation: ${formatINR(result.low)} – ${formatINR(result.high)}\nPlease confirm the actual value.`
     );
-    const url = `https://wa.me/919010667726?text=${msg}`;
+    const url = `https://wa.me/919866388870?text=${msg}`;
     if (confirmWhatsApp) {
       confirmWhatsApp(url);
     } else {

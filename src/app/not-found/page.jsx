@@ -11,7 +11,7 @@ import { Home, Search, Smartphone, Laptop, Wrench, Headphones, MessageCircle, Ar
 export default function NotFoundPage() {
   const handleWhatsApp = () => {
     const text = encodeURIComponent("Hi TecnoMart! I was looking for a page on your website that couldn't be found. Can you help me find what I'm looking for?");
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   return (

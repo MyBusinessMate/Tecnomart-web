@@ -47,7 +47,7 @@ export function generateNormalizedPayload(buildState, customerData) {
 }
 
 export function generateWhatsAppLink(payload) {
-  const storePhone = "919010667726"; // Actual WhatsApp Business number
+  const storePhone = "919866388870"; // Actual WhatsApp Business number
 
   const workloadLabels = {
     video: "Video Editing & Content Creation (4K/8K)",

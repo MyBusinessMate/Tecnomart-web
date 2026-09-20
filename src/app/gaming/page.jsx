@@ -114,7 +114,7 @@ export default function GamingPage() {
     const text = encodeURIComponent(
       `Hello TecnoMart Gaming! 🎮 I'm interested in the "${rig.name}" custom rig priced at ${rig.price}. Please share component customization options and same-day delivery details.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   return (
@@ -175,7 +175,7 @@ export default function GamingPage() {
                     <ChevronRight className="w-4 h-4 stroke-[3]" />
                   </Link>
                   <a
-                    href="https://wa.me/919010667726?text=Hi%20TecnoMart!%20I%20want%20a%20custom%20gaming%20PC%20recommendation."
+                    href="https://wa.me/919866388870?text=Hi%20TecnoMart!%20I%20want%20a%20custom%20gaming%20PC%20recommendation."
                     target="_blank"
                     rel="noreferrer"
                     className="min-h-[44px] inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-7 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border border-white/20 active:scale-95"

@@ -49,7 +49,7 @@ export default function RepairModal() {
     const message = encodeURIComponent(
       `Hello TecnoMart Service Center! 🛠️\nI would like to book a repair:\n- Name: ${customerName}\n- Phone: +91${phone}\n- Device: ${deviceType} (${modelName || 'Not specified'})\n- Issue: ${issue}\n- Preferred Date: ${selectedDate === 0 ? 'Today' : selectedDate === 1 ? 'Tomorrow' : dateLabel}\n- Preferred Time: ${selectedSlot || 'Flexible'}\n\nPlease confirm my repair slot & estimate.`
     );
-    const url = `https://wa.me/919010667726?text=${message}`;
+    const url = `https://wa.me/919866388870?text=${message}`;
     if (confirmWhatsApp) {
       confirmWhatsApp(url);
     } else {

@@ -50,6 +50,9 @@ export default function PopularPicks({ onAddToCart, addedItems = {} }) {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight inline-block">
               POPULAR PICKS
             </h2>
+            <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-1">
+              Top Trending Smartphones, Laptops, Audio Gear & Accessories in Hyderabad
+            </p>
             <div className="flex items-center justify-center gap-2 mt-1.5">
               <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
               {/* Decorative divider — hidden from screen readers */}

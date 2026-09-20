@@ -14,6 +14,8 @@ const PopularPicks = React.lazy(() => import('@/components/redesign/PopularPicks
 const PromoBanners = React.lazy(() => import('@/components/redesign/PromoBanners'));
 const ReviewsAndLocation = React.lazy(() => import('@/components/redesign/ReviewsAndLocation'));
 const Footer = React.lazy(() => import('@/components/redesign/Footer'));
+const QuickAnswer = React.lazy(() => import('@/components/redesign/QuickAnswer'));
+const StoreAuthorityOverview = React.lazy(() => import('@/components/redesign/StoreAuthorityOverview'));
 import FAQSection, { FAQS } from '@/components/redesign/FAQSection';
 import SmoothScrollProvider from '@/components/redesign/SmoothScrollProvider';
 import ScrollProgress from '@/components/redesign/ScrollProgress';
@@ -38,8 +40,8 @@ export default function Page() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Tech Store in Hyderabad | Mobiles, Laptops, Gaming PCs & Same-Day Repairs"
-        description="TecnoMart is Hyderabad's best tech store and authorized showroom in Tolichowki. Best prices on Apple iPhones, MacBooks, gaming laptops, custom liquid-cooled PCs, and certified repairs with same-day delivery."
+        title="TecnoMart | Tech Store in Hyderabad"
+        description="TecnoMart in Tolichowki, Hyderabad offers smartphones, laptops, custom gaming PCs, accessories, and certified same-day hardware repairs with official warranty."
         keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Tolichowki, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
         canonical="/"
         schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA, ...(faqSchema ? [faqSchema] : [])]}
@@ -70,6 +72,13 @@ export default function Page() {
           <div className="section-contain">
             <CategoryGrid />
           </div>
+
+          {/* 5b. Quick Answer for AEO / AI Search Discovery */}
+          <React.Suspense fallback={null}>
+            <div className="section-contain">
+              <QuickAnswer />
+            </div>
+          </React.Suspense>
 
           {/* Below-the-fold content code-split with Suspense boundary */}
           <React.Suspense fallback={<div className="min-h-[200px]" />}>
@@ -111,7 +120,12 @@ export default function Page() {
               <ReviewsAndLocation />
             </div>
 
-            {/* 11b. Frequently Asked Questions (AEO & Rich Snippets) */}
+            {/* 11b. Store Topical Authority, Entity Data & Hyderabad Service Guarantees */}
+            <div className="section-contain">
+              <StoreAuthorityOverview />
+            </div>
+
+            {/* 11c. Frequently Asked Questions (AEO & Rich Snippets) */}
             <div className="section-contain">
               <FAQSection />
             </div>

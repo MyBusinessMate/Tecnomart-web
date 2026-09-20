@@ -90,7 +90,7 @@ export default function RepairsPage() {
     const text = encodeURIComponent(
       `Hello TecnoMart Service Center! 🔧 I need assistance with "${serviceName}" for my device. Please share repair estimate and booking slot.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const serviceSchema = createServiceSchema();
@@ -182,7 +182,7 @@ export default function RepairsPage() {
                     <span>Book Repair Slot</span>
                   </button>
                   <a
-                    href="https://wa.me/919010667726?text=Hi%20TecnoMart!%20I%20want%20to%20get%20a%20repair%20quote%20for%20my%20device."
+                    href="https://wa.me/919866388870?text=Hi%20TecnoMart!%20I%20want%20to%20get%20a%20repair%20quote%20for%20my%20device."
                     target="_blank"
                     rel="noreferrer"
                     className="w-full min-h-[48px] bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl border border-neutral-200 flex items-center justify-center gap-2 transition-all active:scale-98"

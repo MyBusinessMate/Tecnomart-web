@@ -16,9 +16,9 @@ export default function AdminStoreInfoPage() {
     city: currentInfo.city || 'Hyderabad',
     state: currentInfo.state || 'Telangana',
     pincode: currentInfo.pincode || '500008',
-    phonePrimary: currentInfo.phonePrimary || '+91 90106 67726',
+    phonePrimary: currentInfo.phonePrimary || '+91 98663 88870',
     phoneSecondary: currentInfo.phoneSecondary || '+91 80080 12345',
-    whatsappNumber: currentInfo.whatsappNumber || '919010667726',
+    whatsappNumber: currentInfo.whatsappNumber || '919866388870',
     supportEmail: currentInfo.supportEmail || 'support@tecnomart.in',
     workingHoursWeekday: currentInfo.workingHoursWeekday || 'Monday – Saturday: 10:30 AM – 10:00 PM',
     workingHoursWeekend: currentInfo.workingHoursWeekend || 'Sunday: 11:00 AM – 9:30 PM',
@@ -166,7 +166,7 @@ export default function AdminStoreInfoPage() {
 
               <div>
                 <label className="block text-[11px] font-mono font-bold uppercase text-neutral-600 mb-1">
-                  WhatsApp Direct Number (e.g. 919010667726)
+                  WhatsApp Direct Number (e.g. 919866388870)
                 </label>
                 <input
                   type="text"

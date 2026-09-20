@@ -36,7 +36,7 @@ export default function BudgetFinder() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const phone = '919010667726';
+    const phone = '919866388870';
     const text = encodeURIComponent(
       `Hello TecnoMart! 🚀\nBudget recommendation request:\n- Category: ${category || 'Not specified'}\n- Budget: ${budget || 'Flexible'}\n- Usage: ${usage || 'General'}\n\nPlease suggest the best options!`
     );

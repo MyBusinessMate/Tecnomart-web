@@ -82,7 +82,7 @@ function LaptopDetailContent({ laptop }) {
     const text = encodeURIComponent(
       `Hello TecnoMart! 💻 I am interested in *${laptop.name}* (${selectedColor.name}, ${selectedConfig.name}) at ${activePrice}.\n\nPlease confirm availability, offers, and delivery schedule in Hyderabad.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const handleCheckPincode = (e) => {

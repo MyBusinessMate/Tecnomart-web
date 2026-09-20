@@ -187,7 +187,7 @@ export default function MobilesPage() {
     const text = encodeURIComponent(
       `Hi TecnoMart! 📱 I am interested in ${product.name} priced at ${product.price}. Please share current availability, card offers, and delivery time.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const itemListSchema = createItemListSchema(sourceMobiles.slice(0, 15), 'Smartphones', '/mobiles');

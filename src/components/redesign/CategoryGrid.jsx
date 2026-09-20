@@ -29,6 +29,9 @@ export default function CategoryGrid() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-950 uppercase tracking-tight">
             WHAT DO YOU NEED?
           </h2>
+          <p className="text-xs sm:text-sm text-neutral-500 font-medium mt-1">
+            Explore Electronics by Category — Smartphones, MacBooks, Gaming PCs, Accessories & Repairs
+          </p>
           <div className="flex items-center justify-center gap-2 mt-2">
             <div className="w-8 h-[2px] bg-amber-500 rounded-full" />
             <img src="/webp/logo.webp" alt="" aria-hidden="true" width={20} height={20} className="w-5 h-5 object-contain" />

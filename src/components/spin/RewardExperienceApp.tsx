@@ -161,7 +161,7 @@ export function RewardExperienceApp({ forceSuperMode = false }: { forceSuperMode
     issuedAt: new Date().toISOString(),
     expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
     customerName: customerName || "Techno Mart Guest",
-    customerPhone: customerPhone || "+91 90106 67726",
+    customerPhone: customerPhone || "+91 98663 88870",
   };
 
   return (

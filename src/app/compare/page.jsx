@@ -21,7 +21,7 @@ function WABuyButton({ product }) {
     const msg = encodeURIComponent(
       `Hi TecnoMart! 📱 I am comparing devices and interested in: ${product.name} (${product.price}). Please share availability, best price and Hyderabad delivery time.`
     );
-    window.open(`https://wa.me/919010667726?text=${msg}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${msg}`, '_blank');
   };
   return (
     <button

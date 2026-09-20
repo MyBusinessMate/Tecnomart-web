@@ -53,7 +53,7 @@ export default function BlogDetailClient({ slug }) {
     const text = encodeURIComponent(
       `Hi TecnoMart! 📖 I just read your article "${article.title}" and had a quick question about tech recommendations in Hyderabad.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   return (

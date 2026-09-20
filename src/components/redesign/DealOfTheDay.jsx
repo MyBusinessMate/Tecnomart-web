@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useShop } from '@/context/ShopContext';
-import { Flame, Clock, ShoppingBag, Check, Zap, Star, ShieldCheck } from 'lucide-react';
+import { Flame, Clock, ShoppingBag, Check, Zap, Star, ShieldCheck, ArrowUpRight } from 'lucide-react';
 const DEFAULT_DEAL_PRODUCT = {
   id: 'macbook-pro-16-m3-max',
   name: 'Apple MacBook Pro 16" M3 Max (36GB / 1TB)',

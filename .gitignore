@@ -95,3 +95,7 @@ lighthouse-report.json
 
 __pycache__/
 *.pyc
+
+# Email Templates & Assets
+email-templates/
+

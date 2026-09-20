@@ -11,7 +11,7 @@ export const ORGANIZATION_SCHEMA = {
   url: BASE_URL,
   logo: `${BASE_URL}/webp/logo.webp`,
   description: "Hyderabad's highest-rated authorized electronics retailer and certified hardware service specialist for flagship smartphones, creator laptops, custom gaming PCs, and genuine accessories.",
-  telephone: '+919010667726',
+  telephone: '+919866388870',
   email: 'support@tecnomart.in',
   address: {
     '@type': 'PostalAddress',
@@ -36,7 +36,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   image: `${BASE_URL}/webp/logo.webp`,
   '@id': `${BASE_URL}/#store`,
   url: BASE_URL,
-  telephone: '+919010667726',
+  telephone: '+919866388870',
   priceRange: '₹₹₹',
   currenciesAccepted: 'INR',
   paymentAccepted: 'Cash, Credit Card, Debit Card, UPI, Net Banking, No-Cost EMI',
@@ -242,7 +242,7 @@ export function createServiceSchema() {
       '@type': 'ElectronicsStore',
       name: 'TecnoMart',
       url: BASE_URL,
-      telephone: '+919010667726',
+      telephone: '+919866388870',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki',
@@ -372,7 +372,7 @@ export default function SEO({
       ? title.includes('TecnoMart')
         ? title
         : `${title} | TecnoMart Hyderabad`
-      : 'TecnoMart — Best Tech Store in Hyderabad | Mobiles, Laptops, Gaming PCs & Repairs';
+      : 'TecnoMart | Tech Store in Hyderabad';
 
     document.title = formattedTitle;
 
@@ -390,7 +390,7 @@ export default function SEO({
 
     // 3. Meta Description
     const defaultDesc =
-      "Best tech store in Hyderabad for Apple iPhones, MacBooks, gaming laptops, custom PCs, and same-day certified hardware repairs in Tolichowki. 100% genuine units with official tax invoice & warranty.";
+      "TecnoMart in Tolichowki, Hyderabad offers smartphones, MacBooks, gaming laptops, custom PC builds, and certified repair services with official warranty.";
     setMeta('name', 'description', description || defaultDesc);
 
     // 4. Meta Keywords

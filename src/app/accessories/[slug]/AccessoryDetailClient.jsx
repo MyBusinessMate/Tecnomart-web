@@ -65,7 +65,7 @@ function AccessoryDetailContent({ product }) {
     const text = encodeURIComponent(
       `Hello TecnoMart! 🎧 I am interested in *${product.name}* at ${product.price}.\n\nPlease confirm availability, warranty, and delivery schedule in Hyderabad.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const handleCheckPincode = (e) => {

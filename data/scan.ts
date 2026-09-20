@@ -48,7 +48,7 @@ export const SCAN_LINKS: ScanLink[] = [
   {
     id: "whatsapp",
     name: "WhatsApp Support",
-    url: `https://wa.me/919010667726?text=${WHATSAPP_SUPPORT_MESSAGE}`,
+    url: `https://wa.me/919866388870?text=${WHATSAPP_SUPPORT_MESSAGE}`,
     icon: "whatsapp",
     button: "Chat with us on WhatsApp",
     buttonText: "Chat with us on WhatsApp",

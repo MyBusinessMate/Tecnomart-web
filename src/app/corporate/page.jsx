@@ -27,7 +27,7 @@ export default function CorporatePage() {
     const text = encodeURIComponent(
       `Hello TecnoMart Corporate Sales! 🏢\n- Company: ${companyName}\n- Contact: ${contactPerson}\n- Email: ${email}\n- Requirement: ${requirement}\n\nPlease share B2B corporate quotation with GST tax invoice.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   return (

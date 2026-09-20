@@ -37,8 +37,8 @@ interface RewardCouponProps {
   onSpinAgain?: () => void;
 }
 
-const STORE_PHONE = "+91 90106 67726";
-const STORE_PHONE_TEL = "tel:+919010667726";
+const STORE_PHONE = "+91 98663 88870";
+const STORE_PHONE_TEL = "tel:+919866388870";
 const STORE_MAPS_URL = "https://maps.app.goo.gl/8ZeEuSuASBZwx1Ci7?g_st=ac";
 
 export function RewardCouponCard({ coupon, isSuperMode = false, onSpinAgain }: RewardCouponProps) {

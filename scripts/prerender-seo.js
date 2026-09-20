@@ -93,7 +93,7 @@ const STATIC_ROUTES = [
   {
     path: '/contact',
     title: 'Contact TecnoMart — Tech Store & Service Center in Tolichowki, Hyderabad',
-    description: 'Visit TecnoMart at 7 Tombs Rd, Tolichowki, Hyderabad. Call +91 90106 67726 or WhatsApp us for product availability, PC build quotes, or same-day repair appointments.',
+    description: 'Visit TecnoMart at 7 Tombs Rd, Tolichowki, Hyderabad. Call +91 98663 88870 or WhatsApp us for product availability, PC build quotes, or same-day repair appointments.',
     image: '/webp/logo.webp',
   },
   {

@@ -175,7 +175,7 @@ export default function Footer() {
                     <YouTubeIcon className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://wa.me/919010667726"
+                    href="https://wa.me/919866388870"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="WhatsApp"
@@ -448,7 +448,7 @@ export default function Footer() {
                 <YouTubeIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919010667726"
+                href="https://wa.me/919866388870"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"

@@ -134,7 +134,7 @@ export default function FAQSection() {
               </div>
             </div>
             <a
-              href="https://wa.me/919010667726?text=Hi%20TecnoMart!%20I%20have%20a%20question."
+              href="https://wa.me/919866388870?text=Hi%20TecnoMart!%20I%20have%20a%20question."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-lg transition-all hover:scale-105"

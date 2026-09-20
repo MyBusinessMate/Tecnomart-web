@@ -50,7 +50,7 @@ export default function StudentsPage() {
     const msg = encodeURIComponent(
       `Hi TecnoMart! I'm a student and want to claim my student discount. My college: [college name]. Please guide me on the next steps.`
     );
-    window.open(`https://wa.me/919010667726?text=${msg}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${msg}`, '_blank');
   };
 
   const breadcrumbSchema = createBreadcrumbSchema([

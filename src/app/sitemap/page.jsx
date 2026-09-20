@@ -315,7 +315,7 @@ export default function SitemapPage() {
                     <span className="font-bold text-neutral-900 block">Tolichowki Store</span>
                     <span className="text-neutral-500">7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008</span>
                     <a 
-                      href="https://wa.me/919010667726" 
+                      href="https://wa.me/919866388870" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="mt-2 inline-flex items-center gap-1 font-bold text-amber-600 hover:text-amber-700"

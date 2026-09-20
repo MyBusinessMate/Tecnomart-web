@@ -137,7 +137,7 @@ export default function AccessoriesPage() {
     const text = encodeURIComponent(
       `Hi TecnoMart! 🎧 I want to purchase ${item.name} priced at ${item.price}. Please confirm stock availability.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   return (

@@ -26,9 +26,9 @@ export default function ReviewsAndLocation() {
                   {/* Header */}
                   <div className="flex items-center gap-2 mb-3">
                     <Rocket className="w-4 h-4 text-neutral-900 fill-neutral-900" />
-                    <span className="text-xs sm:text-sm font-black tracking-wider text-neutral-950 uppercase">
+                    <h3 className="text-xs sm:text-sm font-black tracking-wider text-neutral-950 uppercase">
                       VISIT OUR STORE
-                    </span>
+                    </h3>
                   </div>
 
                   {/* Address */}
@@ -102,9 +102,9 @@ export default function ReviewsAndLocation() {
                 {/* Header */}
                 <div className="flex items-center gap-2 mb-3">
                   <GoogleIcon className="w-5 h-5" />
-                  <span className="text-xs sm:text-sm font-black tracking-wider text-neutral-950 uppercase">
+                  <h3 className="text-xs sm:text-sm font-black tracking-wider text-neutral-950 uppercase">
                     GOOGLE REVIEWS
-                  </span>
+                  </h3>
                 </div>
 
                 {/* Rating & Stars Row */}

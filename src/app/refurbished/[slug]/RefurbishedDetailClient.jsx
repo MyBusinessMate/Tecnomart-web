@@ -68,7 +68,7 @@ function RefurbishedDetailContent({ item }) {
     const text = encodeURIComponent(
       `Hello TecnoMart! ♻️ I am interested in Certified Refurbished *${item.name}* at ${item.price}.\n\nPlease confirm availability, actual unit condition photos, and warranty details.`
     );
-    window.open(`https://wa.me/919010667726?text=${text}`, '_blank');
+    window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
   const handleCheckPincode = (e) => {
