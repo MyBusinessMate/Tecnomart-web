@@ -1285,7 +1285,7 @@ Evidence of Generative Engine Optimization implemented in the codebase:
 ## 26. Search Engine Verification & Analytics / Tag Management
 
 * **Google Tag Manager (GTM):** `IMPLEMENTED`
-  * **Container ID:** `GTM-5RWP77Z8`
+  * **Container ID:** `GTM-PJJBJJB7`
   * **Head Script:** Injected at top of `<head>` in `index.html:4-11`.
   * **Body (noscript):** Injected immediately following opening `<body>` in `index.html:166-170`.
   * **Build Propagation:** Propagates into `dist/index.html` and all 103 pre-rendered route files via `scripts/prerender-seo.js`.
@@ -1293,7 +1293,7 @@ Evidence of Generative Engine Optimization implemented in the codebase:
     * `script-src`: `https://www.googletagmanager.com`
     * `frame-src`: `https://www.googletagmanager.com`
     * `connect-src`: `https://*.googletagmanager.com https://*.google-analytics.com`
-* **Google Search Console:** `CONFIGURED VIA GTM / DNS` (Verified through Google Tag Manager container `GTM-5RWP77Z8`)
+* **Google Search Console:** `CONFIGURED VIA GTM / DNS` (Verified through Google Tag Manager container `GTM-PJJBJJB7`)
 * **Bing Webmaster Tools:** `NOT IMPLEMENTED` (No `msvalidate.01` meta tag found)
 * **Yandex / Baidu / Pinterest:** `NOT IMPLEMENTED`
 
@@ -1389,7 +1389,7 @@ tecnomart.in (Showroom Storefront)
 | **AI** | llms-full.txt Specs | Comprehensive Hardware & Entity Dump | `public/llms-full.txt` | Entire file | `IMPLEMENTED` |
 | **AI** | AI Crawler Bot Rules | Rules for GPTBot, Perplexity, ClaudeBot... | `public/robots.txt` | `robots.txt:11-60` | `IMPLEMENTED` |
 | **AI** | LLM Discovery Link Tags | `<link rel="describedby" href="/llms.txt">` | `index.html` | `index.html:26-27` | `IMPLEMENTED` |
-| **Analytics** | Google Tag Manager | Container `GTM-5RWP77Z8` (Head + Body) | `index.html` | `index.html:4-11, 166-170` | `IMPLEMENTED` |
+| **Analytics** | Google Tag Manager | Container `GTM-PJJBJJB7` (Head + Body) | `index.html` | `index.html:4-11, 166-170` | `IMPLEMENTED` |
 
 ---
 
