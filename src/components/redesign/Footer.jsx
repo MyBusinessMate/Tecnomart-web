@@ -82,6 +82,7 @@ export default function Footer() {
     { label: 'Blog & Tech Insights', href: '/blogs' },
     { label: 'HTML Sitemap', href: '/sitemap' },
     { label: 'Store Locator', href: '/contact' },
+    { label: 'Check us out on', href: '/scan' },
   ];
 
   const moreLinks = [
@@ -146,43 +147,57 @@ export default function Footer() {
                 </div>
 
                 {/* Social Buttons */}
-                <div className="flex items-center gap-3 pt-2">
-                  <a
-                    href="https://www.instagram.com/tecnomart.hyd"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
-                  >
-                    <InstagramIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://www.facebook.com/tecnomarthyd"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Facebook"
-                    className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
-                  >
-                    <FacebookIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@tecnomart-hyd"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="YouTube"
-                    className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
-                  >
-                    <YouTubeIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://wa.me/919866388870"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="WhatsApp"
-                    className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-emerald-500 hover:bg-emerald-500 text-neutral-800 hover:text-white flex items-center justify-center transition-all shadow-2xs"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                  </a>
+                <div className="pt-2 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider">
+                      Check us out on
+                    </span>
+                    <Link
+                      href="/scan"
+                      className="text-[11px] font-bold text-amber-600 hover:text-amber-700 underline underline-offset-2 transition-colors"
+                      title="Check us out on Quick Links & Social Hub"
+                    >
+                      Quick Links &amp; Hub →
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://www.instagram.com/tecnomart.hyd"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Instagram"
+                      className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
+                    >
+                      <InstagramIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/tecnomarthyd"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Facebook"
+                      className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
+                    >
+                      <FacebookIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@tecnomart-hyd"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="YouTube"
+                      className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-amber-500 hover:bg-amber-500 text-neutral-800 hover:text-neutral-950 flex items-center justify-center transition-all shadow-2xs"
+                    >
+                      <YouTubeIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://wa.me/919866388870"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="WhatsApp"
+                      className="w-10 h-10 rounded-full border border-neutral-300 bg-white/80 hover:border-emerald-500 hover:bg-emerald-500 text-neutral-800 hover:text-white flex items-center justify-center transition-all shadow-2xs"
+                    >
+                      <WhatsAppIcon className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -418,44 +433,58 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* 4 Circular Social Buttons */}
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href="https://instagram.com/tecnomart_hyd"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
-              >
-                <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
-              >
-                <FacebookIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="YouTube"
-                className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
-              >
-                <YouTubeIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://wa.me/919866388870"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp"
-                className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-              </a>
+            {/* Social Buttons */}
+            <div className="pt-2 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider">
+                  Check us out on
+                </span>
+                <Link
+                  href="/scan"
+                  className="text-[11px] font-bold text-amber-600 hover:text-amber-700 underline underline-offset-2 transition-colors"
+                  title="Check us out on Quick Links & Social Hub"
+                >
+                  Quick Links &amp; Hub →
+                </Link>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://instagram.com/tecnomart_hyd"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="YouTube"
+                  className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
+                >
+                  <YouTubeIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://wa.me/919866388870"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="WhatsApp"
+                  className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-neutral-800 flex items-center justify-center shadow-xs"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
