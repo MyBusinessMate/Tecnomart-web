@@ -4,7 +4,7 @@
  * Subdomain: spin.tecnomart.in (Interactive Spin & Win Machine)
  */
 
-export const STORE_DOMAIN = "https://tecnomart.in";
+export const STORE_DOMAIN = "https://www.tecnomart.in";
 export const SPIN_DOMAIN = "https://spin.tecnomart.in";
 export const SCAN_DOMAIN = "https://scan.tecnomart.in";
 

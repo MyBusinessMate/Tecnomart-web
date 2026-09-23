@@ -53,7 +53,7 @@ function LaptopDetailContent({ laptop }) {
   const images = laptop.images?.length ? laptop.images : ['/webp/landing/img-20.webp'];
   const activePrice = selectedConfig?.price || laptop.price;
 
-  const canonicalUrl = `https://tecnomart.in/laptops/${laptop.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/laptops/${laptop.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Laptops', url: '/laptops' },

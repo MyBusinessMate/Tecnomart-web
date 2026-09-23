@@ -117,7 +117,7 @@ export default function RefurbishedPage() {
         title="Certified Refurbished Laptops & iPhones Hyderabad | 1-Year Warranty — TecnoMart"
         description="Buy certified refurbished MacBooks, Dell XPS laptops, and iPhones in Hyderabad. 100% QA inspected, 6 to 12 months direct store warranty, and same-day delivery."
         keywords="refurbished MacBooks Hyderabad, refurbished iPhone Hyderabad, second hand laptops Tolichowki, certified refurbished phones India"
-        canonicalUrl="https://tecnomart.in/refurbished"
+        canonicalUrl="https://www.tecnomart.in/refurbished"
         ogImageAlt="Certified Refurbished Devices — TecnoMart"
         schema={breadcrumbSchema}
       />

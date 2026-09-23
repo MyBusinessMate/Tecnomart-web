@@ -86,7 +86,7 @@ export default function CartPage() {
       <SEO
         title="Your Cart | TecnoMart"
         description="Review items in your cart and proceed to secure checkout with official warranty."
-        canonicalUrl="https://tecnomart.in/cart"
+        canonicalUrl="https://www.tecnomart.in/cart"
         robots="noindex, nofollow"
       />
 

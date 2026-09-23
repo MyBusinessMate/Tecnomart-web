@@ -15,7 +15,7 @@ export default function BlogsPage() {
   const blogs = adminDb.getBlogs() || [];
   const publishedBlogs = blogs.filter((b) => b.published !== false);
 
-  const canonicalUrl = 'https://tecnomart.in/blogs';
+  const canonicalUrl = 'https://www.tecnomart.in/blogs';
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Tech Insights & Guides', url: '/blogs' },

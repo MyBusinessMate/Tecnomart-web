@@ -64,7 +64,7 @@ export default function StudentsPage() {
         title="Best Student Discounts on Laptops & MacBooks in Hyderabad | TecnoMart"
         description="Get the best student discounts on Apple MacBooks, iPad Pro, and coding laptops in Hyderabad. Show college ID for instant price drops, free accessories, and zero-cost EMI at TecnoMart Tolichowki."
         keywords="best student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, cheap MacBooks students Hyderabad, student tech store Tolichowki"
-        canonicalUrl="https://tecnomart.in/students"
+        canonicalUrl="https://www.tecnomart.in/students"
         ogImageAlt="Best Student Tech Discounts on Laptops & MacBooks — TecnoMart"
         schema={breadcrumbSchema}
       />

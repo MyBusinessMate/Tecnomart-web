@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
       <SEO
         title="Privacy Policy | TecnoMart Hyderabad"
         description="Privacy policy and data protection commitments for TecnoMart customers, repair clients, and store visitors in Hyderabad."
-        canonicalUrl="https://tecnomart.in/privacy"
+        canonicalUrl="https://www.tecnomart.in/privacy"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

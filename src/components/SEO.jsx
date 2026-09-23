@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const BASE_URL = 'https://tecnomart.in';
+const BASE_URL = 'https://www.tecnomart.in';
 
 export const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
@@ -399,11 +399,14 @@ export default function SEO({
     setMeta('name', 'keywords', keywords || defaultKeywords);
 
     // 5. Canonical URL
-    const activeCanonical = canonical || canonicalUrl;
+    let activeCanonical = canonical || canonicalUrl;
+    if (activeCanonical && activeCanonical.startsWith('https://tecnomart.in')) {
+      activeCanonical = activeCanonical.replace('https://tecnomart.in', BASE_URL);
+    }
     const canonicalHref = activeCanonical
       ? activeCanonical.startsWith('http')
         ? activeCanonical
-        : `${BASE_URL}${activeCanonical}`
+        : `${BASE_URL}${activeCanonical.startsWith('/') ? activeCanonical : `/${activeCanonical}`}`
       : BASE_URL;
 
     let linkCanonical = document.querySelector('link[rel="canonical"]');
@@ -430,7 +433,7 @@ export default function SEO({
     setMeta('name', 'geo.position', '17.4045;78.4110');
     setMeta('name', 'ICBM', '17.4045, 78.4110');
     setMeta('name', 'author', 'TecnoMart Technologies Pvt Ltd');
-    setMeta('name', 'publisher', 'https://tecnomart.in');
+    setMeta('name', 'publisher', 'https://www.tecnomart.in');
 
     // 8. Open Graph / Social
     const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;

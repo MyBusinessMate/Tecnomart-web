@@ -36,7 +36,7 @@ export default function CorporatePage() {
         title="Best Corporate IT Hardware Procurement & Bulk Tech Leasing in Hyderabad | TecnoMart"
         description="Looking for the best B2B IT hardware vendor in Hyderabad? TecnoMart delivers bulk Apple MacBooks, enterprise Dell laptops, custom workstations, GST input tax invoicing, and corporate credit terms."
         keywords="best corporate IT procurement Hyderabad, B2B tech vendor Hyderabad, bulk laptop purchase Hyderabad, corporate MacBook lease, enterprise hardware Tolichowki, IT asset supply Telangana"
-        canonicalUrl="https://tecnomart.in/corporate"
+        canonicalUrl="https://www.tecnomart.in/corporate"
         ogImageAlt="Best Corporate IT Hardware Procurement in Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />

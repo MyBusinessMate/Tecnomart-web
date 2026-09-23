@@ -19,7 +19,7 @@ export default function NotFoundPage() {
       <SEO
         title="Page Not Found (404) | TecnoMart Hyderabad"
         description="The page you are looking for does not exist or has moved. Explore our latest mobiles, laptops, accessories and repair services in Hyderabad."
-        canonicalUrl="https://tecnomart.in/404"
+        canonicalUrl="https://www.tecnomart.in/404"
         robots="noindex, nofollow"
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

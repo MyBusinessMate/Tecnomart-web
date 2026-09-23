@@ -53,7 +53,7 @@ function MobileDetailContent({ product }) {
   const images = product.images?.length ? product.images : ['/webp/landing/img-1.webp'];
   const activePrice = selectedStorage?.price || product.price;
 
-  const canonicalUrl = `https://tecnomart.in/mobiles/${product.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/mobiles/${product.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Smartphones', url: '/mobiles' },

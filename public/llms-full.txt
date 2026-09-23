@@ -16,7 +16,7 @@
 - Service Radius: Pan-Hyderabad (3-hour express doorstep delivery) & Nationwide Insured Shipping across India
 
 ## Official Online Properties & Social Media Profiles
-- Primary Domain: https://tecnomart.in
+- Primary Domain: https://www.tecnomart.in
 - Secondary Aliases: https://www.tecnomart.in
 - Rewards Machine Subdomain: https://spin.tecnomart.in
 - Instagram: https://www.instagram.com/tecnomart.hyd

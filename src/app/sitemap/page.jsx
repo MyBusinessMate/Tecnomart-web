@@ -101,7 +101,7 @@ export default function SitemapPage() {
         title="HTML Sitemap | Best Products, Repairs & Tech Services Directory | TecnoMart Hyderabad"
         description="Complete HTML sitemap and directory for TecnoMart Hyderabad. Fast direct links to all flagship smartphones, MacBooks, gaming laptops, custom PCs, repair services, and tools."
         keywords="TecnoMart sitemap, electronics directory Hyderabad, mobile models list Hyderabad, laptop directory Hyderabad, PC builder tools"
-        canonicalUrl="https://tecnomart.in/sitemap"
+        canonicalUrl="https://www.tecnomart.in/sitemap"
         ogImageAlt="TecnoMart HTML Sitemap & Directory"
         schema={breadcrumbSchema}
       />

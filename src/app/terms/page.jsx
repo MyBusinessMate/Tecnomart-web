@@ -44,7 +44,7 @@ export default function TermsPage() {
       <SEO
         title="Terms & Conditions | TecnoMart Hyderabad"
         description="Terms and conditions, warranty coverage, repair guarantees, and return policies for purchases and services at TecnoMart Tolichowki, Hyderabad."
-        canonicalUrl="https://tecnomart.in/terms"
+        canonicalUrl="https://www.tecnomart.in/terms"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

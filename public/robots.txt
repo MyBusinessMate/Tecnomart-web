@@ -1,5 +1,5 @@
 # TecnoMart Robots Configuration
-# https://tecnomart.in
+# https://www.tecnomart.in
 
 User-agent: *
 Allow: /
@@ -59,6 +59,6 @@ Disallow: /myadmin/*
 Disallow: /cart
 
 # Canonical Sitemap Declaration
-Sitemap: https://tecnomart.in/sitemap.xml
+Sitemap: https://www.tecnomart.in/sitemap.xml
 
-# LLM & Machine-Readable Summary: https://tecnomart.in/llms.txt
+# LLM & Machine-Readable Summary: https://www.tecnomart.in/llms.txt

@@ -89,7 +89,7 @@ export const SCAN_LINKS: ScanLink[] = [
   {
     id: "website",
     name: "Official Store Website",
-    url: "https://tecnomart.in",
+    url: "https://www.tecnomart.in",
     icon: "globe",
     button: "Browse our store catalog",
     buttonText: "Browse our store catalog",

@@ -111,7 +111,7 @@ export default function RepairsPage() {
         title="Best Mobile & Laptop Repair Service in Hyderabad | Same-Day Screen, Battery & Chip-Level Fix"
         description="Looking for the best mobile and laptop repair in Hyderabad? TecnoMart Tolichowki service center offers same-day screen replacement, battery upgrades, chip-level logic board repairs, and 90-day warranty."
         keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Tolichowki, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
-        canonicalUrl="https://tecnomart.in/repairs"
+        canonicalUrl="https://www.tecnomart.in/repairs"
         ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Tolichowki"
         schema={combinedSchema}
       />

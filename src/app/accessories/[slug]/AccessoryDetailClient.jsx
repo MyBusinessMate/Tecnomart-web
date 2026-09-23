@@ -40,7 +40,7 @@ function AccessoryDetailContent({ product }) {
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-  const canonicalUrl = `https://tecnomart.in/accessories/${product.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/accessories/${product.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Accessories', url: '/accessories' },

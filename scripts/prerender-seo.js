@@ -13,7 +13,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOMAIN = 'https://tecnomart.in';
+const DOMAIN = 'https://www.tecnomart.in';
 const DIST_DIR = path.resolve(__dirname, '../dist');
 
 if (!fs.existsSync(DIST_DIR)) {

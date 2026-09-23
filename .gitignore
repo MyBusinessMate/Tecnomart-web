@@ -93,8 +93,11 @@ lighthouse-report.json
 
 .vercel
 
+# Python & Temporary Utility Scripts
 __pycache__/
 *.pyc
+*.py
+*.cjs
 
 # Email Templates & Assets
 email-templates/

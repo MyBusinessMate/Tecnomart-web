@@ -20,7 +20,7 @@ export default function BlogDetailClient({ slug }) {
     return <NotFoundPage />;
   }
 
-  const canonicalUrl = `https://tecnomart.in/blogs/${article.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/blogs/${article.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Tech Insights', url: '/blogs' },

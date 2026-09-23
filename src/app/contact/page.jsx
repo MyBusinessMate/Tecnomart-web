@@ -50,7 +50,7 @@ export default function ContactPage() {
         title="Best Tech Store Location in Hyderabad | TecnoMart Tolichowki Address & Hotline"
         description="Visit Hyderabad's best tech store and service center at 7 Tombs Rd, Raghava Colony, Neeraj Colony, Toli Chowki, Hyderabad, Telangana 500008. Call +91 98663 88870 or WhatsApp for product quotes, custom PC orders, and repair status."
         keywords="TecnoMart address Tolichowki, best tech store location Hyderabad, computer shop near me Tolichowki, mobile store Tolichowki, 7 Tombs Road electronics, TecnoMart phone number"
-        canonicalUrl="https://tecnomart.in/contact"
+        canonicalUrl="https://www.tecnomart.in/contact"
         ogImageAlt="TecnoMart Flagship Tech Showroom & Service Hub in Tolichowki Hyderabad"
         schema={breadcrumbSchema}
       />

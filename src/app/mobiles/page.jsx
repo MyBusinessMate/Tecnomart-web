@@ -205,7 +205,7 @@ export default function MobilesPage() {
         title="Best Mobile Shop in Hyderabad | Buy iPhones, Samsung Galaxy & Flagship Phones"
         description="Looking for the best mobile shop in Hyderabad? TecnoMart in Tolichowki offers the best prices on iPhone 16 Pro Max, Samsung S24 Ultra, OnePlus 12, and Google Pixel with official warranty and 3-hour doorstep delivery."
         keywords="best mobile shop in Hyderabad, best mobile showroom Hyderabad, mobile shop in Tolichowki, buy iPhone in Hyderabad, buy Samsung in Hyderabad, OnePlus store Hyderabad, Google Pixel Hyderabad"
-        canonicalUrl="https://tecnomart.in/mobiles"
+        canonicalUrl="https://www.tecnomart.in/mobiles"
         ogImageAlt="Best Mobile Shop in Hyderabad — TecnoMart Smartphones"
         schema={combinedSchema}
       />

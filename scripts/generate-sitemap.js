@@ -13,7 +13,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOMAIN = 'https://tecnomart.in';
+const DOMAIN = 'https://www.tecnomart.in';
 const TODAY = new Date().toISOString().split('T')[0];
 
 const STATIC_ROUTES = [

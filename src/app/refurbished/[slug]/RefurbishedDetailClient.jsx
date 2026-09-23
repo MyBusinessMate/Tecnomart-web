@@ -43,7 +43,7 @@ function RefurbishedDetailContent({ item }) {
   const [pincodeChecked, setPincodeChecked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-  const canonicalUrl = `https://tecnomart.in/refurbished/${item.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/refurbished/${item.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Certified Refurbished', url: '/refurbished' },

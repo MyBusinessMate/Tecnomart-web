@@ -146,7 +146,7 @@ export default function AccessoriesPage() {
         title="Premium Tech Accessories Hyderabad | AirPods, Keyboards, Audio & GaN Chargers"
         description="Shop genuine Apple accessories, Sony WH-1000XM5 headphones, Keychron custom mechanical keyboards, and 140W GaN chargers at TecnoMart Tolichowki Hyderabad."
         keywords="AirPods Pro Hyderabad, Sony XM5 Hyderabad, Keychron keyboard Hyderabad, Apple 20W charger genuine, GaN charger India"
-        canonicalUrl="https://tecnomart.in/accessories"
+        canonicalUrl="https://www.tecnomart.in/accessories"
         ogImageAlt="Tech Accessories — TecnoMart"
         schema={breadcrumbSchema}
       />

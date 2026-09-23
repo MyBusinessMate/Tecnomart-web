@@ -39,7 +39,7 @@ export default function AboutPage() {
         title="About TecnoMart — Best Rated Tech Store & Service Center in Hyderabad"
         description="Learn why TecnoMart is Hyderabad's best-rated electronics store and certified service center in Tolichowki. Over 10+ years of trusted hardware expertise, 100% genuine units, and thousands of satisfied customers."
         keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Tolichowki, trusted computer shop Hyderabad, genuine tech retailer Telangana"
-        canonicalUrl="https://tecnomart.in/about"
+        canonicalUrl="https://www.tecnomart.in/about"
         ogImageAlt="About TecnoMart — Hyderabad's Best Rated Tech Store"
         schema={combinedSchema}
       />

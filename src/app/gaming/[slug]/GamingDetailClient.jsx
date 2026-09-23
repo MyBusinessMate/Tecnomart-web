@@ -51,7 +51,7 @@ function GamingDetailContent({ rig }) {
 
   const activePrice = selectedConfig?.price || rig.price;
 
-  const canonicalUrl = `https://tecnomart.in/gaming/${rig.slug}`;
+  const canonicalUrl = `https://www.tecnomart.in/gaming/${rig.slug}`;
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Gaming PCs', url: '/gaming' },
