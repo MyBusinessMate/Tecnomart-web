@@ -87,6 +87,7 @@ export default function SitemapPage() {
         { name: "About TecnoMart Hyderabad", url: "/about", badge: "Our Story" },
         { name: "Tech Insights & Buyer Guides", url: "/blogs", badge: "Expert Articles" },
         { name: "Contact & Tolichowki Store Directions", url: "/contact", badge: "Open Daily 10 AM - 9:30 PM" },
+        { name: "Connect & Social Hub (Quick Links)", url: "/scan", badge: "Linktree & QR Hub" },
         { name: "Privacy Policy & Device Data Protection", url: "/privacy", badge: "Data Secrecy" },
         { name: "Terms & Conditions & Warranty Policy", url: "/terms", badge: "Customer Terms" },
         { name: "Machine-Readable XML Sitemap", url: "/sitemap.xml", badge: "Search Engine Index" },
@@ -187,11 +188,11 @@ export default function SitemapPage() {
                     Complete Direct Product Index
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-500 mt-0.5">
-                    Direct landing pages for all 28 in-stock devices, workstations, and audio gear.
+                    Direct landing pages for all {MOBILES_DATA.length + LAPTOPS_DATA.length + GAMING_DATA.length + ACCESSORIES_DATA.length + REFURBISHED_DATA.length} in-stock devices, workstations, and audio gear.
                   </p>
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-neutral-100 text-neutral-700">
-                  28 Live Products
+                  {MOBILES_DATA.length + LAPTOPS_DATA.length + GAMING_DATA.length + ACCESSORIES_DATA.length + REFURBISHED_DATA.length} Live Products
                 </span>
               </div>
 
