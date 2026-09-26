@@ -654,9 +654,11 @@ export default function Header() {
             <Link href="/refurbished" className="hover:text-amber-400 transition-colors">Refurbished</Link>
             <Link href="/exchange" className="hover:text-amber-400 transition-colors">Trade-In</Link>
             <Link href="/emi-calculator" className="hover:text-amber-400 transition-colors">EMI Calc</Link>
-            <Link href="/repairs" className="hover:text-amber-400 transition-colors">Repairs</Link>
-            <Link href="/corporate" className="hover:text-amber-400 transition-colors">Corporate</Link>
             <Link href="/students" className="hover:text-amber-400 transition-colors">Students</Link>
+            <Link href="/chat" className="text-[#FFD21C] hover:text-white transition-colors flex items-center gap-1 font-bold">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>AI Assistant</span>
+            </Link>
           </nav>
 
           {/* Right: Express Delivery Banner */}

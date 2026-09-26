@@ -11,6 +11,7 @@ const LuckyWheelModal = React.lazy(() => import('./components/redesign/LuckyWhee
 const WhatsAppWidget = React.lazy(() => import('./components/redesign/WhatsAppWidget'));
 const BottomDock = React.lazy(() => import('./components/redesign/BottomDock'));
 const TimedSpinPopup = React.lazy(() => import('./components/redesign/TimedSpinPopup'));
+const TecnoMartChatbotWidget = React.lazy(() => import('./components/chatbot/TecnoMartChatbotWidget'));
 
 // Pages - Eagerly load primary storefront home
 import Page from './app/page';
@@ -38,6 +39,7 @@ const SpinPage = React.lazy(() => import('./app/spin/page'));
 const ScanPage = React.lazy(() => import('./pages/ScanPage'));
 const NotFoundPage = React.lazy(() => import('./app/not-found/page'));
 const BlogsPage = React.lazy(() => import('./app/blogs/page'));
+const ChatPage = React.lazy(() => import('./app/chat/page'));
 
 // Product & Blog detail dynamic routing
 const LaptopDetailClient = React.lazy(() => import('./app/laptops/[slug]/LaptopDetailClient'));
@@ -148,6 +150,7 @@ function GlobalOverlays() {
       <BottomDock onOpenSpin={() => setIsSpinOpen(true)} />
       {isSpinOpen && <LuckyWheelModal isOpen={isSpinOpen} onClose={() => setIsSpinOpen(false)} />}
       <TimedSpinPopup />
+      <TecnoMartChatbotWidget />
     </React.Suspense>
   );
 }
@@ -231,6 +234,7 @@ export default function App() {
             <Route path="/exchange" element={<ExchangePage />} />
             <Route path="/corporate" element={<CorporatePage />} />
             <Route path="/students" element={<StudentsPage />} />
+            <Route path="/chat" element={<ChatPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/spin" element={<SpinRedirect />} />
             <Route path="/supertechie" element={<SpinRedirect superMode={true} />} />
