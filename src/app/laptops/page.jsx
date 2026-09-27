@@ -51,6 +51,9 @@ export default function LaptopsPage() {
     const priceParam = params.get('price');
     const qParam = params.get('q');
 
+    const minPriceParam = params.get('minPrice');
+    const maxPriceParam = params.get('maxPrice');
+
     if (brandParam) {
       setSelectedBrand(brandParam);
     }
@@ -59,6 +62,25 @@ export default function LaptopsPage() {
     }
     if (priceParam) {
       setSelectedPriceRange(priceParam);
+    } else if (minPriceParam || maxPriceParam) {
+      const min = minPriceParam ? parseInt(minPriceParam, 10) : 0;
+      const max = maxPriceParam ? parseInt(maxPriceParam, 10) : Infinity;
+      // Find matching range in PRICE_RANGES
+      const matched = PRICE_RANGES.find(
+        (r) => r.min === min && (r.max === max || (max === Infinity && r.max === Infinity))
+      );
+      if (matched) {
+        setSelectedPriceRange(matched.id);
+      } else if (min >= 70000 || min >= 50000) {
+        if (min >= 70000) setSelectedPriceRange('above-70k');
+        else if (max <= 70000) setSelectedPriceRange('50k-70k');
+      } else if (max <= 30000) {
+        setSelectedPriceRange('under-30k');
+      } else if (min >= 30000 && max <= 40000) {
+        setSelectedPriceRange('30k-40k');
+      } else if (min >= 40000 && max <= 50000) {
+        setSelectedPriceRange('40k-50k');
+      }
     }
     if (qParam) {
       setSearchQuery(qParam);

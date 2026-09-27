@@ -16,86 +16,23 @@ import React from 'react';
 export function RobotAssistantAvatar({ className = "w-10 h-10", isOnline = true, size = 40 }) {
   return (
     <div className={`relative flex items-center justify-center shrink-0 select-none ${className}`}>
-      <svg
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-[0_2px_6px_rgba(245,184,0,0.35)]"
-      >
-        {/* Antenna rod */}
-        <rect x="47" y="6" width="6" height="12" rx="3" fill="#D99B00" />
-        {/* Antenna top sphere */}
-        <circle cx="50" cy="8" r="6" fill="#FFD21C" stroke="#D99B00" strokeWidth="2" />
-
-        {/* Ear knobs (Left & Right) */}
-        <rect x="8" y="42" width="8" height="18" rx="4" fill="#D99B00" />
-        <rect x="10" y="44" width="5" height="14" rx="2.5" fill="#FFD21C" />
-
-        <rect x="84" y="42" width="8" height="18" rx="4" fill="#D99B00" />
-        <rect x="85" y="44" width="5" height="14" rx="2.5" fill="#FFD21C" />
-
-        {/* Robot Head Body (Soft rounded gold/amber shape) */}
-        <rect
-          x="14"
-          y="18"
-          width="72"
-          height="66"
-          rx="26"
-          fill="url(#goldGradient)"
-          stroke="#E0A300"
-          strokeWidth="2"
+      {/* TecnoMart Official Logo with subtle dark container */}
+      <div className="w-full h-full rounded-full bg-[#161a22] border border-[#F5B800]/40 flex items-center justify-center p-1.5 shadow-sm overflow-hidden">
+        <img
+          src="/webp/logo.webp"
+          alt="Teco TecnoMart Logo"
+          width={size}
+          height={size}
+          className="w-full h-full object-contain filter drop-shadow-[0_1px_4px_rgba(245,184,0,0.4)]"
+          loading="eager"
         />
+      </div>
 
-        {/* Head highlight gloss at top edge */}
-        <path
-          d="M26 24C32 21 44 20 50 20C56 20 68 21 74 24"
-          stroke="#FFF2A3"
-          strokeWidth="3"
-          strokeLinecap="round"
-          opacity="0.8"
-        />
-
-        {/* Inner Black Screen Mask */}
-        <rect
-          x="24"
-          y="32"
-          width="52"
-          height="40"
-          rx="16"
-          fill="#111317"
-          stroke="#000000"
-          strokeWidth="1.5"
-        />
-
-        {/* Robot White Eyes */}
-        <ellipse cx="40" cy="50" rx="4.5" ry="6" fill="#FFFFFF" />
-        <ellipse cx="60" cy="50" rx="4.5" ry="6" fill="#FFFFFF" />
-
-        {/* Cute Smile */}
-        <path
-          d="M43 61C46 64 54 64 57 61"
-          stroke="#FFFFFF"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-
-        {/* Subtle Cheek Blushes */}
-        <circle cx="31" cy="58" r="3" fill="#FFD21C" opacity="0.4" />
-        <circle cx="69" cy="58" r="3" fill="#FFD21C" opacity="0.4" />
-
-        <defs>
-          <linearGradient id="goldGradient" x1="50" y1="18" x2="50" y2="84" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#FFD21C" />
-            <stop offset="1" stopColor="#F5B800" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {/* Online indicator ping */}
+      {/* Online indicator green dot */}
       {isOnline && (
-        <span className="absolute bottom-0 right-0 flex h-3 w-3">
+        <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-neutral-900" />
+          <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#0f141d]" />
         </span>
       )}
     </div>

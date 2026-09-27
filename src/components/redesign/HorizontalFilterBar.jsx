@@ -26,6 +26,10 @@ export const CHOICE_OPTIONS = [
 export const PRICE_RANGES = [
   { id: 'all', label: 'All Prices', min: 0, max: Infinity },
   { id: 'under-30k', label: 'Under ₹30,000', min: 0, max: 30000 },
+  { id: '30k-40k', label: '₹30,000 - ₹40,000', min: 30000, max: 40000 },
+  { id: '40k-50k', label: '₹40,000 - ₹50,000', min: 40000, max: 50000 },
+  { id: '50k-70k', label: '₹50,000 - ₹70,000', min: 50000, max: 70000 },
+  { id: 'above-70k', label: 'Above ₹70,000', min: 70000, max: Infinity },
   { id: '30k-60k', label: '₹30,000 – ₹60,000', min: 30000, max: 60000 },
   { id: '60k-100k', label: '₹60,000 – ₹1,00,000', min: 60000, max: 100000 },
   { id: '100k-150k', label: '₹1,00,000 – ₹1,50,000', min: 100000, max: 150000 },

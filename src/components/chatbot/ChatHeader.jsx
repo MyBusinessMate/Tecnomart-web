@@ -9,26 +9,32 @@ import { RobotAssistantAvatar } from './RobotAvatar';
  */
 export default function ChatHeader({ onMinimize, onClose, onReset, isFullscreen, onToggleFullscreen }) {
   return (
-    <header className="relative bg-[#0f141d] text-white px-4 py-3.5 flex items-center justify-between select-none shrink-0 border-b border-neutral-800/80 rounded-t-[24px]">
+    <header className={`relative bg-[#0f141d] text-white px-4 py-3.5 flex items-center justify-between select-none shrink-0 border-b border-neutral-800/80 ${
+      isFullscreen ? "rounded-none" : "rounded-t-[24px]"
+    }`}>
       {/* Brand & Assistant Identity */}
       <div className="flex items-center gap-3 min-w-0">
-        {/* Robot Assistant Avatar matching reference image */}
+        {/* TecnoMart Logo Avatar */}
         <RobotAssistantAvatar className="w-10 h-10" isOnline={true} />
 
         {/* Identity Details */}
         <div className="flex flex-col min-w-0 justify-center">
           <div className="flex items-center gap-2">
             <span className="text-[15px] font-bold tracking-tight text-white whitespace-nowrap">
-              TecnoMart
+              Teco
             </span>
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#F5B800] text-neutral-950 text-[10px] font-black tracking-wide shadow-2xs">
               <ShieldCheck className="w-3 h-3 stroke-[2.5]" />
               Verified
             </span>
           </div>
-          <div className="text-[12px] text-neutral-300 font-medium truncate flex items-center gap-1.5 mt-0.5">
+          <div className="text-[11.5px] text-neutral-300 font-medium truncate flex items-center gap-1.5 mt-0.5">
             <span className="w-2 h-2 rounded-full bg-[#10b981] shrink-0 inline-block" />
-            <span className="text-neutral-300">Online • Usually replies instantly</span>
+            <span className="text-neutral-300 truncate">
+              {isFullscreen
+                ? "Online • Usually replies instantly"
+                : "7 tombs road, tolichowki, hyderabad"}
+            </span>
           </div>
         </div>
       </div>

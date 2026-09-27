@@ -20,6 +20,30 @@ export default function ChatMessage({
 }) {
   const isBot = message.sender === 'bot' || message.sender === 'assistant';
 
+  // Typewriting effect for newly arrived assistant messages
+  const [displayedText, setDisplayedText] = React.useState(
+    !isBot || message.isHistory ? (message.text || "") : ""
+  );
+
+  React.useEffect(() => {
+    if (!isBot || message.isHistory || displayedText === message.text) return;
+
+    let index = 0;
+    const fullText = message.text || "";
+    // Realistic smooth typing speed ~14ms per character
+    const interval = setInterval(() => {
+      index += 2;
+      if (index >= fullText.length) {
+        setDisplayedText(fullText);
+        clearInterval(interval);
+      } else {
+        setDisplayedText(fullText.slice(0, index));
+      }
+    }, 14);
+
+    return () => clearInterval(interval);
+  }, [message.text, isBot, message.isHistory]);
+
   return (
     <div
       className={`flex flex-col my-2.5 select-text ${
@@ -48,7 +72,7 @@ export default function ChatMessage({
                 {message.emoji && <span>{message.emoji}</span>}
               </div>
             )}
-            <div>{message.text}</div>
+            <div>{displayedText || message.text}</div>
           </div>
 
           {/* Timestamp and delivery status */}
@@ -74,6 +98,13 @@ export default function ChatMessage({
             laptop={message.product}
             onSelectProduct={onSelectProduct}
             onWhatsAppQuote={onWhatsAppQuote}
+            onShowOther={() => {
+              if (message.onShowOther) {
+                message.onShowOther();
+              } else if (onSelectQuickReply) {
+                onSelectQuickReply({ action: 'show_other', id: 'show-other' });
+              }
+            }}
           />
         </div>
       )}

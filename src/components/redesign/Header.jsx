@@ -80,36 +80,16 @@ export default function Header() {
 
   const pathname = usePathname();
 
-  // Non-sticky navbar: hides while scrolling, reveals 0.5s after scroll stops
-  const [navVisible, setNavVisible] = useState(true);
-  const scrollTimerRef = useRef(null);
+  // Smooth, stable navbar visibility
+  const [navScrolled, setNavScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Always show immediately when at the very top of the page
-      if (currentScrollY <= 15) {
-        setNavVisible(true);
-        if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-        return;
-      }
-
-      // Hide while actively scrolling (non-sticky behavior)
-      setNavVisible(false);
-
-      // Re-appear smoothly 0.5s (500ms) after user stops scrolling
-      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-      scrollTimerRef.current = setTimeout(() => {
-        setNavVisible(true);
-      }, 500);
+      setNavScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll, { passive: true });
-      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -346,7 +326,6 @@ export default function Header() {
     },
   ];
 
-  const isNavRevealed = navVisible || drawerOpen || searchOpen || accountDropdownOpen || activeNavDropdown !== null;
 
   return (
     <>
@@ -657,7 +636,7 @@ export default function Header() {
             <Link href="/students" className="hover:text-amber-400 transition-colors">Students</Link>
             <Link href="/chat" className="text-[#FFD21C] hover:text-white transition-colors flex items-center gap-1 font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>AI Assistant</span>
+              <span>Teco AI</span>
             </Link>
           </nav>
 
