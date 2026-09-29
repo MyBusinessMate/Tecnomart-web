@@ -147,6 +147,67 @@ export default function BlogDetailClient({ slug }) {
                 ) : (
                   <p>Content for this article is being updated by our editorial team.</p>
                 )}
+
+                {article.slug === 'iphone-16-pro-vs-galaxy-s24-ultra-hyderabad' && (
+                  <div className="my-8 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm not-prose">
+                    <div className="bg-neutral-900 px-5 py-3.5 text-white">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-amber-400">
+                        Side-by-Side Flagship Comparison (TecnoMart Hyderabad)
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-0.5">
+                        Verified hardware specifications and current store pricing at Tolichowki
+                      </p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-xs sm:text-sm">
+                        <thead className="border-b border-neutral-200 bg-neutral-50 text-neutral-700 font-bold">
+                          <tr>
+                            <th className="px-4 py-3">Feature / Parameter</th>
+                            <th className="px-4 py-3 text-neutral-900">Apple iPhone 16 Pro Max</th>
+                            <th className="px-4 py-3 text-neutral-900">Samsung Galaxy S24 Ultra</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-neutral-100 text-neutral-600">
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Store Price (256GB)</td>
+                            <td className="px-4 py-3 font-bold text-amber-600">₹99,999 (Special Offer)</td>
+                            <td className="px-4 py-3 font-bold text-blue-600">₹71,999 (Special Offer)</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Display</td>
+                            <td className="px-4 py-3">6.9-inch Super Retina XDR OLED, 120Hz ProMotion</td>
+                            <td className="px-4 py-3">6.8-inch Dynamic AMOLED 2X, 120Hz Flat, Anti-Reflective Gorilla Armor</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Processor</td>
+                            <td className="px-4 py-3">Apple A18 Pro (3nm) with 6-core GPU</td>
+                            <td className="px-4 py-3">Qualcomm Snapdragon 8 Gen 3 for Galaxy (4nm)</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Camera System</td>
+                            <td className="px-4 py-3">48MP Main + 48MP Ultra-Wide + 12MP 5x Telephoto, 4K 120fps Dolby Vision</td>
+                            <td className="px-4 py-3">200MP Main + 50MP 5x Periscope + 10MP 3x + 12MP Ultra-Wide, 100x Space Zoom</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Chassis &amp; Materials</td>
+                            <td className="px-4 py-3">Grade 5 Titanium frame with Ceramic Shield</td>
+                            <td className="px-4 py-3">Titanium frame with integrated S-Pen stylus</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Battery &amp; Charging</td>
+                            <td className="px-4 py-3">4,685 mAh, MagSafe &amp; USB-C 3.0</td>
+                            <td className="px-4 py-3">5,000 mAh, 45W Fast Charging &amp; Qi Wireless</td>
+                          </tr>
+                          <tr className="hover:bg-neutral-50/50">
+                            <td className="px-4 py-3 font-semibold text-neutral-900">Hyderabad Buyback / Resale</td>
+                            <td className="px-4 py-3">Exceptional 2-3 year residual value across local markets</td>
+                            <td className="px-4 py-3">Strong enterprise &amp; productivity trade-in values at TecnoMart</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Article Footer & Callout */}

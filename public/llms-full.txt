@@ -17,7 +17,6 @@
 
 ## Official Online Properties & Social Media Profiles
 - Primary Domain: https://www.tecnomart.in
-- Secondary Aliases: https://www.tecnomart.in
 - Rewards Machine Subdomain: https://spin.tecnomart.in
 - Instagram: https://www.instagram.com/tecnomart.hyd
 - Facebook: https://www.facebook.com/tecnomart.hyd

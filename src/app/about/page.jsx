@@ -118,6 +118,15 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium">
                   Today, over 45,000 students, developers, creative professionals, and esports gamers trust TecnoMart for their hardware upgrades and critical repairs.
                 </p>
+
+                <div className="pt-2">
+                  <h3 className="text-base sm:text-lg font-bold text-neutral-950 uppercase tracking-tight">
+                    The Independent Tech Specialist Advantage in Hyderabad
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium mt-1">
+                    Unlike large retail chains that often act purely as sales conduits with standard turnaround cycles, TecnoMart operates as an active, on-site hardware specialist. Our Tolichowki flagship features an in-house ESD cleanroom repair lab for chip-level diagnostics, custom gaming PC assembly and 12-hour thermal stress-testing, and direct one-on-one technical consultation tailored to each customer&apos;s specific budget and workload.
+                  </p>
+                </div>
               </div>
 
               <div className="lg:col-span-6">
