@@ -129,6 +129,17 @@
       ],
       "destination": "https://scan.tecnomart.in/",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tecnomart.in"
+        }
+      ],
+      "destination": "https://www.tecnomart.in/:path*",
+      "permanent": true
     }
   ],
   "rewrites": [

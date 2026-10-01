@@ -7,6 +7,8 @@ Disallow: /myadmin
 Disallow: /myadmin/
 Disallow: /myadmin/*
 Disallow: /cart
+Disallow: /design-system.html
+Disallow: /user-roy-flow.html
 
 # Specialized AI Search & Answer Discovery Engines (AEO & GEO)
 User-agent: GPTBot
