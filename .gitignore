@@ -80,17 +80,42 @@ tmp/
 temp/
 browser/
 
-# Lighthouse Audits & HTML/JSON Reports
+# Audits, SEO Reports & HTML/JSON Reviews
 web-report*
 *.report.html
 *.report.json
+*_report.html
+*_audit.html
+*audit*.html
 lighthouse-report.json
+tecnomart_audit_report.html
+master_seo_aeo_geo_audit.html
+tecnomart.md
 
 # Raw staging assets & Generated Images
 /images/
 *ChatGPT*
 *[Cc]hat[Gg]pt*
 
+# Unused / Legacy Setup Assets
+public/black-setup.jpg
+public/white-setup.jpg
+public/webp/white-cabinet.webp
+public/webp/white-setup.webp
+public/webp/black-setup.webp
+
+# Duplicate Root Static Assets (canonical assets live in /public)
+/apple-touch-icon.png
+/favicon-96x96.png
+/favicon.ico
+/favicon.svg
+/web-app-manifest-192x192.png
+/web-app-manifest-512x512.png
+
+# Unused Vite Boilerplate Assets
+src/assets/
+
+# Vercel Cache
 .vercel
 
 # Python & Temporary Utility Scripts
@@ -98,8 +123,18 @@ __pycache__/
 *.pyc
 *.py
 *.cjs
+*.mjs.tmp
 
 # Email Templates & Assets
 email-templates/
 email-2/
+
+# Temporary / Scratch Files
+scratch/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.patch
 
