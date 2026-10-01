@@ -56,11 +56,18 @@ export default function BlogDetailClient({ slug }) {
     window.open(`https://wa.me/919866388870?text=${text}`, '_blank');
   };
 
+  const formattedBlogTitle = `${article.title} | TecnoMart`.length <= 60
+    ? `${article.title} | TecnoMart`
+    : `${article.title.slice(0, 47)} | TecnoMart`;
+  const formattedBlogDesc = article.excerpt?.length >= 120 && article.excerpt?.length <= 160
+    ? article.excerpt
+    : `${article.excerpt?.slice(0, 140) || article.title}... Read full guide at TecnoMart Hyderabad.`;
+
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`${article.title} | TecnoMart Insights`}
-        description={article.excerpt}
+        title={formattedBlogTitle}
+        description={formattedBlogDesc}
         canonicalUrl={canonicalUrl}
         ogImageAlt={article.title}
         schema={combinedSchema}

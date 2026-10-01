@@ -42,8 +42,8 @@ export default function TermsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Terms & Conditions | TecnoMart Hyderabad"
-        description="Terms and conditions, warranty coverage, repair guarantees, and return policies for purchases and services at TecnoMart Tolichowki, Hyderabad."
+        title="Terms &amp; Warranty Policies | TecnoMart Hyderabad"
+        description="Review TecnoMart sales terms, manufacturer warranty coverage, 90-day repair guarantees and exchange policies at our Tolichowki showroom."
         canonicalUrl="https://www.tecnomart.in/terms"
         schema={breadcrumbSchema}
       />

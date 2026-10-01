@@ -40,6 +40,16 @@ const STATIC_ROUTES = [
 ];
 
 const BLOG_SLUGS = [
+  'hp-laptop-lines-on-screen',
+  'asus-laptop-screen-flickering',
+  'gaming-pc-build-guide',
+  'laptop-pink-green-screen-fix',
+  'red-screen-on-laptop',
+  'how-to-check-laptop-serial-number-warranty',
+  'iphone-15-vs-iphone-16',
+  'prebuilt-vs-custom-gaming-pc',
+  'liquid-cooling-vs-air-cooling-gaming-pc',
+  'refurbished-pc-laptop-worth-buying',
   'iphone-16-pro-vs-galaxy-s24-ultra-hyderabad',
   'how-to-spot-fake-apple-accessories',
 ];

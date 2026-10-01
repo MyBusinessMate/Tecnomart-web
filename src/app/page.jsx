@@ -40,8 +40,8 @@ export default function Page() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="TecnoMart | Tech Store in Hyderabad"
-        description="TecnoMart in Tolichowki, Hyderabad offers smartphones, laptops, custom gaming PCs, accessories, and certified same-day hardware repairs with official warranty."
+        title="TecnoMart | Mobiles, Laptops & Repairs in Hyderabad"
+        description="Mobiles, MacBooks, gaming laptops, custom PCs and repairs at TecnoMart, 7 Tombs Rd, Tolichowki, Hyderabad. Official warranty. Call +91 98663 88870."
         keywords="best tech store in Hyderabad, best mobile shop in Hyderabad, best laptop showroom Hyderabad, best gaming PC builders Hyderabad, best computer repair Tolichowki, buy iPhone 16 Pro Max Hyderabad, buy MacBook Pro Hyderabad, certified refurbished laptops Hyderabad"
         canonical="/"
         schema={[ORGANIZATION_SCHEMA, LOCAL_BUSINESS_SCHEMA, WEBSITE_SCHEMA, ...(faqSchema ? [faqSchema] : [])]}

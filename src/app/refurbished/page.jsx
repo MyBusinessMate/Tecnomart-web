@@ -114,11 +114,11 @@ export default function RefurbishedPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Certified Refurbished Laptops & iPhones Hyderabad | 1-Year Warranty — TecnoMart"
-        description="Buy certified refurbished MacBooks, Dell XPS laptops, and iPhones in Hyderabad. 100% QA inspected, 6 to 12 months direct store warranty, and same-day delivery."
-        keywords="refurbished MacBooks Hyderabad, refurbished iPhone Hyderabad, second hand laptops Tolichowki, certified refurbished phones India"
+        title="Refurbished iPhones &amp; Laptops Hyderabad | TecnoMart"
+        description="Buy Grade-A+ certified refurbished iPhones, MacBooks &amp; laptops in Hyderabad. 32-point inspection, 1-year store warranty &amp; 7-day replacement. Call us."
+        keywords="refurbished iPhones Hyderabad, refurbished laptops Hyderabad, refurbished MacBooks Tolichowki, certified preowned phones"
         canonicalUrl="https://www.tecnomart.in/refurbished"
-        ogImageAlt="Certified Refurbished Devices — TecnoMart"
+        ogImageAlt="Refurbished iPhones &amp; Laptops — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

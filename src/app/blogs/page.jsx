@@ -41,9 +41,9 @@ export default function BlogsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Tech Insights, Buyer Guides & Device Care | TecnoMart Hyderabad"
-        description="Read in-depth tech comparisons, smartphone buying guides, Apple accessory verification tips, and PC building advice from TecnoMart's certified engineers in Hyderabad."
-        keywords="TecnoMart blog, tech guides Hyderabad, iPhone vs Samsung Hyderabad, spot fake apple accessories, PC building guides Hyderabad, electronics advice"
+        title="Tech Guides &amp; Buyer Advice | TecnoMart Hyderabad"
+        description="Expert tech buying guides, repair diagnostics, smartphone comparisons &amp; hardware tutorials from certified engineers at TecnoMart Tolichowki, Hyderabad."
+        keywords="TecnoMart blog, tech guides Hyderabad, iPhone vs Samsung Hyderabad, spot fake apple accessories, PC building guides Hyderabad"
         canonicalUrl={canonicalUrl}
         schema={combinedSchema}
       />

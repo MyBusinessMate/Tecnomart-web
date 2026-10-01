@@ -94,12 +94,19 @@ function LaptopDetailContent({ laptop }) {
 
   const similarProducts = LAPTOPS_DATA.filter((l) => l.slug !== laptop.slug).slice(0, 3);
 
+  const formattedSeoTitle = `${laptop.name} Price in Hyderabad | TecnoMart`.length <= 60
+    ? `${laptop.name} Price in Hyderabad | TecnoMart`
+    : `${laptop.name.slice(0, 47)} | TecnoMart`;
+  const formattedSeoDesc = `Buy ${laptop.name} at TecnoMart Tolichowki, Hyderabad. Best INR price (${laptop.price}), official warranty & 3-hour doorstep delivery. Call +91 98663 88870.`.length <= 160
+    ? `Buy ${laptop.name} at TecnoMart Tolichowki, Hyderabad. Best INR price (${laptop.price}), official warranty & 3-hour doorstep delivery. Call +91 98663 88870.`
+    : `Buy ${laptop.name} at TecnoMart Tolichowki, Hyderabad. Best price (${laptop.price}), official warranty & 3-hr delivery. Call +91 98663 88870.`;
+
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`Best Price ${laptop.name} in Hyderabad (${laptop.price}) | TecnoMart`}
-        description={`Buy 100% genuine ${laptop.name} at the best price in Hyderabad (${laptop.price}). Available at TecnoMart Tolichowki with official manufacturer warranty, 0% EMI options, and express same-day delivery.`}
-        keywords={`best price ${laptop.name} Hyderabad, buy ${laptop.name} Hyderabad, ${laptop.name} deals Tolichowki, ${laptop.brand} laptop store Hyderabad, laptop showroom Tolichowki`}
+        title={formattedSeoTitle}
+        description={formattedSeoDesc}
+        keywords={`best price ${laptop.name} Hyderabad, buy ${laptop.name} Hyderabad, ${laptop.name} deals Tolichowki, ${laptop.brand} laptop store Hyderabad`}
         canonicalUrl={canonicalUrl}
         ogType="product"
         ogImage={laptop.images?.[0]}

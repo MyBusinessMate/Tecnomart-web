@@ -208,6 +208,7 @@ export default function App() {
             <Route path="/laptops/:slug" element={<LaptopDetailPage />} />
 
             <Route path="/mobiles" element={<MobilesPage />} />
+            <Route path="/mobiles/iphone-16-pro-max" element={<Navigate to="/mobiles/apple-iphone-16-pro-max" replace />} />
             <Route path="/mobiles/:slug" element={<MobileDetailPage />} />
 
             <Route path="/accessories" element={<AccessoriesPage />} />

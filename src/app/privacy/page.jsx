@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
     <SmoothScrollProvider>
       <SEO
         title="Privacy Policy | TecnoMart Hyderabad"
-        description="Privacy policy and data protection commitments for TecnoMart customers, repair clients, and store visitors in Hyderabad."
+        description="Read TecnoMart's privacy policy, customer data protection standards and device privacy commitments for sales and hardware repairs in Hyderabad."
         canonicalUrl="https://www.tecnomart.in/privacy"
         schema={breadcrumbSchema}
       />

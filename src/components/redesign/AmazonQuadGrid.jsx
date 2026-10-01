@@ -17,7 +17,7 @@ export default function AmazonQuadGrid() {
           name: "iPhone 16 Pro Max",
           price: "₹99,999",
           img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=500&q=80",
-          href: "/mobiles/iphone-16-pro-max",
+          href: "/mobiles/apple-iphone-16-pro-max",
         },
         {
           name: "Galaxy S24 Ultra",

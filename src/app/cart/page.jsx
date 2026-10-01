@@ -87,6 +87,7 @@ export default function CartPage() {
         title="Your Cart | TecnoMart"
         description="Review items in your cart and proceed to secure checkout with official warranty."
         canonicalUrl="https://www.tecnomart.in/cart"
+        noindex={true}
         robots="noindex, nofollow"
       />
 

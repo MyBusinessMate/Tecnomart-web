@@ -110,11 +110,11 @@ export default function DealsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Tech Deals & Electronics Clearance Offers in Hyderabad | TecnoMart"
-        description="Find the best tech deals in Hyderabad at TecnoMart Tolichowki. Save big on open-box MacBooks, flagship smartphones, gaming laptops, and audio gear with instant store pickup."
-        keywords="best tech deals in Hyderabad, electronics sale Hyderabad, discounted laptops Hyderabad, cheap iPhone 16 Hyderabad, electronics clearance Tolichowki, festive tech offers Telangana"
+        title="Best Tech Deals &amp; Open-Box Offers | TecnoMart"
+        description="Exclusive discounts on smartphones, laptops, monitors &amp; open-box deals at TecnoMart Tolichowki, Hyderabad. Limited stocks with warranty. Call now."
+        keywords="tech deals Hyderabad, open-box electronics Hyderabad, discounted laptops Tolichowki, smartphone offers Hyderabad"
         canonicalUrl="https://www.tecnomart.in/deals"
-        ogImageAlt="Best Tech Deals & Electronics Clearance Offers in Hyderabad — TecnoMart"
+        ogImageAlt="Best Tech Deals &amp; Open-Box Offers — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

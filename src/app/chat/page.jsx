@@ -24,9 +24,10 @@ export default function ChatPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="TecnoMart Assistant | Live Laptop Shopping & Support Chat"
-        description="Chat directly with TecnoMart's smart laptop assistant in Hyderabad. Get personalized recommendations for refurbished and new laptops based on your budget, college, coding, or gaming requirements."
+        title="AI Laptop Assistant Chat | TecnoMart Hyderabad"
+        description="Chat with TecnoMart's smart laptop assistant in Hyderabad. Get instant recommendations for MacBooks, gaming rigs &amp; student laptops based on your budget."
         canonicalUrl="https://www.tecnomart.in/chat"
+        noindex={true}
         schema={breadcrumbSchema}
       />
 

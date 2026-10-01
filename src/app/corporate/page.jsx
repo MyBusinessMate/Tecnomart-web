@@ -33,11 +33,11 @@ export default function CorporatePage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Corporate IT Hardware Procurement & Bulk Tech Leasing in Hyderabad | TecnoMart"
-        description="Looking for the best B2B IT hardware vendor in Hyderabad? TecnoMart delivers bulk Apple MacBooks, enterprise Dell laptops, custom workstations, GST input tax invoicing, and corporate credit terms."
-        keywords="best corporate IT procurement Hyderabad, B2B tech vendor Hyderabad, bulk laptop purchase Hyderabad, corporate MacBook lease, enterprise hardware Tolichowki, IT asset supply Telangana"
+        title="Corporate IT Procurement Hyderabad | TecnoMart"
+        description="B2B enterprise IT hardware, bulk laptop procurement &amp; office workstation setups in Hyderabad. Full GST tax invoices &amp; SLA support from TecnoMart."
+        keywords="corporate IT procurement Hyderabad, B2B hardware vendor Hyderabad, bulk laptop supply Hyderabad, enterprise workstation setups"
         canonicalUrl="https://www.tecnomart.in/corporate"
-        ogImageAlt="Best Corporate IT Hardware Procurement in Hyderabad — TecnoMart"
+        ogImageAlt="Corporate IT Procurement Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

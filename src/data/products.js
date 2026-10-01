@@ -1,7 +1,7 @@
 export const MOBILES_DATA = [
   {
     "id": "m1",
-    "slug": "iphone-16-pro-max",
+    "slug": "apple-iphone-16-pro-max",
     "name": "Apple iPhone 16 Pro Max",
     "brand": "Apple",
     "ram": "8GB",

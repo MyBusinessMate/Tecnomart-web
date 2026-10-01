@@ -61,11 +61,11 @@ export default function StudentsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Student Discounts on Laptops & MacBooks in Hyderabad | TecnoMart"
-        description="Get the best student discounts on Apple MacBooks, iPad Pro, and coding laptops in Hyderabad. Show college ID for instant price drops, free accessories, and zero-cost EMI at TecnoMart Tolichowki."
-        keywords="best student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, cheap MacBooks students Hyderabad, student tech store Tolichowki"
+        title="Student Discount on MacBooks &amp; Laptops | TecnoMart"
+        description="Exclusive student discounts on Apple MacBooks, iPads &amp; Windows laptops at TecnoMart Tolichowki, Hyderabad. Extra savings with valid student ID card."
+        keywords="student discounts laptops Hyderabad, student MacBook discount Hyderabad, college laptop offers Telangana, student tech store Tolichowki"
         canonicalUrl="https://www.tecnomart.in/students"
-        ogImageAlt="Best Student Tech Discounts on Laptops & MacBooks — TecnoMart"
+        ogImageAlt="Student Discount on MacBooks &amp; Laptops — TecnoMart"
         schema={breadcrumbSchema}
       />
       <ScrollProgress />

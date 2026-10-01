@@ -36,11 +36,11 @@ export default function AboutPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="About TecnoMart — Best Rated Tech Store & Service Center in Hyderabad"
-        description="Learn why TecnoMart is Hyderabad's best-rated electronics store and certified service center in Tolichowki. Over 10+ years of trusted hardware expertise, 100% genuine units, and thousands of satisfied customers."
-        keywords="about TecnoMart, best rated tech store Hyderabad, electronics showroom Tolichowki, trusted computer shop Hyderabad, genuine tech retailer Telangana"
+        title="About TecnoMart | Tech Store in Hyderabad"
+        description="Learn about TecnoMart, Hyderabad's trusted electronics store &amp; service center in Tolichowki since 2016. Genuine devices, cleanroom lab &amp; 45K+ happy clients."
+        keywords="about TecnoMart, tech store Hyderabad, electronics showroom Tolichowki, computer shop Hyderabad"
         canonicalUrl="https://www.tecnomart.in/about"
-        ogImageAlt="About TecnoMart — Hyderabad's Best Rated Tech Store"
+        ogImageAlt="About TecnoMart — Hyderabad Tech Store"
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

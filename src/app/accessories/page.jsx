@@ -143,11 +143,11 @@ export default function AccessoriesPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Premium Tech Accessories Hyderabad | AirPods, Keyboards, Audio & GaN Chargers"
-        description="Shop genuine Apple accessories, Sony WH-1000XM5 headphones, Keychron custom mechanical keyboards, and 140W GaN chargers at TecnoMart Tolichowki Hyderabad."
-        keywords="AirPods Pro Hyderabad, Sony XM5 Hyderabad, Keychron keyboard Hyderabad, Apple 20W charger genuine, GaN charger India"
+        title="Computer Accessories &amp; Audio in Hyderabad | TecnoMart"
+        description="Genuine Apple adapters, GaN fast chargers, mechanical keyboards &amp; audio gear at TecnoMart Tolichowki, Hyderabad. Official brand warranty on all items."
+        keywords="computer accessories Hyderabad, Apple adapters Hyderabad, Keychron keyboard Hyderabad, GaN charger Hyderabad"
         canonicalUrl="https://www.tecnomart.in/accessories"
-        ogImageAlt="Tech Accessories — TecnoMart"
+        ogImageAlt="Computer Accessories &amp; Audio — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

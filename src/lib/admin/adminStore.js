@@ -98,6 +98,116 @@ function createDefaultDb() {
         readTime: "4 min read",
         published: true,
         content: `Counterfeit Apple chargers not only fail within weeks but can severely degrade your device's battery controller IC. Always check for genuine BIS registration marks, crisp laser font alignment, and serial numbers that register with Apple India warranty records.`
+      },
+      {
+        id: "b3",
+        slug: "hp-laptop-lines-on-screen",
+        title: "Laptop Screen Showing Lines? Causes and Fixes",
+        excerpt: "Diagnose horizontal or vertical lines on HP, Dell, and ASUS laptop screens. Learn whether it's an EDP ribbon cable or LCD panel defect.",
+        author: "Syed Rehan (Master Micro-Soldering Technician)",
+        date: "October 2026",
+        readTime: "7 min read",
+        published: true,
+        content: `Discovering horizontal or vertical lines flickering across your laptop screen indicates either an EDP flex ribbon cable issue or an LCD panel gate driver failure. In our Tolichowki repair lab, we first connect an external HDMI monitor to rule out GPU solder faults. If the external display is clean, replacing the 30-pin or 40-pin display cable or swapping the high-refresh IPS panel restores 100% factory clarity within 45 minutes.`
+      },
+      {
+        id: "b4",
+        slug: "asus-laptop-screen-flickering",
+        title: "ASUS Laptop Screen Flickering: Fixes to Try Before a Service Visit",
+        excerpt: "Stop ASUS TUF, ROG Zephyrus, and ZenBook screen flickering in Windows 11 before booking a service center appointment.",
+        author: "Kiran Kumar (Quality Assurance)",
+        date: "October 2026",
+        readTime: "6 min read",
+        published: true,
+        content: `ASUS gaming laptops frequently experience display flicker due to conflicting Armoury Crate refresh rate switching, Intel Panel Self-Refresh (PSR) power saving, or outdated discrete NVIDIA drivers. Disabling Intel PSR in the Graphics Command Center and performing a clean DDU driver reinstallation resolves over 75% of flickering complaints without requiring hardware intervention.`
+      },
+      {
+        id: "b5",
+        slug: "gaming-pc-build-guide",
+        title: "How to Build a Gaming PC in 2026: Parts, Budget and Build Order",
+        excerpt: "Complete blueprint for building a high-FPS gaming desktop in India: component matching, power headroom, and thermal optimization.",
+        author: "Mohammed Asif (Lead Systems Architect)",
+        date: "October 2026",
+        readTime: "9 min read",
+        published: true,
+        content: `Building a modern gaming desktop in India requires balancing component bottlenecks and planning for local ambient heat. Pairing an AMD Ryzen 7 7800X3D with an RTX 4070 Ti Super or RTX 4080 Super provides ultra-high FPS in 1440p and 4K competitive titles. Always invest in an 80+ Gold ATX 3.0 power supply and maintain a positive pressure airflow case configuration to keep dust out.`
+      },
+      {
+        id: "b6",
+        slug: "laptop-pink-green-screen-fix",
+        title: "Pink or Green Laptop Screen: Causes and What to Do",
+        excerpt: "Why your laptop display develops an aggressive pink or green tint, and how to verify LCD flex cables vs VRAM failures.",
+        author: "Syed Rehan (Master Micro-Soldering Technician)",
+        date: "October 2026",
+        readTime: "5 min read",
+        published: true,
+        content: `When a laptop screen suddenly shifts to a strong pink or green tint, it typically signals a loss of color channel signal across the LVDS/eDP cable lanes. A pinched cable in the laptop hinge will often change tint as you tilt the screen. If the tint persists on an external monitor, it points to dedicated VRAM memory IC fatigue, which requires chip-level micro-soldering reflow.`
+      },
+      {
+        id: "b7",
+        slug: "red-screen-on-laptop",
+        title: "Red Screen on a Laptop: Causes and How to Fix It",
+        excerpt: "Step-by-step diagnostic guide for troubleshooting red screen tinting, Windows RSOD errors, and defective display matrix backlights.",
+        author: "Kiran Kumar (Quality Assurance)",
+        date: "October 2026",
+        readTime: "6 min read",
+        published: true,
+        content: `A red screen on a laptop can be either a Windows software color profile glitch (such as Night Light stuck at 100% or an ICC profile corrupting) or a hardware failure in the LCD backlight's red phosphor layer. Booting into Safe Mode or BIOS quickly proves whether the issue is driver-related or requires a physical panel replacement.`
+      },
+      {
+        id: "b8",
+        slug: "how-to-check-laptop-serial-number-warranty",
+        title: "How to Check Your Laptop Serial Number and Warranty Online",
+        excerpt: "Find the exact serial number (S/N) on HP, Dell, Lenovo, and Apple laptops using CMD, BIOS, and chassis stickers for warranty claims.",
+        author: "Mohammed Asif (Lead Systems Architect)",
+        date: "September 2026",
+        readTime: "5 min read",
+        published: true,
+        content: `To check warranty validity across Indian brand portals, open Command Prompt in Windows and run 'wmic bios get serialnumber'. On MacBooks, click the Apple logo > About This Mac to view your 10-character serial number. Verify your coverage on the official HP PartSurfer, Dell SupportAssist, or Apple Check Coverage portals.`
+      },
+      {
+        id: "b9",
+        slug: "iphone-15-vs-iphone-16",
+        title: "iPhone 15 vs iPhone 16: What Changed and Should You Upgrade?",
+        excerpt: "Head-to-head comparison of Apple Intelligence, A18 3nm architecture, Camera Control sensor, and trade-in value in Hyderabad.",
+        author: "Mohammed Asif (Lead Tech Specialist)",
+        date: "September 2026",
+        readTime: "8 min read",
+        published: true,
+        content: `The transition from iPhone 15 to iPhone 16 brings significant structural and silicon improvements. The new 3nm A18 chip with 8GB unified RAM supports Apple Intelligence natively, while the dedicated capacitive Camera Control button speeds up photography. For iPhone 13 and 14 users, upgrading to iPhone 16 at TecnoMart offers exceptional value with our exchange bonus program.`
+      },
+      {
+        id: "b10",
+        slug: "prebuilt-vs-custom-gaming-pc",
+        title: "Prebuilt vs Custom Gaming PC: Which Should You Buy in India?",
+        excerpt: "Evaluate proprietary OEM motherboards and power supplies against bespoke custom rigs with individual 3-year brand warranties.",
+        author: "Mohammed Asif (Lead Systems Architect)",
+        date: "August 2026",
+        readTime: "7 min read",
+        published: true,
+        content: `While mass-market prebuilt OEM towers may look convenient on paper, they often utilize non-standard proprietary power supplies, single-channel RAM, and constrained thermals. A custom PC built at TecnoMart uses standard off-the-shelf retail components, ensuring every single part carries its own independent 3 to 10-year manufacturer warranty with infinite future upgradeability.`
+      },
+      {
+        id: "b11",
+        slug: "liquid-cooling-vs-air-cooling-gaming-pc",
+        title: "Do You Need Liquid Cooling in a Gaming PC? AIO vs Air Cooling",
+        excerpt: "Compare 360mm AIO liquid coolers against dual-tower air coolers under Hyderabad's 40°C peak summer ambient temperatures.",
+        author: "Mohammed Asif (Lead Systems Architect)",
+        date: "August 2026",
+        readTime: "6 min read",
+        published: true,
+        content: `In Hyderabad's high summer ambient temperatures, CPUs like the Intel Core i9-14900KS or AMD Ryzen 9 9950X produce massive thermal spikes that overwhelm basic air coolers. A high-efficiency 360mm all-in-one (AIO) liquid cooler absorbs these sudden thermal loads across its radiator surface, keeping clock speeds sustained without acoustic fan whine.`
+      },
+      {
+        id: "b12",
+        slug: "refurbished-pc-laptop-worth-buying",
+        title: "Is a Refurbished PC or Laptop Worth Buying? 32-Point Inspection Guide",
+        excerpt: "Everything you need to inspect when buying certified pre-owned electronics: battery cycle counts, thermal repasting, and warranty terms.",
+        author: "Kiran Kumar (Quality Assurance)",
+        date: "July 2026",
+        readTime: "7 min read",
+        published: true,
+        content: `A certified refurbished laptop offers up to 50% savings over new retail prices while delivering identical computational speed for programming, business, and design. At TecnoMart, our 32-point inspection guarantees minimum 85%+ genuine battery health, fresh thermal paste application, zero logic board shorts, and an official 1-Year store warranty with 7-day replacement protection.`
       }
     ],
     storeInfo: {

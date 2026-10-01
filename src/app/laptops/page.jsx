@@ -224,11 +224,11 @@ export default function LaptopsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Laptop Store in Hyderabad | Buy MacBooks, Gaming & Creator Laptops"
-        description="Looking for the best laptop store in Hyderabad? TecnoMart Tolichowki features Apple MacBook Pro M3, ASUS ROG Zephyrus, Dell XPS, Lenovo Legion, and HP Spectre with 0% No-Cost EMI and same-day delivery."
-        keywords="best laptop store in Hyderabad, best laptop showroom Hyderabad, buy MacBook Pro Hyderabad, gaming laptops Hyderabad, ASUS ROG showroom Hyderabad, Dell XPS Hyderabad, Lenovo Legion Hyderabad, creator laptops Tolichowki"
+        title="Laptop Store in Hyderabad | MacBook &amp; Gaming | TecnoMart"
+        description="Shop Apple MacBooks, ASUS ROG, Dell XPS &amp; Lenovo laptops at TecnoMart Tolichowki, Hyderabad. Official warranty, 0% EMI &amp; same-day delivery. Call us."
+        keywords="laptop store in Hyderabad, buy MacBook in Hyderabad, gaming laptops Hyderabad, ASUS ROG showroom Hyderabad, Dell XPS Hyderabad"
         canonicalUrl="https://www.tecnomart.in/laptops"
-        ogImageAlt="Best Laptop Store in Hyderabad — TecnoMart Laptops & MacBooks"
+        ogImageAlt="Laptop Store in Hyderabad — TecnoMart"
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

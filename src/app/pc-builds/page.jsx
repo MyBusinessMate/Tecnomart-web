@@ -21,11 +21,11 @@ export default function PCBuildsConfiguratorPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Custom PC Builder & Configurator in Hyderabad | Live Wattage & Price Estimator"
-        description="Looking for the best custom PC builder in Hyderabad? Use TecnoMart's interactive configurator to pick CPU, GPU, RAM, liquid cooling, and chassis with live wattage calculation and instant Tolichowki quotation."
-        keywords="best custom PC builder in Hyderabad, PC configurator India, gaming PC builder Hyderabad, custom workstation PC Hyderabad, assemble PC Hyderabad, RTX 4080 PC builder Tolichowki"
+        title="Custom PC Builder Hyderabad | Live Pricing | TecnoMart"
+        description="Configure your dream gaming PC or workstation with live pricing &amp; wattage calculator at TecnoMart Hyderabad. Stress-tested RTX builds. Call +91 98663 88870."
+        keywords="custom PC builder Hyderabad, gaming PC configurator Hyderabad, assemble PC Tolichowki, RTX PC builds"
         canonicalUrl="https://www.tecnomart.in/pc-builds"
-        ogImageAlt="Best Custom PC Builder & Configurator in Hyderabad — TecnoMart"
+        ogImageAlt="Custom PC Builder Hyderabad — TecnoMart"
         schema={breadcrumbSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950 pb-20 lg:pb-0">

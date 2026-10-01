@@ -94,11 +94,18 @@ function MobileDetailContent({ product }) {
 
   const similarProducts = MOBILES_DATA.filter((m) => m.slug !== product.slug).slice(0, 3);
 
+  const formattedSeoTitle = `${product.name} Price in Hyderabad | TecnoMart`.length <= 60
+    ? `${product.name} Price in Hyderabad | TecnoMart`
+    : `${product.name.slice(0, 47)} | TecnoMart`;
+  const formattedSeoDesc = `Buy ${product.name} at TecnoMart Tolichowki, Hyderabad. Best INR price (${product.price}), official warranty & 3-hour doorstep delivery. Call +91 98663 88870.`.length <= 160
+    ? `Buy ${product.name} at TecnoMart Tolichowki, Hyderabad. Best INR price (${product.price}), official warranty & 3-hour doorstep delivery. Call +91 98663 88870.`
+    : `Buy ${product.name} at TecnoMart Tolichowki, Hyderabad. Best price (${product.price}), official warranty & 3-hr delivery. Call +91 98663 88870.`;
+
   return (
     <SmoothScrollProvider>
       <SEO
-        title={`Best Price ${product.name} in Hyderabad (${product.price}) | TecnoMart`}
-        description={`Buy 100% genuine ${product.name} at the best price in Hyderabad (${product.price}). In stock at TecnoMart Tolichowki with sealed GST tax invoice, official manufacturer warranty, and 3-hour doorstep delivery.`}
+        title={formattedSeoTitle}
+        description={formattedSeoDesc}
         keywords={`best price ${product.name} Hyderabad, buy ${product.name} Hyderabad, ${product.name} online Tolichowki, ${product.brand} mobile shop Hyderabad, lowest price ${product.name}`}
         canonicalUrl={canonicalUrl}
         ogType="product"

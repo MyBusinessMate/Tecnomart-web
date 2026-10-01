@@ -60,6 +60,11 @@
       "permanent": true
     },
     {
+      "source": "/mobiles/iphone-16-pro-max",
+      "destination": "/mobiles/apple-iphone-16-pro-max",
+      "permanent": true
+    },
+    {
       "source": "/spin",
       "has": [
         {

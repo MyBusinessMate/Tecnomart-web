@@ -202,11 +202,11 @@ export default function MobilesPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Mobile Shop in Hyderabad | Buy iPhones, Samsung Galaxy & Flagship Phones"
-        description="Looking for the best mobile shop in Hyderabad? TecnoMart in Tolichowki offers the best prices on iPhone 16 Pro Max, Samsung S24 Ultra, OnePlus 12, and Google Pixel with official warranty and 3-hour doorstep delivery."
-        keywords="best mobile shop in Hyderabad, best mobile showroom Hyderabad, mobile shop in Tolichowki, buy iPhone in Hyderabad, buy Samsung in Hyderabad, OnePlus store Hyderabad, Google Pixel Hyderabad"
+        title="Mobile Shop in Hyderabad | iPhone, Samsung | TecnoMart"
+        description="Buy latest iPhones, Samsung Galaxy &amp; OnePlus at TecnoMart Tolichowki, Hyderabad. Best prices, 0% EMI &amp; 3-hour express delivery. Call +91 98663 88870."
+        keywords="mobile shop in Hyderabad, best mobile showroom Hyderabad, mobile shop in Tolichowki, buy iPhone in Hyderabad, buy Samsung in Hyderabad"
         canonicalUrl="https://www.tecnomart.in/mobiles"
-        ogImageAlt="Best Mobile Shop in Hyderabad — TecnoMart Smartphones"
+        ogImageAlt="Mobile Shop in Hyderabad — TecnoMart"
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">

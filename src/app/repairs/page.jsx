@@ -108,11 +108,11 @@ export default function RepairsPage() {
   return (
     <SmoothScrollProvider>
       <SEO
-        title="Best Mobile & Laptop Repair Service in Hyderabad | Same-Day Screen, Battery & Chip-Level Fix"
-        description="Looking for the best mobile and laptop repair in Hyderabad? TecnoMart Tolichowki service center offers same-day screen replacement, battery upgrades, chip-level logic board repairs, and 90-day warranty."
-        keywords="best mobile repair Hyderabad, best laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Tolichowki, same day phone service Hyderabad, laptop motherboard repair Hyderabad, chip level repair Telangana"
+        title="Mobile &amp; Laptop Repair in Hyderabad | TecnoMart"
+        description="Certified mobile &amp; laptop repair in Tolichowki, Hyderabad. Screen replacement, battery repair &amp; chip-level fixes with 90-day warranty. Same-day service."
+        keywords="mobile repair Hyderabad, laptop repair Hyderabad, iPhone screen replacement Hyderabad, MacBook repair Tolichowki"
         canonicalUrl="https://www.tecnomart.in/repairs"
-        ogImageAlt="Best Mobile & Laptop Repair Center in Hyderabad — TecnoMart Tolichowki"
+        ogImageAlt="Mobile &amp; Laptop Repair — TecnoMart"
         schema={combinedSchema}
       />
       <div className="min-h-screen flex flex-col bg-[#f7f8fa] text-neutral-900 font-sans selection:bg-amber-500 selection:text-neutral-950">
